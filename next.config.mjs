@@ -6,7 +6,11 @@ const nextConfig = {
   reactStrictMode: false,
   transpilePackages: ["app"],
   images: {
-    domains: ["lh3.googleusercontent.com", "example.com"],
+    domains: [
+      "lh3.googleusercontent.com",
+      "example.com",
+      "scontent-icn2-1.xx.fbcdn.net",
+    ],
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>

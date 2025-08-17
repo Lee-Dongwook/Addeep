@@ -12,7 +12,6 @@ export default async function RootLayout({
       lang={locale}
       className="light"
       data-be-installed="true"
-      style={{ width: "100%" }}
       suppressHydrationWarning={true}
     >
       <body data-liner-extension-version="7.16.5">
