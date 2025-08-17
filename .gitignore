@@ -67,6 +67,8 @@ web-build/
 **/*/.env
 **/*/.next
 
+.next/*
+
 **/*/ios
 **/*/android
 
