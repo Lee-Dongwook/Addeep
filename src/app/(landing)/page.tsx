@@ -1,10 +1,8 @@
 import Image from "next/image";
-import Header from "@/components/Header";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       <div className="max-w-4xl mx-auto">
         {/* Main Container */}
         <div className="flex flex-col">
