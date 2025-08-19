@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 // Header Component
 const CoreValueHeader = () => {
   return (
-    <div className="w-full p-4 text-center">
+    <div className="w-full h-48 md:h-96 text-center">
       <div
-        className="w-full h-48 md:h-64 rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-48 md:h-96 rounded-lg flex flex-col items-center justify-center"
         style={{
           background:
             "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
@@ -26,17 +26,67 @@ const CoreValueHeader = () => {
   );
 };
 
+function CoreValues() {
+  const values = [
+    {
+      icon: "👤", // 여기 실제 아이콘 넣으면 됨 (Image나 SVG)
+      title: "올바른 인재제일",
+      desc: "정직하고 역량있는 인재를 최우선으로 생각합니다",
+    },
+    {
+      icon: "🏆",
+      title: "바람직한 최고지향",
+      desc: "올바른 방향으로 최고의 결과를 추구합니다",
+    },
+    {
+      icon: "🚀",
+      title: "도전·혁신적인 변화선도",
+      desc: "끊임없는 도전과 혁신으로 변화를 이깁니다",
+    },
+    {
+      icon: "🤝",
+      title: "지혜로운 상생추구",
+      desc: "모든 이해관계자와 함께 성장하는 길을 찾습니다",
+    },
+    {
+      icon: "💡",
+      title: "창의적인 정도경영",
+      desc: "창의성과 정직함을 바탕으로 경영 합니다",
+    },
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 text-center">
+        {values.map((item, i) => (
+          <div key={i} className="flex flex-col items-center space-y-4">
+            {/* 아이콘 */}
+            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white text-3xl shadow-md">
+              {item.icon}
+            </div>
+
+            {/* 텍스트 */}
+            <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
+            <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Hero Component
 const CoreValueHero = () => {
   return (
-    <div className="w-full p-4 text-center bg-white">
-      <div className="max-w-4xl mx-auto">
+    <div className="w-full p-12 text-center flex flex-col h-48 md:h-96 bg-white">
+      <div className="flex-1 flex flex-col items-center justify-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
           Core Values
         </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+        <p className="text-2xl mt-2 font-normal text-[#4B5563] leading-relaxed">
           우리가 추구하는 5가지 핵심 가치
         </p>
+        <CoreValues />
       </div>
     </div>
   );
