@@ -1,184 +1,259 @@
 "use client";
-import Image from "next/image";
-import React, { useRef, useEffect, type ReactNode } from "react";
+
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface AnimatedSectionProps {
-  children: ReactNode;
-  index: number;
-}
-
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textElements = section.querySelectorAll(".animate-text");
-    const imageElement = section.querySelector(".animate-image");
-
-    // 초기 상태 설정
-    gsap.set(textElements, { y: 100, opacity: 0 });
-    gsap.set(imageElement, { y: 100, opacity: 0 });
-
-    // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
-    if (index === 0) {
-      const tl = gsap.timeline();
-
-      textElements.forEach((element, i) => {
-        tl.to(
-          element,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          i * 0.1
-        );
-      });
-
-      tl.to(
-        imageElement,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        textElements.length * 0.1
-      );
-    }
-
-    // 스크롤 트리거 설정 - 스크롤 기반 애니메이션
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none reverse",
-        markers: false,
-      },
-    });
-
-    // 텍스트 요소들을 순차적으로 애니메이션
-    textElements.forEach((element, i) => {
-      tl.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        i * 0.08
-      );
-    });
-
-    // 이미지 애니메이션
-    tl.to(
-      imageElement,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      },
-      textElements.length * 0.08
-    );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-    };
-  }, [index]);
-
+const FirstContainer = () => {
   return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
-      {children}
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <p className="text-2xl leading-relaxed">
+              Addeep GPR AI는 독보적인 기술적 범위를 통해 경쟁 우위를
+              확보합니다. 다차원 사용자 데이터 수집 및 LMM 학습: Addeep은 자체
+              소셜 미디어 플랫폼인 Addeep SNS를 통해 소통 지수(대화 상대, 내용,
+              빈도, 콘텐츠 공유/추천, 리뷰/댓글 등), 활동 패턴(좋아요, 관심
+              콘텐츠, 소비 패턴 등), 인구통계학적 데이터(국가/지역, 성별, 나이,
+              언어 등)의 세 가지 개인화 데이터를 지속적으로 수집합니다. 이
+              데이터는 Addeep의 독자적인 LMM(Large Mind-mining Model)에
+              지속적으로 학습되어 사용자의 마인드셋을 깊이 이해합니다. 이는 기존
+              AI 모델의 LLM(Large Language Model)이 언어 데이터에 집중하는 것과
+              달리, 사용자의 '생각'과 '의도'를 마이닝하는데 특화되어 있다는
+              점에서 혁신적입니다. 비대화형 완전 자동 생성형 AI 구현: 기존
+              대화형 AI가 사용자 입력 기반의 생성형 AI인 반면, Addeep GPR-1은
+              사용자 입력이 없는 완전 자동 생성형 AI를 구현합니다. 이는
+              강화학습(Reinforced training)으로 지속적으로 보정되는 Deep neural
+              network를 통해 가능하며, 기존 AI 모델의 기반 위에 확장된 자체 AI
+              모델을 구축합니다. 이로써 사용자는 복잡한 입력 없이도 개인화된
+              콘텐츠를 즉각적으로 받아볼 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-const sectionData = [
-  {
-    text: [
-      "Addeep은 WEB 3.0 기반의 혁신적인 소셜 미디어",
-      "사업을 완성하기 위한 핵심 기술로 'Addeep-GPR-1'",
-      "(Generative Pre-trained Recommender) AI를 개발하고",
-      "있습니다. 이는 기존 대화형 AI 모델에 CNN 및 RNN",
-      "차세대 기술을 통합하여 독자적으로 고안된 것으로,",
-      "Addeep의 증강 AI(Augmented AI) 기술의 기반을",
-      "이룹니다. Addeep의 GPR-1은 단순한 AI 모델을 넘어,",
-      "사용자에게 명시적인 입력 없이도 개인화된 콘텐츠를",
-      "자동으로 생성하고 추천하는데 중점을 둔 '비대화형",
-      "완전 자동 생성형 AI'라는 점에서 차별점을 가집니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "빅데이터와 AI기술로 방대한 정형/",
-      "비정형 데이터를 효율적으로 축적",
-      "하고, 다각적 분석, 재해석, 재가공",
-      "을 통해 콘텐츠 시장을 둘러싸고",
-      "있는 모든 인적, 물적 자원들을 효",
-      "율적으로 연결하고 재배치합니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "이제 애딥의 소셜",
-      "네트워크 채널에",
-      "서 크리에이터와",
-      "인플루언서가 안",
-      "정된 콘텐츠 수익",
-      "을 만들어 갑니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-];
-
-export default function LandingPage() {
+const SecondContainer = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto">
-        {sectionData.map((section, index) => (
-          <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col md:flex-row w-full">
-              {/* Text Section */}
-              <div className="flex-1 flex items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl flex flex-col font-bold text-gray-800 leading-loose text-left gap-2">
-                  {section.text.map((line, lineIndex) => (
-                    <span key={lineIndex} className="animate-text">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-              {/* Image Section */}
-              <div className="flex-1 relative h-64 md:h-96 animate-image">
-                <Image
-                  src={section.image}
-                  alt="girl taking a photo with a tunnel filter"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <p className="text-2xl leading-relaxed">
+              ACT (Addeep Automatic Content Convergence Technology): ACT는
+              Addeep Augmented AI 기반의 콘텐츠 자동 융합/생성 기술로, Addeep의
+              A-GPR 추론 모델이 적용된 비대화형 생성형 AI 기술입니다. 다차원
+              학습된 개인의 마인드셋 데이터에 기반하여 개인화 맞춤형 콘텐츠 및
+              광고를 자동으로 생성하고 매칭합니다. 이 기술은 일반 이용자,
+              크리에이터, 광고주 등 Addeep 플랫폼 생태계 내 모든 참여자들이
+              생성한 이미지, 동영상, 음원, 이모티콘, 밈 등 다양한 멀티 포맷
+              콘텐츠를 ACT AI 엔진이 분해/융합하여 사용자 맞춤형 콘텐츠를 자동
+              재생성/배포합니다. 특히 'Deep Blend'라는 자체 정의된 콘텐츠 AI
+              기술을 통해 복잡한 저작 도구 없이도 사용자가 의도하는 콘텐츠를
+              완전 자동 재생성하여 배포/공유함으로써 WEB 3.0의 확장형 플랫폼
+              서비스를 현실화합니다. Deep Blend 프로세스는 멀티 포맷 콘텐츠
+              데이터의 메타데이터 생성/축적, A-GPR 모델을 통한 사용자 마인드셋
+              모델 생성, 사용자 관심사 추출, 기초 콘텐츠 후보군 선정, 콘텐츠
+              분해 및 특징점 추출, 재조합, 그리고 사용자 맞춤형 추천으로
+              이루어집니다.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+const ThirdContainer = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <p className="text-2xl leading-relaxed">
+              Addeep GPR AI는 '생성(Generation) – 승인(Confirmation)' 모델을
+              기반으로 다양한 혁신적인 서비스를 제공합니다. 콘텐츠 생성 자동화:
+              이미지, 밈 콘텐츠, 감정 이모티콘 등 사용자 콘텐츠를 자동으로
+              생성하고 추천하며, 사용자 승인 시 활성화됩니다. 광고 생성 자동화:
+              콘텐츠와 광고를 자동으로 매칭하여 Addeep 콘텐츠를 생성 및
+              추천하며, 사용자 승인 시 활성화됩니다. 거래 자동화: 콘텐츠
+              판매/구매, 상품 판매/구매 트랜잭션을 자동으로 생성 및 추천하며,
+              사용자 승인 시 결제를 포함한 거래 프로세스가 완료됩니다. SNS
+              포스팅 자동화: 텍스트, 이미지, 동영상 등 멀티 포맷 콘텐츠를 포함한
+              SNS 게시물을 자동으로 생성 및 추천하며, 사용자 승인 시 사용자
+              계정에 연결된 Addeep SNS에 자동 포스팅됩니다. 이러한 서비스들은
+              사용자의 명시적 입력 없이 다차원 학습된 사용자 데이터를 기반으로
+              사용자 마인드셋 모델을 자동 추출하여 진행됩니다. 이는 SNS 상에서
+              사용자가 특정 시간에 가장 높은 확률로 의도할 것으로 예상되는
+              행위를 자동으로 생성하고 추천하는 것을 목표로 합니다. Addeep의 AI
+              엔진은 기본적으로 Addeep 클라우드 서버 내에 인스턴스화되며, Azure,
+              AWS, Google 등 다양한 클라우드 서비스에 유연하게 적용 가능한
+              확장성을 가집니다. 또한, 'AIaaS (Artificial
+              Intelligence-as-a-Service)' 형태로 일반 외부 클라이언트(개인,
+              법인, 단체)에게 클라우드 기반 구독형 서비스를 제공할 계획입니다.
+              이는 API 형태의 서비스부터 각 산업별 도메인 서비스까지 다양화될 수
+              있으며, 글로벌 AIaaS 시장에서 각기 다른 요구사항에 대응할 수 있는
+              잠재력을 의미합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Summary = () => {
+  const root = useRef<HTMLDivElement>(null);
+  const phone = useRef<HTMLDivElement>(null);
+  const frames = useRef<HTMLImageElement[]>([]);
+
+  useGSAP(
+    () => {
+      // 1) 좌측 폰 고정(pin)
+      ScrollTrigger.create({
+        trigger: ".stage",
+        start: "top top",
+        end: "bottom bottom",
+        pin: phone.current,
+        pinSpacing: true,
+        anticipatePin: 1, // 급스크롤 깜빡임 방지
+      });
+
+      // 2) 섹션 등장 애니메이션 (우측 카피)
+      gsap.utils.toArray<HTMLElement>(".copy").forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          { autoAlpha: 0, y: 40 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 70%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+              // markers: true, // 디버깅 시
+            },
+          }
+        );
+
+        // 3) 섹션 진입 시 폰 프레임 교체 (crossfade)
+        const imgs = frames.current;
+        if (imgs[i]) {
+          gsap.fromTo(
+            imgs[i],
+            { autoAlpha: 0 },
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 70%",
+                end: "top 30%",
+                toggleActions: "play none none reverse",
+              },
+              onStart: () => {
+                // 이전 프레임들 숨기기
+                imgs.forEach((img, idx) => {
+                  if (idx !== i) gsap.set(img, { autoAlpha: 0 });
+                });
+              },
+            }
+          );
+        }
+      });
+
+      // 4) 전체 구간 스크럽 타임라인(옵션): 배경색 전환 등 추가
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".stage",
+          start: "top top",
+          end: "+=3000", // 길이 조절
+          scrub: true,
+        },
+      });
+      // tl.to(".stage", { backgroundColor: "#f9fafb" }, 0); // 필요시
+    },
+    { scope: root }
+  );
+
+  return (
+    <div ref={root} className="stage relative">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
+        {/* 좌측: 고정될 폰 목업 */}
+        <div ref={phone} className="sticky top-24 h-[70vh]">
+          <div className="relative mx-auto h-full w-[320px] rounded-[40px] border border-gray-200 shadow-lg">
+            {/* 폰 베젤 배경 */}
+            <img
+              src="/phone/bezel.png"
+              alt=""
+              className="pointer-events-none absolute inset-0 h-full w-full select-none"
+            />
+            {/* 프레임들 (섹션 수만큼) */}
+            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-black">
+              {[
+                "/media/frame1.jpg",
+                "/media/frame2.jpg",
+                "/media/frame3.jpg",
+              ].map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  ref={(el) => {
+                    if (el) frames.current[i] = el;
+                  }}
+                  className="absolute inset-0 h-full w-full object-cover opacity-0"
+                  alt=""
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 우측: 카피 섹션들 */}
+        <div className="space-y-[60vh]">
+          <section className="copy">
+            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+              Addeep GPR 개요 및 비전
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep은 WEB 3.0 기반의 혁신적인 소셜 미디어 사업을 완성하기 위한
+              핵심 기술로 'Addeep-GPR-1' (Generative Pre-trained Recommender)
+              AI를 개발하고 있습니다. 이는 기존 대화형 AI 모델에 CNN 및 RNN
+              차세대 기술을 통합하여 독자적으로 고안된 것으로, Addeep의 증강
+              AI(Augmented AI) 기술의 기반을 이룹니다.
+            </p>
+          </section>
+
+          <section className="copy">
+            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+              e-Commerce PIMS
+            </h2>
+            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+              #Target커머스 #현금보상
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep의 GPR-1은 단순한 AI 모델을 넘어, 사용자에게 명시적인 입력
+              없이도 개인화된 콘텐츠를 자동으로 생성하고 추천하는데 중점을 둔
+              '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
+            </p>
+          </section>
+        </div>
+      </div>
+      <FirstContainer />
+      <SecondContainer />
+      <ThirdContainer />
+    </div>
+  );
+};
+
+export default Summary;
