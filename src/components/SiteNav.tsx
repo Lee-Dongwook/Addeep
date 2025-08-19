@@ -13,35 +13,24 @@ const NAV: Item[] = [
   {
     label: "About Us",
     children: [
-      { label: "Our Features", href: "/features" },
-      { label: "Reels", href: "/features/reels" },
-      { label: "Stories", href: "/features/stories" },
-      { label: "DMs", href: "/features/direct" },
-      { label: "Search & Explore", href: "/features/search-and-explore" },
+      { label: "We Are", href: "/features" },
+      { label: "Teamwork", href: "/features/reels" },
+      { label: "Core Values", href: "/features/stories" },
+      { label: "Careers", href: "/features/direct" },
+      { label: "Contact", href: "/features/search-and-explore" },
     ],
   },
   {
     label: "Addeep Is",
     children: [
-      { label: "Overview", href: "/safety" },
-      { label: "Safety Tools", href: "/safety/account-safety" },
-      { label: "Privacy Tools", href: "/safety/privacy" },
-      { label: "Account Security", href: "/safety/account-security" },
+      { label: "Digital Platform Innovation", href: "/safety" },
+      { label: "Addeep Summary", href: "/safety/account-safety" },
+      { label: "Addeep Platform to Earn", href: "/safety/privacy" },
+      { label: "Addeep Business Keywords", href: "/safety/account-security" },
     ],
   },
-  {
-    label: "Solution",
-    children: [
-      { label: "Our Community", href: "/community" },
-      { label: "School Partnerships", href: "/community/educators" },
-      { label: "Teen Accounts", href: "/community/teen-accounts" },
-      { label: "Anti-Bullying", href: "/community/anti-bullying" },
-      { label: "Parents", href: "/community/parents" },
-      { label: "Programs", href: "/community/programs" },
-    ],
-  },
-  { label: "Blog", href: "/blog" },
-  { label: "Help & Customer", href: "/blog" },
+  { label: "Blog & Social Media Channels", href: "/blog" },
+  { label: "Help & Customer Service", href: "/blog" },
 ];
 
 export default function SiteNav() {
@@ -93,22 +82,6 @@ export default function SiteNav() {
           </button>
 
           <div aria-hidden className="flex-1" />
-
-          <div className="flex items-center gap-12">
-            <button className="text-3xl font-medium text-gray-900 hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20">
-              로그인
-            </button>
-            <a
-              href="https://www.instagram.com/"
-              aria-label="Instagram"
-              className="inline-flex h-20 w-20 items-center justify-center rounded-xl bg-gradient-to-tr from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.65)] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
-            >
-              <div className="relative h-5 w-5 rounded-[6px] border-2 border-white/95">
-                <div className="absolute right-[2px] top-[2px] h-1 w-1 rounded-full bg-white/95" />
-                <div className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/95" />
-              </div>
-            </a>
-          </div>
         </div>
       </header>
 
@@ -146,18 +119,6 @@ export default function SiteNav() {
                     />
                   </svg>
                 </button>
-
-                <div className="flex items-center gap-4">
-                  <button className="text-base font-medium text-white/95 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
-                    로그인
-                  </button>
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border-2 border-white/80">
-                    <span className="relative block h-6 w-6 rounded-md border-2 border-white">
-                      <span className="absolute right-[2px] top-[2px] block h-1 w-1 rounded-full bg-white" />
-                      <span className="absolute left-1/2 top-1/2 block h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white" />
-                    </span>
-                  </span>
-                </div>
               </div>
 
               {/* big menu */}
