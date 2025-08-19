@@ -29,6 +29,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.6.1",
     "sharp": "^0.33.5",
+    "swiper": "^11.2.10",
     "tailwind-clip-path": "^1.0.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",

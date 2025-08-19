@@ -7152,6 +7152,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swiper@npm:^11.2.10":
+  version: 11.2.10
+  resolution: "swiper@npm:11.2.10"
+  checksum: 10/c3dde83e65d6ab686ad6e08b5e473f1043fa9f9f5b8d8825a8b5397c85025f71575acbcc23f2700fdf795cee9dd71256b8b65325dd0324f2fb3ca27651e59981
+  languageName: node
+  linkType: hard
+
 "tailwind-clip-path@npm:^1.0.0":
   version: 1.0.0
   resolution: "tailwind-clip-path@npm:1.0.0"
@@ -7985,6 +7992,7 @@ __metadata:
     react-dom: "npm:^19.0.0"
     react-i18next: "npm:^15.6.1"
     sharp: "npm:^0.33.5"
+    swiper: "npm:^11.2.10"
     tailwind-clip-path: "npm:^1.0.0"
     tailwind-merge: "npm:^3.0.2"
     tailwind-scrollbar: "npm:^3.0.5"

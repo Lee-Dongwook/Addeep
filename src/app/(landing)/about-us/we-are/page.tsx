@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,6 +134,89 @@ const HeroText = [
   },
 ];
 
+const slideData = [
+  {
+    title: "AGI와 S/W 플랫폼 기술로 여는 미래 디지털 생태계",
+    text: [
+      "Addeep은 급변하는 디지털 세상 속에서 AGI(인공 일반 지능)",
+      "기술과 혁신적인 S/W 플랫폼 기술을 기반으로 미디어&커머스,",
+      "데이터 스트리밍, 디지털 마케팅",
+      "그리고 문화,엔터테인먼트 등 다양한 콘텐츠 산업의 융합을 선도합니다.",
+      '"클라우드 스트리밍,미디어,게임,커머스 플랫폼"',
+      "산업의 글로벌 혁신 기술 기업으로 도약하며,",
+      "디지털 플랫폼 생태계의 새로운 패러다임을 만들어나가고 있습니다.",
+    ],
+    image: "/images/about-us-slider-1.png",
+  },
+  {
+    title: "",
+    text: [
+      "우리는 전 세계 모든 고객과 사용자들이 공존의 가치를 창출할 수 있도록,",
+      "AGI 기반의 데이터 서비스 경계를 혁신하여 독자적인 비즈니스 모델인",
+      '"Addeep Platform" 생태계를 구축하고 있습니다.',
+      "Addeep의 스마트 문화는 모두를 향한 도전의 즐거움을 의미합니다.",
+      "클라우드 S/W 플랫폼 기술과 AGI를 바탕으로 디지털 콘텐츠 서비스 체계를 혁신하여",
+      "스마트 컬처 세상을 향해 나아갑니다.",
+      "전 세계 개발자, 창작자(크리에이터), 각 분야 전문가들이 무한한 도전과 혁신을 경험하고",
+      '새로운 가치를 끊임없이 만들어 모두에게 "희망"이 되는 공간,',
+      '바로 "Addeep Platform" 입니다.',
+      "a",
+      "우리는 글로벌 최고의 인재들과 함께 S/W 핵심 역량을 모아 한국, 미국, 인도, 동남아시아를 발판으로",
+      "글로벌 기업으로의 도약을 시작합니다.",
+      "Addeep이 추구하는 비즈니스 모델은 클라우드 기술, 커머스 플랫폼, AGI, 데이터, 미디어 등",
+      "디지털 트랜스 미디어 융합이 결합된 컬처 크리에이터 통합 디지털 플랫폼 서비스를 의미합니다.",
+    ],
+    image: "/images/about-us-slider-1.png",
+  },
+  {
+    title: "",
+    text: ["AGI 기반의 스마트한 플랫폼과 콘텐츠 서비스 ..."],
+    image: "/images/about-us-slider-1.png",
+  },
+];
+
+function AboutSwiper() {
+  return (
+    <Swiper
+      modules={[Pagination, Navigation]}
+      spaceBetween={50}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      className="w-full h-screen custom-swiper"
+    >
+      {slideData.map((slide, i) => (
+        <SwiperSlide key={i}>
+          <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
+            {/* Text */}
+            <div className="md:w-2/3 space-y-6">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
+                {slide.title}
+              </h2>
+              <p className="text-gray-400 leading-relaxed whitespace-pre-line">
+                {slide.text.map((t, index) => (
+                  <div key={index}>{t}</div>
+                ))}
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+              <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src={slide.image ?? ""}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+}
+
 export default function LandingPage() {
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
@@ -244,6 +329,9 @@ export default function LandingPage() {
             </div>
           ))}
         </AnimatedSection>
+      </div>
+      <div className="p-16 -mt-48 flex flex-col items-center justify-center">
+        <AboutSwiper />
       </div>
     </div>
   );
