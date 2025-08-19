@@ -14,6 +14,7 @@ interface AnimatedSectionProps {
 type InfoCardProps = {
   title: string;
   description: string;
+  icon?: React.ReactNode;
 };
 
 const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
@@ -111,65 +112,123 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
 const sectionData = [
   {
     text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
+    image: "/images/about-us-header.png",
   },
 ];
 
-const InfoCard = ({ title, description }: InfoCardProps) => {
+const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
   return (
-    <div className="bg-gray-50 w-[500px] p-10 space-y-6 rounded-lg shadow-md">
-      <h3 className="text-lg font-bold">{title}</h3>
-      <p className="mt-2 text-sm">{description}</p>
+    <div className="group bg-white w-full p-6 md:p-8 rounded-2xl shadow-[0_12px_30px_rgba(16,24,40,0.08)] ring-1 ring-black/5">
+      <div className="flex items-start gap-5">
+        {/* 아이콘 원형 그라디언트 */}
+        <div
+          className="flex-none w-12 h-12 md:w-14 md:h-14 rounded-full grid place-items-center
+                        bg-gradient-to-br from-[#FF0169] via-[#D300C5] to-[#7638FA] text-white text-xl shadow-md"
+        >
+          <span>{icon}</span>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-base md:text-lg font-extrabold text-gray-900">
+            {title}
+          </h3>
+          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
-
 const CareerHero = () => {
   return (
-    <div className="w-full p-4 text-center bg-[#F9FAFB]">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+    <section className="w-full bg-[#F9FAFB]">
+      <div className="max-w-5xl mx-auto px-6 py-14 text-center">
+        {/* 제목 */}
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 tracking-tight">
           채용 목적
         </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+
+        {/* 그라디언트 언더라인 */}
+        <div
+          className="mt-3 mx-auto h-1 w-16 rounded-full
+                     bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
+          aria-hidden
+        />
+
+        {/* 본문 */}
+        <p className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700 leading-relaxed">
           우리가 추구하는 상상이 현실과 연결되는 Addeep에서는
         </p>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
-          함께 일하는 다양한 인재들의 안전과 만족감을 큰 가치로 두고 있습니다.
+        <p className="mt-3 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700 leading-relaxed">
+          함께 일하는 다양한 인재들의{" "}
+          <span
+            className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]
+                       bg-clip-text text-transparent font-bold"
+          >
+            안전과 만족감
+          </span>
+          을 큰 가치로 두고 있습니다.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 
 const CareerCard = () => {
+  const items: InfoCardProps[] = [
+    {
+      icon: "📍",
+      title: "회사 위치",
+      description:
+        "서울 강남에 본사를 두고 있습니다. 우리는 세계 도시에서 성장하고 발전합니다.",
+    },
+    {
+      icon: "🏠",
+      title: "원격근무 지원",
+      description:
+        "근무환경 개선과 함께 원격근무를 지원하여 구성원 모두의 업무 효율을 극대화하고 있습니다.",
+    },
+    {
+      icon: "💰",
+      title: "급여 및 4대 보험",
+      description:
+        "경쟁력 있는 급여, 4대 보험, 인센티브 등 다양한 복지를 제공합니다.",
+    },
+    {
+      icon: "⚖️",
+      title: "워라밸",
+      description:
+        "유연한 근무시간과 넉넉한 휴가, 가족 중심 복지 등 건강한 일·생활 균형을 지원합니다.",
+    },
+  ];
   return (
-    <div className="w-full p-4 text-center bg-[#F9FAFB]">
-      <div className="flex flex-col items-center">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
-          근무 환경
-        </h1>
-        <div className="grid grid-cols-2 gap-24">
-          <InfoCard
-            title="회사 위치"
-            description="서울 강남에 본사를 두고 있습니다. 우리는 세계 도시에서 성장하고 발전합니다."
-          />
-          <InfoCard
-            title="원격근무 지원"
-            description="우리는 근무환경과 업무 생산성을 높이기 위해서 근무환경 개선과 함께 원격근무를 지원하여 구성원 모두의 업무 효율을 극대화 하고 있습니다."
-          />
-          <InfoCard
-            title="급여 및 4대 보험"
-            description="Addeep은 인재제일을 우선시합니다. 경쟁력있는 급여 제공과 4대 보험 인센티브 혜택 등 포함한 다양한 복지를 제공하고 있습니다."
-          />
-          <InfoCard
-            title="워라밸"
-            description="유연한 근무시간, 넉넉한 휴가 복지, 가족 중심의 근무 정책을 제공합니다. 또한 성과에 따른 부대행사 및 복지를 지원합니다."
+    <section
+      className="
+        w-full
+        bg-gradient-to-b from-[#FFF9F5] via-[#F9F0FF] to-[#F6EDF8]
+      "
+    >
+      <div className="max-w-6xl mx-auto px-6 py-14">
+        {/* 섹션 타이틀 */}
+        <div className="text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 tracking-tight">
+            근무 환경
+          </h2>
+          <div
+            className="mt-3 mx-auto h-1 w-16 rounded-full
+                       bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
+            aria-hidden
           />
         </div>
+
+        {/* 카드 그리드 */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 xl:gap-12">
+          {items.map((it, i) => (
+            <InfoCard key={i} {...it} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -192,15 +251,30 @@ const CareerBackground = () => {
 };
 
 export default function LandingPage() {
+  const secondSectionRef = useRef<HTMLDivElement>(null);
+
+  const handleArrowClick = () => {
+    if (secondSectionRef.current) {
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: secondSectionRef.current,
+          offsetY: 0,
+        },
+        ease: "power2.inOut",
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-200">
       <div className="max-w-4xl mx-auto">
         {sectionData.map((section, index) => (
           <AnimatedSection key={index} index={index}>
             <div className="flex flex-col md:flex-row w-full">
               {/* Text Section */}
-              <div className="flex-1 flex items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl flex flex-col font-bold text-gray-800 leading-loose text-left gap-2">
+              <div className="md:w-1/2 absolute top-1/3 left-20 items-center justify-center p-8 md:p-12">
+                <p className="text-3xl md:text-5xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
                   {section.text.map((line, lineIndex) => (
                     <span key={lineIndex} className="animate-text">
                       {line}
@@ -208,9 +282,43 @@ export default function LandingPage() {
                   ))}
                 </p>
               </div>
+              {/* Bottom Arrow */}
+              <div
+                className="absolute top-3/4 mt-12 left-28 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+                onClick={handleArrowClick}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="75"
+                  height="80"
+                  viewBox="0 0 75 101"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_1_15)">
+                    <path
+                      d="M9.42969 53.5605H17.835C21.7904 53.5605 25.1691 54.467 27.9708 56.2798C30.855 58.1752 32.7915 60.8534 33.7804 64.3144V6.96045H43.669V64.3144C44.6578 60.8534 46.5531 58.1752 49.3549 56.2798C52.2391 54.467 55.6589 53.5605 59.6144 53.5605H68.0197V64.1908H60.7268C55.6177 64.1908 51.4563 65.5505 48.2424 68.2698C45.0287 70.9891 43.4217 74.7798 43.4217 79.6418V81.1246H34.0276V79.6418C34.0276 74.7798 32.4207 70.9891 29.2069 68.2698C25.993 65.5505 21.8316 64.1908 16.7225 64.1908H9.42969V53.5605Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_15">
+                      <rect
+                        width="75"
+                        height="100"
+                        fill="white"
+                        transform="translate(0 0.530273)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
 
               {/* Image Section */}
-              <div className="flex-1 relative h-64 md:h-96 animate-image">
+              <div
+                className={[
+                  "absolute top-0 right-0 w-1/2 h-full animate-image",
+                ].join(" ")}
+              >
                 <Image
                   src={section.image}
                   alt="girl taking a photo with a tunnel filter"
@@ -224,9 +332,11 @@ export default function LandingPage() {
           </AnimatedSection>
         ))}
       </div>
-      <CareerHero />
-      <CareerCard />
-      <CareerBackground />
+      <div ref={secondSectionRef}>
+        <CareerHero />
+        <CareerCard />
+        <CareerBackground />
+      </div>
     </div>
   );
 }
