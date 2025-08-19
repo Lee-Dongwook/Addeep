@@ -45,6 +45,209 @@ const TeamWorkHero = () => {
   );
 };
 
+// First Human Component
+const FirstHuman = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Left Section - Profile Summary */}
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+                {/* Placeholder for profile image */}
+                <div className="text-gray-400 text-4xl">👤</div>
+              </div>
+              <h2 className="text-2xl font-bold text-black mb-1">
+                Kevin Jaeyoung Yoon
+              </h2>
+              <p className="text-lg text-purple-600 mb-4">윤재영</p>
+              <div className="text-sm text-black space-y-1">
+                <p>Addeep Founder & CVO Chief Vision Officer</p>
+                <p>US Addeep Inc. Chief Executive Officer CEO</p>
+              </div>
+            </div>
+
+            {/* Right Section - Detailed Information */}
+            <div className="lg:w-1/2 space-y-6">
+              {/* Education */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Education
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• Hayfield University Graduate School of Business MBA</li>
+                  <li>• 서울대학교 경영대학원 CFO Academy Completion</li>
+                </ul>
+              </div>
+
+              {/* Experience */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Experience
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• Addeep Platform Series Product Global Service R&D</li>
+                  <li>
+                    • OTT 스마트 콘텐츠 플랫폼&스마트 디바이스, AI 소셜 로봇
+                    제품 시리즈 사업화
+                  </li>
+                  <li>
+                    • 디지털 콘텐츠 권리보호을 위한 'ACI' 콘텐츠 보안 기술
+                    창시자
+                  </li>
+                  <li>
+                    • 한국, 미국, 중국, 싱가폴, 동남아시아, EU ICT 글로벌
+                    비즈니스 경영전략 총괄
+                  </li>
+                  <li>• 현) 한국AGI기업연합회 이사</li>
+                </ul>
+              </div>
+
+              {/* Awards */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Awards
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• 2015 대한민국 최고의 경영대상 기술혁신대상</li>
+                  <li>• 2016 ICOTEC 국제 저작권 기술 콘퍼런스 저작권 기술상</li>
+                  <li>• 2017 중소벤처기업부 주최 "국무총리상" 표창</li>
+                  <li>• 2017 US WHITE HOUSE "Donald Trump" 대통령상</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SecondHuman = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="lg:w-1/2 space-y-6">
+              {/* Education */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Education & Background
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>우송대학교 컴퓨터공학부</li>
+                  <li>전) 타이탄플랫폼 부사장 COO</li>
+                  <li>전) 타이탄스튜디오 대표이사</li>
+                </ul>
+              </div>
+
+              {/* Experience */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Expertise
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• 네트워크 통합 정보보안 개발 및 보안 컨설팅 전문가</li>
+                  <li>• 7개국 해외법인 운영 및 글로벌 경영전략수립</li>
+                  <li>
+                    •China Unicorn과 스마트 콘텐츠 서비스 IDC 데이터 인프라
+                    서비스 구축
+                  </li>
+                  <li>
+                    • Softbank Solution China 전략적 사업협력 파트너쉽 구축
+                  </li>
+                  <li>• 인사, 행정, 법무, 경영기획 총괄 운영</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+                {/* Placeholder for profile image */}
+                <div className="text-gray-400 text-4xl">👤</div>
+              </div>
+              <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
+              <p className="text-lg text-purple-600 mb-4">강경수</p>
+              <div className="text-sm text-black space-y-1">
+                <p>Addeep PIMS Inc 대표이사</p>
+                <p>Addeep Group 부사장 COO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ThirdHuman = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Left Section - Profile Summary */}
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+                {/* Placeholder for profile image */}
+                <div className="text-gray-400 text-4xl">👤</div>
+              </div>
+              <h2 className="text-2xl font-bold text-black mb-1">
+                Albert Seyoung Koo
+              </h2>
+              <p className="text-lg text-purple-600 mb-4">구세영</p>
+              <div className="text-sm text-black space-y-1">
+                <p>Addeep Inc. Korea 부사장</p>
+              </div>
+            </div>
+
+            {/* Right Section - Detailed Information */}
+            <div className="lg:w-1/2 space-y-6">
+              {/* Education */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Education & Career
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>호남대학교 전산통계학 학사</li>
+                  <li>전)한국컴퓨터통신 UniSQL DBMS 과장</li>
+                  <li>전)티맥스그룹 공공부문 사업총괄 전무</li>
+                </ul>
+              </div>
+
+              {/* Experience */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Professional Experience
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• 국내 최초 ORDBMS "UniSQL" 8년간 시스템 S/W 사업추진</li>
+                  <li>
+                    • 국내 초, 중, 고, 대학 교육정보화 부문 시스템 S/W 사업추진
+                  </li>
+                  <li>
+                    • 티맥스 그룹 미들웨어, DBMS등 솔루션 제품 국내 대형
+                    공공기관 사업추진
+                  </li>
+                  <li>
+                    • Tmax Office, OS, AI, Cloud, Metaverse, BI, Fintech 신사업
+                    사업전략기획
+                  </li>
+                  <li>
+                    • ICT 산업분야 28년 경력 네트워크 솔루션 및 컴퓨팅
+                    소프트웨어 산업 혁신 전문가
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 interface AnimatedSectionProps {
   children: ReactNode;
   index: number;
@@ -142,81 +345,14 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   );
 };
 
-const sectionData = [
-  {
-    text: [
-      "우수한 맨 파워! 창의적인 Brain!",
-      "잠재력 높은 핵심역량!",
-      "우리는 디지털 플랫폼 서비스분야의",
-      "최고의 전문가와 기술력으로 수준",
-      "높은 글로벌 플랫폼 생태계 혁신을",
-      "주도합니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "그리고 사람과",
-      "사람사이",
-      "관계를...,",
-      "세상",
-      "어디에서나",
-      "만족할 수",
-      "있도록...,",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "이제 애딥의 소셜",
-      "네트워크 채널에",
-      "서 크리에이터와",
-      "인플루언서가 안",
-      "정된 콘텐츠 수익",
-      "을 만들어 갑니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-];
-
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <TeamWorkHeader />
       <TeamWorkHero />
-      <div className="max-w-4xl mx-auto">
-        {sectionData.map((section, index) => (
-          <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col md:flex-row w-full">
-              {/* Text Section */}
-              <div className="flex-1 flex items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl flex flex-col font-bold text-gray-800 leading-loose text-left gap-2">
-                  {section.text.map((line, lineIndex) => (
-                    <span key={lineIndex} className="animate-text">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-              {/* Image Section */}
-              <div className="flex-1 relative h-64 md:h-96 animate-image">
-                <Image
-                  src={section.image}
-                  alt="girl taking a photo with a tunnel filter"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
+      <FirstHuman />
+      <SecondHuman />
+      <ThirdHuman />
     </div>
   );
 }
