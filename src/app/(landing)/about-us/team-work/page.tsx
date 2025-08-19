@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 // Header Component
 const TeamWorkHeader = () => {
   return (
-    <div className="w-full p-4 text-center">
+    <div className="w-full h-48 md:h-96 text-center">
       <div
-        className="w-full h-48 md:h-64 rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-48 md:h-96 rounded-lg flex flex-col items-center justify-center"
         style={{
           background:
             "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
@@ -32,12 +32,12 @@ const TeamWorkHeader = () => {
 // Hero Component
 const TeamWorkHero = () => {
   return (
-    <div className="w-full p-4 text-center bg-[#F9FAFB]">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+    <div className="w-full p-4 text-center flex flex-col h-48 md:h-96 bg-[#F9FAFB]">
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed">
           우리는 디지털 플랫폼 서비스분야의 최고의 전문가와 기술력으로,
         </p>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
           수준 높은 글로벌 플랫폼 생태계 혁신을 주도합니다.
         </p>
       </div>
@@ -53,8 +53,8 @@ const FirstHuman = () => {
         <div className="p-8">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left Section - Profile Summary */}
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+            <div className="flex flex-col items-center text-center lg:w-1/2">
+              <div className="w-32 h-32 mb-40 rounded-full bg-gray-200 flex items-center justify-center">
                 {/* Placeholder for profile image */}
                 <div className="text-gray-400 text-4xl">👤</div>
               </div>
@@ -76,8 +76,8 @@ const FirstHuman = () => {
                   Education
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Hayfield University Graduate School of Business MBA</li>
-                  <li>• 서울대학교 경영대학원 CFO Academy Completion</li>
+                  <li>Hayfield University Graduate School of Business MBA</li>
+                  <li>서울대학교 경영대학원 CFO Academy Completion</li>
                 </ul>
               </div>
 
@@ -126,11 +126,11 @@ const FirstHuman = () => {
 
 const SecondHuman = () => {
   return (
-    <div className="w-full p-8 bg-white">
+    <div className="w-full p-8 bg-[#E5E7EB]">
       <div className="max-w-6xl mx-auto">
         <div className="p-8">
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-1/2 space-y-6">
+            <div className="lg:w-2/3 space-y-6 flex flex-col items-center justify-center">
               {/* Education */}
               <div>
                 <h3 className="text-lg font-semibold text-black mb-2">
@@ -141,11 +141,7 @@ const SecondHuman = () => {
                   <li>전) 타이탄플랫폼 부사장 COO</li>
                   <li>전) 타이탄스튜디오 대표이사</li>
                 </ul>
-              </div>
-
-              {/* Experience */}
-              <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
+                <h3 className="mt-8 text-lg font-semibold text-black mb-2">
                   Expertise
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
@@ -162,7 +158,7 @@ const SecondHuman = () => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+            <div className="flex flex-col items-center lg:w-1/2">
               <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
                 {/* Placeholder for profile image */}
                 <div className="text-gray-400 text-4xl">👤</div>
@@ -188,8 +184,8 @@ const ThirdHuman = () => {
         <div className="p-8">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left Section - Profile Summary */}
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+            <div className="flex flex-col items-center lg:w-1/2">
+              <div className="w-32 h-32 rounded-full bg-gray-200 mb-20 flex items-center justify-center text-center">
                 {/* Placeholder for profile image */}
                 <div className="text-gray-400 text-4xl">👤</div>
               </div>
@@ -350,9 +346,11 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       <TeamWorkHeader />
       <TeamWorkHero />
-      <FirstHuman />
-      <SecondHuman />
-      <ThirdHuman />
+      <div className="flex flex-col items-center justify-center">
+        <FirstHuman />
+        <SecondHuman />
+        <ThirdHuman />
+      </div>
     </div>
   );
 }
