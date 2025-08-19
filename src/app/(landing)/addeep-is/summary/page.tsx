@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -187,27 +188,17 @@ const Summary = () => {
   );
 
   return (
-    <div ref={root} className="stage relative">
+    <div ref={root} className="stage relative mb-20">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
         {/* 좌측: 고정될 폰 목업 */}
-        <div ref={phone} className="sticky top-24 h-[70vh]">
-          <div className="relative mx-auto h-full w-[320px] rounded-[40px] border border-gray-200 shadow-lg">
-            {/* 폰 베젤 배경 */}
-            <img
-              src="/phone/bezel.png"
-              alt=""
-              className="pointer-events-none absolute inset-0 h-full w-full select-none"
-            />
+        <div ref={phone} className="sticky top-0 h-[70vh]">
+          <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
             {/* 프레임들 (섹션 수만큼) */}
-            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-black">
-              {[
-                "/media/frame1.jpg",
-                "/media/frame2.jpg",
-                "/media/frame3.jpg",
-              ].map((src, i) => (
+            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
+              {["1", "2"].map((src, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={AddeepIsImage.src}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
@@ -222,7 +213,7 @@ const Summary = () => {
         {/* 우측: 카피 섹션들 */}
         <div className="space-y-[60vh]">
           <section className="copy">
-            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               Addeep GPR 개요 및 비전
             </h2>
             <p className="text-2xl leading-relaxed">
@@ -235,10 +226,10 @@ const Summary = () => {
           </section>
 
           <section className="copy">
-            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               e-Commerce PIMS
             </h2>
-            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               #Target커머스 #현금보상
             </h2>
             <p className="text-2xl leading-relaxed">
@@ -252,17 +243,9 @@ const Summary = () => {
       <FirstContainer />
       <SecondContainer />
       <ThirdContainer />
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-        {/* 좌측: 고정될 폰 목업 */}
+      {/* <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
         <div ref={phone} className="sticky top-24 h-[70vh]">
           <div className="relative mx-auto h-full w-[320px] rounded-[40px] border border-gray-200 shadow-lg">
-            {/* 폰 베젤 배경 */}
-            <img
-              src="/phone/bezel.png"
-              alt=""
-              className="pointer-events-none absolute inset-0 h-full w-full select-none"
-            />
-            {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-black">
               {[
                 "/media/frame1.jpg",
@@ -283,7 +266,6 @@ const Summary = () => {
           </div>
         </div>
 
-        {/* 우측: 카피 섹션들 */}
         <div className="space-y-[60vh]">
           <section className="copy">
             <h2 className="mb-4 text-sm font-semibold text-pink-500">
@@ -352,7 +334,7 @@ const Summary = () => {
             </p>
           </section>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

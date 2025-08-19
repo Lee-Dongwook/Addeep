@@ -234,22 +234,42 @@ const CareerCard = () => {
 
 const CareerBackground = () => {
   return (
-    <div className="w-full p-4 text-center bg-[#F9FAFB]">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-black text-2xl font-pretendard font-bold">
+    <section className="relative w-full bg-[#F9FAFB]">
+      {/* 상단 얇은 그라디언트 라인 (옵션) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D300C5]/30 to-transparent" />
+
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
+        <h2
+          className="text-slate-800 font-pretendard font-extrabold tracking-tight
+                       text-3xl md:text-5xl lg:text-6xl"
+        >
           함께 성장할 준비가 되셨나요?
-        </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+        </h2>
+
+        <p
+          className="mt-6 text-slate-500 font-pretendard
+                      text-base md:text-xl lg:text-2xl leading-relaxed"
+        >
           Addeep에서 여러분의 꿈을 현실로 만들어보세요
         </p>
-        <button className="mt-10 text-white font-pretendard font-bold bg-[#0066FF] h-14 rounded-2xl">
-          진행 중인 공고
-        </button>
+        <div className="mt-12">
+          <a
+            href="/careers"
+            className="inline-flex items-center justify-center
+                       h-14 md:h-[60px] px-8 md:px-10 rounded-full
+                       text-white font-pretendard font-bold
+                       bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA]
+                       shadow-[0_12px_30px_rgba(118,56,250,0.25)]
+                       transition-transform duration-200
+                       hover:scale-[1.02] active:scale-[0.99]"
+          >
+            지원하기
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
-
 export default function LandingPage() {
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
