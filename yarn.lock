@@ -4376,6 +4376,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gsap@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "gsap@npm:3.13.0"
+  checksum: 10/1908d51cbdf8f0bec8a69919af352d743a06529639a89f750f1c02e9a165d3ea816f867569df222ee7bfc14e23e268ebeb51dc5df0687fa7918ddd5d3b3efaec
+  languageName: node
+  linkType: hard
+
 "gzip-size@npm:^6.0.0":
   version: 6.0.0
   resolution: "gzip-size@npm:6.0.0"
@@ -7949,6 +7956,7 @@ __metadata:
     dotenv: "npm:^17.2.1"
     eslint: "npm:^9.23.0"
     eslint-plugin-react: "npm:^7.37.4"
+    gsap: "npm:^3.13.0"
     husky: "npm:^9.1.7"
     i18next: "npm:^25.3.6"
     i18next-browser-languagedetector: "npm:^8.2.0"
