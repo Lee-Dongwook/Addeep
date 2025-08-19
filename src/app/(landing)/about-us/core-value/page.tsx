@@ -6,6 +6,51 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface GsapPanelProps {
+  image: string | Element;
+}
+
+const MainGsapPanelMolecule = ({ image }: GsapPanelProps) => {
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!panelRef.current) return;
+
+    const panel = panelRef.current;
+
+    const animation = gsap.fromTo(
+      panel,
+      {
+        opacity: 1,
+        scale: 1,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        ease: "power2.inOut",
+        duration: 20,
+        scrollTrigger: {
+          trigger: panel,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+          scrub: 2,
+        },
+      }
+    );
+    return () => {
+      animation.scrollTrigger?.kill();
+    };
+  }, [image]);
+
+  return (
+    <div ref={panelRef} className="bg-white relative overflow-hidden w-screen">
+      <div className="w-full h-full">{image as unknown as ReactNode}</div>
+    </div>
+  );
+};
+
 // Header Component
 const CoreValueHeader = () => {
   return (
@@ -94,18 +139,19 @@ const CoreValueHero = () => {
 
 const FirstContainer = () => {
   return (
-    <div className="w-full p-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
-              <h2 className="text-2xl font-bold text-black mb-1">Vision</h2>
+    <div className="w-full flex flex-col justify-center h-96 p-8 bg-[#F9FAFB]">
+      <div className="p-48">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+            <h2 className="text-4xl font-bold text-black mb-4">Vision</h2>
 
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>디지털 콘텐츠 세상을 향한</li>
-                <li>깨끗하고 바람직한 단 하나의 'Addeep'</li>
-              </ul>
-            </div>
+            <ul className="text-xl text-gray-700 font-normal font-sans space-y-1">
+              <li>디지털 콘텐츠 세상을 향한</li>
+              <li>
+                깨끗하고 바람직한 단 하나의{" "}
+                <span className="font-bold text-[#D300C5]">'Addeep'</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -115,12 +161,23 @@ const FirstContainer = () => {
 
 const SecondContainer = () => {
   return (
-    <div className="w-full p-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-1/2 space-y-6"></div>
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+    <div className="w-full flex flex-col justify-center h-96 p-8 bg-white">
+      <div className="p-48">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="lg:w-1/2 space-y-6"></div>
+          <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+            <h2 className="text-4xl font-bold text-black mb-4">Motto</h2>
+
+            <p className="text-2xl font-bold text-[#833AB4] leading-relaxed mb-6">
+              열망, 공감, 민첩
+            </p>
+
+            <ul className="text-xl text-gray-700 font-normal font-sans space-y-1">
+              <li>지금 우리 모두에게 소중한 시간을 열망과 공감,</li>
+              <li>그리고 민첩하게 협력하자</li>
+            </ul>
+          </div>
+          {/* <div className="flex flex-col items-center lg:items-start lg:w-1/2">
               <h2 className="text-2xl font-bold text-black mb-1">Motto</h2>
               <p className="text-lg font-bold text-gray-800 leading-relaxed">
                 열망, 공감, 민첩
@@ -129,8 +186,7 @@ const SecondContainer = () => {
                 <li>지금 우리 모두에게 소중한 시간을 열망과 공감,</li>
                 <li>그리고 민첩하게 협력하자</li>
               </ul>
-            </div>
-          </div>
+            </div> */}
         </div>
       </div>
     </div>
@@ -139,18 +195,71 @@ const SecondContainer = () => {
 
 const ThirdContainer = () => {
   return (
-    <div className="w-full p-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
-              <h2 className="text-2xl font-bold text-black mb-1">Mission</h2>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>• 작은 성공에 분투하자.</li>
-                <li>• 함께하는 힘으로 도전과 모험을 즐기자.</li>
-                <li>• 스마트하게 생각하고 바람직하게 행동하자.</li>
-              </ul>
-            </div>
+    <div className="w-full flex flex-col justify-center h-96 p-8 bg-[#F9FAFB]">
+      <div className="p-48">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+            <h2 className="text-4xl font-bold text-black mb-4">Mission</h2>
+
+            <ul className="text-xl text-gray-700 font-normal font-sans space-y-4">
+              <li className="flex flex-row items-center gap-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M9.04785 0.80957C13.6765 0.80957 17.4287 4.5618 17.4287 9.19043C17.4287 13.8191 13.6765 17.5713 9.04785 17.5713C4.41922 17.5712 0.666992 13.8191 0.666992 9.19043C0.667049 4.56183 4.41926 0.809627 9.04785 0.80957Z"
+                    fill="#833AB4"
+                  />
+                  <path
+                    d="M9.04785 0.80957C13.6765 0.80957 17.4287 4.5618 17.4287 9.19043C17.4287 13.8191 13.6765 17.5713 9.04785 17.5713C4.41922 17.5712 0.666992 13.8191 0.666992 9.19043C0.667049 4.56183 4.41926 0.809627 9.04785 0.80957Z"
+                    stroke="#E5E7EB"
+                  />
+                </svg>{" "}
+                작은 성공에 분투하자.
+              </li>
+              <li className="flex flex-row items-center gap-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 18 17"
+                  fill="none"
+                >
+                  <path
+                    d="M9.04785 0.142822C13.6765 0.142822 17.4287 3.89505 17.4287 8.52368C17.4287 13.1524 13.6765 16.9045 9.04785 16.9045C4.41922 16.9045 0.666992 13.1523 0.666992 8.52368C0.667049 3.89509 4.41926 0.142879 9.04785 0.142822Z"
+                    fill="#FD1D1D"
+                  />
+                  <path
+                    d="M9.04785 0.142822C13.6765 0.142822 17.4287 3.89505 17.4287 8.52368C17.4287 13.1524 13.6765 16.9045 9.04785 16.9045C4.41922 16.9045 0.666992 13.1523 0.666992 8.52368C0.667049 3.89509 4.41926 0.142879 9.04785 0.142822Z"
+                    stroke="#E5E7EB"
+                  />
+                </svg>{" "}
+                함께하는 힘으로 도전과 모험을 즐기자.
+              </li>
+              <li className="flex flex-row items-center gap-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M9.04785 0.80957C13.6765 0.80957 17.4287 4.5618 17.4287 9.19043C17.4287 13.8191 13.6765 17.5713 9.04785 17.5713C4.41922 17.5712 0.666992 13.8191 0.666992 9.19043C0.667049 4.56183 4.41926 0.809627 9.04785 0.80957Z"
+                    fill="#F77737"
+                  />
+                  <path
+                    d="M9.04785 0.80957C13.6765 0.80957 17.4287 4.5618 17.4287 9.19043C17.4287 13.8191 13.6765 17.5713 9.04785 17.5713C4.41922 17.5712 0.666992 13.8191 0.666992 9.19043C0.667049 4.56183 4.41926 0.809627 9.04785 0.80957Z"
+                    stroke="#E5E7EB"
+                  />
+                </svg>{" "}
+                스마트하게 생각하고 바람직하게 행동하자.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -158,111 +267,25 @@ const ThirdContainer = () => {
   );
 };
 
-interface AnimatedSectionProps {
-  children: ReactNode;
-  index: number;
-}
-
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textElements = section.querySelectorAll(".animate-text");
-    const imageElement = section.querySelector(".animate-image");
-
-    // 초기 상태 설정
-    gsap.set(textElements, { y: 100, opacity: 0 });
-    gsap.set(imageElement, { y: 100, opacity: 0 });
-
-    // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
-    if (index === 0) {
-      const tl = gsap.timeline();
-
-      textElements.forEach((element, i) => {
-        tl.to(
-          element,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          i * 0.1
-        );
-      });
-
-      tl.to(
-        imageElement,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        textElements.length * 0.1
-      );
-    }
-
-    // 스크롤 트리거 설정 - 스크롤 기반 애니메이션
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none reverse",
-        markers: false,
-      },
-    });
-
-    // 텍스트 요소들을 순차적으로 애니메이션
-    textElements.forEach((element, i) => {
-      tl.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        i * 0.08
-      );
-    });
-
-    // 이미지 애니메이션
-    tl.to(
-      imageElement,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      },
-      textElements.length * 0.08
-    );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-    };
-  }, [index]);
-
-  return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
-      {children}
-    </div>
-  );
-};
+const sectionGroup = [
+  <FirstContainer />,
+  <SecondContainer />,
+  <ThirdContainer />,
+];
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <CoreValueHeader />
       <CoreValueHero />
-      <FirstContainer />
-      <SecondContainer />
-      <ThirdContainer />
+      <div className="mt-24">
+        {sectionGroup.map((image, idx) => (
+          <MainGsapPanelMolecule
+            key={`section-${idx}`}
+            image={image as unknown as string | Element}
+          />
+        ))}
+      </div>
     </div>
   );
 }
