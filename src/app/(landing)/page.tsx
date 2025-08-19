@@ -170,10 +170,10 @@ export default function LandingPage() {
       <div className="p-8">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection index={0}>
-            <div className="relative w-full h-screen">
+            <div className="relative w-full min-h-screen">
               {/* Top Left Text Block */}
-              <div className="absolute top-8 left-8 w-80 animate-text">
-                <p className="text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed">
+              <div className="absolute top-8 left-8 w-[890px] animate-text">
+                <p className="font-sans font-normal text-[64px] text-gray-800 leading-[90px] tracking-normal align-middle">
                   {collageData[0].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -183,7 +183,7 @@ export default function LandingPage() {
               </div>
 
               {/* Top Right Image - Fisheye Effect */}
-              <div className="absolute top-8 right-8 w-80 h-80 animate-image">
+              <div className="absolute top-8 right-8 w-[400px] h-[400px] animate-image">
                 <div className="w-full h-full rounded-full overflow-hidden">
                   <Image
                     src={collageData[0].image}
@@ -197,7 +197,7 @@ export default function LandingPage() {
               </div>
 
               {/* Middle Left Image - Smiling Man */}
-              <div className="absolute top-1/2 left-8 transform -translate-y-1/2 w-80 h-80 animate-image">
+              <div className="absolute top-3/4 left-8 transform -translate-y-1/2 w-80 h-[400px] animate-image">
                 <Image
                   src={collageData[1].image}
                   alt="Smiling man with hands on cheeks"
@@ -209,8 +209,11 @@ export default function LandingPage() {
               </div>
 
               {/* Middle Right Text Block - Purple Gradient */}
-              <div className="absolute top-1/2 right-8 transform -translate-y-1/2 w-80 animate-text">
-                <p className="text-2xl md:text-3xl font-bold leading-relaxed bg-gradient-to-b from-purple-400 to-purple-700 bg-clip-text text-transparent">
+              <div className="absolute top-3/4 right-24 transform -translate-y-1/2 w-80 animate-text">
+                <p
+                  className="font-sans font-normal text-[40px]  bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] 
+               bg-clip-text text-transparent leading-[70px] tracking-normal align-middle text-right"
+                >
                   {collageData[1].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -220,7 +223,7 @@ export default function LandingPage() {
               </div>
 
               {/* Bottom Right Image - Three People */}
-              <div className="absolute bottom-8 right-8 w-80 h-80 animate-image">
+              <div className="absolute top-full bottom-8 right-24 w-[500px] h-80 animate-image">
                 <Image
                   src={collageData[2].image}
                   alt="Three people looking down"
@@ -233,33 +236,43 @@ export default function LandingPage() {
 
               {/* Bottom Left Arrow */}
               <div
-                className="absolute bottom-8 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+                className="absolute top-full mt-48 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
                 onClick={handleArrowClick}
               >
                 <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-black"
+                  width="75"
+                  height="101"
+                  viewBox="0 0 75 101"
+                  fill="none"
                 >
-                  <path
-                    d="M12 4L12 20M12 20L18 14M12 20L6 14"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <g clip-path="url(#clip0_1_15)">
+                    <path
+                      d="M9.42969 53.5605H17.835C21.7904 53.5605 25.1691 54.467 27.9708 56.2798C30.855 58.1752 32.7915 60.8534 33.7804 64.3144V6.96045H43.669V64.3144C44.6578 60.8534 46.5531 58.1752 49.3549 56.2798C52.2391 54.467 55.6589 53.5605 59.6144 53.5605H68.0197V64.1908H60.7268C55.6177 64.1908 51.4563 65.5505 48.2424 68.2698C45.0287 70.9891 43.4217 74.7798 43.4217 79.6418V81.1246H34.0276V79.6418C34.0276 74.7798 32.4207 70.9891 29.2069 68.2698C25.993 65.5505 21.8316 64.1908 16.7225 64.1908H9.42969V53.5605Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_15">
+                      <rect
+                        width="75"
+                        height="100"
+                        fill="white"
+                        transform="translate(0 0.530273)"
+                      />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
             </div>
           </AnimatedSection>
         </div>
       </div>
-
       {/* Second Section - Split Screen Portrait */}
-      <div ref={secondSectionRef} className="min-h-screen bg-black">
+      <div
+        ref={secondSectionRef}
+        className="mt-96 mb-20 min-h-screen  bg-black"
+      >
         <AnimatedSection index={1}>
           <div className="relative w-full h-screen">
             {/* Split Screen Container */}
@@ -280,7 +293,7 @@ export default function LandingPage() {
             {/* Overlay Text */}
             <div className="absolute inset-0 flex items-center justify-center animate-text">
               <div className="text-left px-8">
-                <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-loose flex flex-col gap-4">
+                <p className="text-[60px] font-sans font-normal text-white leading-normal">
                   {splitScreenData.text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
