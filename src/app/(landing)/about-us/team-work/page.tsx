@@ -6,6 +6,45 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Header Component
+const TeamWorkHeader = () => {
+  return (
+    <div className="w-full p-4 text-center">
+      <div
+        className="w-full h-48 md:h-64 rounded-lg flex flex-col items-center justify-center"
+        style={{
+          background:
+            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+          border: "1px solid #E5E7EB",
+        }}
+      >
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          About Our Team
+        </h1>
+        <p className="text-lg md:text-xl text-white">
+          우수한 맨 파워! 창의적인 Brain! 잠재력 높은 핵심역량!
+        </p>
+      </div>
+    </div>
+  );
+};
+
+// Hero Component
+const TeamWorkHero = () => {
+  return (
+    <div className="w-full p-4 text-center bg-[#F9FAFB]">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+          우리는 디지털 플랫폼 서비스분야의 최고의 전문가와 기술력으로,
+        </p>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+          수준 높은 글로벌 플랫폼 생태계 혁신을 주도합니다.
+        </p>
+      </div>
+    </div>
+  );
+};
+
 interface AnimatedSectionProps {
   children: ReactNode;
   index: number;
@@ -146,6 +185,8 @@ const sectionData = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
+      <TeamWorkHeader />
+      <TeamWorkHero />
       <div className="max-w-4xl mx-auto">
         {sectionData.map((section, index) => (
           <AnimatedSection key={index} index={index}>
