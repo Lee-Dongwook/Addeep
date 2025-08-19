@@ -3,10 +3,97 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
 
 gsap.registerPlugin(ScrollTrigger);
+
+function useVariant(): "ai" | "sns" {
+  const sp = useSearchParams();
+  const val =
+    (
+      sp.get("type") ||
+      sp.get("mode") ||
+      sp.get("view") ||
+      sp.get("variant") ||
+      sp.get("v")
+    )?.toLowerCase() ?? "";
+
+  if (val === "sns") return "sns";
+  if (val === "ai") return "ai";
+  if (sp.has("sns")) return "sns"; // ?sns
+  if (sp.has("ai")) return "ai"; // ?ai
+  return "ai"; // default
+}
+
+function useSummaryGsap(
+  root: React.RefObject<HTMLDivElement | null>,
+  phone: React.RefObject<HTMLDivElement | null>,
+  frames: React.MutableRefObject<HTMLImageElement[]>,
+  copyClass: string
+) {
+  useGSAP(
+    () => {
+      // pin
+      ScrollTrigger.create({
+        trigger: root.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: phone.current,
+        pinSpacing: true,
+        anticipatePin: 1,
+      });
+
+      // copy reveal + frame crossfade
+      const copies = gsap.utils.toArray<HTMLElement>(`.${copyClass}`);
+      copies.forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          { autoAlpha: 0, y: 40 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 70%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        const imgs = frames.current;
+        const target = imgs[i];
+        if (target) {
+          gsap.fromTo(
+            target,
+            { autoAlpha: 0 },
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 70%",
+                end: "top 30%",
+                toggleActions: "play none none reverse",
+              },
+              onStart: () => {
+                imgs.forEach((img, idx) => {
+                  if (idx !== i) gsap.set(img, { autoAlpha: 0 });
+                });
+              },
+            }
+          );
+        }
+      });
+    },
+    { scope: root }
+  );
+}
 
 const FirstContainer = () => {
   return (
@@ -109,83 +196,12 @@ const ThirdContainer = () => {
   );
 };
 
-const Summary = () => {
+export function SummaryAI() {
   const root = useRef<HTMLDivElement>(null);
   const phone = useRef<HTMLDivElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
 
-  useGSAP(
-    () => {
-      // 1) 좌측 폰 고정(pin)
-      ScrollTrigger.create({
-        trigger: ".stage",
-        start: "top top",
-        end: "bottom bottom",
-        pin: phone.current,
-        pinSpacing: true,
-        anticipatePin: 1, // 급스크롤 깜빡임 방지
-      });
-
-      // 2) 섹션 등장 애니메이션 (우측 카피)
-      gsap.utils.toArray<HTMLElement>(".copy").forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { autoAlpha: 0, y: 40 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 70%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-              // markers: true, // 디버깅 시
-            },
-          }
-        );
-
-        // 3) 섹션 진입 시 폰 프레임 교체 (crossfade)
-        const imgs = frames.current;
-        if (imgs[i]) {
-          gsap.fromTo(
-            imgs[i],
-            { autoAlpha: 0 },
-            {
-              autoAlpha: 1,
-              duration: 0.5,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 70%",
-                end: "top 30%",
-                toggleActions: "play none none reverse",
-              },
-              onStart: () => {
-                // 이전 프레임들 숨기기
-                imgs.forEach((img, idx) => {
-                  if (idx !== i) gsap.set(img, { autoAlpha: 0 });
-                });
-              },
-            }
-          );
-        }
-      });
-
-      // 4) 전체 구간 스크럽 타임라인(옵션): 배경색 전환 등 추가
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".stage",
-          start: "top top",
-          end: "+=3000", // 길이 조절
-          scrub: true,
-        },
-      });
-      // tl.to(".stage", { backgroundColor: "#f9fafb" }, 0); // 필요시
-    },
-    { scope: root }
-  );
+  useSummaryGsap(root, phone, frames, "copy-ai");
 
   return (
     <div ref={root} className="stage relative mb-20">
@@ -212,7 +228,7 @@ const Summary = () => {
 
         {/* 우측: 카피 섹션들 */}
         <div className="space-y-[60vh]">
-          <section className="copy">
+          <section className="copy-ai">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               Addeep GPR 개요 및 비전
             </h2>
@@ -225,7 +241,7 @@ const Summary = () => {
             </p>
           </section>
 
-          <section className="copy">
+          <section className="copy-ai">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               e-Commerce PIMS
             </h2>
@@ -243,18 +259,26 @@ const Summary = () => {
       <FirstContainer />
       <SecondContainer />
       <ThirdContainer />
-      {/* <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-        <div ref={phone} className="sticky top-24 h-[70vh]">
-          <div className="relative mx-auto h-full w-[320px] rounded-[40px] border border-gray-200 shadow-lg">
-            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-black">
-              {[
-                "/media/frame1.jpg",
-                "/media/frame2.jpg",
-                "/media/frame3.jpg",
-              ].map((src, i) => (
+    </div>
+  );
+}
+
+export function SummarySNS() {
+  const root = useRef<HTMLDivElement>(null);
+  const phone = useRef<HTMLDivElement>(null);
+  const frames = useRef<HTMLImageElement[]>([]);
+
+  useSummaryGsap(root, phone, frames, "copy-sns");
+  return (
+    <div ref={root} className="stage relative mb-20">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div ref={phone} className="sticky top-0 h-[70vh]">
+          <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
+            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
+              {["1", "2", "3", "4", "5"].map((src, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={AddeepIsImage.src}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
@@ -267,8 +291,8 @@ const Summary = () => {
         </div>
 
         <div className="space-y-[60vh]">
-          <section className="copy">
-            <h2 className="mb-4 text-sm font-semibold text-pink-500">
+          <section className="copy-sns">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               Addeep GPR AI 기반의 혁신적인 보상형 SNS 플랫폼
             </h2>
             <p className="text-2xl leading-relaxed">
@@ -281,7 +305,7 @@ const Summary = () => {
             </p>
           </section>
 
-          <section className="copy">
+          <section className="copy-sns">
             <p className="text-2xl leading-relaxed">
               광고주, 플랫폼 사업자, 이용자, 그리고 크리에이터/인플루언서 등
               모든 참여자에게 리워드 캐시가 적립되는 혁신적인 구조를 통해,
@@ -290,7 +314,7 @@ const Summary = () => {
             </p>
           </section>
 
-          <section className="copy">
+          <section className="copy-sns">
             <p className="text-2xl leading-relaxed">
               기존 플랫폼 생태계에서 이용자는 플랫폼 사업자에게 종속되어 어떠한
               보상이나 수익 실현도 기대하기 어려웠습니다. Addeep은 이러한
@@ -299,7 +323,7 @@ const Summary = () => {
             </p>
           </section>
 
-          <section className="copy">
+          <section className="copy-sns">
             <p className="text-2xl leading-relaxed">
               Addeep의 핵심은 Addeep GPR AI의 강화된 예측 및 생성 능력, 차별화된
               빅데이터 분석, 그리고 개선된 타겟 광고 마케팅 서비스에
@@ -314,7 +338,7 @@ const Summary = () => {
             </p>
           </section>
 
-          <section className="copy">
+          <section className="copy-sns">
             <p className="text-2xl leading-relaxed">
               또한, Addeep GPR AI는 딥러닝 AI 기술을 한 차원 발전시켜 클라우드
               방식의 데이터 플랫폼 기술을 제공함으로써, 다양한 산업 고객이
@@ -327,16 +351,19 @@ const Summary = () => {
               있습니다.
             </p>
           </section>
-          <section className="copy">
+          <section className="copy-sns">
             <p className="text-2xl leading-relaxed">
               Addeep은 이러한 새로운 플랫폼 생태계를 대한민국을 시작으로 전
               세계인이 이용할 수 있도록 확장시켜 나갈 것입니다.
             </p>
           </section>
         </div>
-      </div> */}
+      </div>
     </div>
   );
-};
+}
 
-export default Summary;
+export default function Page() {
+  const variant = useVariant();
+  return variant === "sns" ? <SummarySNS /> : <SummaryAI />;
+}
