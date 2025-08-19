@@ -1,179 +1,138 @@
 "use client";
-import Image from "next/image";
-import React, { useRef, useEffect, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState } from "react";
+import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface AnimatedSectionProps {
-  children: ReactNode;
-  index: number;
+interface HelpLink {
+  id: string;
+  text: string;
+  href: string;
 }
 
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textElements = section.querySelectorAll(".animate-text");
-    const imageElement = section.querySelector(".animate-image");
-
-    // 초기 상태 설정
-    gsap.set(textElements, { y: 100, opacity: 0 });
-    gsap.set(imageElement, { y: 100, opacity: 0 });
-
-    // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
-    if (index === 0) {
-      const tl = gsap.timeline();
-
-      textElements.forEach((element, i) => {
-        tl.to(
-          element,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          i * 0.1
-        );
-      });
-
-      tl.to(
-        imageElement,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        textElements.length * 0.1
-      );
-    }
-
-    // 스크롤 트리거 설정 - 스크롤 기반 애니메이션
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none reverse",
-        markers: false,
-      },
-    });
-
-    // 텍스트 요소들을 순차적으로 애니메이션
-    textElements.forEach((element, i) => {
-      tl.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        i * 0.08
-      );
-    });
-
-    // 이미지 애니메이션
-    tl.to(
-      imageElement,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      },
-      textElements.length * 0.08
-    );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-    };
-  }, [index]);
-
-  return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
-      {children}
-    </div>
-  );
-};
-
-const sectionData = [
+const helpLinks: HelpLink[] = [
   {
-    text: [
-      "디지털 플랫폼 생태계에서",
-      "소셜 미디어 플랫폼과 미디어",
-      "콘텐츠 산업을 둘러싸고 있는",
-      "모든 구성원들간 상호 니즈를",
-      "스마트하게 연결하는 통합",
-      "플랫폼을 지향합니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
+    id: "1",
+    text: "Addeep에서는 무슨일은 하나요?",
+    href: "/addeep-is/summary",
   },
   {
-    text: [
-      "빅데이터와 AI기술로 방대한 정형/",
-      "비정형 데이터를 효율적으로 축적",
-      "하고, 다각적 분석, 재해석, 재가공",
-      "을 통해 콘텐츠 시장을 둘러싸고",
-      "있는 모든 인적, 물적 자원들을 효",
-      "율적으로 연결하고 재배치합니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
+    id: "2",
+    text: "Addeep의 핵심 가치는 무엇일까",
+    href: "/about-us/core-value",
   },
   {
-    text: [
-      "이제 애딥의 소셜",
-      "네트워크 채널에",
-      "서 크리에이터와",
-      "인플루언서가 안",
-      "정된 콘텐츠 수익",
-      "을 만들어 갑니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
+    id: "3",
+    text: "Addeep의 SNS 채널은",
+    href: "/blog-social-media-channel",
+  },
+  {
+    id: "4",
+    text: "Addeep의 Web 3 P to E",
+    href: "/addeep-is/platform-to-earn",
+  },
+  {
+    id: "5",
+    text: "Addeep 비즈니스 키워드",
+    href: "/addeep-is/digital-platform-innovation",
   },
 ];
 
-export default function LandingPage() {
+export default function HelpCustomerServicePage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    // 검색 로직 구현
+    console.log("Searching for:", searchQuery);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto">
-        {sectionData.map((section, index) => (
-          <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col md:flex-row w-full">
-              {/* Text Section */}
-              <div className="flex-1 flex items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl flex flex-col font-bold text-gray-800 leading-loose text-left gap-2">
-                  {section.text.map((line, lineIndex) => (
-                    <span key={lineIndex} className="animate-text">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
+      <div className="max-w-2xl mx-auto px-6 py-16">
+        {/* 메인 헤딩 */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">
+            어떻게 도와드릴까요?
+          </h1>
 
-              {/* Image Section */}
-              <div className="flex-1 relative h-64 md:h-96 animate-image">
-                <Image
-                  src={section.image}
-                  alt="girl taking a photo with a tunnel filter"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
+          {/* 검색바 */}
+          <form onSubmit={handleSearch} className="relative max-w-lg mx-auto">
+            <div className="relative">
+              <svg
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
-              </div>
+              </svg>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="도움이 필요한 내용을 검색해보세요"
+                className="w-full pl-12 pr-4 py-4 border-2 border-pink-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-500 text-gray-900 placeholder-gray-500"
+              />
             </div>
-          </AnimatedSection>
-        ))}
+            <button
+              type="submit"
+              className="mt-4 w-full bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200 font-medium"
+            >
+              검색하기
+            </button>
+          </form>
+        </div>
+
+        {/* 새로운 기능 섹션 */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+            새로운 기능
+          </h2>
+
+          <div className="space-y-4">
+            {helpLinks.map((link) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className="block w-full text-left p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
+              >
+                <span className="text-blue-600 hover:text-blue-700 font-medium">
+                  {link.text}
+                </span>
+                <div className="mt-1">
+                  <span className="text-red-400 underline decoration-wavy decoration-red-400">
+                    Addeep
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* 추가 도움말 섹션 */}
+        <div className="mt-16 p-6 bg-gray-50 rounded-lg">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            더 많은 도움이 필요하신가요?
+          </h3>
+          <p className="text-gray-600 mb-4">
+            위의 링크에서 원하는 정보를 찾지 못하셨다면, 검색바를 사용해보세요.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+              고객 지원
+            </span>
+            <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+              FAQ
+            </span>
+            <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+              문의하기
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
