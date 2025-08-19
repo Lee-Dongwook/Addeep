@@ -211,7 +211,7 @@ export default function LandingPage() {
               {/* Middle Right Text Block - Purple Gradient */}
               <div className="absolute top-3/4 right-24 transform -translate-y-1/2 w-80 animate-text">
                 <p
-                  className="font-sans font-normal text-[40px]  bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] 
+                  className="font-sans font-normal text-[40px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] 
                bg-clip-text text-transparent leading-[70px] tracking-normal align-middle text-right"
                 >
                   {collageData[1].text.map((line, index) => (
@@ -234,7 +234,7 @@ export default function LandingPage() {
                 />
               </div>
 
-              {/* Bottom Left Arrow */}
+              {/* Bottom Arrow */}
               <div
                 className="absolute top-full mt-48 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
                 onClick={handleArrowClick}
