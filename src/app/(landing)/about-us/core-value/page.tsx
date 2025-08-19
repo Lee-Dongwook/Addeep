@@ -6,6 +6,108 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Header Component
+const CoreValueHeader = () => {
+  return (
+    <div className="w-full p-4 text-center">
+      <div
+        className="w-full h-48 md:h-64 rounded-lg flex flex-col items-center justify-center"
+        style={{
+          background:
+            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+          border: "1px solid #E5E7EB",
+        }}
+      >
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          We Bridge Values
+        </h1>
+      </div>
+    </div>
+  );
+};
+
+// Hero Component
+const CoreValueHero = () => {
+  return (
+    <div className="w-full p-4 text-center bg-white">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
+          Core Values
+        </h1>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+          우리가 추구하는 5가지 핵심 가치
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const FirstContainer = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <h2 className="text-2xl font-bold text-black mb-1">Vision</h2>
+
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>디지털 콘텐츠 세상을 향한</li>
+                <li>깨끗하고 바람직한 단 하나의 'Addeep'</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SecondContainer = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="lg:w-1/2 space-y-6"></div>
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <h2 className="text-2xl font-bold text-black mb-1">Motto</h2>
+              <p className="text-lg font-bold text-gray-800 leading-relaxed">
+                열망, 공감, 민첩
+              </p>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>지금 우리 모두에게 소중한 시간을 열망과 공감,</li>
+                <li>그리고 민첩하게 협력하자</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ThirdContainer = () => {
+  return (
+    <div className="w-full p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+              <h2 className="text-2xl font-bold text-black mb-1">Mission</h2>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• 작은 성공에 분투하자.</li>
+                <li>• 함께하는 힘으로 도전과 모험을 즐기자.</li>
+                <li>• 스마트하게 생각하고 바람직하게 행동하자.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 interface AnimatedSectionProps {
   children: ReactNode;
   index: number;
@@ -103,79 +205,14 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   );
 };
 
-const sectionData = [
-  {
-    text: [
-      "우리의 핵심 가치는",
-      "1. 올바른 인재제일",
-      "2. 바람직한 최고지향",
-      "3. 도전.혁신적인 변화선도",
-      "4. 지혜로운 상생추구",
-      "5. 창의적인 정도경영",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "그리고 사람과",
-      "사람사이",
-      "관계를...,",
-      "세상",
-      "어디에서나",
-      "만족할 수",
-      "있도록...,",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "이제 애딥의 소셜",
-      "네트워크 채널에",
-      "서 크리에이터와",
-      "인플루언서가 안",
-      "정된 콘텐츠 수익",
-      "을 만들어 갑니다.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-];
-
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto">
-        {sectionData.map((section, index) => (
-          <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col md:flex-row w-full">
-              {/* Text Section */}
-              <div className="flex-1 flex items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl flex flex-col font-bold text-gray-800 leading-loose text-left gap-2">
-                  {section.text.map((line, lineIndex) => (
-                    <span key={lineIndex} className="animate-text">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-              {/* Image Section */}
-              <div className="flex-1 relative h-64 md:h-96 animate-image">
-                <Image
-                  src={section.image}
-                  alt="girl taking a photo with a tunnel filter"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
+      <CoreValueHeader />
+      <CoreValueHero />
+      <FirstContainer />
+      <SecondContainer />
+      <ThirdContainer />
     </div>
   );
 }
