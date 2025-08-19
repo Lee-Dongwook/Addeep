@@ -227,21 +227,21 @@ export default function LandingPage() {
             title: "개인정보 처리방침 변경 안내",
             summary: "개인정보 처리방침이 일부 변경되었습니다.",
             date: "2024-01-08",
-            href: "/notice/n1",
+            href: "/announcement/n1",
           },
           {
             id: "n2",
             title: "개인정보 처리방침 변경 안내",
             summary: "개인정보 처리방침이 일부 변경되었습니다.",
             date: "2024-01-08",
-            href: "/notice/n2",
+            href: "/announcement/n2",
           },
           {
             id: "n3",
             title: "개인정보 처리방침 변경 안내",
             summary: "개인정보 처리방침이 일부 변경되었습니다.",
             date: "2024-01-08",
-            href: "/notice/n3",
+            href: "/announcement/n3",
           },
         ]}
       />
