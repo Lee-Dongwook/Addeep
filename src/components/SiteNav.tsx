@@ -13,19 +13,22 @@ const NAV: Item[] = [
   {
     label: "About Us",
     children: [
-      { label: "We Are", href: "/features" },
-      { label: "Teamwork", href: "/features/reels" },
-      { label: "Core Values", href: "/features/stories" },
-      { label: "Careers", href: "/features/direct" },
+      { label: "We Are", href: "/about-us/we-are" },
+      { label: "Teamwork", href: "/about-us/team-work" },
+      { label: "Core Value", href: "/about-us/core-value" },
+      { label: "Careers", href: "/about-us/careers" },
       { label: "Contact", href: "/features/search-and-explore" },
     ],
   },
   {
     label: "Addeep Is",
     children: [
-      { label: "Digital Platform Innovation", href: "/safety" },
-      { label: "Addeep Summary", href: "/safety/account-safety" },
-      { label: "Addeep Platform to Earn", href: "/safety/privacy" },
+      {
+        label: "Digital Platform Innovation",
+        href: "/addeep-is/digital-platform-innovation",
+      },
+      { label: "Addeep Summary", href: "/addeep-is/summary" },
+      { label: "Addeep Platform to Earn", href: "/addeep-is/platform-to-earn" },
       { label: "Addeep Business Keywords", href: "/safety/account-security" },
     ],
   },
