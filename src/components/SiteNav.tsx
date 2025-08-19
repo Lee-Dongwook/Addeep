@@ -32,8 +32,8 @@ const NAV: Item[] = [
       { label: "Addeep Business Keywords", href: "/safety/account-security" },
     ],
   },
-  { label: "Blog & Social Media Channels", href: "/blog" },
-  { label: "Help & Customer Service", href: "/blog" },
+  { label: "Blog & Social Media Channels", href: "/blog-social-media-channel" },
+  { label: "Help & Customer Service", href: "/help-customer-service" },
 ];
 
 export default function SiteNav() {
