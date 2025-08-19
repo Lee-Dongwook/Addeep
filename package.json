@@ -12,6 +12,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "axios": "^1.8.4",
     "cheerio": "^1.0.0",
     "clsx": "^2.1.1",

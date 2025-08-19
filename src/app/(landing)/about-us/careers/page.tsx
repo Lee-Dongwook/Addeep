@@ -11,6 +11,11 @@ interface AnimatedSectionProps {
   index: number;
 }
 
+type InfoCardProps = {
+  title: string;
+  description: string;
+};
+
 const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -105,42 +110,86 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
 
 const sectionData = [
   {
-    text: [
-      "우리를 도와주세요. 여러분",
-      "의 창의력과 잠재력이 필요",
-      "합니다. 전 세계의 소셜 네트",
-      "워크를 지금 바로 연결하세",
-      "요.",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "그리고 사람과",
-      "사람사이",
-      "관계를...,",
-      "세상",
-      "어디에서나",
-      "만족할 수",
-      "있도록...,",
-    ],
-    image:
-      "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
-  },
-  {
-    text: [
-      "이제 애딥의 소셜",
-      "네트워크 채널에",
-      "서 크리에이터와",
-      "인플루언서가 안",
-      "정된 콘텐츠 수익",
-      "을 만들어 갑니다.",
-    ],
+    text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
     image:
       "https://scontent-icn2-1.xx.fbcdn.net/v/t39.8562-6/387184831_3144051205888666_1255435093115443770_n.webp?_nc_cat=108&ccb=1-7&_nc_sid=f537c7&_nc_ohc=wXWVeer7fBMQ7kNvwFsuCYw&_nc_oc=AdkMfonxKNvANxrkhcgeXjZiJmhjkBbKCScDWhsoswuZseFPty6gUYCjx8VGfCDKNn4&_nc_zt=14&_nc_ht=scontent-icn2-1.xx&_nc_gid=l1VCRayvBau6AlJdlnBvhQ&oh=00_AfWmojQ0p0li3k62HzFIDgnlx7FbiSUXS-qPDubXU7r9uw&oe=68A76662",
   },
 ];
+
+const InfoCard = ({ title, description }: InfoCardProps) => {
+  return (
+    <div className="bg-gray-50 w-[500px] p-10 space-y-6 rounded-lg shadow-md">
+      <h3 className="text-lg font-bold">{title}</h3>
+      <p className="mt-2 text-sm">{description}</p>
+    </div>
+  );
+};
+
+const CareerHero = () => {
+  return (
+    <div className="w-full p-4 text-center bg-[#F9FAFB]">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+          채용 목적
+        </h1>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+          우리가 추구하는 상상이 현실과 연결되는 Addeep에서는
+        </p>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+          함께 일하는 다양한 인재들의 안전과 만족감을 큰 가치로 두고 있습니다.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const CareerCard = () => {
+  return (
+    <div className="w-full p-4 text-center bg-[#F9FAFB]">
+      <div className="flex flex-col items-center">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed">
+          근무 환경
+        </h1>
+        <div className="grid grid-cols-2 gap-24">
+          <InfoCard
+            title="회사 위치"
+            description="서울 강남에 본사를 두고 있습니다. 우리는 세계 도시에서 성장하고 발전합니다."
+          />
+          <InfoCard
+            title="원격근무 지원"
+            description="우리는 근무환경과 업무 생산성을 높이기 위해서 근무환경 개선과 함께 원격근무를 지원하여 구성원 모두의 업무 효율을 극대화 하고 있습니다."
+          />
+          <InfoCard
+            title="급여 및 4대 보험"
+            description="Addeep은 인재제일을 우선시합니다. 경쟁력있는 급여 제공과 4대 보험 인센티브 혜택 등 포함한 다양한 복지를 제공하고 있습니다."
+          />
+          <InfoCard
+            title="워라밸"
+            description="유연한 근무시간, 넉넉한 휴가 복지, 가족 중심의 근무 정책을 제공합니다. 또한 성과에 따른 부대행사 및 복지를 지원합니다."
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CareerBackground = () => {
+  return (
+    <div className="w-full p-4 text-center bg-[#F9FAFB]">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-black text-2xl font-pretendard font-bold">
+          함께 성장할 준비가 되셨나요?
+        </h1>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-relaxed mt-4">
+          Addeep에서 여러분의 꿈을 현실로 만들어보세요
+        </p>
+        <button className="mt-10 text-white font-pretendard font-bold bg-[#0066FF] h-14 rounded-2xl">
+          진행 중인 공고
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default function LandingPage() {
   return (
@@ -175,6 +224,9 @@ export default function LandingPage() {
           </AnimatedSection>
         ))}
       </div>
+      <CareerHero />
+      <CareerCard />
+      <CareerBackground />
     </div>
   );
 }

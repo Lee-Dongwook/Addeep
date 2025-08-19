@@ -1454,6 +1454,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gsap/react@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@gsap/react@npm:2.1.2"
+  peerDependencies:
+    gsap: ^3.12.5
+    react: ">=17"
+  checksum: 10/48e78bbb31a4ec5a75aab6ea69ec3f4df0bb7cff0c8ebfcdc14553cb8e35f54b7fcf94f933e2aa65fd977135aaac87b855007d376504f1bb93a74328ba1dc0cb
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -7941,6 +7951,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "yuu@workspace:."
   dependencies:
+    "@gsap/react": "npm:^2.1.2"
     "@next/bundle-analyzer": "npm:^15.4.6"
     "@svgr/webpack": "npm:^8.1.0"
     "@types/lodash": "npm:^4"
