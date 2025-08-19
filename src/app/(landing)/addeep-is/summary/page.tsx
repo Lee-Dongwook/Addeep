@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSearchParams } from "next/navigation";
@@ -196,7 +196,7 @@ const ThirdContainer = () => {
   );
 };
 
-export function SummaryAI() {
+function SummaryAI() {
   const root = useRef<HTMLDivElement>(null);
   const phone = useRef<HTMLDivElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
@@ -263,7 +263,7 @@ export function SummaryAI() {
   );
 }
 
-export function SummarySNS() {
+function SummarySNS() {
   const root = useRef<HTMLDivElement>(null);
   const phone = useRef<HTMLDivElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
@@ -363,7 +363,15 @@ export function SummarySNS() {
   );
 }
 
-export default function Page() {
+function PageContent() {
   const variant = useVariant();
   return variant === "sns" ? <SummarySNS /> : <SummaryAI />;
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageContent />
+    </Suspense>
+  );
 }

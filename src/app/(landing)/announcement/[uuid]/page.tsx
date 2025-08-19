@@ -67,9 +67,10 @@ export const metadata: Metadata = {
 export default async function NoticeDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ uuid: string }>;
 }) {
-  // 실제로는 여기서 fetch(`/api/notices/${params.id}`) 등으로 교체
+  const { uuid } = await params;
+  // 실제로는 여기서 fetch(`/api/notices/${uuid}`) 등으로 교체
   const data = MOCK; // 데모용
 
   return (
