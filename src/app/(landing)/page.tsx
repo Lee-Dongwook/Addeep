@@ -168,12 +168,12 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       {/* First Section - Collage Layout */}
       <div className="p-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-full items-center flex flex-col">
           <AnimatedSection index={0}>
-            <div className="relative w-full min-h-screen">
+            <div className="min-h-screen grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-[auto_auto_auto]">
               {/* Top Left Text Block */}
-              <div className="absolute top-8 left-8 w-[890px] animate-text">
-                <p className="font-sans font-normal text-[64px] text-gray-800 leading-[90px] tracking-normal align-middle">
+              <div className="animate-text">
+                <p className="font-sans font-normal text-[40px] text-gray-800 leading-[56px] md:text-[64px] md:leading-[90px] tracking-normal">
                   {collageData[0].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -183,8 +183,8 @@ export default function LandingPage() {
               </div>
 
               {/* Top Right Image - Fisheye Effect */}
-              <div className="absolute top-8 right-8 w-[400px] h-[400px] animate-image">
-                <div className="w-full h-full rounded-full overflow-hidden">
+              <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
+                <div className="relative w-56 h-56 md:w-[400px] md:h-[400px] overflow-hidden">
                   <Image
                     src={collageData[0].image}
                     alt="Person with fisheye lens effect"
@@ -197,23 +197,22 @@ export default function LandingPage() {
               </div>
 
               {/* Middle Left Image - Smiling Man */}
-              <div className="absolute top-3/4 left-8 transform -translate-y-1/2 w-80 h-[400px] animate-image">
-                <Image
-                  src={collageData[1].image}
-                  alt="Smiling man with hands on cheeks"
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 320px"
-                  priority
-                />
+              <div className="animate-image md:row-start-3 md:col-start-1 -mt-24">
+                <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
+                  <Image
+                    src={collageData[1].image}
+                    alt="Smiling man with hands on cheeks"
+                    fill
+                    className="object-cover rounded-lg"
+                    sizes="(max-width: 768px) 100vw, 320px"
+                    priority
+                  />
+                </div>
               </div>
 
               {/* Middle Right Text Block - Purple Gradient */}
-              <div className="absolute top-3/4 right-24 transform -translate-y-1/2 w-80 animate-text">
-                <p
-                  className="font-sans font-normal text-[40px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] 
-               bg-clip-text text-transparent leading-[70px] tracking-normal align-middle text-right"
-                >
+              <div className="animate-text mt-32 md:row-start-2 md:col-start-2 md:justify-self-end">
+                <p className="font-sans font-normal text-[28px] leading-[42px] md:text-[40px] md:leading-[70px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent tracking-normal text-right">
                   {collageData[1].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -223,21 +222,25 @@ export default function LandingPage() {
               </div>
 
               {/* Bottom Right Image - Three People */}
-              <div className="absolute top-full bottom-8 right-24 w-[500px] h-80 animate-image">
-                <Image
-                  src={collageData[2].image}
-                  alt="Three people looking down"
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 320px"
-                  priority
-                />
+              <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
+                <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
+                  <Image
+                    src={collageData[2].image}
+                    alt="Three people looking down"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    priority
+                  />
+                </div>
               </div>
 
               {/* Bottom Arrow */}
-              <div
-                className="absolute top-full mt-48 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+              <button
+                type="button"
                 onClick={handleArrowClick}
+                className="animate-text justify-self-start self-end mt-4 md:row-start-3 md:col-start-1 hover:scale-110 transition-transform duration-200"
+                aria-label="Scroll Down"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +249,7 @@ export default function LandingPage() {
                   viewBox="0 0 75 101"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_1_15)">
+                  <g clipPath="url(#clip0_1_15)">
                     <path
                       d="M9.42969 53.5605H17.835C21.7904 53.5605 25.1691 54.467 27.9708 56.2798C30.855 58.1752 32.7915 60.8534 33.7804 64.3144V6.96045H43.669V64.3144C44.6578 60.8534 46.5531 58.1752 49.3549 56.2798C52.2391 54.467 55.6589 53.5605 59.6144 53.5605H68.0197V64.1908H60.7268C55.6177 64.1908 51.4563 65.5505 48.2424 68.2698C45.0287 70.9891 43.4217 74.7798 43.4217 79.6418V81.1246H34.0276V79.6418C34.0276 74.7798 32.4207 70.9891 29.2069 68.2698C25.993 65.5505 21.8316 64.1908 16.7225 64.1908H9.42969V53.5605Z"
                       fill="black"
@@ -263,7 +266,7 @@ export default function LandingPage() {
                     </clipPath>
                   </defs>
                 </svg>
-              </div>
+              </button>
             </div>
           </AnimatedSection>
         </div>
