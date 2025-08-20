@@ -92,104 +92,107 @@ export default function SiteNav() {
       {open &&
         typeof window !== "undefined" &&
         createPortal(
-          <div
-            role="dialog"
-            aria-modal="true"
-            className="fixed inset-0 z-[60] overflow-y-auto"
-          >
-            {/* gradient backdrop */}
-            <div className="pointer-events-none absolute inset-0 bg-black" />
+          <>
+            <div aria-hidden="true" className="fixed inset-0 z-[59] bg-black" />
+            <div
+              role="dialog"
+              aria-modal="true"
+              className="fixed inset-0 z-[60] overflow-y-auto"
+            >
+              {/* gradient backdrop */}
+              <div className="pointer-events-none absolute inset-0 bg-black" />
 
-            {/* content */}
-            <div className="relative mx-auto flex min-h-full w-full max-w-[1440px] flex-col px-6 pt-6 md:px-10">
-              {/* top bar inside overlay */}
-              <div className="flex items-center justify-between">
-                <button
-                  aria-label="닫기"
-                  onClick={() => setOpen(false)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/60 text-white/90 backdrop-blur-sm hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                >
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
+              {/* content */}
+              <div className="relative mx-auto flex min-h-full w-full max-w-[1440px] flex-col px-6 pt-6 md:px-10">
+                {/* top bar inside overlay */}
+                <div className="flex items-center justify-between">
+                  <button
+                    aria-label="닫기"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/60 text-white/90 backdrop-blur-sm hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   >
-                    <path
-                      d="M5 5l10 10M15 5L5 15"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+                    <svg
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        d="M5 5l10 10M15 5L5 15"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
 
-              {/* big menu */}
-              <nav className="mt-10 mb-16 text-white">
-                <ul className="space-y-6">
-                  {NAV.map((it) => {
-                    const isParent = "children" in it;
-                    if (!isParent) {
-                      const link = it as {
-                        label: string;
-                        href: string;
-                        external?: boolean;
-                      };
+                {/* big menu */}
+                <nav className="mt-10 mb-16 text-white">
+                  <ul className="space-y-6">
+                    {NAV.map((it) => {
+                      const isParent = "children" in it;
+                      if (!isParent) {
+                        const link = it as {
+                          label: string;
+                          href: string;
+                          external?: boolean;
+                        };
+                        return (
+                          <li key={link.label}>
+                            <NavLinkBig
+                              href={link.href}
+                              external={link.external}
+                              onClick={() => setOpen(false)}
+                            >
+                              {link.label}
+                            </NavLinkBig>
+                          </li>
+                        );
+                      }
+                      const id = it.label;
+                      const openNow = !!exp[id];
                       return (
-                        <li key={link.label}>
-                          <NavLinkBig
-                            href={link.href}
-                            external={link.external}
-                            onClick={() => setOpen(false)}
+                        <li key={id} className="space-y-2">
+                          <button
+                            type="button"
+                            aria-expanded={openNow}
+                            onClick={() =>
+                              setExp((m) => ({ ...m, [id]: !m[id] }))
+                            }
+                            className="flex w-full items-center gap-3 text-left text-white"
                           >
-                            {link.label}
-                          </NavLinkBig>
+                            <span className="text-[44px] leading-[1.1] sm:text-[56px]">
+                              {it.label}
+                            </span>
+                            <Chevron
+                              className={`mt-2 h-6 w-6 transition-transform ${openNow ? "rotate-180" : ""}`}
+                            />
+                          </button>
+                          <ul
+                            className={`overflow-hidden pl-1 ${
+                              openNow ? "max-h-[1000px]" : "max-h-0"
+                            } transition-[max-height] duration-300`}
+                          >
+                            {(it.children ?? []).map((c) => (
+                              <li key={c.href}>
+                                <Link
+                                  href={c.href}
+                                  className="block py-2 text-lg text-white/85 hover:text-white"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {c.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </li>
                       );
-                    }
-                    const id = it.label;
-                    const openNow = !!exp[id];
-                    return (
-                      <li key={id} className="space-y-2">
-                        <button
-                          type="button"
-                          aria-expanded={openNow}
-                          onClick={() =>
-                            setExp((m) => ({ ...m, [id]: !m[id] }))
-                          }
-                          className="flex w-full items-center gap-3 text-left text-white"
-                        >
-                          <span className="text-[44px] leading-[1.1] sm:text-[56px]">
-                            {it.label}
-                          </span>
-                          <Chevron
-                            className={`mt-2 h-6 w-6 transition-transform ${openNow ? "rotate-180" : ""}`}
-                          />
-                        </button>
-                        <ul
-                          className={`overflow-hidden pl-1 ${
-                            openNow ? "max-h-[1000px]" : "max-h-0"
-                          } transition-[max-height] duration-300`}
-                        >
-                          {(it.children ?? []).map((c) => (
-                            <li key={c.href}>
-                              <Link
-                                href={c.href}
-                                className="block py-2 text-lg text-white/85 hover:text-white"
-                                onClick={() => setOpen(false)}
-                              >
-                                {c.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
+                    })}
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </div>,
+          </>,
           document.body
         )}
     </>

@@ -197,7 +197,7 @@ export default function LandingPage() {
               </div>
 
               {/* Middle Left Image - Smiling Man */}
-              <div className="animate-image md:row-start-3 md:col-start-1 -mt-24">
+              <div className="animate-image md:row-start-3 md:col-start-1 -mt-80">
                 <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                   <Image
                     src={collageData[1].image}
@@ -239,7 +239,7 @@ export default function LandingPage() {
               <button
                 type="button"
                 onClick={handleArrowClick}
-                className="animate-text justify-self-start self-end mt-4 md:row-start-3 md:col-start-1 hover:scale-110 transition-transform duration-200"
+                className="animate-text justify-self-start self-end mt-4 md:row-start-4 md:col-start-1 hover:scale-110 transition-transform duration-200"
                 aria-label="Scroll Down"
               >
                 <svg
