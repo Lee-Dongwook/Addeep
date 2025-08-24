@@ -1,0 +1,74 @@
+interface FooterLink {
+  id: string;
+  text: string;
+  href: string;
+  subItems?: FooterLink[];
+}
+
+export const footerLinks: FooterLink[] = [
+  {
+    id: "1",
+    text: "Home",
+    href: "/",
+  },
+  {
+    id: "2",
+    text: "About Us",
+    href: "/about-us/we-are",
+    subItems: [
+      { id: "2-1", text: "We Are", href: "/about-us/we-are" },
+      { id: "2-2", text: "Teamwork", href: "/about-us/team-work" },
+      { id: "2-3", text: "Core Values", href: "/about-us/core-value" },
+      { id: "2-4", text: "Careers", href: "/about-us/careers" },
+      { id: "2-5", text: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    id: "3",
+    text: "Addeep Is",
+    href: "/addeep-is/digital-platform-innovation",
+    subItems: [
+      {
+        id: "3-1",
+        text: "Digital Platform Innovation",
+        href: "/addeep-is/digital-platform-innovation",
+      },
+      { id: "3-2", text: "Addeep Summary", href: "/addeep-is/summary" },
+      {
+        id: "3-3",
+        text: "Addeep Platform to Earn",
+        href: "/addeep-is/platform-to-earn",
+      },
+      {
+        id: "3-4",
+        text: "Addeep Business Keywords",
+        href: "/addeep-is/platform-to-earn",
+      },
+    ],
+  },
+  {
+    id: "4",
+    text: "Solution",
+    href: "/announcement",
+  },
+  {
+    id: "5",
+    text: "Blog & Social Media",
+    href: "/blog-social-media-channel",
+  },
+  {
+    id: "6",
+    text: "Help & Customer Service",
+    href: "/help-customer-service",
+  },
+];
+
+export const socialIcons = [
+  { name: "instagram", icon: "📷" },
+  { name: "facebook", icon: "f" },
+  { name: "email", icon: "@" },
+  { name: "youtube", icon: "▶" },
+  { name: "blog", icon: "B" },
+  { name: "linkedin", icon: "in" },
+  { name: "linkedin2", icon: "in" },
+];
