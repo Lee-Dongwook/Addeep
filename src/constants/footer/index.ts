@@ -1,8 +1,22 @@
+import {
+  FooterInstagramIcon,
+  FooterFacebookIcon,
+  FooterThreadIcon,
+  FooterYoutubeIcon,
+  FooterTwitterIcon,
+  FooterLinkedinIcon,
+} from "../../icons";
+
 interface FooterLink {
   id: string;
   text: string;
   href: string;
   subItems?: FooterLink[];
+}
+
+interface FooterSocial {
+  name: string;
+  icon: React.ComponentType | string;
 }
 
 export const footerLinks: FooterLink[] = [
@@ -63,12 +77,11 @@ export const footerLinks: FooterLink[] = [
   },
 ];
 
-export const socialIcons = [
-  { name: "instagram", icon: "📷" },
-  { name: "facebook", icon: "f" },
-  { name: "email", icon: "@" },
-  { name: "youtube", icon: "▶" },
-  { name: "blog", icon: "B" },
-  { name: "linkedin", icon: "in" },
-  { name: "linkedin2", icon: "in" },
+export const socialIcons: FooterSocial[] = [
+  { name: "instagram", icon: FooterInstagramIcon },
+  { name: "facebook", icon: FooterFacebookIcon },
+  { name: "thread", icon: FooterThreadIcon },
+  { name: "youtube", icon: FooterYoutubeIcon },
+  { name: "twitter", icon: FooterTwitterIcon },
+  { name: "linkedin", icon: FooterLinkedinIcon },
 ];

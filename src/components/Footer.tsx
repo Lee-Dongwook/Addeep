@@ -40,7 +40,7 @@ export default function Footer() {
             ))}
           </div>
           {/* Social icons */}
-          <div className="mt-10 flex flex-wrap justify-center items-center gap-4">
+          <div className="mt-10 grid grid-cols-3 justify-center items-center gap-2 p-2">
             {socialIcons.map((social) => (
               <a
                 key={social.name}
@@ -48,7 +48,11 @@ export default function Footer() {
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white hover:opacity-80 transition-opacity duration-200"
               >
                 <span className="sr-only">{social.name}</span>
-                <span className="text-xs font-medium">{social.icon}</span>
+                {typeof social.icon === "string" ? (
+                  <span className="text-xs font-medium">{social.icon}</span>
+                ) : (
+                  React.createElement(social.icon)
+                )}
               </a>
             ))}
           </div>
@@ -107,7 +111,11 @@ export default function Footer() {
               className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white hover:opacity-80 transition-opacity duration-200"
             >
               <span className="sr-only">{social.name}</span>
-              <span className="text-xs font-medium">{social.icon}</span>
+              {typeof social.icon === "string" ? (
+                <span className="text-xs font-medium">{social.icon}</span>
+              ) : (
+                React.createElement(social.icon)
+              )}
             </a>
           ))}
         </div>
