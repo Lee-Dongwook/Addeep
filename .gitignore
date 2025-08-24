@@ -107,3 +107,4 @@ apps/web/public/service-worker.js
 
 # i18n
 service-account.json
+key.json
