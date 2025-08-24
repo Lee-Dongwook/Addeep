@@ -124,3 +124,49 @@ export const LandingBottomArrowIcon = ({ className = "" }) => (
     </defs>
   </svg>
 );
+
+export const SiteNavChevronIcon = ({ className = "h-8 w-8" }) => {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M6 8l4 4 4-4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const SiteNavCloseIcon = ({ className = "" }) => (
+  <svg
+    className="h-5 w-5"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke="currentColor"
+  >
+    <path d="M5 5l10 10M15 5L5 15" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);
+
+export const SiteNavHamburgerIcon = ({ className = "" }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </svg>
+);

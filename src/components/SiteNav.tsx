@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import {
+  SiteNavChevronIcon,
+  SiteNavCloseIcon,
+  SiteNavHamburgerIcon,
+} from "../icons";
+import { useResponsive } from "../lib/useResponsive";
 
 type Item =
   | { label: string; href: string; external?: boolean }
@@ -69,19 +75,7 @@ export default function SiteNav() {
             onClick={() => setOpen(true)}
             className="inline-flex items-center rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
           >
-            <svg
-              className="h-12 w-14 text-gray-900"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <SiteNavHamburgerIcon className="h-12 w-14 text-gray-900" />
           </button>
 
           <div aria-hidden className="flex-1" />
@@ -111,18 +105,7 @@ export default function SiteNav() {
                     onClick={() => setOpen(false)}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/60 text-white/90 backdrop-blur-sm hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   >
-                    <svg
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="currentColor"
-                    >
-                      <path
-                        d="M5 5l10 10M15 5L5 15"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <SiteNavCloseIcon />
                   </button>
                 </div>
 
@@ -164,7 +147,7 @@ export default function SiteNav() {
                             <span className="text-[44px] leading-[1.1] sm:text-[56px]">
                               {it.label}
                             </span>
-                            <Chevron
+                            <SiteNavChevronIcon
                               className={`mt-2 h-6 w-6 transition-transform ${openNow ? "rotate-180" : ""}`}
                             />
                           </button>
@@ -210,8 +193,32 @@ function NavLinkBig({
   onClick?: () => void;
   children: React.ReactNode;
 }) {
+  const { isMobile } = useResponsive();
+
+  const mobileCls =
+    "inline-block text-3xl leading-normal text-white hover:text-white/90 focus:outline-none";
+
   const cls =
     "inline-block text-[44px] leading-[1.1] sm:text-[56px] text-white hover:text-white/90 focus:outline-none";
+
+  if (isMobile) {
+    return external ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={mobileCls}
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    ) : (
+      <Link href={href} className={mobileCls} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+
   return external ? (
     <a
       href={href}
@@ -226,24 +233,5 @@ function NavLinkBig({
     <Link href={href} className={cls} onClick={onClick}>
       {children}
     </Link>
-  );
-}
-
-function Chevron({ className = "h-8 w-8" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M6 8l4 4 4-4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
