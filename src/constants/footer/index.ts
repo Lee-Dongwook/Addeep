@@ -17,6 +17,7 @@ interface FooterLink {
 interface FooterSocial {
   name: string;
   icon: React.ComponentType | string;
+  link?: string;
 }
 
 export const footerLinks: FooterLink[] = [
@@ -78,10 +79,26 @@ export const footerLinks: FooterLink[] = [
 ];
 
 export const socialIcons: FooterSocial[] = [
-  { name: "instagram", icon: FooterInstagramIcon },
-  { name: "facebook", icon: FooterFacebookIcon },
+  {
+    name: "instagram",
+    icon: FooterInstagramIcon,
+    link: "https://www.instagram.com/Addeep/",
+  },
+  {
+    name: "facebook",
+    icon: FooterFacebookIcon,
+    link: "https://www.facebook.com/Addeep.2023",
+  },
   { name: "thread", icon: FooterThreadIcon },
-  { name: "youtube", icon: FooterYoutubeIcon },
-  { name: "twitter", icon: FooterTwitterIcon },
+  {
+    name: "youtube",
+    icon: FooterYoutubeIcon,
+    link: "https://www.youtube.com/channel/UCsPs7L-j9fKlwdz6sRBywVQ",
+  },
+  {
+    name: "twitter",
+    icon: FooterTwitterIcon,
+    link: "https://www.twitter.com/Addeep_",
+  },
   { name: "linkedin", icon: FooterLinkedinIcon },
 ];

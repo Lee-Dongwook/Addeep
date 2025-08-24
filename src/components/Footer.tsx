@@ -44,7 +44,9 @@ export default function Footer() {
             {socialIcons.map((social) => (
               <a
                 key={social.name}
-                href="#"
+                href={social.link || "#"}
+                rel="noopener noreferrer"
+                target="_blank"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white hover:opacity-80 transition-opacity duration-200"
               >
                 <span className="sr-only">{social.name}</span>
@@ -105,9 +107,11 @@ export default function Footer() {
         {/* Social icons */}
         <div className="mt-10 flex justify-center space-x-4">
           {socialIcons.map((social) => (
-            <a
+            <Link
               key={social.name}
-              href="#"
+              href={social.link || "#"}
+              rel="noopener noreferrer"
+              target="_blank"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white hover:opacity-80 transition-opacity duration-200"
             >
               <span className="sr-only">{social.name}</span>
@@ -116,7 +120,7 @@ export default function Footer() {
               ) : (
                 React.createElement(social.icon)
               )}
-            </a>
+            </Link>
           ))}
         </div>
 
