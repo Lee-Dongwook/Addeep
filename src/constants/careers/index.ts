@@ -7,7 +7,7 @@ type InfoCardProps = {
 export const sectionData = [
   {
     text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
-    image: "/images/about-us-header.png",
+    image: "/images/Career_Background.png",
   },
 ];
 

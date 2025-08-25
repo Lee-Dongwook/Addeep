@@ -6,7 +6,7 @@ export const sectionData = [
       "인공지능,",
       "문화 콘텐츠 융합!",
     ],
-    image: "/images/about-us-header.png",
+    image: "/images/Gradient.png",
   },
 ];
 
@@ -39,7 +39,7 @@ export const slideData = [
       "산업의 글로벌 혁신 기술 기업으로 도약하며,",
       "디지털 플랫폼 생태계의 새로운 패러다임을 만들어나가고 있습니다.",
     ],
-    image: "/images/about-us-slider-1.png",
+    image: "/images/we-are-frame-1.png",
   },
   {
     title: "",
@@ -58,11 +58,11 @@ export const slideData = [
       "Addeep이 추구하는 비즈니스 모델은 클라우드 기술, 커머스 플랫폼, AGI, 데이터, 미디어 등",
       "디지털 트랜스 미디어 융합이 결합된 컬처 크리에이터 통합 디지털 플랫폼 서비스를 의미합니다.",
     ],
-    image: "/images/about-us-slider-1.png",
+    image: "/images/we-are-frame-2.png",
   },
   {
     title: "",
     text: ["AGI 기반의 스마트한 플랫폼과 콘텐츠 서비스 ..."],
-    image: "/images/about-us-slider-1.png",
+    image: "/images/we-are-frame-3.png",
   },
 ];

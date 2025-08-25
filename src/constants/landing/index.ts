@@ -6,7 +6,7 @@ export const collageData = [
       "그리고 상상의 문을",
       "연결시킵니다.",
     ],
-    image: "/images/person-fisheye.png", // fisheye lens effect person
+    image: "/images/jessica.png",
     position: "top-left",
   },
   {
@@ -16,13 +16,13 @@ export const collageData = [
       "세상 어디에서나",
       "만족할 수 있도록...,",
     ],
-    image: "/images/smiling-man.png", // smiling man with hands on cheeks
+    image: "/images/social.png",
     position: "middle-left",
     gradient: true,
   },
   {
     text: [],
-    image: "/images/three-people.png", // three people looking down
+    image: "/images/good-face.png",
     position: "bottom-right",
   },
 ];
@@ -35,5 +35,5 @@ export const splitScreenData = {
     "안정된 콘텐츠 수익을",
     "만들어 갑니다",
   ],
-  Image: "/images/person-peeking.png",
+  Image: "/images/Background.png",
 };
