@@ -5,6 +5,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import { useResponsive } from "../../../../lib/useResponsive";
+import { LandingBottomArrowIcon } from "../../../../icons";
+import {
+  sectionData,
+  HeaderImageData,
+  HeroText,
+  slideData,
+} from "../../../../constants/we-are";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,77 +113,50 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   );
 };
 
-const sectionData = [
-  {
-    text: [
-      "디지털 플랫폼과 사람,",
-      "그리고 데이터와",
-      "인공지능,",
-      "문화 콘텐츠 융합!",
-    ],
-    image: "/images/about-us-header.png",
-  },
-];
-
-const HeaderImageData = [
-  {
-    text: ["디지털 혁신과", "뉴 미디어 시장의", "트랜스포메이션", "으로 전환!"],
-  },
-];
-
-const HeroText = [
-  {
-    text: [
-      "이용자, 데이터 중심의",
-      "소셜 미디어 서비스 Addeep이",
-      "디지털 플랫폼의",
-      "새로운 혁신을 만들어 갑니다.",
-    ],
-  },
-];
-
-const slideData = [
-  {
-    title: "AGI와 S/W 플랫폼 기술로 여는 미래 디지털 생태계",
-    text: [
-      "Addeep은 급변하는 디지털 세상 속에서 AGI(인공 일반 지능)",
-      "기술과 혁신적인 S/W 플랫폼 기술을 기반으로 미디어&커머스,",
-      "데이터 스트리밍, 디지털 마케팅",
-      "그리고 문화,엔터테인먼트 등 다양한 콘텐츠 산업의 융합을 선도합니다.",
-      '"클라우드 스트리밍,미디어,게임,커머스 플랫폼"',
-      "산업의 글로벌 혁신 기술 기업으로 도약하며,",
-      "디지털 플랫폼 생태계의 새로운 패러다임을 만들어나가고 있습니다.",
-    ],
-    image: "/images/about-us-slider-1.png",
-  },
-  {
-    title: "",
-    text: [
-      "우리는 전 세계 모든 고객과 사용자들이 공존의 가치를 창출할 수 있도록,",
-      "AGI 기반의 데이터 서비스 경계를 혁신하여 독자적인 비즈니스 모델인",
-      '"Addeep Platform" 생태계를 구축하고 있습니다.',
-      "Addeep의 스마트 문화는 모두를 향한 도전의 즐거움을 의미합니다.",
-      "클라우드 S/W 플랫폼 기술과 AGI를 바탕으로 디지털 콘텐츠 서비스 체계를 혁신하여",
-      "스마트 컬처 세상을 향해 나아갑니다.",
-      "전 세계 개발자, 창작자(크리에이터), 각 분야 전문가들이 무한한 도전과 혁신을 경험하고",
-      '새로운 가치를 끊임없이 만들어 모두에게 "희망"이 되는 공간,',
-      '바로 "Addeep Platform" 입니다.',
-      "a",
-      "우리는 글로벌 최고의 인재들과 함께 S/W 핵심 역량을 모아 한국, 미국, 인도, 동남아시아를 발판으로",
-      "글로벌 기업으로의 도약을 시작합니다.",
-      "Addeep이 추구하는 비즈니스 모델은 클라우드 기술, 커머스 플랫폼, AGI, 데이터, 미디어 등",
-      "디지털 트랜스 미디어 융합이 결합된 컬처 크리에이터 통합 디지털 플랫폼 서비스를 의미합니다.",
-    ],
-    image: "/images/about-us-slider-1.png",
-  },
-  {
-    title: "",
-    text: ["AGI 기반의 스마트한 플랫폼과 콘텐츠 서비스 ..."],
-    image: "/images/about-us-slider-1.png",
-  },
-];
-
 function AboutSwiper() {
+  const { isMobile } = useResponsive();
+
+  if (isMobile) {
+    return (
+      <Swiper
+        modules={[Pagination, Navigation]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        className="w-full min-h-screen custom-swiper"
+      >
+        {slideData.map((slide, i) => (
+          <SwiperSlide key={i}>
+            <div className="flex flex-col items-center justify-between overflow-y-auto p-2">
+              {/* Image */}
+              <div className="flex justify-center mt-8">
+                <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
+                  <Image
+                    src={slide.image ?? ""}
+                    alt={slide.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              {/* Text */}
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-gray-600 leading-snug mt-2 mb-2">
+                  {slide.title}
+                </h2>
+                <p className="text-sm text-gray-400 leading-relaxed whitespace-normal overflow-auto">
+                  {slide.text.map((t, index) => (
+                    <div key={index}>{t}</div>
+                  ))}
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    );
+  }
+
   return (
     <Swiper
       modules={[Pagination, Navigation]}
@@ -218,6 +199,7 @@ function AboutSwiper() {
 }
 
 export default function LandingPage() {
+  const { isMobile } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
   const handleArrowClick = () => {
@@ -232,6 +214,88 @@ export default function LandingPage() {
       });
     }
   };
+
+  if (isMobile) {
+    return (
+      <div className="min-h-screen bg-white">
+        {sectionData.map((section, index) => (
+          <AnimatedSection key={index} index={index}>
+            <div className="flex flex-col w-full">
+              {/* Text Section */}
+              <div className="absolute top-1/3 items-center justify-center p-8">
+                <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+                  {section.text.map((line, lineIndex) => (
+                    <span key={lineIndex} className="animate-text block">
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
+              {/* Bottom Arrow */}
+              <div
+                className="absolute top-3/4 mt-12 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+                onClick={handleArrowClick}
+              >
+                <LandingBottomArrowIcon />
+              </div>
+
+              {/* Image Section */}
+              <div
+                className={[
+                  "absolute top-3/4 right-0 w-1/2 h-1/2 animate-image",
+                ].join(" ")}
+              >
+                <Image
+                  src={section.image}
+                  alt="girl taking a photo with a tunnel filter"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
+                  {HeaderImageData.map((header, index) => {
+                    return (
+                      <div key={index}>
+                        {header.text.map((line, lineIndex) => (
+                          <span
+                            key={lineIndex}
+                            className="animate-text block text-white font-sans font-normal text-base text-right"
+                          >
+                            {line}
+                          </span>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
+        <div
+          ref={secondSectionRef}
+          className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-4"
+        >
+          <AnimatedSection index={1}>
+            {HeroText.map((section, index) => (
+              <div key={index}>
+                {section.text.map((line, lineIndex) => (
+                  <div key={lineIndex} className="animate-text block mt-4">
+                    {line}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </AnimatedSection>
+        </div>
+        <div className="p-16 -mt-64 flex flex-col items-center justify-center">
+          <AboutSwiper />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -253,30 +317,7 @@ export default function LandingPage() {
               className="absolute top-3/4 mt-12 left-28 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
               onClick={handleArrowClick}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="75"
-                height="80"
-                viewBox="0 0 75 101"
-                fill="none"
-              >
-                <g clip-path="url(#clip0_1_15)">
-                  <path
-                    d="M9.42969 53.5605H17.835C21.7904 53.5605 25.1691 54.467 27.9708 56.2798C30.855 58.1752 32.7915 60.8534 33.7804 64.3144V6.96045H43.669V64.3144C44.6578 60.8534 46.5531 58.1752 49.3549 56.2798C52.2391 54.467 55.6589 53.5605 59.6144 53.5605H68.0197V64.1908H60.7268C55.6177 64.1908 51.4563 65.5505 48.2424 68.2698C45.0287 70.9891 43.4217 74.7798 43.4217 79.6418V81.1246H34.0276V79.6418C34.0276 74.7798 32.4207 70.9891 29.2069 68.2698C25.993 65.5505 21.8316 64.1908 16.7225 64.1908H9.42969V53.5605Z"
-                    fill="black"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1_15">
-                    <rect
-                      width="75"
-                      height="100"
-                      fill="white"
-                      transform="translate(0 0.530273)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
+              <LandingBottomArrowIcon />
             </div>
 
             {/* Image Section */}
