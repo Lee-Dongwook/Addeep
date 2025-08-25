@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
+import { useResponsive } from "../../../../lib/useResponsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,6 +110,34 @@ function Section({
   imageAlt = "",
   className = "",
 }: SectionProps) {
+  const { isMobile } = useResponsive();
+
+  if (isMobile) {
+    <section className={`w-full bg-white ${className}`}>
+      <div className="mx-auto max-w-6xl px-6 py-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_420px]">
+          <div className="p-2">
+            <p className="text-2xl leading-relaxed tracking-[-0.01em] [text-wrap:pretty] break-keep text-gray-400">
+              {children}
+            </p>
+          </div>
+
+          {/* <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
+            <div className="relative h-full w-full">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 420px"
+                priority
+              />
+            </div>
+          </div> */}
+        </div>
+      </div>
+    </section>;
+  }
   return (
     <section className={`w-full bg-white ${className}`}>
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-10">
@@ -223,11 +252,70 @@ const ThirdContainer = () => {
 };
 
 function SummaryAI() {
+  const { isMobile } = useResponsive();
   const root = useRef<HTMLDivElement>(null);
   const phone = useRef<HTMLDivElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
 
   useSummaryGsap(root, phone, frames, "copy-ai");
+
+  if (isMobile) {
+    return (
+      <div className="stage relative mb-20">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24">
+          {/* <div className="sticky top-0 h-[70vh]">
+            <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
+              <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
+                {["1", "2", "3", "4"].map((src, i) => (
+                  <img
+                    key={i}
+                    src={AddeepIsImage.src}
+                    ref={(el) => {
+                      if (el) frames.current[i] = el;
+                    }}
+                    className="absolute inset-0 h-full w-full object-cover opacity-0"
+                    alt=""
+                  />
+                ))}
+              </div>
+            </div>
+          </div> */}
+          {/* 우측: 카피 섹션들 */}
+          <div className="space-y-20">
+            <section className="copy-ai">
+              <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+                Addeep GPR 개요 및 비전
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Addeep은 WEB 3.0 기반의 혁신적인 소셜 미디어 사업을 완성하기
+                위한 핵심 기술로 'Addeep-GPR-1' (Generative Pre-trained
+                Recommender) AI를 개발하고 있습니다. 이는 기존 대화형 AI 모델에
+                CNN 및 RNN 차세대 기술을 통합하여 독자적으로 고안된 것으로,
+                Addeep의 증강 AI(Augmented AI) 기술의 기반을 이룹니다.
+              </p>
+            </section>
+
+            <section className="copy-ai">
+              <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+                e-Commerce PIMS
+              </h2>
+              <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+                #Target커머스 #현금보상
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Addeep의 GPR-1은 단순한 AI 모델을 넘어, 사용자에게 명시적인 입력
+                없이도 개인화된 콘텐츠를 자동으로 생성하고 추천하는데 중점을 둔
+                '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
+              </p>
+            </section>
+          </div>
+        </div>
+        <FirstContainer />
+        <SecondContainer />
+        <ThirdContainer />
+      </div>
+    );
+  }
 
   return (
     <div ref={root} className="stage relative mb-20">
