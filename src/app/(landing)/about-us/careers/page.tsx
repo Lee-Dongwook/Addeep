@@ -3,6 +3,9 @@ import Image from "next/image";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useResponsive } from "../../../../lib/useResponsive";
+import { LandingBottomArrowIcon } from "../../../../icons";
+import { sectionData, items } from "../../../../constants/careers";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,13 +112,6 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   );
 };
 
-const sectionData = [
-  {
-    text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
-    image: "/images/about-us-header.png",
-  },
-];
-
 const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
   return (
     <div className="group bg-white w-full p-6 md:p-8 rounded-2xl shadow-[0_12px_30px_rgba(16,24,40,0.08)] ring-1 ring-black/5">
@@ -140,6 +136,39 @@ const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
   );
 };
 const CareerHero = () => {
+  const { isMobile } = useResponsive();
+
+  if (isMobile) {
+    return (
+      <section className="w-full bg-[#F9FAFB]">
+        <div className="mx-auto px-6 py-14 text-center">
+          {/* 제목 */}
+          <h1 className="text-xl font-extrabold text-gray-800 tracking-tight">
+            채용 목적
+          </h1>
+
+          {/* 그라디언트 언더라인 */}
+          <div
+            className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
+            aria-hidden
+          />
+
+          {/* 본문 */}
+          <p className="mt-8 text-md font-normal text-gray-700 leading-relaxed">
+            우리가 추구하는 상상이 현실과 연결되는 Addeep에서는
+          </p>
+          <p className="mt-3 text-md font-normal text-gray-700 leading-relaxed">
+            함께 일하는 다양한 인재들의{" "}
+            <span className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent font-bold">
+              안전과 만족감
+            </span>
+            을 큰 가치로 두고 있습니다.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="w-full bg-[#F9FAFB]">
       <div className="max-w-5xl mx-auto px-6 py-14 text-center">
@@ -150,8 +179,7 @@ const CareerHero = () => {
 
         {/* 그라디언트 언더라인 */}
         <div
-          className="mt-3 mx-auto h-1 w-16 rounded-full
-                     bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
+          className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
           aria-hidden
         />
 
@@ -161,10 +189,7 @@ const CareerHero = () => {
         </p>
         <p className="mt-3 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700 leading-relaxed">
           함께 일하는 다양한 인재들의{" "}
-          <span
-            className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]
-                       bg-clip-text text-transparent font-bold"
-          >
+          <span className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent font-bold">
             안전과 만족감
           </span>
           을 큰 가치로 두고 있습니다.
@@ -175,32 +200,6 @@ const CareerHero = () => {
 };
 
 const CareerCard = () => {
-  const items: InfoCardProps[] = [
-    {
-      icon: "📍",
-      title: "회사 위치",
-      description:
-        "서울 강남에 본사를 두고 있습니다. 우리는 세계 도시에서 성장하고 발전합니다.",
-    },
-    {
-      icon: "🏠",
-      title: "원격근무 지원",
-      description:
-        "근무환경 개선과 함께 원격근무를 지원하여 구성원 모두의 업무 효율을 극대화하고 있습니다.",
-    },
-    {
-      icon: "💰",
-      title: "급여 및 4대 보험",
-      description:
-        "경쟁력 있는 급여, 4대 보험, 인센티브 등 다양한 복지를 제공합니다.",
-    },
-    {
-      icon: "⚖️",
-      title: "워라밸",
-      description:
-        "유연한 근무시간과 넉넉한 휴가, 가족 중심 복지 등 건강한 일·생활 균형을 지원합니다.",
-    },
-  ];
   return (
     <section
       className="
@@ -215,8 +214,7 @@ const CareerCard = () => {
             근무 환경
           </h2>
           <div
-            className="mt-3 mx-auto h-1 w-16 rounded-full
-                       bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
+            className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
             aria-hidden
           />
         </div>
@@ -233,35 +231,52 @@ const CareerCard = () => {
 };
 
 const CareerBackground = () => {
+  const { isMobile } = useResponsive();
+
+  if (isMobile) {
+    return (
+      <section className="relative w-full bg-[#F9FAFB]">
+        {/* 상단 얇은 그라디언트 라인 (옵션) */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D300C5]/30 to-transparent" />
+
+        <div className="mx-auto px-6 py-20 text-center">
+          <h2 className="text-slate-800 font-pretendard font-extrabold tracking-tight text-xl">
+            함께 성장할 준비가 되셨나요?
+          </h2>
+
+          <p className="mt-6 text-slate-500 font-pretendard text-sm leading-relaxed">
+            Addeep에서 여러분의 꿈을 현실로 만들어보세요
+          </p>
+          <div className="mt-8">
+            <a
+              href="/careers"
+              className="inline-flex items-center justify-center h-14 px-8 rounded-full text-white font-pretendard font-bold bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA] shadow-[0_12px_30px_rgba(118,56,250,0.25)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+            >
+              지원하기
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative w-full bg-[#F9FAFB]">
       {/* 상단 얇은 그라디언트 라인 (옵션) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D300C5]/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
-        <h2
-          className="text-slate-800 font-pretendard font-extrabold tracking-tight
-                       text-3xl md:text-5xl lg:text-6xl"
-        >
+        <h2 className="text-slate-800 font-pretendard font-extrabold tracking-tight text-3xl md:text-5xl lg:text-6xl">
           함께 성장할 준비가 되셨나요?
         </h2>
 
-        <p
-          className="mt-6 text-slate-500 font-pretendard
-                      text-base md:text-xl lg:text-2xl leading-relaxed"
-        >
+        <p className="mt-6 text-slate-500 font-pretendard text-base md:text-xl lg:text-2xl leading-relaxed">
           Addeep에서 여러분의 꿈을 현실로 만들어보세요
         </p>
         <div className="mt-12">
           <a
             href="/careers"
-            className="inline-flex items-center justify-center
-                       h-14 md:h-[60px] px-8 md:px-10 rounded-full
-                       text-white font-pretendard font-bold
-                       bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA]
-                       shadow-[0_12px_30px_rgba(118,56,250,0.25)]
-                       transition-transform duration-200
-                       hover:scale-[1.02] active:scale-[0.99]"
+            className="inline-flex items-center justify-center h-14 md:h-[60px] px-8 md:px-10 rounded-full text-white font-pretendard font-bold bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA] shadow-[0_12px_30px_rgba(118,56,250,0.25)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
           >
             지원하기
           </a>
@@ -271,6 +286,7 @@ const CareerBackground = () => {
   );
 };
 export default function LandingPage() {
+  const { isMobile } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
   const handleArrowClick = () => {
@@ -285,6 +301,59 @@ export default function LandingPage() {
       });
     }
   };
+
+  if (isMobile) {
+    return (
+      <div className="min-h-screen bg-gray-200">
+        <div className="mx-auto">
+          {sectionData.map((section, index) => (
+            <AnimatedSection key={index} index={index}>
+              <div className="flex flex-col w-full">
+                {/* Text Section */}
+                <div className="absolute top-1/3 items-center justify-center p-8">
+                  <p className="text-3xl md:text-5xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+                    {section.text.map((line, lineIndex) => (
+                      <span key={lineIndex} className="animate-text">
+                        {line}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+                {/* Bottom Arrow */}
+                <div
+                  className="absolute top-3/4 mt-12 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+                  onClick={handleArrowClick}
+                >
+                  <LandingBottomArrowIcon />
+                </div>
+
+                {/* Image Section */}
+                <div
+                  className={[
+                    "absolute top-3/4 right-0 w-1/2 h-1/4 animate-image",
+                  ].join(" ")}
+                >
+                  <Image
+                    src={section.image}
+                    alt="girl taking a photo with a tunnel filter"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+        <div ref={secondSectionRef}>
+          <CareerHero />
+          <CareerCard />
+          <CareerBackground />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-200">
@@ -307,30 +376,7 @@ export default function LandingPage() {
                 className="absolute top-3/4 mt-12 left-28 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
                 onClick={handleArrowClick}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="75"
-                  height="80"
-                  viewBox="0 0 75 101"
-                  fill="none"
-                >
-                  <g clip-path="url(#clip0_1_15)">
-                    <path
-                      d="M9.42969 53.5605H17.835C21.7904 53.5605 25.1691 54.467 27.9708 56.2798C30.855 58.1752 32.7915 60.8534 33.7804 64.3144V6.96045H43.669V64.3144C44.6578 60.8534 46.5531 58.1752 49.3549 56.2798C52.2391 54.467 55.6589 53.5605 59.6144 53.5605H68.0197V64.1908H60.7268C55.6177 64.1908 51.4563 65.5505 48.2424 68.2698C45.0287 70.9891 43.4217 74.7798 43.4217 79.6418V81.1246H34.0276V79.6418C34.0276 74.7798 32.4207 70.9891 29.2069 68.2698C25.993 65.5505 21.8316 64.1908 16.7225 64.1908H9.42969V53.5605Z"
-                      fill="black"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_1_15">
-                      <rect
-                        width="75"
-                        height="100"
-                        fill="white"
-                        transform="translate(0 0.530273)"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
+                <LandingBottomArrowIcon />
               </div>
 
               {/* Image Section */}
