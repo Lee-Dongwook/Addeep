@@ -119,7 +119,8 @@ const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
         {/* 아이콘 원형 그라디언트 */}
         <div
           className="flex-none w-12 h-12 md:w-14 md:h-14 rounded-full grid place-items-center
-                        bg-gradient-to-br from-[#FF0169] via-[#D300C5] to-[#7638FA] text-white text-xl shadow-md"
+  bg-[linear-gradient(to_bottom_right,#F09433,#E6683C,#DC2743,#CC2366,#BC1888)]
+  text-white text-xl shadow-md"
         >
           <span>{icon}</span>
         </div>
