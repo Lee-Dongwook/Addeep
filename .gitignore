@@ -117,3 +117,5 @@ key.json
 
 # GCP credentials
 service_account.json
+.deploy/
+build.tgz
