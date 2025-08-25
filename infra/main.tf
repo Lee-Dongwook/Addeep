@@ -24,6 +24,22 @@ resource "google_compute_instance" "web" {
     }
 
     tags = ["http-server", "https-server"]
+
+    # VM 초기 세팅: Nginx 설치
+    provisioner "remote-exec" {
+        inline = [
+            "sudo apt update",
+            "sudo apt install -y nginx",
+            "sudo rm -rf /var/www/html/*"
+        ]
+
+        connection {
+            type       = "ssh"
+            user        = var.ssh_user
+            private_key = file("~/.ssh/id_rsa")
+            host        = self.network_interface[0].access_config[0].nat_ip
+        }
+    }
 }
 
 resource "google_compute_firewall" "http" {
