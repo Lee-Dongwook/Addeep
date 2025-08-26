@@ -68,6 +68,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
       ) : null}
 
       <ul className="space-y-8">
+        {items.length === 0 && <h4>공지사항이 존재하지 않습니다.</h4>}
         {items.map((it) => {
           const Card = it.href ? "a" : "div";
           const props = it.href ? { href: it.href } : {};
@@ -221,29 +222,31 @@ export default function LandingPage() {
       <AnnouncementHeader />
       <NoticeList
         title="공지사항"
-        items={[
-          {
-            id: "n1",
-            title: "개인정보 처리방침 변경 안내",
-            summary: "개인정보 처리방침이 일부 변경되었습니다.",
-            date: "2024-01-08",
-            href: "/announcement/n1",
-          },
-          {
-            id: "n2",
-            title: "개인정보 처리방침 변경 안내",
-            summary: "개인정보 처리방침이 일부 변경되었습니다.",
-            date: "2024-01-08",
-            href: "/announcement/n2",
-          },
-          {
-            id: "n3",
-            title: "개인정보 처리방침 변경 안내",
-            summary: "개인정보 처리방침이 일부 변경되었습니다.",
-            date: "2024-01-08",
-            href: "/announcement/n3",
-          },
-        ]}
+        items={
+          [
+            // {
+            //   id: "n1",
+            //   title: "테스트 공지사항",
+            //   summary: "테스트 공지사항입니다.",
+            //   date: "2024-01-08",
+            //   href: "/announcement/n1",
+            // },
+            // {
+            //   id: "n2",
+            //   title: "테스트 공지사항",
+            //   summary: "테스트 공지사항입니다.",
+            //   date: "2024-01-08",
+            //   href: "/announcement/n2",
+            // },
+            // {
+            //   id: "n3",
+            //   title: "테스트 공지사항",
+            //   summary: "테스트 공지사항입니다.",
+            //   date: "2024-01-08",
+            //   href: "/announcement/n3",
+            // },
+          ]
+        }
       />
     </div>
   );

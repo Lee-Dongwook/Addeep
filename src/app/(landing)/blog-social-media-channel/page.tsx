@@ -185,8 +185,8 @@ const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="60"
-    height="60"
+    width="70"
+    height="70"
     viewBox="0 0 113 113"
     fill="none"
   >
@@ -240,6 +240,7 @@ function Row({
   open: boolean;
   onToggle: () => void;
 }) {
+  const { isMobile } = useResponsive();
   const panelRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -253,6 +254,43 @@ function Row({
     ro.observe(el);
     return () => ro.disconnect();
   }, [item.content]);
+
+  if (isMobile) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={open}
+          className="
+          group flex w-full items-center justify-between gap-2 py-6
+          text-left text-[14px] leading-7 text-neutral-800
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400
+        "
+        >
+          <span className="whitespace-pre-wrap">{item.label}</span>
+          <ArrowRight
+            className={`
+            h-5 w-5 shrink-0 text-neutral-900 transition-transform
+            ${open ? "translate-x-0 rotate-90" : "group-hover:translate-x-1"}
+          `}
+          />
+        </button>
+        {/* 드롭다운 패널 (height transition) */}
+        <div
+          style={{
+            maxHeight: open ? height : 0,
+            transition: "max-height 320ms cubic-bezier(.2,.8,.2,1)",
+          }}
+          className="overflow-hidden"
+        >
+          <div ref={panelRef} className="pb-6 text-neutral-600">
+            {item.content}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6">
@@ -297,6 +335,8 @@ function HelpAccordion({
   type = "multiple",
   defaultOpenIds = [],
 }: HelpAccordionProps) {
+  const { isMobile } = useResponsive();
+
   const [openIds, setOpenIds] = useState<string[]>(defaultOpenIds);
 
   const toggle = (id: string) => {
@@ -306,6 +346,26 @@ function HelpAccordion({
       return isOpen ? prev.filter((x) => x !== id) : [...prev, id];
     });
   };
+
+  if (isMobile) {
+    return (
+      <section className="w-full p-6 flex flex-col items-center justify-center">
+        <h2 className="mb-6 text-2xl font-normal text-neutral-900 md:text-4xl">
+          {title}
+        </h2>
+        <div className="divide-y divide-neutral-200">
+          {items.map((it) => (
+            <Row
+              key={it.id}
+              item={it}
+              open={openIds.includes(it.id)}
+              onToggle={() => toggle(it.id)}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full p-24 flex flex-col items-center justify-center">
@@ -330,10 +390,22 @@ function HelpAccordion({
 const CoreValueHeader = () => {
   const { isMobile } = useResponsive();
 
-  if(isMobile) {
-    return(
-      <div className="w-full text-center p-4"></div>
-    )
+  if (isMobile) {
+    return (
+      <div className="w-full text-center p-4">
+        <div
+          className="w-full h-full p-16 rounded-lg flex flex-col items-center justify-center"
+          style={{
+            background:
+              "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <h1 className="text-xl font-bold text-white mb-4">Connect with Us</h1>
+          <SocialLinksRow />
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -356,6 +428,35 @@ const CoreValueHeader = () => {
 };
 
 const SocialLinksRow = () => {
+  const { isMobile } = useResponsive();
+
+  if (isMobile) {
+    return (
+      <section
+        aria-label="Social Links"
+        className="w-full flex-1 flex flex-row items-center justify-center p-4"
+      >
+        <div>
+          <ul className="flex flex-row gap-4">
+            {items.map(({ label, href, Icon }) => (
+              <li
+                key={label}
+                className="bg-transparent w-10 h-10 rounded-3xl flex flex-col items-center justify-center"
+              >
+                <a
+                  href={href}
+                  className="flex flex-col items-center justify-center gap-2"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section aria-label="Social Links" className="w-full p-32">
       <div className="mx-auto max-w-6xl rounded-3xl p-6 md:p-8">
@@ -415,7 +516,7 @@ export default function LandingPage() {
           },
           {
             id: "q3",
-            label: "Addeep의 Web3 Pto E는 무엇인가요?",
+            label: "Addeep의 Web3 P to E는 무엇인가요?",
             content: (
               <p>
                 참여(Produce-to-Earn)에 따른 보상 모델로, 창작·유통·참여
