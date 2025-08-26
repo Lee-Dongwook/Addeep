@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -96,14 +97,15 @@ const DigitalPlatformInnovation = () => {
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
               <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
                 {["1", "2", "3", "4"].map((src, i) => (
-                  <img
+                  <Image
                     key={i}
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
+                    src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
                     className="absolute inset-0 h-full w-full object-cover opacity-0"
                     alt=""
+                    priority
                   />
                 ))}
               </div>
@@ -151,9 +153,9 @@ const DigitalPlatformInnovation = () => {
             {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
               {["1", "2", "3", "4"].map((src, i) => (
-                <img
+                <Image
                   key={i}
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
+                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect, type ReactNode } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -149,11 +150,12 @@ export default function LandingPage() {
                 {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
                   <div className="relative w-56 h-56 overflow-hidden">
-                    <img
-                      src={collageData[0].image}
+                    <Image
+                      src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
                       alt="Person with fisheye lens effect"
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 320px"
+                      priority
                     />
                   </div>
                 </div>
@@ -161,11 +163,12 @@ export default function LandingPage() {
                 {/* Middle Left Image - Smiling Man */}
                 <div className="animate-image">
                   <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
-                    <img
-                      src={collageData[1].image}
+                    <Image
+                      src="https://storage.googleapis.com/assets-addeep/images/social.png"
                       alt="Smiling man with hands on cheeks"
                       className="object-cover rounded-lg"
                       sizes="(max-width: 768px) 100vw, 320px"
+                      priority
                     />
                   </div>
                 </div>
@@ -184,11 +187,12 @@ export default function LandingPage() {
                 {/* Bottom Right Image - Three People */}
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
                   <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
-                    <img
-                      src={collageData[2].image}
+                    <Image
+                      src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
                       alt="Three people looking down"
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 500px"
+                      priority
                     />
                   </div>
                 </div>
@@ -214,11 +218,12 @@ export default function LandingPage() {
               <div className="flex w-full h-full">
                 {/* Left Side - Person with hands over eyes */}
                 <div className="flex-1 relative animate-image">
-                  <img
-                    src={splitScreenData.Image}
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/Background.png"
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 50vw"
+                    priority
                   />
                 </div>
               </div>
@@ -263,11 +268,12 @@ export default function LandingPage() {
               {/* Top Right Image - Fisheye Effect */}
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
                 <div className="relative w-56 h-56 md:w-[400px] md:h-[400px] overflow-hidden">
-                  <img
-                    src={collageData[0].image}
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
                     alt="Person with fisheye lens effect"
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 320px"
+                    priority
                   />
                 </div>
               </div>
@@ -275,11 +281,12 @@ export default function LandingPage() {
               {/* Middle Left Image - Smiling Man */}
               <div className="animate-image md:row-start-3 md:col-start-1 -mt-80">
                 <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
-                  <img
-                    src={collageData[1].image}
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/social.png"
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
                     sizes="(max-width: 768px) 100vw, 320px"
+                    priority
                   />
                 </div>
               </div>
@@ -298,11 +305,12 @@ export default function LandingPage() {
               {/* Bottom Right Image - Three People */}
               <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
                 <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
-                  <img
-                    src={collageData[2].image}
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
                     alt="Three people looking down"
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 500px"
+                    priority
                   />
                 </div>
               </div>
@@ -331,11 +339,12 @@ export default function LandingPage() {
             <div className="flex w-full h-full">
               {/* Left Side - Person with hands over eyes */}
               <div className="flex-1 relative animate-image">
-                <img
-                  src={splitScreenData.Image}
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/Background.png"
                   alt="Person with hands over eyes peeking through fingers"
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 50vw"
+                  priority
                 />
               </div>
             </div>

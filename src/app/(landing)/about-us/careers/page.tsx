@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, type ReactNode } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
@@ -334,10 +335,11 @@ export default function LandingPage() {
                     "absolute top-3/4 right-0 w-1/2 h-1/4 animate-image",
                   ].join(" ")}
                 >
-                  <img
-                    src={section.image}
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
                     alt="girl taking a photo with a tunnel filter"
                     className="object-cover w-full h-full"
+                    priority
                   />
                 </div>
               </div>
@@ -383,10 +385,11 @@ export default function LandingPage() {
                   "absolute top-0 right-0 w-1/2 h-full animate-image",
                 ].join(" ")}
               >
-                <img
-                  src={section.image}
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
                   alt="girl taking a photo with a tunnel filter"
                   className="object-cover w-full h-full"
+                  priority
                 />
               </div>
             </div>

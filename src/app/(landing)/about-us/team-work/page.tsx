@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -181,12 +182,13 @@ const FirstHuman = () => {
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center text-center lg:w-1/2">
               <div className="w-48 h-48 mb-24 rounded-full overflow-hidden">
-                <img
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/jaeyoung.png`}
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/jaeyoung.png"
                   alt="Kevin Jaeyoung Yoon"
                   width={256}
                   height={256}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">
@@ -354,12 +356,13 @@ const SecondHuman = () => {
             </div>
             <div className="flex flex-col items-center lg:w-1/2">
               <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <img
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/kyoungsu.png`}
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/kyoungsu.png"
                   alt="Chris Kang"
                   width={256}
                   height={256}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
@@ -457,12 +460,13 @@ const ThirdHuman = () => {
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center lg:w-1/2">
               <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <img
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/seyoung.png`}
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/seyoung.png"
                   alt="Albert Seyoung Koo"
                   width={256}
                   height={256}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">

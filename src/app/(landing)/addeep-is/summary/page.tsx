@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, Suspense } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -124,11 +125,12 @@ function Section({
 
           <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
             <div className="relative h-full w-full">
-              <img
+              <Image
                 src={imageSrc}
                 alt={imageAlt}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 420px"
+                priority
               />
             </div>
           </div>
@@ -151,11 +153,12 @@ function Section({
           {/* image */}
           <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
             <div className="relative h-full w-full">
-              <img
+              <Image
                 src={imageSrc}
                 alt={imageAlt}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 420px"
+                priority
               />
             </div>
           </div>
@@ -168,7 +171,7 @@ function Section({
 const FirstContainer = () => {
   return (
     <Section
-      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
+      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
       imageAlt="Addeep collage 1"
       className="p-0"
     >
@@ -194,7 +197,7 @@ const FirstContainer = () => {
 const SecondContainer = () => {
   return (
     <Section
-      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
+      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
       imageAlt="Addeep collage 2"
       className="p-0"
     >
@@ -219,7 +222,7 @@ const SecondContainer = () => {
 const ThirdContainer = () => {
   return (
     <Section
-      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
+      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
       imageAlt="Addeep collage 3"
       className="p-0"
     >
@@ -264,9 +267,9 @@ function SummaryAI() {
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
               <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
                 {["1", "2", "3", "4"].map((src, i) => (
-                  <img
+                  <Image
                     key={i}
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
+                    src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
@@ -323,9 +326,9 @@ function SummaryAI() {
             {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
               {["1", "2"].map((src, i) => (
-                <img
+                <Image
                   key={i}
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
+                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
@@ -393,14 +396,15 @@ function SummarySNS() {
           <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
               {["1", "2", "3", "4", "5"].map((src, i) => (
-                <img
+                <Image
                   key={i}
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
+                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
                   className="absolute inset-0 h-full w-full object-cover opacity-0"
                   alt=""
+                  priority
                 />
               ))}
             </div>

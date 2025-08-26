@@ -12,13 +12,23 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
     domains: [
-      "lh3.googleusercontent.com",
-      "example.com",
-      "scontent-icn2-1.xx.fbcdn.net",
       "storage.googleapis.com",
+      "addeep-assets-prod.storage.googleapis.com",
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        pathname: "/addeep-assets-prod/**",
+      },
+      {
+        protocol: "https",
+        hostname: "addeep-assets-prod.storage.googleapis.com",
+        pathname: "/**",
+      },
+    ],
+    formats: ["image/avif", "image/webp"],
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
