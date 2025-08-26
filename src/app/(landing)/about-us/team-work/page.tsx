@@ -352,9 +352,14 @@ const SecondHuman = () => {
               </div>
             </div>
             <div className="flex flex-col items-center lg:w-1/2">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
-                {/* Placeholder for profile image */}
-                <div className="text-gray-400 text-4xl">👤</div>
+              <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
+                <Image
+                  src="/images/kyoungsu.png"
+                  alt="Chris Kang"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
               <p className="text-lg text-purple-600 mb-4">강경수</p>
@@ -450,9 +455,14 @@ const ThirdHuman = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center lg:w-1/2">
-              <div className="w-32 h-32 rounded-full bg-gray-200 mb-20 flex items-center justify-center text-center">
-                {/* Placeholder for profile image */}
-                <div className="text-gray-400 text-4xl">👤</div>
+              <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
+                <Image
+                  src="/images/seyoung.png"
+                  alt="Albert Seyoung Koo"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">
                 Albert Seyoung Koo
