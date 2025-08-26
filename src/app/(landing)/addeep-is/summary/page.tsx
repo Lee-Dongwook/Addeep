@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, Suspense } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -253,6 +254,7 @@ const ThirdContainer = () => {
 
 function SummaryAI() {
   const { isMobile } = useResponsive();
+  const router = useRouter();
   const root = useRef<HTMLDivElement>(null);
   const phone = useRef<HTMLDivElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
@@ -346,6 +348,12 @@ function SummaryAI() {
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
               Addeep GPR 개요 및 비전
             </h2>
+            <button
+              className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+              onClick={() => router.push("/addeep-is/summary/gpr")}
+            >
+              내용 더보기
+            </button>
             <p className="text-2xl leading-relaxed">
               Addeep은 WEB 3.0 기반의 혁신적인 소셜 미디어 사업을 완성하기 위한
               핵심 기술로 'Addeep-GPR-1' (Generative Pre-trained Recommender)
