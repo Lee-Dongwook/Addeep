@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -131,11 +131,10 @@ function AboutSwiper() {
               {/* Image */}
               <div className="flex justify-center mt-8">
                 <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src={slide.image ?? ""}
                     alt={slide.title}
-                    fill
-                    className="object-contain"
+                    className="object-contain w-full h-full"
                   />
                 </div>
               </div>
@@ -183,11 +182,10 @@ function AboutSwiper() {
             {/* Image */}
             <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
               <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-                <Image
+                <img
                   src={slide.image ?? ""}
                   alt={slide.title}
-                  fill
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
@@ -245,13 +243,11 @@ export default function LandingPage() {
                   "absolute top-3/4 right-0 w-1/2 h-1/2 animate-image",
                 ].join(" ")}
               >
-                <Image
+                <img
                   src={section.image}
                   alt="girl taking a photo with a tunnel filter"
-                  fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
                 />
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
@@ -326,13 +322,11 @@ export default function LandingPage() {
                 "absolute top-0 right-0 w-1/2 h-full animate-image",
               ].join(" ")}
             >
-              <Image
+              <img
                 src={section.image}
                 alt="girl taking a photo with a tunnel filter"
-                fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
               />
               <div className="absolute inset-0 bg-black/50" />
               <div className="absolute left-72 bottom-4 inset-0 z-10 flex items-end p-6">

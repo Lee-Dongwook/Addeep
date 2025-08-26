@@ -1,3 +1,4 @@
+import { NEXT_PUBLIC_CDN_BASE } from "../../lib/env";
 type InfoCardProps = {
   title: string;
   description: string;
@@ -101,7 +102,7 @@ const WorkBalanceIcon = ({ className = "" }) => (
 export const sectionData = [
   {
     text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
-    image: "/images/Career_Background.png",
+    image: `${NEXT_PUBLIC_CDN_BASE}/images/Career_Background.png`,
   },
 ];
 

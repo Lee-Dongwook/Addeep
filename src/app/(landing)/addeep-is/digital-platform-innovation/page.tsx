@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
 import { useResponsive } from "../../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,13 +92,13 @@ const DigitalPlatformInnovation = () => {
     return (
       <div className="stage relative mb-20">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-          {/* <div className="sticky top-0 h-[70vh]">
+          <div className="sticky top-0 h-[70vh]">
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
               <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
                 {["1", "2", "3", "4"].map((src, i) => (
                   <img
                     key={i}
-                    src={AddeepIsImage.src}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
@@ -108,7 +108,7 @@ const DigitalPlatformInnovation = () => {
                 ))}
               </div>
             </div>
-          </div> */}
+          </div>
           {/* 우측: 카피 섹션들 */}
           <div className="space-y-20">
             <section className="copy">
@@ -153,7 +153,7 @@ const DigitalPlatformInnovation = () => {
               {["1", "2", "3", "4"].map((src, i) => (
                 <img
                   key={i}
-                  src={AddeepIsImage.src}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}

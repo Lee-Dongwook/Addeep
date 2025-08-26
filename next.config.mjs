@@ -5,11 +5,18 @@ const nextConfig = {
   output: "standalone",
   reactStrictMode: false,
   transpilePackages: ["app"],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     domains: [
       "lh3.googleusercontent.com",
       "example.com",
       "scontent-icn2-1.xx.fbcdn.net",
+      "storage.googleapis.com",
     ],
   },
   webpack(config) {

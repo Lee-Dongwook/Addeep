@@ -1,10 +1,11 @@
 "use client";
-import Image from "next/image";
+
 import { useRouter } from "next/navigation";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -180,8 +181,8 @@ const FirstHuman = () => {
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center text-center lg:w-1/2">
               <div className="w-48 h-48 mb-24 rounded-full overflow-hidden">
-                <Image
-                  src="/images/jaeyoung.png"
+                <img
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/jaeyoung.png`}
                   alt="Kevin Jaeyoung Yoon"
                   width={256}
                   height={256}
@@ -353,8 +354,8 @@ const SecondHuman = () => {
             </div>
             <div className="flex flex-col items-center lg:w-1/2">
               <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <Image
-                  src="/images/kyoungsu.png"
+                <img
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/kyoungsu.png`}
                   alt="Chris Kang"
                   width={256}
                   height={256}
@@ -456,8 +457,8 @@ const ThirdHuman = () => {
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center lg:w-1/2">
               <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <Image
-                  src="/images/seyoung.png"
+                <img
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/seyoung.png`}
                   alt="Albert Seyoung Koo"
                   width={256}
                   height={256}

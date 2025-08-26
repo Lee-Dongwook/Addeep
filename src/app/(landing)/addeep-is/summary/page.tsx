@@ -2,13 +2,12 @@
 
 import { useRef, Suspense } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
-import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
 import { useResponsive } from "../../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,18 +122,16 @@ function Section({
             </p>
           </div>
 
-          {/* <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
+          <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
             <div className="relative h-full w-full">
-              <Image
+              <img
                 src={imageSrc}
                 alt={imageAlt}
-                fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 420px"
-                priority
               />
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>;
@@ -154,13 +151,11 @@ function Section({
           {/* image */}
           <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
             <div className="relative h-full w-full">
-              <Image
+              <img
                 src={imageSrc}
                 alt={imageAlt}
-                fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 420px"
-                priority
               />
             </div>
           </div>
@@ -173,7 +168,7 @@ function Section({
 const FirstContainer = () => {
   return (
     <Section
-      imageSrc="/images/smiling-man.png"
+      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
       imageAlt="Addeep collage 1"
       className="p-0"
     >
@@ -199,7 +194,7 @@ const FirstContainer = () => {
 const SecondContainer = () => {
   return (
     <Section
-      imageSrc="/images/smiling-man.png"
+      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
       imageAlt="Addeep collage 2"
       className="p-0"
     >
@@ -224,7 +219,7 @@ const SecondContainer = () => {
 const ThirdContainer = () => {
   return (
     <Section
-      imageSrc="/images/smiling-man.png"
+      imageSrc={`${NEXT_PUBLIC_CDN_BASE}/images/smiling-man.png`}
       imageAlt="Addeep collage 3"
       className="p-0"
     >
@@ -265,13 +260,13 @@ function SummaryAI() {
     return (
       <div className="stage relative mb-20">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24">
-          {/* <div className="sticky top-0 h-[70vh]">
+          <div className="sticky top-0 h-[70vh]">
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
               <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
                 {["1", "2", "3", "4"].map((src, i) => (
                   <img
                     key={i}
-                    src={AddeepIsImage.src}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
@@ -281,7 +276,7 @@ function SummaryAI() {
                 ))}
               </div>
             </div>
-          </div> */}
+          </div>
           {/* 우측: 카피 섹션들 */}
           <div className="space-y-20">
             <section className="copy-ai">
@@ -330,7 +325,7 @@ function SummaryAI() {
               {["1", "2"].map((src, i) => (
                 <img
                   key={i}
-                  src={AddeepIsImage.src}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
@@ -400,7 +395,7 @@ function SummarySNS() {
               {["1", "2", "3", "4", "5"].map((src, i) => (
                 <img
                   key={i}
-                  src={AddeepIsImage.src}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}

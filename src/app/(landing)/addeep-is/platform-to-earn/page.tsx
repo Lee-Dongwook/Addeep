@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import AddeepIsImage from "../../../../../public/images/addeep-is-image.png";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,7 +97,7 @@ const PlatformToEarn = () => {
               {["1", "2", "3", "4", "5"].map((src, i) => (
                 <img
                   key={i}
-                  src={AddeepIsImage.src}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/addeep-is-image.png`}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
