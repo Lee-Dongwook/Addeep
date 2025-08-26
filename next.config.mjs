@@ -12,6 +12,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: true,
     domains: [
       "storage.googleapis.com",
       "addeep-assets-prod.storage.googleapis.com",
@@ -20,12 +21,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "storage.googleapis.com",
-        pathname: "/addeep-assets-prod/**",
-      },
-      {
-        protocol: "https",
-        hostname: "addeep-assets-prod.storage.googleapis.com",
-        pathname: "/**",
+        pathname: "/assets-addeep/**",
       },
     ],
     formats: ["image/avif", "image/webp"],
