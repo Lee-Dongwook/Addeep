@@ -17,7 +17,6 @@ export const NAV: Item[] = [
       { label: "Teamwork", href: "/about-us/team-work" },
       { label: "Core Value", href: "/about-us/core-value" },
       { label: "Careers", href: "/about-us/careers" },
-      { label: "Contact", href: "/features/search-and-explore" },
     ],
   },
   {
@@ -29,9 +28,8 @@ export const NAV: Item[] = [
       },
       { label: "Addeep Summary", href: "/addeep-is/summary" },
       { label: "Addeep Platform to Earn", href: "/addeep-is/platform-to-earn" },
-      { label: "Addeep Business Keywords", href: "/safety/account-security" },
     ],
   },
   { label: "Blog & Social Media Channels", href: "/blog-social-media-channel" },
-  { label: "Help & Customer Service", href: "/help-customer-service" },
+  { label: "Help & Customer Service", href: "/announcement" },
 ];

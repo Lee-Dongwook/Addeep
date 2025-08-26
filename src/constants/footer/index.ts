@@ -35,7 +35,6 @@ export const footerLinks: FooterLink[] = [
       { id: "2-2", text: "Teamwork", href: "/about-us/team-work" },
       { id: "2-3", text: "Core Values", href: "/about-us/core-value" },
       { id: "2-4", text: "Careers", href: "/about-us/careers" },
-      { id: "2-5", text: "Contact", href: "/contact" },
     ],
   },
   {
@@ -54,27 +53,17 @@ export const footerLinks: FooterLink[] = [
         text: "Addeep Platform to Earn",
         href: "/addeep-is/platform-to-earn",
       },
-      {
-        id: "3-4",
-        text: "Addeep Business Keywords",
-        href: "/addeep-is/platform-to-earn",
-      },
     ],
   },
   {
     id: "4",
-    text: "Solution",
-    href: "/announcement",
-  },
-  {
-    id: "5",
     text: "Blog & Social Media",
     href: "/blog-social-media-channel",
   },
   {
     id: "6",
     text: "Help & Customer Service",
-    href: "/help-customer-service",
+    href: "/announcement",
   },
 ];
 
@@ -89,7 +78,6 @@ export const socialIcons: FooterSocial[] = [
     icon: FooterFacebookIcon,
     link: "https://www.facebook.com/Addeep.2023",
   },
-  { name: "thread", icon: FooterThreadIcon },
   {
     name: "youtube",
     icon: FooterYoutubeIcon,
@@ -100,5 +88,4 @@ export const socialIcons: FooterSocial[] = [
     icon: FooterTwitterIcon,
     link: "https://www.twitter.com/Addeep_",
   },
-  { name: "linkedin", icon: FooterLinkedinIcon },
 ];

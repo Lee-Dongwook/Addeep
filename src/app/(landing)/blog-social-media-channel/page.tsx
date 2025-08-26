@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useRef, useEffect, useState, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useResponsive } from "../../../lib/useResponsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -327,6 +328,14 @@ function HelpAccordion({
 
 // Header Component
 const CoreValueHeader = () => {
+  const { isMobile } = useResponsive();
+
+  if(isMobile) {
+    return(
+      <div className="w-full text-center p-4"></div>
+    )
+  }
+
   return (
     <div className="w-full text-center">
       <div
