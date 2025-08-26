@@ -154,7 +154,6 @@ export default function LandingPage() {
                       src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
                       alt="Person with fisheye lens effect"
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 320px"
                       priority
                     />
                   </div>
@@ -167,7 +166,6 @@ export default function LandingPage() {
                       src="https://storage.googleapis.com/assets-addeep/images/social.png"
                       alt="Smiling man with hands on cheeks"
                       className="object-cover rounded-lg"
-                      sizes="(max-width: 768px) 100vw, 320px"
                       priority
                     />
                   </div>
@@ -191,7 +189,6 @@ export default function LandingPage() {
                       src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
                       alt="Three people looking down"
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 500px"
                       priority
                     />
                   </div>
@@ -222,7 +219,6 @@ export default function LandingPage() {
                     src="https://storage.googleapis.com/assets-addeep/images/Background.png"
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 50vw"
                     priority
                   />
                 </div>
@@ -272,7 +268,6 @@ export default function LandingPage() {
                     src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
                     alt="Person with fisheye lens effect"
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 320px"
                     priority
                   />
                 </div>
@@ -285,7 +280,6 @@ export default function LandingPage() {
                     src="https://storage.googleapis.com/assets-addeep/images/social.png"
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
-                    sizes="(max-width: 768px) 100vw, 320px"
                     priority
                   />
                 </div>
@@ -309,7 +303,6 @@ export default function LandingPage() {
                     src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
                     alt="Three people looking down"
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 500px"
                     priority
                   />
                 </div>
@@ -343,7 +336,6 @@ export default function LandingPage() {
                   src="https://storage.googleapis.com/assets-addeep/images/Background.png"
                   alt="Person with hands over eyes peeking through fingers"
                   className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 50vw"
                   priority
                 />
               </div>

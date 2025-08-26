@@ -250,7 +250,6 @@ export default function LandingPage() {
                   src="https://storage.googleapis.com/assets-addeep/images/Gradient.png"
                   alt="girl taking a photo with a tunnel filter"
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
                 <div className="absolute inset-0 bg-black/50" />
@@ -330,7 +329,6 @@ export default function LandingPage() {
                 src="https://storage.googleapis.com/assets-addeep/images/Gradient.png"
                 alt="girl taking a photo with a tunnel filter"
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
               <div className="absolute inset-0 bg-black/50" />

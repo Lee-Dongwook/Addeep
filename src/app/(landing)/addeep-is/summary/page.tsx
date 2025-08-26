@@ -129,7 +129,6 @@ function Section({
                 src={imageSrc}
                 alt={imageAlt}
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 420px"
                 priority
               />
             </div>
@@ -157,7 +156,6 @@ function Section({
                 src={imageSrc}
                 alt={imageAlt}
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 420px"
                 priority
               />
             </div>
