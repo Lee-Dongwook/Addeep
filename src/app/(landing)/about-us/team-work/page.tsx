@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -89,6 +90,7 @@ const TeamWorkHero = () => {
 // First Human Component
 const FirstHuman = () => {
   const { isMobile } = useResponsive();
+  const router = useRouter();
 
   if (isMobile) {
     return (
@@ -177,9 +179,14 @@ const FirstHuman = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center text-center lg:w-1/2">
-              <div className="w-32 h-32 mb-40 rounded-full bg-gray-200 flex items-center justify-center">
-                {/* Placeholder for profile image */}
-                <div className="text-gray-400 text-4xl">👤</div>
+              <div className="w-48 h-48 mb-24 rounded-full overflow-hidden">
+                <Image
+                  src="/images/jaeyoung.png"
+                  alt="Kevin Jaeyoung Yoon"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">
                 Kevin Jaeyoung Yoon
@@ -189,6 +196,12 @@ const FirstHuman = () => {
                 <p>Addeep Founder & CVO Chief Vision Officer</p>
                 <p>US Addeep Inc. Chief Executive Officer CEO</p>
               </div>
+              <button
+                className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                onClick={() => router.push("/about-us/team-work/jaeyoung")}
+              >
+                이력 더보기
+              </button>
             </div>
 
             {/* Right Section - Detailed Information */}
