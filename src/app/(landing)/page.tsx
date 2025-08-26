@@ -8,6 +8,12 @@ import { useResponsive } from "../../lib/useResponsive";
 import { collageData, splitScreenData } from "../../constants";
 import { LandingBottomArrowIcon } from "../../icons";
 
+// Image imports
+import jessicaImage from "/public/images/jessica.png";
+import socialImage from "/public/images/social.png";
+import goodFaceImage from "/public/images/good-face.png";
+import backgroundImage from "/public/images/Background.png";
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 interface AnimatedSectionProps {
@@ -151,7 +157,7 @@ export default function LandingPage() {
                 <div className="animate-image">
                   <div className="relative w-56 h-56 overflow-hidden">
                     <Image
-                      src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
+                      src={jessicaImage}
                       alt="Person with fisheye lens effect"
                       className="object-cover"
                       priority
@@ -163,7 +169,7 @@ export default function LandingPage() {
                 <div className="animate-image">
                   <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                     <Image
-                      src="https://storage.googleapis.com/assets-addeep/images/social.png"
+                      src={socialImage}
                       alt="Smiling man with hands on cheeks"
                       className="object-cover rounded-lg"
                       priority
@@ -186,7 +192,7 @@ export default function LandingPage() {
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
                   <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
                     <Image
-                      src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
+                      src={goodFaceImage}
                       alt="Three people looking down"
                       className="object-cover"
                       priority
@@ -216,7 +222,7 @@ export default function LandingPage() {
                 {/* Left Side - Person with hands over eyes */}
                 <div className="flex-1 relative animate-image">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/Background.png"
+                    src={backgroundImage}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover"
                     priority
@@ -265,7 +271,7 @@ export default function LandingPage() {
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
                 <div className="relative w-56 h-56 md:w-[400px] md:h-[400px] overflow-hidden">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/jessica.png"
+                    src={jessicaImage}
                     alt="Person with fisheye lens effect"
                     className="object-cover"
                     priority
@@ -277,7 +283,7 @@ export default function LandingPage() {
               <div className="animate-image md:row-start-3 md:col-start-1 -mt-80">
                 <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/social.png"
+                    src={socialImage}
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
                     priority
@@ -300,7 +306,7 @@ export default function LandingPage() {
               <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
                 <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/good-face.png"
+                    src={goodFaceImage}
                     alt="Three people looking down"
                     className="object-cover"
                     priority
@@ -333,7 +339,7 @@ export default function LandingPage() {
               {/* Left Side - Person with hands over eyes */}
               <div className="flex-1 relative animate-image">
                 <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/Background.png"
+                  src={backgroundImage}
                   alt="Person with hands over eyes peeking through fingers"
                   className="object-cover"
                   priority

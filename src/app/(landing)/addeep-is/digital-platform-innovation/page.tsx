@@ -8,6 +8,9 @@ import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
+// Image imports
+import addeepIsImage from "/public/images/addeep-is-image.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const DigitalPlatformInnovation = () => {
@@ -99,7 +102,7 @@ const DigitalPlatformInnovation = () => {
                 {["1", "2", "3", "4"].map((src, i) => (
                   <Image
                     key={i}
-                    src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
+                    src={addeepIsImage}
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
@@ -155,7 +158,7 @@ const DigitalPlatformInnovation = () => {
               {["1", "2", "3", "4"].map((src, i) => (
                 <Image
                   key={i}
-                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
+                  src={addeepIsImage}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}

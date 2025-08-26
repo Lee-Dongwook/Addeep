@@ -15,6 +15,9 @@ import {
   slideData,
 } from "../../../../constants/we-are";
 
+// Image imports
+import gradientImage from "/public/images/Gradient.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface AnimatedSectionProps {
@@ -247,7 +250,7 @@ export default function LandingPage() {
                 ].join(" ")}
               >
                 <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/Gradient.png"
+                  src={gradientImage}
                   alt="girl taking a photo with a tunnel filter"
                   className="object-cover"
                   priority
@@ -326,7 +329,7 @@ export default function LandingPage() {
               ].join(" ")}
             >
               <Image
-                src="https://storage.googleapis.com/assets-addeep/images/Gradient.png"
+                src={gradientImage}
                 alt="girl taking a photo with a tunnel filter"
                 className="object-cover"
                 priority

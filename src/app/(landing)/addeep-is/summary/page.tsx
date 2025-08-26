@@ -10,6 +10,10 @@ import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
+// Image imports
+import smilingManImage from "/public/images/smiling-man.png";
+import addeepIsImage from "/public/images/addeep-is-image.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 type SectionProps = {
@@ -169,7 +173,7 @@ function Section({
 const FirstContainer = () => {
   return (
     <Section
-      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
+      imageSrc={smilingManImage.src}
       imageAlt="Addeep collage 1"
       className="p-0"
     >
@@ -195,7 +199,7 @@ const FirstContainer = () => {
 const SecondContainer = () => {
   return (
     <Section
-      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
+      imageSrc={smilingManImage.src}
       imageAlt="Addeep collage 2"
       className="p-0"
     >
@@ -220,7 +224,7 @@ const SecondContainer = () => {
 const ThirdContainer = () => {
   return (
     <Section
-      imageSrc="https://storage.googleapis.com/assets-addeep/images/smiling-man.png"
+      imageSrc={smilingManImage.src}
       imageAlt="Addeep collage 3"
       className="p-0"
     >
@@ -326,7 +330,7 @@ function SummaryAI() {
               {["1", "2"].map((src, i) => (
                 <Image
                   key={i}
-                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
+                  src={addeepIsImage}
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
