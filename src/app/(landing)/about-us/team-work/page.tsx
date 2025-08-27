@@ -6,7 +6,6 @@ import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -368,255 +367,13 @@ const SecondHuman = () => {
               <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
               <p className="text-lg text-purple-600 mb-4">강경수</p>
               <div className="text-sm text-black space-y-1">
-                <p>Addeep PIMS Inc 대표이사</p>
-                <p>Addeep Group 부사장 COO</p>
+                <p>Addeep Inc 대표이사</p>
+                <p>경영기획 총괄부사장</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const ThirdHuman = () => {
-  const { isMobile } = useResponsive();
-
-  if (isMobile) {
-    return (
-      <div className="w-full p-4 bg-white">
-        <div className="mx-auto">
-          <div className="p-4">
-            <div className="flex flex-col gap-8">
-              {/* Left Section - Profile Summary */}
-              <div className="flex flex-col items-center">
-                <div className="w-32 h-32 rounded-full bg-gray-200 mb-10 flex items-center justify-center text-center">
-                  {/* Placeholder for profile image */}
-                  <div className="text-gray-400 text-4xl">👤</div>
-                </div>
-                <h2 className="text-2xl font-bold text-black mb-1">
-                  Albert Seyoung Koo
-                </h2>
-                <p className="text-lg text-purple-600 mb-4">구세영</p>
-                <div className="text-sm text-black space-y-1">
-                  <p>Addeep Inc. Korea 부사장</p>
-                </div>
-              </div>
-
-              {/* Right Section - Detailed Information */}
-              <div className="lg:w-1/2 space-y-6">
-                {/* Education */}
-                <div>
-                  <h3 className="text-lg font-semibold text-black mb-2">
-                    Education & Career
-                  </h3>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>호남대학교 전산통계학 학사</li>
-                    <li>전)한국컴퓨터통신 UniSQL DBMS 과장</li>
-                    <li>전)티맥스그룹 공공부문 사업총괄 전무</li>
-                  </ul>
-                </div>
-
-                {/* Experience */}
-                <div>
-                  <h3 className="text-lg font-semibold text-black mb-2">
-                    Professional Experience
-                  </h3>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>
-                      • 국내 최초 ORDBMS "UniSQL" 8년간 시스템 S/W 사업추진
-                    </li>
-                    <li>
-                      • 국내 초, 중, 고, 대학 교육정보화 부문 시스템 S/W
-                      사업추진
-                    </li>
-                    <li>
-                      • 티맥스 그룹 미들웨어, DBMS등 솔루션 제품 국내 대형
-                      공공기관 사업추진
-                    </li>
-                    <li>
-                      • Tmax Office, OS, AI, Cloud, Metaverse, BI, Fintech
-                      신사업 사업전략기획
-                    </li>
-                    <li>
-                      • ICT 산업분야 28년 경력 네트워크 솔루션 및 컴퓨팅
-                      소프트웨어 산업 혁신 전문가
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-full p-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left Section - Profile Summary */}
-            <div className="flex flex-col items-center lg:w-1/2">
-              <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/seyoung.png"
-                  alt="Albert Seyoung Koo"
-                  width={256}
-                  height={256}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-black mb-1">
-                Albert Seyoung Koo
-              </h2>
-              <p className="text-lg text-purple-600 mb-4">구세영</p>
-              <div className="text-sm text-black space-y-1">
-                <p>Addeep Inc. Korea 부사장</p>
-              </div>
-            </div>
-
-            {/* Right Section - Detailed Information */}
-            <div className="lg:w-1/2 space-y-6">
-              {/* Education */}
-              <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Education & Career
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>호남대학교 전산통계학 학사</li>
-                  <li>전)한국컴퓨터통신 UniSQL DBMS 과장</li>
-                  <li>전)티맥스그룹 공공부문 사업총괄 전무</li>
-                </ul>
-              </div>
-
-              {/* Experience */}
-              <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Professional Experience
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• 국내 최초 ORDBMS "UniSQL" 8년간 시스템 S/W 사업추진</li>
-                  <li>
-                    • 국내 초, 중, 고, 대학 교육정보화 부문 시스템 S/W 사업추진
-                  </li>
-                  <li>
-                    • 티맥스 그룹 미들웨어, DBMS등 솔루션 제품 국내 대형
-                    공공기관 사업추진
-                  </li>
-                  <li>
-                    • Tmax Office, OS, AI, Cloud, Metaverse, BI, Fintech 신사업
-                    사업전략기획
-                  </li>
-                  <li>
-                    • ICT 산업분야 28년 경력 네트워크 솔루션 및 컴퓨팅
-                    소프트웨어 산업 혁신 전문가
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface AnimatedSectionProps {
-  children: ReactNode;
-  index: number;
-}
-
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textElements = section.querySelectorAll(".animate-text");
-    const imageElement = section.querySelector(".animate-image");
-
-    // 초기 상태 설정
-    gsap.set(textElements, { y: 100, opacity: 0 });
-    gsap.set(imageElement, { y: 100, opacity: 0 });
-
-    // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
-    if (index === 0) {
-      const tl = gsap.timeline();
-
-      textElements.forEach((element, i) => {
-        tl.to(
-          element,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          i * 0.1
-        );
-      });
-
-      tl.to(
-        imageElement,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        textElements.length * 0.1
-      );
-    }
-
-    // 스크롤 트리거 설정 - 스크롤 기반 애니메이션
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none reverse",
-        markers: false,
-      },
-    });
-
-    // 텍스트 요소들을 순차적으로 애니메이션
-    textElements.forEach((element, i) => {
-      tl.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        i * 0.08
-      );
-    });
-
-    // 이미지 애니메이션
-    tl.to(
-      imageElement,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      },
-      textElements.length * 0.08
-    );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-    };
-  }, [index]);
-
-  return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
-      {children}
     </div>
   );
 };
@@ -629,7 +386,6 @@ export default function LandingPage() {
       <div className="flex flex-col items-center justify-center">
         <FirstHuman />
         <SecondHuman />
-        <ThirdHuman />
       </div>
     </div>
   );
