@@ -120,3 +120,4 @@ service_account.json
 .deploy/
 build.tgz
 build-*.tgz
+yuu-app.*
