@@ -30,8 +30,11 @@ const getResponsiveState = (): ResponsiveState => {
 };
 
 export const useResponsive = (): ResponsiveState => {
-  const [responsiveState, setResponsiveState] =
-    useState<ResponsiveState>(getResponsiveState());
+  const [responsiveState, setResponsiveState] = useState<ResponsiveState>({
+    isMobile: false,
+    isTablet: false,
+    isDesktop: true,
+  });
   const [mounted, setMounted] = useState(false);
 
   const updateResponsiveState = useCallback(() => {
@@ -63,7 +66,7 @@ export const useResponsive = (): ResponsiveState => {
     };
   }, [debouncedHandleResize, updateResponsiveState]);
 
-  // 서버사이드 렌더링 시에는 항상 데스크톱 상태 반환
+  // 서버사이드 렌더링 시에는 항상 데스크톱 상태 반환 (하이드레이션 불일치 방지)
   if (!mounted) {
     return {
       isMobile: false,

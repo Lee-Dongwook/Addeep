@@ -14,6 +14,7 @@ import {
   HeroText,
   slideData,
 } from "../../../../constants/we-are";
+import { useState } from "react";
 
 // Image imports
 import gradientImage from "/public/images/Gradient.png";
@@ -119,6 +120,54 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
 
 function AboutSwiper() {
   const { isMobile } = useResponsive();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // 서버사이드 렌더링 시에는 항상 데스크톱 버전 렌더링 (하이드레이션 불일치 방지)
+  if (!mounted) {
+    return (
+      <Swiper
+        modules={[Pagination, Navigation]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        className="w-full h-screen custom-swiper"
+      >
+        {slideData.map((slide, i) => (
+          <SwiperSlide key={i}>
+            <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
+              {/* Text */}
+              <div className="md:w-2/3 space-y-6">
+                <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
+                  {slide.title}
+                </h2>
+                <p className="text-gray-400 leading-relaxed whitespace-pre-line">
+                  {slide.text.map((t, index) => (
+                    <div key={index}>{t}</div>
+                  ))}
+                </p>
+              </div>
+
+              {/* Image */}
+              <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+                <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
+                  <Image
+                    src={slide.image ?? ""}
+                    alt={slide.title}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    );
+  }
 
   if (isMobile) {
     return (
