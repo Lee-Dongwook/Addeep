@@ -338,12 +338,16 @@ export default function LandingPage() {
             <div className="flex w-full h-full">
               {/* Left Side - Person with hands over eyes */}
               <div className="flex-1 relative animate-image">
-                <Image
-                  src={backgroundImage}
-                  alt="Person with hands over eyes peeking through fingers"
-                  className="object-cover"
-                  priority
-                />
+                <div className="flex flex-col items-center justify-center">
+                  <Image
+                    src={backgroundImage}
+                    alt="Person with hands over eyes peeking through fingers"
+                    className="object-contain"
+                    width={1500}
+                    height={100}
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
