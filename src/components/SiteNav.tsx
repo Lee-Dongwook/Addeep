@@ -8,7 +8,7 @@ import {
   SiteNavCloseIcon,
   SiteNavHamburgerIcon,
 } from "../icons";
-import { LogoIcon } from "../constants/nav/logo";
+// import { LogoIcon } from "../constants/nav/logo";
 import { useResponsive } from "../lib/useResponsive";
 import { NAV, type DefaultLinkType } from "../constants/nav";
 
@@ -166,7 +166,7 @@ export default function SiteNav() {
 
           <div aria-hidden className="flex-1" />
         </div>
-        <LogoIcon />
+        {/* <LogoIcon /> */}
       </header>
 
       {/* 오버레이는 Portal로 띄워서 나머지 레이아웃에 영향 X */}
