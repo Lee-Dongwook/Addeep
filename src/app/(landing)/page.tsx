@@ -118,7 +118,7 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
 };
 
 export default function LandingPage() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
   const handleArrowClick = () => {
@@ -134,7 +134,7 @@ export default function LandingPage() {
     }
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="min-h-screen bg-white">
         {/* First Section - Collage Layout */}
@@ -224,7 +224,7 @@ export default function LandingPage() {
                   <Image
                     src={backgroundImage}
                     alt="Person with hands over eyes peeking through fingers"
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                     priority
                   />
                 </div>
@@ -328,12 +328,9 @@ export default function LandingPage() {
         </div>
       </div>
       {/* Second Section - Split Screen Portrait */}
-      <div
-        ref={secondSectionRef}
-        className="mt-96 mb-20 min-h-screen  bg-black"
-      >
+      <div ref={secondSectionRef} className="mt-96 mb-12 bg-black/5">
         <AnimatedSection index={1}>
-          <div className="relative w-full h-screen">
+          <div className="relative w-full h-1/2">
             {/* Split Screen Container */}
             <div className="flex w-full h-full">
               {/* Left Side - Person with hands over eyes */}
@@ -342,9 +339,7 @@ export default function LandingPage() {
                   <Image
                     src={backgroundImage}
                     alt="Person with hands over eyes peeking through fingers"
-                    className="object-contain"
-                    width={1500}
-                    height={100}
+                    className="object-cover w-full h-full"
                     priority
                   />
                 </div>
