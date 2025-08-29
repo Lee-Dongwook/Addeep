@@ -26,4 +26,4 @@ jobs:
           gcloud compute ssh addeep-company \
             --zone=${{ vars.VM_ZONE }} \
             --command="bash /srv/nextapp/deploy.sh" \
-            --tunnel-through-iap=false --quiet
+            --quiet
