@@ -121,3 +121,5 @@ service_account.json
 build.tgz
 build-*.tgz
 yuu-app.*
+
+hybrid-subject-*.json
