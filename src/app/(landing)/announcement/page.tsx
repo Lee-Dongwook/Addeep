@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect, type ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useResponsive } from "../../../lib/useResponsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,103 +106,11 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
   );
 }
 
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textElements = section.querySelectorAll(".animate-text");
-    const imageElement = section.querySelector(".animate-image");
-
-    // 초기 상태 설정
-    gsap.set(textElements, { y: 100, opacity: 0 });
-    gsap.set(imageElement, { y: 100, opacity: 0 });
-
-    // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
-    if (index === 0) {
-      const tl = gsap.timeline();
-
-      textElements.forEach((element, i) => {
-        tl.to(
-          element,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          i * 0.1
-        );
-      });
-
-      tl.to(
-        imageElement,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        textElements.length * 0.1
-      );
-    }
-
-    // 스크롤 트리거 설정 - 스크롤 기반 애니메이션
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none reverse",
-        markers: false,
-      },
-    });
-
-    // 텍스트 요소들을 순차적으로 애니메이션
-    textElements.forEach((element, i) => {
-      tl.to(
-        element,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        i * 0.08
-      );
-    });
-
-    // 이미지 애니메이션
-    tl.to(
-      imageElement,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      },
-      textElements.length * 0.08
-    );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-    };
-  }, [index]);
-
-  return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
-      {children}
-    </div>
-  );
-};
-
 const AnnouncementHeader = () => {
   return (
-    <div className="w-full p-4 text-center">
+    <div className="w-full p-2 text-center">
       <div
-        className="w-full h-full p-32 rounded-lg flex flex-col items-center justify-center"
+        className="w-full p-24 rounded-lg flex flex-col items-center justify-center"
         style={{
           background:
             "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
@@ -217,37 +126,44 @@ const AnnouncementHeader = () => {
 };
 
 export default function LandingPage() {
+  const { isMobile, isTablet } = useResponsive();
+
+  const NoticeListSectionClassname =
+    isMobile || isTablet
+      ? "flex flex-col items-center justify-center flex-1"
+      : "flex flex-col items-center justify-center flex-1 w-3/4 p-24";
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col items-center text-center min-h-screen bg-white p-2">
       <AnnouncementHeader />
-      <NoticeList
-        title="공지사항"
-        items={
-          [
-            // {
-            //   id: "n1",
-            //   title: "테스트 공지사항",
-            //   summary: "테스트 공지사항입니다.",
-            //   date: "2024-01-08",
-            //   href: "/announcement/n1",
-            // },
-            // {
-            //   id: "n2",
-            //   title: "테스트 공지사항",
-            //   summary: "테스트 공지사항입니다.",
-            //   date: "2024-01-08",
-            //   href: "/announcement/n2",
-            // },
-            // {
-            //   id: "n3",
-            //   title: "테스트 공지사항",
-            //   summary: "테스트 공지사항입니다.",
-            //   date: "2024-01-08",
-            //   href: "/announcement/n3",
-            // },
-          ]
-        }
-      />
+      <div className={NoticeListSectionClassname}>
+        <NoticeList
+          title="공지사항"
+          items={[
+            {
+              id: "n1",
+              title: "테스트 공지사항",
+              summary: "테스트 공지사항입니다.",
+              date: "2024-01-08",
+              href: "/announcement/n1",
+            },
+            {
+              id: "n2",
+              title: "테스트 공지사항",
+              summary: "테스트 공지사항입니다.",
+              date: "2024-01-08",
+              href: "/announcement/n2",
+            },
+            {
+              id: "n3",
+              title: "테스트 공지사항",
+              summary: "테스트 공지사항입니다.",
+              date: "2024-01-08",
+              href: "/announcement/n3",
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }
