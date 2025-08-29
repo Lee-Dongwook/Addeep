@@ -2,7 +2,6 @@ name: Deploy to GCP Cloud Run
 
 on:
   push:
-  pull_request:
     branches: ["main"]
 
 jobs:
@@ -19,8 +18,7 @@ jobs:
 
       - name: Build & push (Cloud Build)
         run: |
-          gcloud builds submit -f dockerfile \
-          --tag asia-northeast3-docker.pkg.dev/hybrid-subject-469800-r7/web-app/yuu-app:latest .
+          gcloud builds submit --config cloudbuild.yaml .
 
       - name: Deploy on VM
         uses: appleboy/ssh-action@v1.2.0
