@@ -139,29 +139,31 @@ export default function LandingPage() {
       <div className={NoticeListSectionClassname}>
         <NoticeList
           title="공지사항"
-          items={[
-            {
-              id: "n1",
-              title: "테스트 공지사항",
-              summary: "테스트 공지사항입니다.",
-              date: "2024-01-08",
-              href: "/announcement/n1",
-            },
-            {
-              id: "n2",
-              title: "테스트 공지사항",
-              summary: "테스트 공지사항입니다.",
-              date: "2024-01-08",
-              href: "/announcement/n2",
-            },
-            {
-              id: "n3",
-              title: "테스트 공지사항",
-              summary: "테스트 공지사항입니다.",
-              date: "2024-01-08",
-              href: "/announcement/n3",
-            },
-          ]}
+          items={
+            [
+              // {
+              //   id: "n1",
+              //   title: "테스트 공지사항",
+              //   summary: "테스트 공지사항입니다.",
+              //   date: "2024-01-08",
+              //   href: "/announcement/n1",
+              // },
+              // {
+              //   id: "n2",
+              //   title: "테스트 공지사항",
+              //   summary: "테스트 공지사항입니다.",
+              //   date: "2024-01-08",
+              //   href: "/announcement/n2",
+              // },
+              // {
+              //   id: "n3",
+              //   title: "테스트 공지사항",
+              //   summary: "테스트 공지사항입니다.",
+              //   date: "2024-01-08",
+              //   href: "/announcement/n3",
+              // },
+            ]
+          }
         />
       </div>
     </div>

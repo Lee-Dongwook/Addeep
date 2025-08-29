@@ -388,9 +388,9 @@ function HelpAccordion({
 
 // Header Component
 const CoreValueHeader = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full text-center p-4">
         <div
@@ -428,9 +428,9 @@ const CoreValueHeader = () => {
 };
 
 const SocialLinksRow = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <section
         aria-label="Social Links"
