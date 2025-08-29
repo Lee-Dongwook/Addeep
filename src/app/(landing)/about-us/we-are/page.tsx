@@ -126,89 +126,75 @@ function AboutSwiper() {
     setMounted(true);
   }, []);
 
+  // 하이드레이션 불일치 방지를 위해 서버와 클라이언트에서 동일한 구조 렌더링
+  const renderSlideContent = (
+    slide: (typeof slideData)[0],
+    isMobileView: boolean
+  ) => {
+    if (isMobileView) {
+      return (
+        <div className="flex flex-col items-center justify-between overflow-y-auto p-2">
+          {/* Image */}
+          <div className="flex justify-center mt-8">
+            <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
+              <Image
+                src={slide.image ?? ""}
+                alt={slide.title}
+                width={150}
+                height={200}
+                className="object-contain w-full h-full"
+                priority
+              />
+            </div>
+          </div>
+          {/* Text */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-600 leading-snug mt-2 mb-2">
+              {slide.title}
+            </h2>
+            <div className="text-sm text-gray-400 leading-relaxed whitespace-normal overflow-auto">
+              {slide.text.map((t, index) => (
+                <div key={index}>{t}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
+        {/* Text */}
+        <div className="md:w-2/3 space-y-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
+            {slide.title}
+          </h2>
+          <div className="text-gray-400 leading-relaxed whitespace-pre-line">
+            {slide.text.map((t, index) => (
+              <div key={index}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        {/* Image */}
+        <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+          <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
+            <Image
+              src={slide.image ?? ""}
+              alt={slide.title}
+              width={280}
+              height={560}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // 서버사이드 렌더링 시에는 항상 데스크톱 버전 렌더링 (하이드레이션 불일치 방지)
-  if (!mounted) {
-    return (
-      <Swiper
-        modules={[Pagination, Navigation]}
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        className="w-full h-screen custom-swiper"
-      >
-        {slideData.map((slide, i) => (
-          <SwiperSlide key={i}>
-            <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
-              {/* Text */}
-              <div className="md:w-2/3 space-y-6">
-                <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
-                  {slide.title}
-                </h2>
-                <p className="text-gray-400 leading-relaxed whitespace-pre-line">
-                  {slide.text.map((t, index) => (
-                    <div key={index}>{t}</div>
-                  ))}
-                </p>
-              </div>
-
-              {/* Image */}
-              <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
-                <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-                  <Image
-                    src={slide.image ?? ""}
-                    alt={slide.title}
-                    className="object-cover w-full h-full"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    );
-  }
-
-  if (isMobile) {
-    return (
-      <Swiper
-        modules={[Pagination, Navigation]}
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        className="w-full min-h-screen custom-swiper"
-      >
-        {slideData.map((slide, i) => (
-          <SwiperSlide key={i}>
-            <div className="flex flex-col items-center justify-between overflow-y-auto p-2">
-              {/* Image */}
-              <div className="flex justify-center mt-8">
-                <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-                  <Image
-                    src={slide.image ?? ""}
-                    alt={slide.title}
-                    className="object-contain w-full h-full"
-                    priority
-                  />
-                </div>
-              </div>
-              {/* Text */}
-              <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-600 leading-snug mt-2 mb-2">
-                  {slide.title}
-                </h2>
-                <p className="text-sm text-gray-400 leading-relaxed whitespace-normal overflow-auto">
-                  {slide.text.map((t, index) => (
-                    <div key={index}>{t}</div>
-                  ))}
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    );
-  }
+  const shouldRenderMobile = mounted && isMobile;
 
   return (
     <Swiper
@@ -216,35 +202,11 @@ function AboutSwiper() {
       spaceBetween={50}
       slidesPerView={1}
       pagination={{ clickable: true }}
-      className="w-full h-screen custom-swiper"
+      className={`w-full custom-swiper ${shouldRenderMobile ? "min-h-screen" : "h-screen"}`}
     >
       {slideData.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
-            {/* Text */}
-            <div className="md:w-2/3 space-y-6">
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
-                {slide.title}
-              </h2>
-              <p className="text-gray-400 leading-relaxed whitespace-pre-line">
-                {slide.text.map((t, index) => (
-                  <div key={index}>{t}</div>
-                ))}
-              </p>
-            </div>
-
-            {/* Image */}
-            <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
-              <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-                <Image
-                  src={slide.image ?? ""}
-                  alt={slide.title}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+          {renderSlideContent(slide, shouldRenderMobile)}
         </SwiperSlide>
       ))}
     </Swiper>
@@ -254,6 +216,11 @@ function AboutSwiper() {
 export default function LandingPage() {
   const { isMobile } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleArrowClick = () => {
     if (secondSectionRef.current) {
@@ -268,87 +235,88 @@ export default function LandingPage() {
     }
   };
 
-  if (isMobile) {
-    return (
-      <div className="min-h-screen bg-white">
-        {sectionData.map((section, index) => (
-          <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col w-full">
-              {/* Text Section */}
-              <div className="absolute top-1/3 items-center justify-center p-8">
-                <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
-                  {section.text.map((line, lineIndex) => (
-                    <span key={lineIndex} className="animate-text block">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-              {/* Bottom Arrow */}
-              <div
-                className="absolute top-3/4 mt-12 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
-                onClick={handleArrowClick}
-              >
-                <LandingBottomArrowIcon />
-              </div>
+  // 하이드레이션 불일치 방지를 위해 서버와 클라이언트에서 동일한 구조 렌더링
+  const shouldRenderMobile = mounted && isMobile;
 
-              {/* Image Section */}
-              <div
-                className={[
-                  "absolute top-3/4 right-0 w-1/2 h-1/2 animate-image",
-                ].join(" ")}
-              >
-                <Image
-                  src={gradientImage}
-                  alt="girl taking a photo with a tunnel filter"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-black/50" />
-                <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
-                  {HeaderImageData.map((header, index) => {
-                    return (
-                      <div key={index}>
-                        {header.text.map((line, lineIndex) => (
-                          <span
-                            key={lineIndex}
-                            className="animate-text block text-white font-sans font-normal text-base text-right"
-                          >
-                            {line}
-                          </span>
-                        ))}
-                      </div>
-                    );
-                  })}
-                </div>
+  const renderMobileLayout = () => (
+    <div className="min-h-screen bg-white">
+      {sectionData.map((section, index) => (
+        <AnimatedSection key={index} index={index}>
+          <div className="flex flex-col w-full">
+            {/* Text Section */}
+            <div className="absolute top-1/3 items-center justify-center p-8">
+              <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+                {section.text.map((line, lineIndex) => (
+                  <span key={lineIndex} className="animate-text block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+            </div>
+            {/* Bottom Arrow */}
+            <div
+              className="absolute top-3/4 mt-12 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+              onClick={handleArrowClick}
+            >
+              <LandingBottomArrowIcon />
+            </div>
+
+            {/* Image Section */}
+            <div
+              className={[
+                "absolute top-3/4 right-0 w-1/2 h-1/2 animate-image",
+              ].join(" ")}
+            >
+              <Image
+                src={gradientImage}
+                alt="girl taking a photo with a tunnel filter"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
+                {HeaderImageData.map((header, index) => {
+                  return (
+                    <div key={index}>
+                      {header.text.map((line, lineIndex) => (
+                        <span
+                          key={lineIndex}
+                          className="animate-text block text-white font-sans font-normal text-base text-right"
+                        >
+                          {line}
+                        </span>
+                      ))}
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          </AnimatedSection>
-        ))}
-        <div
-          ref={secondSectionRef}
-          className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-4"
-        >
-          <AnimatedSection index={1}>
-            {HeroText.map((section, index) => (
-              <div key={index}>
-                {section.text.map((line, lineIndex) => (
-                  <div key={lineIndex} className="animate-text block mt-4">
-                    {line}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </AnimatedSection>
-        </div>
-        <div className="p-16 -mt-64 flex flex-col items-center justify-center">
-          <AboutSwiper />
-        </div>
+          </div>
+        </AnimatedSection>
+      ))}
+      <div
+        ref={secondSectionRef}
+        className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-4"
+      >
+        <AnimatedSection index={1}>
+          {HeroText.map((section, index) => (
+            <div key={index}>
+              {section.text.map((line, lineIndex) => (
+                <div key={lineIndex} className="animate-text block mt-4">
+                  {line}
+                </div>
+              ))}
+            </div>
+          ))}
+        </AnimatedSection>
       </div>
-    );
-  }
+      <div className="p-16 -mt-64 flex flex-col items-center justify-center">
+        <AboutSwiper />
+      </div>
+    </div>
+  );
 
-  return (
+  const renderDesktopLayout = () => (
     <div className="min-h-screen bg-white">
       {sectionData.map((section, index) => (
         <AnimatedSection key={index} index={index}>
@@ -425,4 +393,7 @@ export default function LandingPage() {
       </div>
     </div>
   );
+
+  // 서버사이드 렌더링 시에는 항상 데스크톱 버전 렌더링 (하이드레이션 불일치 방지)
+  return shouldRenderMobile ? renderMobileLayout() : renderDesktopLayout();
 }
