@@ -11,19 +11,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Ensure Dockerfile name (optional)
+        run: |
+          if [ -f dockerfile ]; then
+            echo "Found lowercase dockerfile → copying to Dockerfile"
+            cp dockerfile Dockerfile
+          fi
+
       - name: Google Cloud auth
         uses: google-github-actions/auth@v2
         with:
           project_id: hybrid-subject-469800-r7
           credentials_json: ${{ secrets.GCP_SA_KEY}}
 
-      - name: Build & push (Cloud Build)
+      - name: Cloud Build (build & push to Artifact Registry)
         run: |
-          gcloud builds submit --config cloudbuild.yaml .
+          gcloud builds submit \
+            --tag asia-northeast3-docker.pkg.dev/hybrid-subject-469800-r7/web-app/yuu-app:latest .
 
       - name: Deploy on VM
         run: |
           gcloud compute ssh addeep-company \
-            --zone=${{ vars.VM_ZONE }} \
+            --zone=asia-northeast3-a \
             --command="bash /srv/nextapp/deploy.sh" \
             --quiet
