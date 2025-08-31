@@ -12,10 +12,16 @@ export default function JaeyoungPage() {
       hero: {
         title: "증강된 미래의 설계자",
         subtitle: "Architect of the Augmented Future",
-        name: "Kevin Jaeyoung Yoon",
-        education: "한양대학교 전자공학부 졸업",
+        name: "윤재영 Kevin Jaeyoung Yoon",
+        education: [
+          "Hayfield University MBA",
+          "Seoul National University Graduate School of Business",
+          "CFO Academy",
+          "현) 사단법인 한국AGI연합협회 이사",
+          "전) TiTAN Platform Corp. Founder & CEO",
+        ],
         description:
-          "AI 혁신가이자 Addeep의 창립자로서, 증강 AI 기술을 통해 인간과 기술의 경계를 허물고 새로운 가치를 창출하는 미래를 설계합니다.",
+          "기술 창시자, 글로벌 경영자, 그리고 혁신적 비전가. 25년의 경력을 통해 더 공정하고 지능적인 인간 중심의 디지털 생태계를 구축합니다. ICT:Networks, Information Security, Cloud, Platform, AI, DeepTech, Augmented AI을 아우르는 전문성으로 Web 3.0의 새로운 미래를 열어갑니다.",
       },
       summary: {
         title: "AI 혁신가",
@@ -189,7 +195,11 @@ export default function JaeyoungPage() {
               {currentContent.hero.title}
             </h2>
             <p className="text-lg text-gray-600 mb-4">
-              {currentContent.hero.education}
+              {Array.isArray(currentContent.hero.education)
+                ? currentContent.hero.education.map((edu, idx) => (
+                    <ol key={idx}>{edu}</ol>
+                  ))
+                : currentContent.hero.education}
             </p>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {currentContent.hero.description}
