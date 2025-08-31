@@ -71,12 +71,12 @@ export const socialIcons: FooterSocial[] = [
   {
     name: "instagram",
     icon: FooterInstagramIcon,
-    link: "https://www.instagram.com/Addeep/",
+    link: "https://www.instagram.com/addeep_/",
   },
   {
     name: "facebook",
     icon: FooterFacebookIcon,
-    link: "https://www.facebook.com/Addeep.2023",
+    link: "https://www.facebook.com/share/1BTnZGhM8g",
   },
   {
     name: "youtube",

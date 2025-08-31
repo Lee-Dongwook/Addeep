@@ -411,14 +411,14 @@ const CoreValueHeader = () => {
   return (
     <div className="w-full text-center">
       <div
-        className="w-full h-full p-16 rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-full p-4 rounded-lg flex flex-col items-center justify-center"
         style={{
           background:
             "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
           border: "1px solid #E5E7EB",
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-24 mb-4">
           Connect with Us
         </h1>
         <SocialLinksRow />
@@ -458,7 +458,7 @@ const SocialLinksRow = () => {
   }
 
   return (
-    <section aria-label="Social Links" className="w-full p-32">
+    <section aria-label="Social Links" className="w-full p-16">
       <div className="mx-auto max-w-6xl rounded-3xl p-6 md:p-8">
         <ul className="flex flex-wrap gap-24 items-center justify-center">
           {items.map(({ label, href, Icon }) => (
