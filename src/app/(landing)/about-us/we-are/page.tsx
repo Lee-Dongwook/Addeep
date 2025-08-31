@@ -391,6 +391,11 @@ export default function LandingPage() {
       <div className="p-16 -mt-48 flex flex-col items-center justify-center">
         <AboutSwiper />
       </div>
+      <div className="flex-1 flex items-center justify-center mt-8 mb-20">
+        <h2 className="text-[#FF0169] font-normal text-[72px]">
+          We Bridge Values
+        </h2>
+      </div>
     </div>
   );
 
