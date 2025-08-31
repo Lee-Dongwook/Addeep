@@ -20,13 +20,20 @@ export default function JaeyoungPage() {
           "현) 사단법인 한국AGI연합협회 이사",
           "전) TiTAN Platform Corp. Founder & CEO",
         ],
+        slogan: '"We Bridge Values "',
         description:
           "기술 창시자, 글로벌 경영자, 그리고 혁신적 비전가. 25년의 경력을 통해 더 공정하고 지능적인 인간 중심의 디지털 생태계를 구축합니다. ICT:Networks, Information Security, Cloud, Platform, AI, DeepTech, Augmented AI을 아우르는 전문성으로 Web 3.0의 새로운 미래를 열어갑니다.",
       },
       summary: {
-        title: "AI 혁신가",
-        description:
-          "엔지니어에서 글로벌 리더로의 진화, TCI & ACI, ACT 기술을 통한 리더십과 기술적 기여",
+        title: "소개",
+        subTitle: "미래 기술의 지평을 여는 AI 혁신가, 윤재영",
+        description: [
+          "윤재영은 소프트웨어 엔지니어로서의 탄탄한 기술적 기반 위에 경영학적 통찰력을 더해, AI, 플랫폼, 클라우드, ICT산업을 아우르는 혁신 리더로 자리매김했습니다. 고교 시절 전자계산정보처리 전공으로 시작된 그의 여정은 MBA 취득과 서울대학교 경영대학원 CFO 과정 수료를 통해 기술과 경영을 융합하는 독보적인 전문성으로 완성되었습니다.",
+          "TiTAN Platform Corp. CEO를 역임하며 증명된 탁월한 리더십은 현재 Addeep Inc.의 의장/최고 비전 책임자(CVO)이자 한국AGI연합협회 이사로서 미래를 향한 혁신을 이끄는 동력이 되고 있습니다. 지난 25여 년간 그는 사업 기획, 제품 개발, 사업 전략 등 ICT 산업의 핵심 역량을 내재화하며, 아이디어를 현실로 만드는 견고한 기반을 다져왔습니다.",
+          "그는 AI 기반 소셜 미디어 플랫폼, OTT 스마트 콘텐츠, AI 소셜 로봇 시리즈의 사업화를 성공적으로 이끌며 상상 속의 기술을 비즈니스로 전환하는 데 탁월한 역량을 입증했습니다. 특히, 데이터 주권과 디지털 저작권 보호의 새로운 패러다임을 제시한 ‘TCI & ACI’ 기술과 생성형 증강 AI의 가능성을 연 ‘ACT’ 콘텐츠 자동 융합 기술을 직접 창시하며, 기술 혁신의 중심에 서 있음을 증명했습니다.",
+          "그의 비전은 국경을 넘어 한국, 미국, 중국, 싱가포르, 동남아시아에서 성공적인 글로벌 경영 성과로 이어졌습니다. 투자사로부터 누적 550억 원에 달하는 투자 유치에 성공하며 기술 경영 경쟁력을 인정받았고, 2017년 국무총리상 및 미국 백악관 도널드 트럼프 대통령상 수상은 그의 혁신적인 리더십에 대한 명예로운 증표입니다.",
+          "현재 윤재영은 끊임없는 도전과 혁신으로 미래 기술을 선도하며, 증강AI.딥테크 산업의 새로운 지평을 열어가는 비저너리(Visionary) 경영 리더로서 다음 시대의 '기술은 인간을 대체하는 것이 아니라, 인간의 가치를 증강시키고 연결하기 위해 존재해야 한다'는 공존의 가치를 만들어가고 있습니다.",
+        ],
       },
       vision: {
         title: "가치 연결의 철학",
@@ -40,11 +47,13 @@ export default function JaeyoungPage() {
         subtitle: "Architect of the Augmented Future",
         name: "Kevin Jaeyoung Yoon",
         education: "Hanyang University, Electronic Engineering",
+        slogan: '"We Bridge Values "',
         description:
           "As an AI innovator and founder of Addeep, I design the future by breaking down boundaries between humans and technology through augmented AI technology.",
       },
       summary: {
         title: "AI Innovator",
+        subTitle: "미래 기술의 지평을 여는 AI 혁신가, 윤재영",
         description:
           "Evolution from engineer to global leader, leadership and technical contributions through TCI & ACI, ACT technologies",
       },
@@ -194,13 +203,16 @@ export default function JaeyoungPage() {
             <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 mb-6">
               {currentContent.hero.title}
             </h2>
-            <p className="text-lg text-gray-600 mb-4">
+            <div className="text-lg text-gray-600 mb-4">
               {Array.isArray(currentContent.hero.education)
                 ? currentContent.hero.education.map((edu, idx) => (
                     <ol key={idx}>{edu}</ol>
                   ))
                 : currentContent.hero.education}
-            </p>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
+              {currentContent.hero.slogan}
+            </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {currentContent.hero.description}
             </p>
@@ -215,9 +227,16 @@ export default function JaeyoungPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               {currentContent.summary.title}
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              {currentContent.summary.description}
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              {currentContent.summary.subTitle}
+            </h2>
+            <div className="text-xl text-left text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              {Array.isArray(currentContent.summary.description)
+                ? currentContent.summary.description.map((sum, idx) => (
+                    <ol key={idx}>{sum}</ol>
+                  ))
+                : currentContent.summary.description}
+            </div>
           </div>
         </div>
       </section>
