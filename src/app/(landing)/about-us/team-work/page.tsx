@@ -202,7 +202,7 @@ const FirstHuman = () => {
                 className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
                 onClick={() => router.push("/about-us/team-work/jaeyoung")}
               >
-                이력 더보기
+                더보기
               </button>
             </div>
 
