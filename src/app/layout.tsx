@@ -1,9 +1,9 @@
 import "../../global.css";
-import SiteNav from "@/components/SiteNav";
-import Footer from "@/components/Footer";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import SiteNav from "@/components/SiteNav";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,

@@ -16,12 +16,17 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+# CSS 빌드를 위한 환경 변수 추가
+ENV TAILWIND_MODE=build
+ENV NEXT_PUBLIC_TAILWIND_MODE=build
 RUN yarn build
 
 # 4) runner (standalone)
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+ENV TAILWIND_MODE=build
 # 비루트 유저
 RUN addgroup --system --gid 1001 nodejs \
  && adduser --system --uid 1001 nextjs
