@@ -96,20 +96,22 @@ export default function JaeyoungPage() {
     <div className="min-h-screen bg-white text-gray-800 font-['Inter','Noto_Sans_KR',sans-serif]">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-full mx-auto px-24">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("hero")}
-                className="text-lg font-semibold text-purple-600"
+                className="text-xl font-bold text-black"
               >
-                Kevin Jaeyoung Yoon
+                윤재영 Kevin Jaeyoung Yoon
               </button>
+            </div>
+            <div className="flex items-center space-x-6">
               <div className="hidden md:flex space-x-6">
                 {[
                   {
                     id: "summary",
-                    label: language === "ko" ? "요약" : "Summary",
+                    label: language === "ko" ? "소개" : "About me",
                   },
                   {
                     id: "vision",
@@ -117,20 +119,23 @@ export default function JaeyoungPage() {
                   },
                   {
                     id: "technologies",
-                    label: language === "ko" ? "기술" : "Technologies",
+                    label: language === "ko" ? "핵심 기술" : "Core Tech",
                   },
-                  { id: "gpr1", label: "GPR-1" },
+                  {
+                    id: "gpr1",
+                    label: language === "ko" ? "GPR-1 모델" : "GPR-1 Model",
+                  },
                   {
                     id: "projects",
-                    label: language === "ko" ? "프로젝트" : "Projects",
+                    label: language === "ko" ? "주요 프로젝트" : "Projects",
                   },
                   {
                     id: "journey",
-                    label: language === "ko" ? "여정" : "Journey",
+                    label: language === "ko" ? "기업가 여정" : "Journey",
                   },
                   {
                     id: "accolades",
-                    label: language === "ko" ? "수상" : "Accolades",
+                    label: language === "ko" ? "성취와 인정" : "Accolades",
                   },
                 ].map((item) => (
                   <button
@@ -146,13 +151,13 @@ export default function JaeyoungPage() {
                   </button>
                 ))}
               </div>
+              <button
+                onClick={() => setLanguage(language === "ko" ? "en" : "ko")}
+                className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
+              >
+                {language === "ko" ? "English" : "한국어"}
+              </button>
             </div>
-            <button
-              onClick={() => setLanguage(language === "ko" ? "en" : "ko")}
-              className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
-            >
-              {language === "ko" ? "EN" : "KO"}
-            </button>
           </div>
         </div>
       </nav>
