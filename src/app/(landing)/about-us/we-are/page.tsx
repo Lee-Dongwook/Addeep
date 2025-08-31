@@ -135,7 +135,7 @@ function AboutSwiper() {
       return (
         <div className="flex flex-col items-center justify-between overflow-y-auto p-2">
           {/* Image */}
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-8 mb-8">
             <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
               <Image
                 src={slide.image ?? ""}
@@ -149,7 +149,7 @@ function AboutSwiper() {
           </div>
           {/* Text */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-600 leading-snug mt-2 mb-2">
+            <h2 className="text-2xl font-bold text-gray-600 leading-normal mt-2 mb-2">
               {slide.title}
             </h2>
             <div className="text-sm text-gray-400 leading-relaxed whitespace-normal overflow-auto">
@@ -245,7 +245,7 @@ export default function LandingPage() {
           <div className="flex flex-col w-full">
             {/* Text Section */}
             <div className="absolute top-1/3 items-center justify-center p-8">
-              <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+              <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-1">
                 {section.text.map((line, lineIndex) => (
                   <span key={lineIndex} className="animate-text block">
                     {line}
@@ -255,7 +255,7 @@ export default function LandingPage() {
             </div>
             {/* Bottom Arrow */}
             <div
-              className="absolute top-3/4 mt-12 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+              className="absolute top-3/4 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
               onClick={handleArrowClick}
             >
               <LandingBottomArrowIcon />
@@ -264,24 +264,24 @@ export default function LandingPage() {
             {/* Image Section */}
             <div
               className={[
-                "absolute top-3/4 right-0 w-1/2 h-1/2 animate-image",
+                "absolute top-full -mt-20 right-0 w-full h-1/2 animate-image",
               ].join(" ")}
             >
               <Image
                 src={gradientImage}
                 alt="girl taking a photo with a tunnel filter"
-                className="object-cover"
+                className="object-cover w-full h-full"
                 priority
               />
               <div className="absolute inset-0 bg-black/50" />
               <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
                 {HeaderImageData.map((header, index) => {
                   return (
-                    <div key={index}>
+                    <div key={index} className="flex flex-col gap-2">
                       {header.text.map((line, lineIndex) => (
                         <span
                           key={lineIndex}
-                          className="animate-text block text-white font-sans font-normal text-base text-right"
+                          className="animate-text  leading-loose text-white font-sans font-normal text-2xl text-right"
                         >
                           {line}
                         </span>
@@ -296,7 +296,7 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-4"
+        className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1"
       >
         <AnimatedSection index={1}>
           {HeroText.map((section, index) => (
@@ -310,7 +310,7 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
       </div>
-      <div className="p-16 -mt-64 flex flex-col items-center justify-center">
+      <div className="p-8 -mt-64 flex flex-col items-center justify-center">
         <AboutSwiper />
       </div>
     </div>

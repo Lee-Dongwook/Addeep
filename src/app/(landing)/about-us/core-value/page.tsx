@@ -4,12 +4,7 @@ import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
-import {
-  values,
-  FirstDot,
-  SecondDot,
-  ThirdDot,
-} from "../../../../constants/core-values";
+import { values, FirstDot } from "../../../../constants/core-values";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,9 +62,9 @@ const CoreValueHeader = () => {
   const { isMobile } = useResponsive();
   if (isMobile) {
     return (
-      <div className="w-full h-48 text-center p-4">
+      <div className="w-full h-48 text-center">
         <div
-          className="w-full h-48 p-2 rounded-lg flex flex-col items-center justify-center"
+          className="w-full h-48 rounded-lg flex flex-col items-center justify-center"
           style={{
             background:
               "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
@@ -112,7 +107,7 @@ function CoreValues() {
           {values.map((item, i) => (
             <div key={i} className="flex flex-col items-center space-y-4">
               {/* 아이콘 */}
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white text-3xl shadow-md">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-opacity-20 text-white text-3xl shadow-md">
                 {item.icon}
               </div>
 
@@ -185,7 +180,7 @@ const FirstContainer = () => {
 
   if (isMobile) {
     return (
-      <div className="w-full flex flex-col justify-center p-8 bg-[#F9FAFB]">
+      <div className="w-full flex flex-col justify-center p-4 text-center bg-[#F9FAFB]">
         <div className="p-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center">
@@ -194,7 +189,7 @@ const FirstContainer = () => {
               <ul className="text-lg text-gray-700 font-normal font-sans space-y-1">
                 <li>디지털 콘텐츠 세상을 향한</li>
                 <li>
-                  깨끗하고 바람직한 단 하나의{" "}
+                  깨끗하고 바람직한 단 하나의 &nbsp;
                   <span className="font-bold text-[#D300C5]">'Addeep'</span>
                 </li>
               </ul>
@@ -230,7 +225,7 @@ const SecondContainer = () => {
   const { isMobile } = useResponsive();
   if (isMobile) {
     return (
-      <div className="w-full flex flex-col justify-center p-8 bg-white">
+      <div className="w-full flex flex-col justify-center text-center p-8 bg-white">
         <div className="p-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center">
@@ -279,21 +274,21 @@ const ThirdContainer = () => {
 
   if (isMobile) {
     return (
-      <div className="w-full flex flex-col justify-center p-8 bg-[#F9FAFB]">
+      <div className="w-full flex flex-col justify-center text-center p-8 bg-[#F9FAFB]">
         <div className="p-4">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col items-center">
               <h2 className="text-4xl font-bold text-black mb-4">Mission</h2>
 
-              <ul className="text-xl text-gray-700 font-normal font-sans space-y-4">
+              <ul className="text-lg text-gray-700 font-normal font-sans flex flex-col items-center justify-center space-y-4">
                 <li className="flex flex-row items-center gap-4">
-                  <FirstDot /> 작은 성공에 분투하자.
+                  작은 성공에 분투하자.
                 </li>
                 <li className="flex flex-row items-center gap-4">
-                  <SecondDot /> 함께하는 힘으로 도전과 모험을 즐기자.
+                  함께하는 힘으로 도전과 모험을 즐기자.
                 </li>
                 <li className="flex flex-row items-center gap-4">
-                  <ThirdDot /> 스마트하게 생각하고 바람직하게 행동하자.
+                  스마트하게 생각하고 바람직하게 행동하자.
                 </li>
               </ul>
             </div>
@@ -315,10 +310,10 @@ const ThirdContainer = () => {
                 <FirstDot /> 작은 성공에 분투하자. 작은 성공에 분투하자.
               </li>
               <li className="flex flex-row items-center gap-4">
-                <SecondDot /> 함께하는 힘으로 도전과 모험을 즐기자.
+                <FirstDot /> 함께하는 힘으로 도전과 모험을 즐기자.
               </li>
               <li className="flex flex-row items-center gap-4">
-                <ThirdDot /> 스마트하게 생각하고 바람직하게 행동하자.
+                <FirstDot /> 스마트하게 생각하고 바람직하게 행동하자.
               </li>
             </ul>
           </div>

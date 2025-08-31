@@ -15,9 +15,9 @@ const TeamWorkHeader = () => {
 
   if (isMobile) {
     return (
-      <div className="w-full h-48 text-center p-4">
+      <div className="w-full h-48 text-center">
         <div
-          className="w-full h-48 p-2 rounded-lg flex flex-col items-center justify-center"
+          className="w-full h-48 rounded-lg flex flex-col items-center justify-center"
           style={{
             background:
               "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
@@ -101,9 +101,21 @@ const FirstHuman = () => {
             <div className="flex flex-col gap-8">
               {/* Left Section - Profile Summary */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 mb-10 rounded-full bg-gray-200 flex items-center justify-center">
-                  {/* Placeholder for profile image */}
-                  <div className="text-gray-400 text-4xl">👤</div>
+                <div className="w-48 h-48 mb-24 rounded-full">
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/jaeyoung.png"
+                    alt="Kevin Jaeyoung Yoon"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                  <button
+                    className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                    onClick={() => router.push("/about-us/team-work/jaeyoung")}
+                  >
+                    더보기
+                  </button>
                 </div>
                 <h2 className="text-2xl font-bold text-black mb-1">
                   Kevin Jaeyoung Yoon
@@ -272,17 +284,23 @@ const SecondHuman = () => {
           <div className="p-4">
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center">
-                <div className="w-32 h-32 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
-                  {/* Placeholder for profile image */}
-                  <div className="text-gray-400 text-4xl">👤</div>
+                <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/kyoungsu.png"
+                    alt="Chris Kang"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </div>
                 <h2 className="text-2xl font-bold text-black mb-1">
                   Chris Kang
                 </h2>
                 <p className="text-lg text-purple-600 mb-4">강경수</p>
                 <div className="text-sm text-black space-y-1">
-                  <p>Addeep PIMS Inc 대표이사</p>
-                  <p>Addeep Group 부사장 COO</p>
+                  <p>Addeep Inc 대표이사</p>
+                  <p>경영기획 총괄부사장</p>
                 </div>
               </div>
               <div className="space-y-6 flex flex-col items-center justify-center">

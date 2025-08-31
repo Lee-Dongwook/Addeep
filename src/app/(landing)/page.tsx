@@ -349,7 +349,7 @@ export default function LandingPage() {
             {/* Overlay Text */}
             <div className="absolute inset-0 flex items-center justify-center animate-text">
               <div className="text-left px-8">
-                <p className="text-[60px] font-sans font-normal text-red leading-normal">
+                <p className="text-[60px] font-sans font-normal text-white leading-normal">
                   {splitScreenData.text.map((line, index) => (
                     <span key={index} className="block">
                       {line}

@@ -145,7 +145,7 @@ const CareerHero = () => {
       <section className="w-full bg-[#F9FAFB]">
         <div className="mx-auto px-6 py-14 text-center">
           {/* 제목 */}
-          <h1 className="text-xl font-extrabold text-gray-800 tracking-tight">
+          <h1 className="text-2xl font-extrabold text-gray-800 tracking-tight">
             채용 목적
           </h1>
 
@@ -312,8 +312,8 @@ export default function LandingPage() {
             <AnimatedSection key={index} index={index}>
               <div className="flex flex-col w-full">
                 {/* Text Section */}
-                <div className="absolute top-1/3 items-center justify-center p-8">
-                  <p className="text-3xl md:text-5xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+                <div className="absolute top-1/4 items-center justify-center p-8">
+                  <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-2">
                     {section.text.map((line, lineIndex) => (
                       <span key={lineIndex} className="animate-text">
                         {line}
@@ -323,7 +323,7 @@ export default function LandingPage() {
                 </div>
                 {/* Bottom Arrow */}
                 <div
-                  className="absolute top-3/4 mt-12 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+                  className="absolute top-2/4 mt-12 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
                   onClick={handleArrowClick}
                 >
                   <LandingBottomArrowIcon />
@@ -332,14 +332,13 @@ export default function LandingPage() {
                 {/* Image Section */}
                 <div
                   className={[
-                    "absolute top-3/4 right-0 w-1/2 h-1/4 animate-image",
+                    "absolute top-3/4 mt-6 right-0 w-full h-1/3 animate-image",
                   ].join(" ")}
                 >
-                  <Image
+                  <img
                     src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
                     alt="girl taking a photo with a tunnel filter"
                     className="object-cover w-full h-full"
-                    priority
                   />
                 </div>
               </div>
@@ -385,11 +384,10 @@ export default function LandingPage() {
                   "absolute top-0 right-0 w-1/2 h-full animate-image",
                 ].join(" ")}
               >
-                <Image
+                <img
                   src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
                   alt="girl taking a photo with a tunnel filter"
                   className="object-cover w-full h-full"
-                  priority
                 />
               </div>
             </div>
