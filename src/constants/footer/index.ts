@@ -57,7 +57,7 @@ export const footerLinks: FooterLink[] = [
   },
   {
     id: "4",
-    text: "Blog & Social Media",
+    text: "Blog",
     href: "/blog-social-media-channel",
   },
   {
