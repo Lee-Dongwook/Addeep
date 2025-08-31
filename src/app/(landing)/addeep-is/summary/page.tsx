@@ -8,11 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 // Image imports
-import smilingManImage from "/public/images/smiling-man.png";
-import addeepIsImage from "/public/images/addeep-is-image.png";
+import addeepIsImage from "/public/images/Summary.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,88 +172,6 @@ function Section({
   );
 }
 
-const FirstContainer = () => {
-  return (
-    <Section
-      imageSrc={smilingManImage.src}
-      imageAlt="Addeep collage 1"
-      className="p-0"
-    >
-      Addeep GPR AI는 독보적인 기술적 범위를 통해 경쟁 우위를 확보합니다. 다차원
-      사용자 데이터 수집 및 LMM 학습: Addeep은 자체 소셜 미디어 플랫폼인 Addeep
-      SNS를 통해 소통 지수(대화 상대, 내용, 빈도, 콘텐츠 공유/추천, 리뷰/댓글
-      등), 활동 패턴(좋아요, 관심 콘텐츠, 소비 패턴 등), 인구통계학적
-      데이터(국가/지역, 성별, 나이, 언어 등)의 세 가지 개인화 데이터를
-      지속적으로 수집합니다. 이 데이터는 Addeep의 독자적인 LMM(Large Mind-mining
-      Model)에 지속적으로 학습되어 사용자의 마인드셋을 깊이 이해합니다. 이는
-      기존 AI 모델의 LLM(Large Language Model)이 언어 데이터에 집중하는 것과
-      달리, 사용자의 '생각'과 '의도'를 마이닝하는데 특화되어 있다는 점에서
-      혁신적입니다. 비대화형 완전 자동 생성형 AI 구현: 기존 대화형 AI가 사용자
-      입력 기반의 생성형 AI인 반면, Addeep GPR-1은 사용자 입력이 없는 완전 자동
-      생성형 AI를 구현합니다. 이는 강화학습(Reinforced training)으로 지속적으로
-      보정되는 Deep neural network를 통해 가능하며, 기존 AI 모델의 기반 위에
-      확장된 자체 AI 모델을 구축합니다. 이로써 사용자는 복잡한 입력 없이도
-      개인화된 콘텐츠를 즉각적으로 받아볼 수 있습니다.
-    </Section>
-  );
-};
-
-const SecondContainer = () => {
-  return (
-    <Section
-      imageSrc={smilingManImage.src}
-      imageAlt="Addeep collage 2"
-      className="p-0"
-    >
-      ACT (Addeep Automatic Content Convergence Technology): ACT는 Addeep
-      Augmented AI 기반의 콘텐츠 자동 융합/생성 기술로, Addeep의 A-GPR 추론
-      모델이 적용된 비대화형 생성형 AI 기술입니다. 다차원 학습된 개인의 마인드셋
-      데이터에 기반하여 개인화 맞춤형 콘텐츠 및 광고를 자동으로 생성하고
-      매칭합니다. 이 기술은 일반 이용자, 크리에이터, 광고주 등 Addeep 플랫폼
-      생태계 내 모든 참여자들이 생성한 이미지, 동영상, 음원, 이모티콘, 밈 등
-      다양한 멀티 포맷 콘텐츠를 ACT AI 엔진이 분해/융합하여 사용자 맞춤형
-      콘텐츠를 자동 재생성/배포합니다. 특히 'Deep Blend'라는 자체 정의된 콘텐츠
-      AI 기술을 통해 복잡한 저작 도구 없이도 사용자가 의도하는 콘텐츠를 완전
-      자동 재생성하여 배포/공유함으로써 WEB 3.0의 확장형 플랫폼 서비스를
-      현실화합니다. Deep Blend 프로세스는 멀티 포맷 콘텐츠 데이터의 메타데이터
-      생성/축적, A-GPR 모델을 통한 사용자 마인드셋 모델 생성, 사용자 관심사
-      추출, 기초 콘텐츠 후보군 선정, 콘텐츠 분해 및 특징점 추출, 재조합, 그리고
-      사용자 맞춤형 추천으로 이루어집니다.
-    </Section>
-  );
-};
-
-const ThirdContainer = () => {
-  return (
-    <Section
-      imageSrc={smilingManImage.src}
-      imageAlt="Addeep collage 3"
-      className="p-0"
-    >
-      Addeep GPR AI는 '생성(Generation) – 승인(Confirmation)' 모델을 기반으로
-      다양한 혁신적인 서비스를 제공합니다. 콘텐츠 생성 자동화: 이미지, 밈
-      콘텐츠, 감정 이모티콘 등 사용자 콘텐츠를 자동으로 생성하고 추천하며,
-      사용자 승인 시 활성화됩니다. 광고 생성 자동화: 콘텐츠와 광고를 자동으로
-      매칭하여 Addeep 콘텐츠를 생성 및 추천하며, 사용자 승인 시 활성화됩니다.
-      거래 자동화: 콘텐츠 판매/구매, 상품 판매/구매 트랜잭션을 자동으로 생성 및
-      추천하며, 사용자 승인 시 결제를 포함한 거래 프로세스가 완료됩니다. SNS
-      포스팅 자동화: 텍스트, 이미지, 동영상 등 멀티 포맷 콘텐츠를 포함한 SNS
-      게시물을 자동으로 생성 및 추천하며, 사용자 승인 시 사용자 계정에 연결된
-      Addeep SNS에 자동 포스팅됩니다. 이러한 서비스들은 사용자의 명시적 입력
-      없이 다차원 학습된 사용자 데이터를 기반으로 사용자 마인드셋 모델을 자동
-      추출하여 진행됩니다. 이는 SNS 상에서 사용자가 특정 시간에 가장 높은 확률로
-      의도할 것으로 예상되는 행위를 자동으로 생성하고 추천하는 것을 목표로
-      합니다. Addeep의 AI 엔진은 기본적으로 Addeep 클라우드 서버 내에
-      인스턴스화되며, Azure, AWS, Google 등 다양한 클라우드 서비스에 유연하게
-      적용 가능한 확장성을 가집니다. 또한, 'AIaaS (Artificial
-      Intelligence-as-a-Service)' 형태로 일반 외부 클라이언트(개인, 법인,
-      단체)에게 클라우드 기반 구독형 서비스를 제공할 계획입니다. 이는 API 형태의
-      서비스부터 각 산업별 도메인 서비스까지 다양화될 수 있으며, 글로벌 AIaaS
-      시장에서 각기 다른 요구사항에 대응할 수 있는 잠재력을 의미합니다.
-    </Section>
-  );
-};
-
 function SummaryAI() {
   const { isMobile } = useResponsive();
   const router = useRouter();
@@ -275,7 +191,7 @@ function SummaryAI() {
                 {["1", "2", "3", "4"].map((src, i) => (
                   <Image
                     key={i}
-                    src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
+                    src="https://storage.googleapis.com/assets-addeep/images/Summary.png"
                     ref={(el) => {
                       if (el) frames.current[i] = el;
                     }}
@@ -316,9 +232,6 @@ function SummaryAI() {
             </section>
           </div>
         </div>
-        <FirstContainer />
-        <SecondContainer />
-        <ThirdContainer />
       </div>
     );
   }
@@ -353,7 +266,7 @@ function SummaryAI() {
               Addeep GPR 개요 및 비전
             </h2>
             <button
-              className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+              className="hidden mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
               onClick={() => router.push("/addeep-is/summary/gpr")}
             >
               내용 더보기
@@ -380,11 +293,47 @@ function SummaryAI() {
               '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
             </p>
           </section>
+          <section className="copy-ai">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              e-Commerce PIMS
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              #Target커머스 #현금보상
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep의 GPR-1은 단순한 AI 모델을 넘어, 사용자에게 명시적인 입력
+              없이도 개인화된 콘텐츠를 자동으로 생성하고 추천하는데 중점을 둔
+              '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
+            </p>
+          </section>
+          <section className="copy-ai">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              e-Commerce PIMS
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              #Target커머스 #현금보상
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep의 GPR-1은 단순한 AI 모델을 넘어, 사용자에게 명시적인 입력
+              없이도 개인화된 콘텐츠를 자동으로 생성하고 추천하는데 중점을 둔
+              '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
+            </p>
+          </section>
+          <section className="copy-ai">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              e-Commerce PIMS
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              #Target커머스 #현금보상
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep의 GPR-1은 단순한 AI 모델을 넘어, 사용자에게 명시적인 입력
+              없이도 개인화된 콘텐츠를 자동으로 생성하고 추천하는데 중점을 둔
+              '비대화형 완전 자동 생성형 AI' 라는 점에서 차별점을 가집니다.
+            </p>
+          </section>
         </div>
       </div>
-      <FirstContainer />
-      <SecondContainer />
-      <ThirdContainer />
     </div>
   );
 }
@@ -404,7 +353,7 @@ function SummarySNS() {
               {["1", "2", "3", "4", "5"].map((src, i) => (
                 <Image
                   key={i}
-                  src="https://storage.googleapis.com/assets-addeep/images/addeep-is-image.png"
+                  src="https://storage.googleapis.com/assets-addeep/images/Summary.png"
                   ref={(el) => {
                     if (el) frames.current[i] = el;
                   }}
