@@ -31,10 +31,12 @@ ENV TAILWIND_MODE=build
 RUN addgroup --system --gid 1001 nodejs \
  && adduser --system --uid 1001 nextjs
  
-# 정적/런타임 파일 복사
+# 정적/런타임 파일 복사 - 순서와 권한 개선
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# 추가 정적 파일 복사
+COPY --from=builder --chown=nextjs:nodejs /app/.next/server ./.next/server
 
 USER nextjs
 EXPOSE 3000

@@ -11,6 +11,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // 정적 파일 처리 개선
+  assetPrefix: process.env.NODE_ENV === "production" ? "" : "",
+  trailingSlash: false,
   images: {
     unoptimized: true,
     domains: [
