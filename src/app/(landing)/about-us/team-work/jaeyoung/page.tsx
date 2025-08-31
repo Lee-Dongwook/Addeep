@@ -158,13 +158,24 @@ export default function JaeyoungPage() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="hero" className="py-20 md:py-32 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://placehold.co/1920x1080/C4B5FD/FFFFFF?text=Dynamic+AI+Video)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-white/80" aria-hidden />
+        <div className="relative max-w-7xl mx-auto py-20 md:py-32">
           <div className="text-center">
-            <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden bg-gray-200">
-              <div className="w-full h-full flex items-center justify-center text-gray-400 text-6xl">
-                👤
-              </div>
+            <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+              <img
+                src={"https://placehold.co/160x160/EDE9FE/8B5CF6?text=JY"}
+                alt="Kevin Jaeyoung Yoon"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
               {currentContent.hero.name}
