@@ -9,7 +9,7 @@ import { useResponsive } from "../../../../lib/useResponsive";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 // Image imports
-import addeepIsImage from "/public/images/addeep-is-image.png";
+import addeepIsImage from "/public/images/Innovation.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
