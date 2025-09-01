@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -18,6 +19,11 @@ export default function SiteNav() {
 
   const { isMobile } = useResponsive();
 
+  const pathname = usePathname();
+
+  const disabledNav =
+    pathname.includes("/addeep-is/summary/gpr") ||
+    pathname.includes("/about-us/team-work/jaeyoung");
   // body scroll lock
   useEffect(() => {
     if (!open) return;
@@ -34,6 +40,10 @@ export default function SiteNav() {
     window.addEventListener("keydown", onEsc);
     return () => window.removeEventListener("keydown", onEsc);
   }, []);
+
+  if (disabledNav) {
+    return null;
+  }
 
   if (isMobile) {
     return (
