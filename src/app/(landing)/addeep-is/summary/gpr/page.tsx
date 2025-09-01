@@ -10,30 +10,19 @@ export default function GPRPage() {
   const content = {
     ko: {
       hero: {
-        title: "증강된 미래의 설계자",
-        subtitle: "Architect of the Augmented Future",
-        name: "Kevin Jaeyoung Yoon",
-        education: "한양대학교 전자공학부 졸업",
+        name: "AI의 미래: 예측하고, 생성하고, 증강하다",
         description:
-          "AI 혁신가이자 Addeep의 창립자로서, 증강 AI 기술을 통해 인간과 기술의 경계를 허물고 새로운 가치를 창출하는 미래를 설계합니다.",
+          "Addeep GPR-1은 사용자의 잠재 의도를 미리 파악하여 최적의 경험을 자동으로 생성하는 \'비 대화형 완전 자동 생성형 AI\'입니다. 단순한 응답을 넘어, 사용자의 다음 행동을 예측하고 증강합니다.",
       },
       summary: {
-        title: "AI 혁신가",
+        title: "Addeep GPR-1: 증강 지능의 시작",
         description:
-          "엔지니어에서 글로벌 리더로의 진화, TCI & ACI, ACT 기술을 통한 리더십과 기술적 기여",
-      },
-      vision: {
-        title: "가치 연결의 철학",
-        description:
-          "N/W → Info Security → TCI & ACI → Addeep Augmented AI GPR-1로 이어지는 기술 철학의 진화",
+          "Addeep GPR(Generative Pre-trained Recommender)은 기존 추천 시스템의 한계를 넘어, 사용자의 '마인드셋(Mindset)'을 심층적으로 '채굴(Mining)'하여 새로운 콘텐츠, 광고, 상거래 경험까지 '생성(Generative)'하는 증강 AI(Augmented AI)입니다. 이는 WEB 3.0 기반 S2E(SNS to Earn) 소셜 미디어 생태계의 심장과도 같은 핵심 엔진입니다.",
       },
     },
     en: {
       hero: {
-        title: "Architect of the Augmented Future",
-        subtitle: "Architect of the Augmented Future",
-        name: "Kevin Jaeyoung Yoon",
-        education: "Hanyang University, Electronic Engineering",
+        name: "The Future of AI: Predicting, Generating, and Augmenting",
         description:
           "As an AI innovator and founder of Addeep, I design the future by breaking down boundaries between humans and technology through augmented AI technology.",
       },
@@ -41,11 +30,6 @@ export default function GPRPage() {
         title: "AI Innovator",
         description:
           "Evolution from engineer to global leader, leadership and technical contributions through TCI & ACI, ACT technologies",
-      },
-      vision: {
-        title: "Philosophy of Value Bridging",
-        description:
-          "Evolution of technical philosophy: N/W → Info Security → TCI & ACI → Addeep Augmented AI GPR-1",
       },
     },
   };
@@ -57,7 +41,6 @@ export default function GPRPage() {
       const sections = [
         "hero",
         "summary",
-        "vision",
         "technologies",
         "gpr1",
         "projects",
@@ -108,11 +91,11 @@ export default function GPRPage() {
               <div className="hidden md:flex space-x-6">
                 {[
                   {
-                    id: "summary",
+                    id: "hero",
                     label: language === "ko" ? "소개" : "Introduction",
                   },
                   {
-                    id: "vision",
+                    id: "summary",
                     label: language === "ko" ? "핵심 기술" : "Core Tech",
                   },
                   {
@@ -165,26 +148,18 @@ export default function GPRPage() {
 
       {/* Hero Section */}
       <section id="hero" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
           <div className="text-center">
-            <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden bg-gray-200">
-              <div className="w-full h-full flex items-center justify-center text-gray-400 text-6xl">
-                👤
-              </div>
-            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
               {currentContent.hero.name}
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 mb-6">
-              {currentContent.hero.title}
-            </h2>
-            <p className="text-lg text-gray-600 mb-4">
-              {currentContent.hero.education}
-            </p>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {currentContent.hero.description}
             </p>
           </div>
+          <button className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200">
+            핵심 기술 살펴보기
+          </button>
         </div>
       </section>
 
@@ -197,20 +172,6 @@ export default function GPRPage() {
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {currentContent.summary.description}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision Section */}
-      <section id="vision" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              {currentContent.vision.title}
-            </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              {currentContent.vision.description}
             </p>
           </div>
         </div>
