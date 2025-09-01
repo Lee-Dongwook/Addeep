@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function JaeyoungPage() {
+export default function GPRPage() {
   const [activeSection, setActiveSection] = useState("hero");
   const [language, setLanguage] = useState("ko");
 
@@ -97,40 +97,38 @@ export default function JaeyoungPage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex flex-row justify-between items-center h-16">
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="text-lg font-semibold text-purple-600"
+            >
+              Addeep GPR
+            </button>
             <div className="flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("hero")}
-                className="text-lg font-semibold text-purple-600"
-              >
-                Kevin Jaeyoung Yoon
-              </button>
               <div className="hidden md:flex space-x-6">
                 {[
                   {
                     id: "summary",
-                    label: language === "ko" ? "요약" : "Summary",
+                    label: language === "ko" ? "소개" : "Introduction",
                   },
                   {
                     id: "vision",
-                    label: language === "ko" ? "비전" : "Vision",
+                    label: language === "ko" ? "핵심 기술" : "Core Tech",
                   },
                   {
                     id: "technologies",
-                    label: language === "ko" ? "기술" : "Technologies",
+                    label:
+                      language === "ko"
+                        ? "서비스 및 확장성"
+                        : "Services & Scalability",
                   },
-                  { id: "gpr1", label: "GPR-1" },
+                  {
+                    id: "gpr1",
+                    label: language === "ko" ? "기대 효과" : "Vision & Value",
+                  },
                   {
                     id: "projects",
-                    label: language === "ko" ? "프로젝트" : "Projects",
-                  },
-                  {
-                    id: "journey",
-                    label: language === "ko" ? "여정" : "Journey",
-                  },
-                  {
-                    id: "accolades",
-                    label: language === "ko" ? "수상" : "Accolades",
+                    label: language === "ko" ? "기술 비교" : "Comparison",
                   },
                 ].map((item) => (
                   <button
@@ -147,12 +145,20 @@ export default function JaeyoungPage() {
                 ))}
               </div>
             </div>
-            <button
-              onClick={() => setLanguage(language === "ko" ? "en" : "ko")}
-              className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
-            >
-              {language === "ko" ? "EN" : "KO"}
-            </button>
+            <div className="flex flex-row items-center gap-2">
+              <button
+                onClick={() => setLanguage("ko")}
+                className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
+              >
+                KO
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
+              >
+                EN
+              </button>
+            </div>
           </div>
         </div>
       </nav>

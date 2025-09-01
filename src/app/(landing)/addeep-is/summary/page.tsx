@@ -327,7 +327,7 @@ function SummaryAI() {
               Addeep GPR 개요 및 비전
             </h2>
             <button
-              className="hidden mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+              className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
               onClick={() => router.push("/addeep-is/summary/gpr")}
             >
               내용 더보기
