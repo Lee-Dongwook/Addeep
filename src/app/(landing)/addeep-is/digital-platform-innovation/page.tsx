@@ -8,8 +8,8 @@ import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
-// Image imports
-import addeepIsImage from "/public/images/Innovation.png";
+const broadcastVideoSrc =
+  "https://storage.googleapis.com/assets-addeep/images/BroadCast.MP4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,16 +99,21 @@ const DigitalPlatformInnovation = () => {
           <div className="sticky top-0 h-[70vh]">
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
               <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-                {["1", "2", "3", "4"].map((src, i) => (
-                  <Image
+                {["1"].map((src, i) => (
+                  <video
                     key={i}
-                    src={addeepIsImage}
-                    ref={(el) => {
-                      if (el) frames.current[i] = el;
+                    src={broadcastVideoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    controls
+                    playsInline
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      background: "#000",
                     }}
-                    className="absolute inset-0 h-full w-full object-cover opacity-0"
-                    alt=""
-                    priority
+                    preload="metadata"
                   />
                 ))}
               </div>
@@ -153,17 +158,18 @@ const DigitalPlatformInnovation = () => {
         {/* 좌측: 고정될 폰 목업 */}
         <div ref={phone} className="sticky top-0 h-[70vh]">
           <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
-            {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1", "2", "3", "4"].map((src, i) => (
-                <Image
+              {["1"].map((src, i) => (
+                <video
                   key={i}
-                  src={addeepIsImage}
-                  ref={(el) => {
-                    if (el) frames.current[i] = el;
-                  }}
-                  className="absolute inset-0 h-full w-full object-cover opacity-0"
-                  alt=""
+                  src={broadcastVideoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                  playsInline
+                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  preload="metadata"
                 />
               ))}
             </div>

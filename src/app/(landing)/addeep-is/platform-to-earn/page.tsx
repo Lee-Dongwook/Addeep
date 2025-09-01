@@ -7,8 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
 
-// Image imports
-import addeepIsImage from "/public/images/Platform.png";
+const skateboardVideoSrc =
+  "https://storage.googleapis.com/assets-addeep/images/SkateBoard.MP4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,17 +96,18 @@ const PlatformToEarn = () => {
         {/* 좌측: 고정될 폰 목업 */}
         <div ref={phone} className="sticky top-0 h-[70vh]">
           <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
-            {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1", "2", "3", "4", "5"].map((src, i) => (
-                <Image
+              {["1"].map((src, i) => (
+                <video
                   key={i}
-                  src={addeepIsImage}
-                  ref={(el) => {
-                    if (el) frames.current[i] = el;
-                  }}
-                  className="absolute inset-0 h-full w-full object-cover opacity-0"
-                  alt=""
+                  src={skateboardVideoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                  playsInline
+                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  preload="metadata"
                 />
               ))}
             </div>

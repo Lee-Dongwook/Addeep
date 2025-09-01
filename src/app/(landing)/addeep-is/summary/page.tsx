@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, Suspense } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,17 +8,12 @@ import { useSearchParams } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
 
-// Image imports
-import addeepIsImage from "/public/images/Summary.png";
+const danceVideoSrc =
+  "https://storage.googleapis.com/assets-addeep/images/Dance.MP4";
+const coupleVideoSrc =
+  "https://storage.googleapis.com/assets-addeep/images/Couple.MP4";
 
 gsap.registerPlugin(ScrollTrigger);
-
-type SectionProps = {
-  children: React.ReactNode; // 왼쪽 텍스트
-  imageSrc: string; // 오른쪽 이미지 경로
-  imageAlt?: string;
-  className?: string;
-};
 
 function useVariant(): "ai" | "sns" {
   const sp = useSearchParams();
@@ -107,71 +101,6 @@ function useSummaryGsap(
   );
 }
 
-function Section({
-  children,
-  imageSrc,
-  imageAlt = "",
-  className = "",
-}: SectionProps) {
-  const { isMobile } = useResponsive();
-
-  if (isMobile) {
-    <section className={`w-full bg-white ${className}`}>
-      <div className="mx-auto max-w-6xl px-6 py-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_420px]">
-          <div className="p-2">
-            <p className="text-2xl leading-relaxed tracking-[-0.01em] [text-wrap:pretty] break-keep text-gray-400">
-              {children}
-            </p>
-          </div>
-
-          <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
-            <div className="relative h-full w-full">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                className="object-cover"
-                width={420}
-                height={520}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>;
-  }
-  return (
-    <section className={`w-full bg-white ${className}`}>
-      <div className="mx-auto max-w-6xl px-6 py-8 md:px-10">
-        {/* 2열: 텍스트 / 이미지 */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_420px]">
-          {/* text */}
-          <div className="p-2">
-            <p className="text-2xl leading-relaxed tracking-[-0.01em] [text-wrap:pretty] break-keep text-gray-400">
-              {children}
-            </p>
-          </div>
-
-          {/* image */}
-          <div className="order-first h-[340px] w-full overflow-hidden rounded-xl lg:order-none lg:h-[520px]">
-            <div className="relative h-full w-full">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                className="object-cover"
-                width={420}
-                height={520}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function SummaryAI() {
   const { isMobile } = useResponsive();
   const router = useRouter();
@@ -184,10 +113,15 @@ function SummaryAI() {
   if (isMobile) {
     return (
       <div className="flex flex-col gap-8 p-4">
-        <img
-          src={addeepIsImage.src}
-          className="h-full w-full object-cover"
-          alt=""
+        <video
+          src={danceVideoSrc}
+          autoPlay
+          loop
+          muted
+          controls
+          playsInline
+          style={{ width: "100%", height: "auto", background: "#000" }}
+          preload="metadata"
         />
         <div className="space-y-20">
           <section className="copy-ai">
@@ -303,17 +237,18 @@ function SummaryAI() {
         {/* 좌측: 고정될 폰 목업 */}
         <div ref={phone} className="sticky top-0 h-[70vh]">
           <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
-            {/* 프레임들 (섹션 수만큼) */}
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1", "2"].map((src, i) => (
-                <Image
+              {["1"].map((src, i) => (
+                <video
                   key={i}
-                  src={addeepIsImage}
-                  ref={(el) => {
-                    if (el) frames.current[i] = el;
-                  }}
-                  className="absolute inset-0 h-full w-full object-cover opacity-0"
-                  alt=""
+                  src={danceVideoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                  playsInline
+                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  preload="metadata"
                 />
               ))}
             </div>
@@ -448,10 +383,15 @@ function SummarySNS() {
   if (isMobile) {
     return (
       <div className="flex flex-col gap-8 p-4">
-        <img
-          src={addeepIsImage.src}
-          className="h-full w-full object-cover"
-          alt=""
+        <video
+          src={coupleVideoSrc}
+          autoPlay
+          loop
+          muted
+          controls
+          playsInline
+          style={{ width: "100%", height: "auto", background: "#000" }}
+          preload="metadata"
         />
         <div className="space-y-20">
           <section className="copy-sns">
@@ -528,16 +468,17 @@ function SummarySNS() {
         <div ref={phone} className="sticky top-0 h-[70vh]">
           <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1", "2", "3", "4", "5"].map((src, i) => (
-                <Image
+              {["1"].map((src, i) => (
+                <video
                   key={i}
-                  src={addeepIsImage}
-                  ref={(el) => {
-                    if (el) frames.current[i] = el;
-                  }}
-                  className="absolute inset-0 h-full w-full object-cover opacity-0"
-                  alt=""
-                  priority
+                  src={coupleVideoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                  playsInline
+                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  preload="metadata"
                 />
               ))}
             </div>
