@@ -247,7 +247,7 @@ function SummaryAI() {
                   muted
                   controls
                   playsInline
-                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  style={{ width: "100%", height: "100%", background: "#000" }}
                   preload="metadata"
                 />
               ))}
@@ -477,7 +477,7 @@ function SummarySNS() {
                   muted
                   controls
                   playsInline
-                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  style={{ width: "100%", height: "100%", background: "#000" }}
                   preload="metadata"
                 />
               ))}

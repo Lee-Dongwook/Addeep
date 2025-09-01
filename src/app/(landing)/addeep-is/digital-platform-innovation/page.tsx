@@ -157,7 +157,7 @@ const DigitalPlatformInnovation = () => {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
         {/* 좌측: 고정될 폰 목업 */}
         <div ref={phone} className="sticky top-0 h-[70vh]">
-          <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
+          <div className="relative h-full -mt-16 w-[320px] rounded-[40px]">
             <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
               {["1"].map((src, i) => (
                 <video
@@ -168,7 +168,7 @@ const DigitalPlatformInnovation = () => {
                   muted
                   controls
                   playsInline
-                  style={{ width: "100%", height: "auto", background: "#000" }}
+                  style={{ width: "100%", height: "100%", background: "#000" }}
                   preload="metadata"
                 />
               ))}
