@@ -184,37 +184,37 @@ export default function GPRPage() {
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "핵심 기술" : "Core Technologies"}
+            {language === "ko" ? "핵심 기술 Deep Dive" : "Core Technologies"}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Augmented AI: Addeep GPR-1
+                LMM: Large Mind-mining Model
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "대화형 AI 기술을 통한 인간과 AI의 자연스러운 상호작용"
-                  : "Natural interaction between humans and AI through conversational AI technology"}
+                  ? "LLM이 언어를 이해한다면, LMM은 사용자의 '의도'를 채굴합니다. 3가지 핵심 데이터를 통해 사용자의 복합적인 마인드셋을 확률적으로 모델링하여, 사용자가 무엇을 원하는지, 왜 원하는지를 예측합니다."
+                  : "If LLM understands language, LMM mines the user's 'intentions'. By modeling the user's complex mindset probabilistically through three key data, it predicts what the user wants and why they want it."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Content Economy: ACI & ACT
+                ACT & Deep Blend
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "혁신적인 콘텐츠 경제 플랫폼 구축"
-                  : "Building innovative content economy platform"}
+                  ? "콘텐츠 자동 융합 기술(ACT)은 LMM의 추론을 바탕으로, Diffusion 모델 기반의 \'Deep Blend\' 프로세스를 통해 최적의 콘텐츠를 자동으로 생성합니다."
+                  : "ACT is an automated content convergence technology based on LMM's inference. It automatically generates the optimal content through the \'Deep Blend\' process based on the Diffusion model."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Reward Ecosystem: S2E
+                Generation-Confirmation & RL
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "지속 가능한 보상 생태계 설계"
-                  : "Designing sustainable reward ecosystem"}
+                  ? "Addeep의 AI는 \'생성-승인\' 모델과 강화학습(Reinforcement Learning)을 통해 지속적으로 진화하며 사용자와 함께 성장합니다."
+                  : "Addeep's AI evolves continuously with \'Generation-Confirmation\' model and Reinforcement Learning, growing together with users."}
               </p>
             </div>
           </div>
@@ -223,15 +223,67 @@ export default function GPRPage() {
 
       {/* GPR-1 Model Section */}
       <section id="gpr1" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Large Mind-mining Model (LMM)
-            </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            {language === "ko"
+              ? "주요 서비스 및 AIaaS 확장성"
+              : "Key Services and AIaaS Scalability"}
+          </h2>
+          <h2 className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            Addeep GPR-1은 SNS 플랫폼 내에서 4대 핵심 서비스를 자동화하며, 그
+            기술력은 AIaaS(서비스형 AI) 모델을 통해 모든 산업으로 무한히 확장될
+            수 있습니다.
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                콘텐츠 생성 자동화
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "이미지, 밈, 이모티콘 등 사용자 맞춤형 콘텐츠를 자동으로 생성하고 제안합니다."
+                  : "It automatically generates and proposes user-personalized content such as images, memes, and emoticons."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                광고 생성 자동화
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "콘텐츠와 광고를 최적으로 자동 매칭하여 거부감 없는 네이티브 광고를 생성합니다."
+                  : "It automatically matches content and advertisements to create native ads without any rejection."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                거래 자동화
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "콘텐츠와 상품의 판매/구매 트랜잭션을 자동으로 생성하여 구매 전환을 극대화합니다."
+                  : "It automatically generates content and product sales/purchase transactions to maximize purchase conversions."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                SNS 포스팅 자동화
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "사용자 승인만으로 최적화된 SNS 게시물을 자동으로 포스팅합니다."
+                  : "It automatically posts optimized SNS posts with user approval."}
+              </p>
+            </div>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full">
+            <h3 className="text-xl font-semibold text-purple-600 mb-4">
+              AIaaS (Artificial Intelligence-as-a-Service)
+            </h3>
+            <p className="text-gray-700">
               {language === "ko"
-                ? "기존 LLM과 차별화된 혁신적인 마인드 마이닝 모델"
-                : "Innovative mind-mining model differentiated from existing LLMs"}
+                ? "Addeep의 강력한 GPR 엔진은 API와 솔루션 형태로 제공되어, 금융, 헬스케어, 교육 등 모든 산업 도메인에 맞춤형으로 적용될 수 있는 무한한 확장성을 가집니다."
+                : "Addeep's powerful GPR engine is provided in API and solution forms, and has infinite scalability that can be applied to any industry domain tailored to the needs of finance, healthcare, education, and other sectors."}
             </p>
           </div>
         </div>
@@ -239,31 +291,41 @@ export default function GPRPage() {
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "주요 프로젝트" : "Key Projects"}
+            {language === "ko" ? "기대 효과 및 미래 가치" : "Vision & Value"}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                OTT Platform Innovation
+                혁신적 사용자 경험
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "차세대 OTT 플랫폼 개발 및 혁신"
-                  : "Next-generation OTT platform development and innovation"}
+                  ? "사용자는 더 이상 원하는 것을 찾아 헤맬 필요가 없습니다. Addeep AI가 먼저 사용자의 마음을 읽고 최적의 콘텐츠와 서비스를 제안하여 전에 없던 편리함과 만족감을 제공합니다."
+                  : "Users no longer need to search for what they want. Addeep AI reads the user's mind first and suggests the optimal content and services, providing a new level of convenience and satisfaction."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Addeep Ecosystem
+                비즈니스 효율 극대화
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "통합 AI 생태계 구축"
-                  : "Building integrated AI ecosystem"}
+                  ? "콘텐츠 생산부터 광고 캠페인, 판매에 이르는 전 과정을 자동화하여 기업의 비용을 절감하고 마케팅 효율성과 구매 전환율을 극대화하여 경쟁 우위를 확보합니다."
+                  : "It automates the entire process from content production to advertising campaigns, sales, and maximizes cost savings and marketing efficiency and purchase conversion rate to gain a competitive advantage."}
               </p>
             </div>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full text-center">
+            <h3 className="text-xl font-semibold text-purple-600 mb-4">
+              WEB 3.0/4.0 시대 선도
+            </h3>
+            <p className="text-gray-700">
+              {language === "ko"
+                ? "탈중앙화된 개인화 콘텐츠 시대를 넘어, 사람과 AI가 경계 없이 상호작용하며 함께 성장하는 WEB 4.0 시대를 Addeep의 증강 AI 기술이 선도할 것입니다."
+                : "Beyond the centralized personalized content era, Addeep's augmented AI technology will lead the WEB 4.0 era where people and AI interact seamlessly and grow together."}
+            </p>
           </div>
         </div>
       </section>
@@ -272,72 +334,140 @@ export default function GPRPage() {
       <section id="journey" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "기업가 여정" : "Entrepreneurial Journey"}
+            {language === "ko"
+              ? "GPR vs LLM: 패러다임의 전환"
+              : "GPR vs LLM: Paradigm Shift"}
           </h2>
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Addeep Founder & CVO
-              </h3>
-              <p className="text-gray-700">
-                {language === "ko"
-                  ? "증강 AI 기술의 선구자로서의 역할"
-                  : "Role as a pioneer in augmented AI technology"}
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                US Addeep Inc. CEO
-              </h3>
-              <p className="text-gray-700">
-                {language === "ko"
-                  ? "글로벌 시장 진출을 위한 리더십"
-                  : "Leadership for global market expansion"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Accolades Section */}
-      <section id="accolades" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "수상 및 인정" : "Accolades & Recognition"}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                {language === "ko"
-                  ? "기술 혁신상"
-                  : "Technology Innovation Award"}
-              </h3>
-              <p className="text-gray-700">
-                {language === "ko"
-                  ? "AI 기술 분야 혁신 기여 인정"
-                  : "Recognition for innovation in AI technology"}
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                {language === "ko" ? "기업가상" : "Entrepreneur Award"}
-              </h3>
-              <p className="text-gray-700">
-                {language === "ko"
-                  ? "혁신적 비즈니스 모델 구축"
-                  : "Building innovative business models"}
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                {language === "ko" ? "리더십상" : "Leadership Award"}
-              </h3>
-              <p className="text-gray-700">
-                {language === "ko"
-                  ? "글로벌 팀 리더십과 비전"
-                  : "Global team leadership and vision"}
-              </p>
-            </div>
+          <div className="overflow-x-auto card p-2">
+            <table className="w-full text-left comparison-table rounded-lg">
+              <thead className="bg-gray-50 text-gray-700 text-lg">
+                <tr>
+                  <th className="lang-ko">구분</th>
+                  <th className="lang-en hidden">Category</th>
+                  <th>Addeep GPR-1</th>
+                  <th>
+                    <span className="lang-ko">대화형 LLM (e.g., ChatGPT)</span>
+                    <span className="lang-en hidden">
+                      Conversational LLM (e.g., ChatGPT)
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="font-bold lang-ko">핵심 철학</td>
+                  <td className="font-bold lang-en hidden">Core Philosophy</td>
+                  <td>
+                    <strong className="lang-ko">
+                      증강 지능 (Augmented Intelligence):
+                    </strong>
+                    <span className="lang-ko">
+                      {" "}
+                      AI가 인간의 의도를 예측하고 능력을 증강
+                    </span>
+                    <strong className="lang-en hidden">
+                      Augmented Intelligence:
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      AI predicts and enhances human intent
+                    </span>
+                  </td>
+                  <td>
+                    <strong className="lang-ko">
+                      인공 지능 (Artificial Intelligence):
+                    </strong>
+                    <span className="lang-ko">
+                      {" "}
+                      인간의 지시를 이해하고 결과를 수행
+                    </span>
+                    <strong className="lang-en hidden">
+                      Artificial Intelligence:
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      AI understands and executes human commands
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="font-bold lang-ko">추론 모델</td>
+                  <td className="font-bold lang-en hidden">Inference Model</td>
+                  <td className="font-semibold text-gray-800">
+                    LMM (Large Mind-mining Model)
+                  </td>
+                  <td>LLM (Large Language Model)</td>
+                </tr>
+                <tr>
+                  <td className="font-bold lang-ko">상호작용 방식</td>
+                  <td className="font-bold lang-en hidden">
+                    Interaction Method
+                  </td>
+                  <td className="font-semibold text-gray-800">
+                    <strong className="lang-ko">비대화형 (Proactive):</strong>
+                    <span className="lang-ko">
+                      {" "}
+                      명시적 입력 없이 선제적으로 자동 생성
+                    </span>
+                    <strong className="lang-en hidden">
+                      Non-conversational (Proactive):
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      Proactively generates without explicit input
+                    </span>
+                  </td>
+                  <td>
+                    <strong className="lang-ko">대화형 (Reactive):</strong>
+                    <span className="lang-ko">
+                      {" "}
+                      사용자의 프롬프트(입력)에 기반하여 반응
+                    </span>
+                    <strong className="lang-en hidden">
+                      Conversational (Reactive):
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      Reacts based on user prompts (input)
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="font-bold lang-ko">비즈니스 적용</td>
+                  <td className="font-bold lang-en hidden">
+                    Business Application
+                  </td>
+                  <td>
+                    <strong className="lang-ko">S2E 생태계 직접 구동:</strong>
+                    <span className="lang-ko">
+                      {" "}
+                      광고, 커머스와 직접 연동된 수익 모델
+                    </span>
+                    <strong className="lang-en hidden">
+                      Direct S2E Ecosystem Drive:
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      Revenue model directly linked with ads and commerce
+                    </span>
+                  </td>
+                  <td>
+                    <strong className="lang-ko">범용 API 제공:</strong>
+                    <span className="lang-ko">
+                      {" "}
+                      다양한 서비스에 적용 가능한 기반 기술
+                    </span>
+                    <strong className="lang-en hidden">
+                      General-Purpose API:
+                    </strong>
+                    <span className="lang-en hidden">
+                      {" "}
+                      Foundational tech applicable to various services
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
