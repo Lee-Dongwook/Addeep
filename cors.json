@@ -2,7 +2,7 @@
   {
     "origin": ["https://addeep.co.kr"],
     "method": ["GET", "HEAD", "OPTIONS"],
-    "responseHeader": ["Content-Type", "Cache-Control"],
+    "responseHeader": ["Content-Type", "Cache-Control", "Accept-Ranges"],
     "maxAgeSeconds": 3600
   }
 ]
