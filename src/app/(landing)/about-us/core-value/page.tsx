@@ -4,7 +4,7 @@ import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { values, FirstDot } from "../../../../constants/core-values";
+import { values } from "../../../../constants/core-values";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,7 +152,7 @@ const CoreValueHero = () => {
         <div className="flex-1 flex flex-col items-center justify-center">
           <h1 className="text-2xl font-bold text-black mb-4">Core Values</h1>
           <p className="text-xl mt-2 font-normal text-[#4B5563] leading-relaxed">
-            우리가 추구하는 5가지 핵심 가치
+            Our core values are
           </p>
           <CoreValues />
         </div>
@@ -167,7 +167,7 @@ const CoreValueHero = () => {
           Core Values
         </h1>
         <p className="text-2xl mt-2 font-normal text-[#4B5563] leading-relaxed">
-          우리가 추구하는 5가지 핵심 가치
+          Our core values are
         </p>
         <CoreValues />
       </div>
@@ -208,11 +208,8 @@ const FirstContainer = () => {
             <h2 className="text-4xl font-bold text-black mb-4">Vision</h2>
 
             <ul className="text-xl text-gray-700 font-normal font-sans space-y-1">
-              <li>디지털 콘텐츠 세상을 향한</li>
-              <li>
-                깨끗하고 바람직한 단 하나의{" "}
-                <span className="font-bold text-[#D300C5]">'Addeep'</span>
-              </li>
+              <li>The one and only Addeep, aiming</li>
+              <li>for a clean and desirable digital content world</li>
             </ul>
           </div>
         </div>
@@ -232,12 +229,13 @@ const SecondContainer = () => {
               <h2 className="text-4xl font-bold text-black mb-4">Motto</h2>
 
               <p className="text-xl font-bold text-[#833AB4] leading-relaxed mb-6">
-                열망, 공감, 민첩
+                Aspiration, Empathy, Agility
               </p>
 
               <ul className="text-lg text-gray-700 font-normal font-sans space-y-1">
-                <li>지금 우리 모두에게 소중한 시간을 열망과 공감,</li>
-                <li>그리고 민첩하게 협력하자</li>
+                <li>Let's collaborate with</li>
+                <li>aspiration, empathy, and agility</li>
+                <li>to make the most of our precious time.</li>
               </ul>
             </div>
           </div>
@@ -255,12 +253,13 @@ const SecondContainer = () => {
             <h2 className="text-4xl font-bold text-black mb-4">Motto</h2>
 
             <p className="text-2xl font-bold text-[#833AB4] leading-relaxed mb-6">
-              열망, 공감, 민첩
+              Aspiration, Empathy, Agility
             </p>
 
             <ul className="text-xl text-gray-700 font-normal font-sans space-y-1">
-              <li>지금 우리 모두에게 소중한 시간을 열망과 공감,</li>
-              <li>그리고 민첩하게 협력하자</li>
+              <li>Let's collaborate with</li>
+              <li>aspiration, empathy, and agility</li>
+              <li>to make the most of our precious time.</li>
             </ul>
           </div>
         </div>
@@ -282,13 +281,14 @@ const ThirdContainer = () => {
 
               <ul className="text-lg text-gray-700 font-normal font-sans flex flex-col items-center justify-center space-y-4">
                 <li className="flex flex-row items-center gap-4">
-                  작은 성공에 분투하자.
+                  Let's strive for small successes.
                 </li>
                 <li className="flex flex-row items-center gap-4">
-                  함께하는 힘으로 도전과 모험을 즐기자.
+                  Let's enjoy challenges and adventures together with the power
+                  of unity.
                 </li>
                 <li className="flex flex-row items-center gap-4">
-                  스마트하게 생각하고 바람직하게 행동하자.
+                  Let's think smart and act appropriately.
                 </li>
               </ul>
             </div>
@@ -307,13 +307,13 @@ const ThirdContainer = () => {
 
             <ul className="text-xl text-gray-700 font-normal font-sans space-y-4">
               <li className="flex flex-row items-center gap-4">
-                <FirstDot /> 작은 성공에 분투하자. 작은 성공에 분투하자.
+                작은 성공에 분투하자. 작은 성공에 분투하자.
               </li>
               <li className="flex flex-row items-center gap-4">
-                <FirstDot /> 함께하는 힘으로 도전과 모험을 즐기자.
+                함께하는 힘으로 도전과 모험을 즐기자.
               </li>
               <li className="flex flex-row items-center gap-4">
-                <FirstDot /> 스마트하게 생각하고 바람직하게 행동하자.
+                스마트하게 생각하고 바람직하게 행동하자.
               </li>
             </ul>
           </div>

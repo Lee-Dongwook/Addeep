@@ -101,7 +101,12 @@ const WorkBalanceIcon = ({ className = "" }) => (
 
 export const sectionData = [
   {
-    text: ["우리를 도와주세요.", "여러분의 창의력과", "잠재력이 필요합니다."],
+    text: [
+      "Join our team today!",
+      "Unleash your creativity and",
+      "potential with us, and connected to",
+      "social networks globally right now.",
+    ],
     image: `${NEXT_PUBLIC_CDN_BASE}/images/Career_Background.png`,
   },
 ];
