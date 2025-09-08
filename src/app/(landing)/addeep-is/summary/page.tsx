@@ -263,37 +263,39 @@ function SummaryAI() {
         <div className="mt-8 flex flex-col items-center justify-center">
           <div className="grid grid-cols-2 gap-8">
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <p className="text-2xl leading-relaxed">
+              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
                 Automated Content Generation
-              </p>
-              <p className="text-2xl leading-relaxed">
+              </h3>
+              <p className="text-xl leading-relaxed">
                 Automatically generates and recommends user content including
                 images, memes, and emojis, activated by simple user approval.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <p className="text-2xl leading-relaxed">
+              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
                 Automated Ad Generation
-              </p>
-              <p className="text-2xl leading-relaxed">
+              </h3>
+              <p className="text-xl leading-relaxed">
                 Intelligently matches content and advertisements, generating
                 personalized recommendations activated by user approval.
               </p>
             </div>
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <p className="text-2xl leading-relaxed">Transaction Automation</p>
-              <p className="text-2xl leading-relaxed">
+              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
+                Transaction Automation
+              </h3>
+              <p className="text-xl leading-relaxed">
                 Automatically creates and recommends sale/purchase transactions,
                 completed upon user approval.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <p className="text-2xl leading-relaxed">
+              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
                 Social Media Post Automation
-              </p>
-              <p className="text-2xl leading-relaxed">
+              </h3>
+              <p className="text-xl leading-relaxed">
                 Automatically generates social media posts including text,
                 images, and videos for Addeep accounts, posted upon user
                 approval.
@@ -302,24 +304,33 @@ function SummaryAI() {
           </div>
         </div>
       </div>
-      <div className="copy-ai">
-        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-          Scalability and AI-as-a-Service
-        </h2>
-        <p className="text-2xl leading-relaxed">
-          Our AI engine automatically extracts user mindset models without
-          explicit input, generating social media behaviors users are most
-          likely to intend.
-        </p>
-        <p className="text-2xl leading-relaxed">
-          Cloud Adaptability: Instantiated on Addeep's cloud server but
-          adaptable to Azure, AWS, Google Cloud, and other platforms.
-        </p>
-        <p className="text-2xl leading-relaxed">
-          Future Vision: Offering 'Artificial Intelligence-as-a-Service' (AIaaS)
-          via subscription model to external clients-individuals and
-          corporations worldwide.
-        </p>
+      <div className="flex flex-col items-center justify-center">
+        <div
+          className="max-w-[1240px] border-[1.2px] p-12 rounded-2xl flex flex-col border-[#B641E9] border-opacity-20"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(182, 65, 233, 0.1) 0%, rgba(0, 0, 0, 0) 100%)",
+          }}
+        >
+          <h2 className="mb-4 text-3xl font-bold text-[#B641E9]">
+            Scalability and AI-as-a-Service
+          </h2>
+          <p className="text-lg leading-relaxed max-w-2xl">
+            Our AI engine automatically extracts user mindset models without
+            explicit input, generating social media behaviors users are most
+            likely to intend.
+          </p>
+          <p className="text-lg leading-relaxed max-w-2xl">
+            Cloud Adaptability: Instantiated on Addeep's cloud server but
+            adaptable to Azure, AWS, Google Cloud, and other platforms.
+          </p>
+          <p className="text-lg leading-relaxed max-w-2xl">
+            Future Vision: Offering 'Artificial Intelligence-as-a-Service'
+            (AIaaS) via subscription model to external clients-individuals and
+            corporations worldwide.
+          </p>
+          <p className="min-w-[1000px]"></p>
+        </div>
       </div>
     </section>
   );
