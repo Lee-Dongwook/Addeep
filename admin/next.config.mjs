@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  env: {
+    port: "3001",
+  },
   reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
