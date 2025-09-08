@@ -244,40 +244,63 @@ function SummaryAI() {
         </div>
       </div>
 
-      <div className="copy-ai">
-        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-          From Generation to Confirmation:
-        </h2>
-        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-          Our Core Services
-        </h2>
+      <div className="flex flex-col flex-1 p-28">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-[56px] font-bold">
+            From Generation to Confirmation:
+          </h2>
+          <h2 className="mb-4 text-[56px] font-bold">
+            Our <span className="text-[#B641E9]">Core Services</span>
+          </h2>
+          <h2 className="text-2xl font-normal">
+            Introducing our revolutionary "Generation - Confirmation" model that
+          </h2>
+          <h2 className="mb-4 text-2xl font-normal">
+            transforms how users interact with AI-generated content.
+          </h2>
+        </div>
 
-        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-          Introducing our revolutionary "Generation - Confirmation" model that
-        </h2>
-        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-          transforms how users interact with AI-generated content.
-        </h2>
-        <p className="text-2xl leading-relaxed">Automated Content Generation</p>
-        <p className="text-2xl leading-relaxed">
-          Automatically generates and recommends user content including images,
-          memes, and emojis, activated by simple user approval.
-        </p>
-        <p className="text-2xl leading-relaxed">Automated Ad Generation</p>
-        <p className="text-2xl leading-relaxed">
-          Intelligently matches content and advertisements, generating
-          personalized recommendations activated by user approval.
-        </p>
-        <p className="text-2xl leading-relaxed">Transaction Automation</p>
-        <p className="text-2xl leading-relaxed">
-          Automatically creates and recommends sale/purchase transactions,
-          completed upon user approval.
-        </p>
-        <p className="text-2xl leading-relaxed">Social Media Post Automation</p>
-        <p className="text-2xl leading-relaxed">
-          Automatically generates social media posts including text, images, and
-          videos for Addeep accounts, posted upon user approval.
-        </p>
+        <div className="mt-8 flex flex-col items-center justify-center">
+          <div className="grid grid-cols-2 gap-8">
+            <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
+              <p className="text-2xl leading-relaxed">
+                Automated Content Generation
+              </p>
+              <p className="text-2xl leading-relaxed">
+                Automatically generates and recommends user content including
+                images, memes, and emojis, activated by simple user approval.
+              </p>
+            </div>
+
+            <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
+              <p className="text-2xl leading-relaxed">
+                Automated Ad Generation
+              </p>
+              <p className="text-2xl leading-relaxed">
+                Intelligently matches content and advertisements, generating
+                personalized recommendations activated by user approval.
+              </p>
+            </div>
+            <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
+              <p className="text-2xl leading-relaxed">Transaction Automation</p>
+              <p className="text-2xl leading-relaxed">
+                Automatically creates and recommends sale/purchase transactions,
+                completed upon user approval.
+              </p>
+            </div>
+
+            <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
+              <p className="text-2xl leading-relaxed">
+                Social Media Post Automation
+              </p>
+              <p className="text-2xl leading-relaxed">
+                Automatically generates social media posts including text,
+                images, and videos for Addeep accounts, posted upon user
+                approval.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="copy-ai">
         <h2 className="mb-4 text-2xl font-semibold text-pink-500">
