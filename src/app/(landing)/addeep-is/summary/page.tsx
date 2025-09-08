@@ -1,15 +1,11 @@
 "use client";
 
-import { useRef, Suspense } from "react";
+import { Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSearchParams } from "next/navigation";
-import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
-
-const coupleVideoSrc =
-  "https://storage.googleapis.com/assets-addeep/images/Couple.MP4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,74 +25,6 @@ function useVariant(): "ai" | "sns" {
   if (sp.has("sns")) return "sns"; // ?sns
   if (sp.has("ai")) return "ai"; // ?ai
   return "ai"; // default
-}
-
-function useSummaryGsap(
-  root: React.RefObject<HTMLDivElement | null>,
-  phone: React.RefObject<HTMLDivElement | null>,
-  frames: React.MutableRefObject<HTMLImageElement[]>,
-  copyClass: string
-) {
-  useGSAP(
-    () => {
-      // pin
-      ScrollTrigger.create({
-        trigger: root.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: phone.current,
-        pinSpacing: true,
-        anticipatePin: 1,
-      });
-
-      // copy reveal + frame crossfade
-      const copies = gsap.utils.toArray<HTMLElement>(`.${copyClass}`);
-      copies.forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { autoAlpha: 0, y: 40 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 70%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-
-        const imgs = frames.current;
-        const target = imgs[i];
-        if (target) {
-          gsap.fromTo(
-            target,
-            { autoAlpha: 0 },
-            {
-              autoAlpha: 1,
-              duration: 0.5,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 70%",
-                end: "top 30%",
-                toggleActions: "play none none reverse",
-              },
-              onStart: () => {
-                imgs.forEach((img, idx) => {
-                  if (idx !== i) gsap.set(img, { autoAlpha: 0 });
-                });
-              },
-            }
-          );
-        }
-      });
-    },
-    { scope: root }
-  );
 }
 
 function SummaryAI() {
@@ -359,25 +287,10 @@ function SummaryAI() {
 
 function SummarySNS() {
   const { isMobile } = useResponsive();
-  const root = useRef<HTMLDivElement>(null);
-  const phone = useRef<HTMLDivElement>(null);
-  const frames = useRef<HTMLImageElement[]>([]);
-
-  useSummaryGsap(root, phone, frames, "copy-sns");
 
   if (isMobile) {
     return (
       <div className="flex flex-col gap-8 p-4">
-        <video
-          src={coupleVideoSrc}
-          autoPlay
-          loop
-          muted
-          controls
-          playsInline
-          style={{ width: "100%", height: "auto", background: "#000" }}
-          preload="metadata"
-        />
         <div className="space-y-20">
           <section className="copy-sns">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
@@ -448,93 +361,105 @@ function SummarySNS() {
   }
 
   return (
-    <div ref={root} className="stage relative mb-20">
+    <div className="stage relative mb-20">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-        <div ref={phone} className="sticky top-0 h-[70vh]">
-          <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
-            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1"].map((src, i) => (
-                <video
-                  key={i}
-                  src={coupleVideoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  controls
-                  playsInline
-                  style={{ width: "100%", height: "100%", background: "#000" }}
-                  preload="metadata"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-[60vh]">
           <section className="copy-sns">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Addeep GPR AI 기반의 혁신적인 보상형 SNS 플랫폼
+              Redefining Value: Shared Prosperity for All
             </h2>
             <p className="text-2xl leading-relaxed">
-              Addeep은 단순한 SNS 서비스를 넘어, 서비스 이용자와 콘텐츠 창작자인
-              크리에이터/인플루언서에게 획기적인 가치를 제공합니다. 저희
-              서비스는 'Addeep-GPR-1' (Generative Pre-trained Recommender) AI
-              기술을 핵심으로 하여, 이용자가 서비스를 이용하기만 해도 Addeep GPR
-              AI의 정교한 분석을 통해 최적화된 리워드 캐시가 적립되어 현금처럼
-              사용할 수 있도록 설계되었습니다.
+              Addeep allows users to accumulate reward cash, optimized through
+              Addeep GPR Ai's sophisticated analysis, which can be used like
+              real money. Our innovative structure ensures reward cash
+              accumulates for all participants - advertiesers, platform
+              operators, users, and creators/influencers - where increased usage
+              generates more economic profit for everyone.
+            </p>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Empowering Users, Beyond Traditional Models
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Addeep addresses the imbalance in existing platform ecosystems
+              where users were subordinate. We introduce an SNS platform based
+              on a user and participant-centric reward-based advertising service
+              for users worldwide.
             </p>
           </section>
 
           <section className="copy-sns">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Addeep GRP AI:
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Intelligent Engagement & Fair Distribution
+            </h2>
             <p className="text-2xl leading-relaxed">
-              광고주, 플랫폼 사업자, 이용자, 그리고 크리에이터/인플루언서 등
-              모든 참여자에게 리워드 캐시가 적립되는 혁신적인 구조를 통해,
-              Addeep을 이용하면 할수록 경제적 수익을 창출하며 모두가 이익을
-              공유할 수 있습니다.
+              Addeep's core strength lies in the enhanced predicitive and
+              generative capabilities of Addeep GPR AI, differentiated big data
+              analysis, and improved targeted advertising marketing services.
             </p>
           </section>
 
           <section className="copy-sns">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Personalized Content Generation
+            </h2>
             <p className="text-2xl leading-relaxed">
-              기존 플랫폼 생태계에서 이용자는 플랫폼 사업자에게 종속되어 어떠한
-              보상이나 수익 실현도 기대하기 어려웠습니다. Addeep은 이러한
-              불균형을 해소하고, 이용자와 참여자 중심의 보상형 광고 서비스를
-              기반으로 하는 SNS 플랫폼을 전 세계 이용자에게 선보입니다.
+              Addeep GPR AI automatically generates and recommends personalized
+              content without explicit user input.
+            </p>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Fair Revenue Sharing
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Builds a platform ecosystem that more fairly and efficiently
+              shares advertising costs among all participants.
+            </p>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              100% Targeted Accuracy
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              Innovative AI-driven revenue-sharing model where targeted
+              advertising accuracy approaches 100%, maximizing efficiency.
             </p>
           </section>
 
           <section className="copy-sns">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Next-Generation Technology
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              for Creators and Industries
+            </h2>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              AI & Cloud Platform
+            </h2>
             <p className="text-2xl leading-relaxed">
-              Addeep의 핵심은 Addeep GPR AI의 강화된 예측 및 생성 능력, 차별화된
-              빅데이터 분석, 그리고 개선된 타겟 광고 마케팅 서비스에
-              있습니다.Addeep GPR AI는 사용자의 명시적 입력 없이도 개인화된
-              콘텐츠를 자동으로 생성하고 추천하며, 이를 통해 광고주의 광고비용을
-              참여자 모두에게 더욱 공정하고 효율적으로 수익 배분하는 플랫폼
-              생태계를 구축합니다. 이러한 혁신적인 AI 기반 수익 쉐어 모델을
-              통해, 기존 플랫폼 사업자들의 광고 방식 대비 타겟 광고 적중률이
-              100%에 수렴하는 시장 혁신이 가능해집니다. 이는 광고 효율을
-              극대화하고, 동시에 사용자 경험을 향상시키는 획기적인 변화를
-              의미합니다.
+              Addeep GPR AI advances deep learning AI technology to a new level,
+              providing cloud-based data platform technology. This optimizes the
+              platform for various industry customers to conveniently utilize
+              customized, domain-specialized services.
+            </p>
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              ACI Content Protection
+            </h2>
+            <p className="text-2xl leading-relaxed">
+              The ACI (Addeep Contents Identifier) content protection technology
+              leverages Addeep GPR AI's content analysis and identification
+              capabilities, along with blockchain security technology, to
+              enhance IP protection. This allows content creators to more freely
+              and safely trade content within the Addeep platform.
             </p>
           </section>
 
           <section className="copy-sns">
+            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+              Expanding Our Global Footprint
+            </h2>
             <p className="text-2xl leading-relaxed">
-              또한, Addeep GPR AI는 딥러닝 AI 기술을 한 차원 발전시켜 클라우드
-              방식의 데이터 플랫폼 기술을 제공함으로써, 다양한 산업 고객이
-              도메인에 특화된 맞춤형 서비스들을 더욱 편리하게 이용할 수 있도록
-              최적화되었습니다. 크리에이터의 콘텐츠 창작 소유권 보호를 위해
-              Addeep GPR AI의 콘텐츠 분석 및 식별 능력을 활용한 ACI(Addeep
-              Contents Identifier) 콘텐츠 보호 기술과 블록체인 보안 기술을
-              적용하여 IP 보호를 강화했습니다. 이를 통해 콘텐츠 창작자들은
-              Addeep 플랫폼 내에서 보다 자유롭고 안전하게 콘텐츠를 거래할 수
-              있습니다.
-            </p>
-          </section>
-          <section className="copy-sns">
-            <p className="text-2xl leading-relaxed">
-              Addeep은 이러한 새로운 플랫폼 생태계를 대한민국을 시작으로 전
-              세계인이 이용할 수 있도록 확장시켜 나갈 것입니다.
+              Addeep will expand this new platform ecosystem, starting in South
+              Korea, to be accessible to people worldwide.
             </p>
           </section>
         </div>
