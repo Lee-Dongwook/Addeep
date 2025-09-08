@@ -143,145 +143,162 @@ function SummaryAI() {
   }
 
   return (
-    <div className="stage relative mb-20">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-        {/* 우측: 카피 섹션들 */}
-        <div className="space-y-[60vh]">
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Redefining Web 3.0 Social Media
-            </h2>
-            <button
-              className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
-              onClick={() => router.push("/addeep-is/summary/gpr")}
-            >
-              내용 더보기
-            </button>
-            <p className="text-2xl leading-relaxed">
-              Addeep-GPR-1 (Generative Pre-trained Recommender) represents the
-              core technology powering our revolutionary Web 3.0 social media
-              platform. Our breakthrough integration of next-generation CNN and
-              RNN technologies into existing conversational AI models creates an
-              unprecendented user experience.
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Unlike traditional AI systems, GPR focuses on automatically
-              generating and recommending personalized content without requiring
-              explicit user input-a truly non-conversational, fully automated
-              generative AI.
-            </p>
-          </section>
+    <section className="px-2 py-4 mb-20 flex flex-col flex-1">
+      <div className="flex flex-col flex-1 p-28">
+        <h2 className="mb-4 text-[56px] font-bold">
+          Redefining <span className="text-[#B641E9]">Web 3.0 </span>
+          Social Media
+        </h2>
+        {/* <button
+          className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+          onClick={() => router.push("/addeep-is/summary/gpr")}
+        >
+          내용 더보기
+        </button> */}
+        <div className="border border-[#B641E9] text-[#B641E9] w-20 h-px mb-4"></div>
+        <p className="text-2xl leading-relaxed">
+          <span className="text-[#B641E9] font-bold">Addeep-GPR-1</span>{" "}
+          (Generative Pre-trained Recommender) represents the core technology
+          powering our revolutionary Web 3.0 social media platform. Our
+          breakthrough integration of{" "}
+          <span className="text-[#B641E9] font-bold">
+            next-generation CNN and RNN technologies{" "}
+          </span>
+          into existing conversational AI models creates an unprecendented user
+          experience.
+        </p>
+        <p className="text-2xl leading-relaxed mt-6">
+          Unlike traditional AI systems, GPR focuses on{" "}
+          <span className="text-[#B641E9] font-bold">
+            automatically generating and recommending personalized content{" "}
+          </span>
+          without requiring explicit user input-a truly non-conversational,
+          fully automated generative AI.
+        </p>
+      </div>
 
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Beyond the Conversation:
+      <div className="flex flex-col flex-1 p-28">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-[56px] font-bold">Beyond the Conversation:</h2>
+          <h2 className="mb-4 text-[56px] font-bold">
+            Our Technical Advantage
+          </h2>
+          <div className="border border-[#B641E9] text-[#B641E9] w-36 h-px mt-2 mb-4"></div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-3 gap-4">
+          <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+            <h2 className="text-[26px] text-[#B641E9] font-bold mb-4">
+              UnderStanding the Mind
             </h2>
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Our Technical Advantage
-            </h2>
-            <p className="text-2xl leading-relaxed">UnderStanding the Mind</p>
-            <p className="text-2xl leading-relaxed">
-              Multi-dimensional user data collection from Addeep SNS including
-              communication metrics, activity patterns, and demographic data.
+            <p className="text-lg leading-relaxed mb-12 p-4">
+              Multi-dimensional user data collection from Addeep SNS including{" "}
+              <span className="font-bold">
+                communication metrics, activity patterns, and demographic data.
+              </span>
             </p>
-            <p className="text-2xl leading-relaxed">
-              Our proprietary Large Mind-mining Model (LMM) mines user thoughts
-              and intentions, differentiating from traditional LLMs that focus
-              solely on linguistic data.
+            <p className="text-lg leading-relaxed p-4">
+              Our proprietary{" "}
+              <span className="font-bold">Large Mind-mining Model (LMM) </span>
+              mines user thoughts and intentions, differentiating from
+              traditional LLMs that focus solely on linguistic data.
             </p>
-          </section>
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          </div>
+          <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+            <h2 className="text-[26px] text-[#B641E9] font-bold">
               True Automation
             </h2>
-            <p className="text-2xl leading-relaxed">
-              Non-interactive, fully automatic generative AI implementation.
+            <p className="text-lg leading-relaxed mb-12 p-4">
+              <span className="font-bold">
+                Non-interactive, fully automatic
+              </span>{" "}
+              generative AI implementation.
             </p>
-            <p className="text-2xl leading-relaxed">
+            <p className="text-lg leading-relaxed p-4">
               Deep neural network continously calibrated with reinforcement
-              training, enabling instant personalized content without complex
-              user input.
+              training, enabling{" "}
+              <span className="font-bold">instant personalized content </span>
+              without complex user input.
             </p>
-          </section>
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          </div>
+          <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+            <h2 className="text-[26px] text-[#B641E9] font-bold">
               The ACT Engine
             </h2>
-            <p className="text-2xl leading-relaxed">
-              Addeep Automatic Content Convergence Technology powered by our
-              Augmented AI and A-GPR inference model.
+            <p className="text-lg leading-relaxed p-4">
+              <span className="font-bold">
+                Addeep Automatic Content Convergence Technology
+              </span>{" "}
+              powered by our Augmented AI and A-GPR inference model.
             </p>
-            <p className="text-2xl leading-relaxed">
+            <p className="text-lg leading-relaxed p-4">
               Automatically generates personalized content by decomposing and
-              fusing multi-format content from our platform ecosystem.
+              fusing <span className="font-bold">multi-format content </span>{" "}
+              from our platform ecosystem.
             </p>
-            <p className="text-2xl leading-relaxed">
-              Deep Blend technology recreates user-intended content without
-              complex authoring tools.
+            <p className="text-lg leading-relaxed p-4">
+              <span className="font-bold">Deep Blend </span> technology
+              recreates user-intended content without complex authoring tools.
             </p>
-          </section>
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              From Generation to Confirmation:
-            </h2>
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Our Core Services
-            </h2>
-
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Introducing our revolutionary "Generation - Confirmation" model
-              that
-            </h2>
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              transforms how users interact with AI-generated content.
-            </h2>
-            <p className="text-2xl leading-relaxed">
-              Automated Content Generation
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Automatically generates and recommends user content including
-              images, memes, and emojis, activated by simple user approval.
-            </p>
-            <p className="text-2xl leading-relaxed">Automated Ad Generation</p>
-            <p className="text-2xl leading-relaxed">
-              Intelligently matches content and advertisements, generating
-              personalized recommendations activated by user approval.
-            </p>
-            <p className="text-2xl leading-relaxed">Transaction Automation</p>
-            <p className="text-2xl leading-relaxed">
-              Automatically creates and recommends sale/purchase transactions,
-              completed upon user approval.
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Social Media Post Automation
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Automatically generates social media posts including text, images,
-              and videos for Addeep accounts, posted upon user approval.
-            </p>
-          </section>
-          <section className="copy-ai">
-            <h2 className="mb-4 text-2xl font-semibold text-pink-500">
-              Scalability and AI-as-a-Service
-            </h2>
-            <p className="text-2xl leading-relaxed">
-              Our AI engine automatically extracts user mindset models without
-              explicit input, generating social media behaviors users are most
-              likely to intend.
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Cloud Adaptability: Instantiated on Addeep's cloud server but
-              adaptable to Azure, AWS, Google Cloud, and other platforms.
-            </p>
-            <p className="text-2xl leading-relaxed">
-              Future Vision: Offering 'Artificial Intelligence-as-a-Service'
-              (AIaaS) via subscription model to external clients-individuals and
-              corporations worldwide.
-            </p>
-          </section>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="copy-ai">
+        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          From Generation to Confirmation:
+        </h2>
+        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          Our Core Services
+        </h2>
+
+        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          Introducing our revolutionary "Generation - Confirmation" model that
+        </h2>
+        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          transforms how users interact with AI-generated content.
+        </h2>
+        <p className="text-2xl leading-relaxed">Automated Content Generation</p>
+        <p className="text-2xl leading-relaxed">
+          Automatically generates and recommends user content including images,
+          memes, and emojis, activated by simple user approval.
+        </p>
+        <p className="text-2xl leading-relaxed">Automated Ad Generation</p>
+        <p className="text-2xl leading-relaxed">
+          Intelligently matches content and advertisements, generating
+          personalized recommendations activated by user approval.
+        </p>
+        <p className="text-2xl leading-relaxed">Transaction Automation</p>
+        <p className="text-2xl leading-relaxed">
+          Automatically creates and recommends sale/purchase transactions,
+          completed upon user approval.
+        </p>
+        <p className="text-2xl leading-relaxed">Social Media Post Automation</p>
+        <p className="text-2xl leading-relaxed">
+          Automatically generates social media posts including text, images, and
+          videos for Addeep accounts, posted upon user approval.
+        </p>
+      </div>
+      <div className="copy-ai">
+        <h2 className="mb-4 text-2xl font-semibold text-pink-500">
+          Scalability and AI-as-a-Service
+        </h2>
+        <p className="text-2xl leading-relaxed">
+          Our AI engine automatically extracts user mindset models without
+          explicit input, generating social media behaviors users are most
+          likely to intend.
+        </p>
+        <p className="text-2xl leading-relaxed">
+          Cloud Adaptability: Instantiated on Addeep's cloud server but
+          adaptable to Azure, AWS, Google Cloud, and other platforms.
+        </p>
+        <p className="text-2xl leading-relaxed">
+          Future Vision: Offering 'Artificial Intelligence-as-a-Service' (AIaaS)
+          via subscription model to external clients-individuals and
+          corporations worldwide.
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -361,8 +378,8 @@ function SummarySNS() {
   }
 
   return (
-    <div className="stage relative mb-20">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
+    <div className="px-2 py-4 mb-20">
+      <div className="mx-auto">
         <div className="space-y-[60vh]">
           <section className="copy-sns">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
