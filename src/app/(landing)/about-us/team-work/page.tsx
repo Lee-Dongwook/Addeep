@@ -24,11 +24,15 @@ const TeamWorkHeader = () => {
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-2xl font-bold text-white mb-4">About Our Team</h1>
-          <p className="text-base text-white">
-            우수한 맨 파워! 창의적인 Brain!
-          </p>
-          <p className="text-base text-white">잠재력 높은 핵심역량!</p>
+          <h1 className="text-2xl font-bold text-white mb-4">
+            Outstanding manpower!
+          </h1>
+          <h1 className="text-2xl font-bold text-white mb-4">
+            Creative brains!
+          </h1>
+          <h1 className="text-2xl font-bold text-white mb-4">
+            High-potential core capabilities!
+          </h1>
         </div>
       </div>
     );
@@ -44,12 +48,13 @@ const TeamWorkHeader = () => {
           border: "1px solid #E5E7EB",
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          About Our Team
+        <h1 className="text-2xl font-bold text-white mb-4">
+          Outstanding manpower!
         </h1>
-        <p className="text-lg md:text-xl text-white">
-          우수한 맨 파워! 창의적인 Brain! 잠재력 높은 핵심역량!
-        </p>
+        <h1 className="text-2xl font-bold text-white mb-4">Creative brains!</h1>
+        <h1 className="text-2xl font-bold text-white mb-4">
+          High-potential core capabilities!
+        </h1>
       </div>
     </div>
   );
@@ -63,11 +68,18 @@ const TeamWorkHero = () => {
     return (
       <div className="mt-8 w-full p-4 text-center flex flex-col h-48 bg-[#F9FAFB]">
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p className="text-xl font-normal text-gray-800 leading-relaxed">
-            우리는 디지털 플랫폼 서비스분야의 최고의 전문가와 기술력으로,
+          <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed">
+            With the experties of top professionals
           </p>
-          <p className="text-xl font-normal text-gray-800 leading-relaxed mt-4">
-            수준 높은 글로벌 플랫폼 생태계 혁신을 주도합니다.
+          <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
+            in the field of digital platform services and advanced technical
+            capabilities,
+          </p>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
+            we lead the way in driving innovative transformations
+          </p>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
+            within the global platform ecosystem.
           </p>
         </div>
       </div>
@@ -78,10 +90,17 @@ const TeamWorkHero = () => {
     <div className="w-full p-4 text-center flex flex-col h-48 md:h-96 bg-[#F9FAFB]">
       <div className="flex-1 flex flex-col items-center justify-center">
         <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed">
-          우리는 디지털 플랫폼 서비스분야의 최고의 전문가와 기술력으로,
+          With the experties of top professionals
         </p>
         <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
-          수준 높은 글로벌 플랫폼 생태계 혁신을 주도합니다.
+          in the field of digital platform services and advanced technical
+          capabilities,
+        </p>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
+          we lead the way in driving innovative transformations
+        </p>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-800 leading-relaxed mt-4">
+          within the global platform ecosystem.
         </p>
       </div>
     </div>
@@ -205,16 +224,15 @@ const FirstHuman = () => {
               <h2 className="text-2xl font-bold text-black mb-1">
                 Kevin Jaeyoung Yoon
               </h2>
-              <p className="text-lg text-purple-600 mb-4">윤재영</p>
               <div className="text-sm text-black space-y-1">
-                <p>Addeep Founder & CVO Chief Vision Officer</p>
+                <p>Addeep Inc. Founder and CVO (Chief Vision Officer)</p>
                 <p>US Addeep Inc. Chief Executive Officer CEO</p>
               </div>
               <button
                 className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
                 onClick={() => router.push("/about-us/team-work/jaeyoung")}
               >
-                더보기
+                View More
               </button>
             </div>
 
@@ -223,47 +241,87 @@ const FirstHuman = () => {
               {/* Education */}
               <div>
                 <h3 className="text-lg font-semibold text-black mb-2">
-                  Education
+                  Education & Leadership
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
+                  <li>Current) Director, Korea AGI Enterprises Association</li>
                   <li>Hayfield University Graduate School of Business MBA</li>
-                  <li>서울대학교 경영대학원 CFO Academy Completion</li>
+                  <li>
+                    Completed CFO Academy at Seoul National University Graduate
+                    School of Business
+                  </li>
+                  <li>Founder of Addeep Group</li>
                 </ul>
               </div>
 
               {/* Experience */}
               <div>
                 <h3 className="text-lg font-semibold text-black mb-2">
-                  Experience
+                  Key Achievements
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Addeep Platform Series Product Global Service R&D</li>
                   <li>
-                    • OTT 스마트 콘텐츠 플랫폼&스마트 디바이스, AI 소셜 로봇
-                    제품 시리즈 사업화
+                    •Launched Addeep Platform Series Product Global Service, R&D
+                    Secured SNS Service, and Base Digital Platform Service
                   </li>
                   <li>
-                    • 디지털 콘텐츠 권리보호을 위한 'ACI' 콘텐츠 보안 기술
-                    창시자
+                    • Commercialized OTT smart content platform and smart
+                    device, as well as AI social robot product series
                   </li>
                   <li>
-                    • 한국, 미국, 중국, 싱가폴, 동남아시아, EU ICT 글로벌
-                    비즈니스 경영전략 총괄
+                    • Pioneer of 'ACI' content security technology for
+                    protecting digital content rights
                   </li>
-                  <li>• 현) 한국AGI기업연합회 이사</li>
+                  <li>
+                    • Oversaw global management strategies in South Korea, U.S.,
+                    China, Singapore, Southeast Asia, and EU ICT
+                  </li>
                 </ul>
               </div>
 
               {/* Awards */}
               <div>
                 <h3 className="text-lg font-semibold text-black mb-2">
-                  Awards
+                  Major Awards
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• 2015 대한민국 최고의 경영대상 기술혁신대상</li>
-                  <li>• 2016 ICOTEC 국제 저작권 기술 콘퍼런스 저작권 기술상</li>
-                  <li>• 2017 중소벤처기업부 주최 "국무총리상" 표창</li>
-                  <li>• 2017 US WHITE HOUSE "Donald Trump" 대통령상</li>
+                  <li>
+                    • 2017 18th Small and Medium-sized Enterprise Technology
+                    Innovation Exhibition hosted by the Ministry of SMEs and
+                    Startups, awarded the Prime Minister's Award
+                  </li>
+                  <li>• 2017 KCS CICON Award for Creative Management</li>
+                  <li>
+                    • 2017 Ministry of Trade, Industry, and Energy, selected as
+                    an outstanding company for brainpower in the 'K -
+                    BrainPower' program
+                  </li>
+                  <li>
+                    • 2017 received the US White House Donald Trump Presidential
+                    Award
+                  </li>
+                  <li>
+                    • 2016 ICOTEC International Copyright Technology Conference,
+                    awarded for copyright technology
+                  </li>
+                  <li>
+                    • 2015 Best Management Award in Korea, awarded for
+                    technological innovation
+                  </li>
+                </ul>
+              </div>
+
+              {/* Book */}
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">
+                  Published Books & Columns
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>• Book: Smart Platform One Core</li>
+                  <li>
+                    • Column: Series on innovation in social media platforms and
+                    digital advertising ecosystems, and many more
+                  </li>
                 </ul>
               </div>
             </div>
@@ -350,12 +408,19 @@ const SecondHuman = () => {
                   Education & Background
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>우송대학교 컴퓨터공학부</li>
-                  <li>전) 타이탄플랫폼 부사장 COO</li>
-                  <li>전) 타이탄스튜디오 대표이사</li>
+                  <li>
+                    Bachelor's degree in Computer Engineering from Woosong
+                    University
+                  </li>
+                  <li>Former Vice President and COO of Titan Platform</li>
+                  <li>Former CEO of Titan Studio</li>
+                  <li>
+                    Expert in network integration, information security
+                    development, and security consulting
+                  </li>
                 </ul>
                 <h3 className="mt-8 text-lg font-semibold text-black mb-2">
-                  Expertise
+                  Global Operations & Management
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
                   <li>• 네트워크 통합 정보보안 개발 및 보안 컨설팅 전문가</li>
@@ -383,10 +448,8 @@ const SecondHuman = () => {
                 />
               </div>
               <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
-              <p className="text-lg text-purple-600 mb-4">강경수</p>
               <div className="text-sm text-black space-y-1">
-                <p>Addeep Inc 대표이사</p>
-                <p>경영기획 총괄부사장</p>
+                <p>Addeep Inc CEO</p>
               </div>
             </div>
           </div>

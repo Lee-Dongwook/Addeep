@@ -1,20 +1,20 @@
 export const collageData = [
   {
     text: [
-      "우리는 사람들에게",
-      "재미와 즐거움,",
-      "그리고 상상의 문을",
-      "연결시킵니다.",
+      "We connect people",
+      "to fun, joy, and",
+      "the doors of imagination,",
     ],
     image: "/images/jessica.png",
     position: "top-left",
   },
   {
     text: [
-      "그리고 사람과",
-      "사람사이 관계를...,",
-      "세상 어디에서나",
-      "만족할 수 있도록...,",
+      "while also fostering",
+      "relationships between",
+      "people, enabling",
+      "satisfaction to be found",
+      "anywhere in the world.",
     ],
     image: "/images/social.png",
     position: "middle-left",
@@ -29,11 +29,10 @@ export const collageData = [
 
 export const splitScreenData = {
   text: [
-    "이제 애딥의",
-    "소셜 네트워크 채널에서",
-    "크리에이터와 인플루언서가",
-    "안정된 콘텐츠 수익을",
-    "만들어 갑니다",
+    "Now, creators and influencers on",
+    "Addeep's social network channels",
+    "can generate stable income",
+    "from their content.",
   ],
   Image: "/images/Background.png",
 };
