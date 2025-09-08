@@ -1,96 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
-
-const broadcastVideoSrc =
-  "https://storage.googleapis.com/assets-addeep/images/BroadCast.MP4";
-
-gsap.registerPlugin(ScrollTrigger);
+import { YoutubePlayer } from "../../../../components/YoutubePlayer";
 
 const DigitalPlatformInnovation = () => {
   const { isMobile } = useResponsive();
-  const root = useRef<HTMLDivElement>(null);
-  const phone = useRef<HTMLDivElement>(null);
-  const frames = useRef<HTMLImageElement[]>([]);
-
-  useGSAP(
-    () => {
-      // 1) 좌측 폰 고정(pin)
-      ScrollTrigger.create({
-        trigger: ".stage",
-        start: "top top",
-        end: "bottom bottom",
-        pin: phone.current,
-        pinSpacing: true,
-        anticipatePin: 1, // 급스크롤 깜빡임 방지
-      });
-
-      // 2) 섹션 등장 애니메이션 (우측 카피)
-      gsap.utils.toArray<HTMLElement>(".copy").forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { autoAlpha: 0, y: 40 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 70%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-              // markers: true, // 디버깅 시
-            },
-          }
-        );
-
-        // 3) 섹션 진입 시 폰 프레임 교체 (crossfade)
-        const imgs = frames.current;
-        if (imgs[i]) {
-          gsap.fromTo(
-            imgs[i],
-            { autoAlpha: 0 },
-            {
-              autoAlpha: 1,
-              duration: 0.5,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 70%",
-                end: "top 30%",
-                toggleActions: "play none none reverse",
-              },
-              onStart: () => {
-                // 이전 프레임들 숨기기
-                imgs.forEach((img, idx) => {
-                  if (idx !== i) gsap.set(img, { autoAlpha: 0 });
-                });
-              },
-            }
-          );
-        }
-      });
-
-      // 4) 전체 구간 스크럽 타임라인(옵션): 배경색 전환 등 추가
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".stage",
-          start: "top top",
-          end: "+=3000", // 길이 조절
-          scrub: true,
-        },
-      });
-      // tl.to(".stage", { backgroundColor: "#f9fafb" }, 0); // 필요시
-    },
-    { scope: root }
-  );
 
   if (isMobile) {
     return (
@@ -98,28 +12,9 @@ const DigitalPlatformInnovation = () => {
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
           <div className="sticky top-0 h-[70vh]">
             <div className="relative -mt-16 h-full w-[320px] rounded-[40px]">
-              <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-                {["1"].map((src, i) => (
-                  <video
-                    key={i}
-                    src={broadcastVideoSrc}
-                    autoPlay
-                    loop
-                    muted
-                    controls
-                    playsInline
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      background: "#000",
-                    }}
-                    preload="metadata"
-                  />
-                ))}
-              </div>
+              <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent"></div>
             </div>
           </div>
-          {/* 우측: 카피 섹션들 */}
           <div className="space-y-20">
             <section className="copy">
               <h2 className="mb-4 text-2xl font-semibold text-pink-500">
@@ -153,30 +48,8 @@ const DigitalPlatformInnovation = () => {
   }
 
   return (
-    <div ref={root} className="stage relative mb-20">
+    <div className="stage relative mb-20">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">
-        {/* 좌측: 고정될 폰 목업 */}
-        <div ref={phone} className="sticky top-0 h-[70vh]">
-          <div className="relative h-full -mt-16 w-[320px] rounded-[40px]">
-            <div className="absolute inset-[12px] overflow-hidden rounded-[32px] bg-transparent">
-              {["1"].map((src, i) => (
-                <video
-                  key={i}
-                  src={broadcastVideoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  controls
-                  playsInline
-                  style={{ width: "100%", height: "100%", background: "#000" }}
-                  preload="metadata"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* 우측: 카피 섹션들 */}
         <div className="space-y-[60vh]">
           <section className="copy">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
@@ -203,6 +76,7 @@ const DigitalPlatformInnovation = () => {
             </p>
           </section>
         </div>
+        <YoutubePlayer videoId="xUG4jmCCZWU" />
       </div>
     </div>
   );

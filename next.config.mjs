@@ -29,6 +29,19 @@ const nextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-src https://www.youtube.com https://youtube.com",
+          },
+        ],
+      },
+    ];
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
