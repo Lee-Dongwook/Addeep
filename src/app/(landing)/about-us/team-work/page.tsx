@@ -423,16 +423,46 @@ const SecondHuman = () => {
                   Global Operations & Management
                 </h3>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• 네트워크 통합 정보보안 개발 및 보안 컨설팅 전문가</li>
-                  <li>• 7개국 해외법인 운영 및 글로벌 경영전략수립</li>
                   <li>
-                    •China Unicorn과 스마트 콘텐츠 서비스 IDC 데이터 인프라
-                    서비스 구축
+                    • Managed operations and established global business
+                    strategies, administrative management for 7 overseas
+                    subsidiaries
                   </li>
                   <li>
-                    • Softbank Solution China 전략적 사업협력 파트너쉽 구축
+                    • Recipient of the Excellent Award at the 1st JST Venture
+                    Startup Contest
                   </li>
-                  <li>• 인사, 행정, 법무, 경영기획 총괄 운영</li>
+                  <li>
+                    • Oversaw the management of a studio for producing digital
+                    content for broadcasting and advertising
+                  </li>
+                  <li>
+                    • Responsivle for personal affairs, administration, legal
+                    affairs, and business planning and management
+                  </li>
+                </ul>
+                <h3 className="mt-8 text-lg font-semibold text-black mb-2">
+                  International Partnerships
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>
+                    • Established network cooperation partnerships for business
+                    expansion in France, Switzerland, and other EU countries
+                  </li>
+                  <li>
+                    • Established and operated IDC data infrastructure services
+                    for smart content services in collaboration with China
+                    Unicorn
+                  </li>
+                  <li>
+                    • Collaborated with China Unicorn for strategic joint
+                    ventures to promote smart content platforms and smart device
+                    business in China
+                  </li>
+                  <li>
+                    • Established strategic business cooperation partnerships
+                    with Softbank Solution China
+                  </li>
                 </ul>
               </div>
             </div>
