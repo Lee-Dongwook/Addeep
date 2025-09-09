@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
 import { values } from "../../../../constants/core-values";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +73,12 @@ const CoreValueHeader = () => {
 
   return (
     <div className="w-full text-center">
-      <div className="w-full rounded-lg flex flex-col items-center justify-center">
+      <div className="w-full rounded-lg flex flex-col gap-4 items-center justify-center">
+        <img
+          src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+          alt="logo"
+          className="h-24 w-24"
+        />
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
           We <span className="text-[#B641E9]">Bridge</span> Values
         </h1>
@@ -200,6 +206,11 @@ const FirstContainer = () => {
               <li>for a clean and desirable digital content world</li>
             </ul>
           </div>
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            alt="logo"
+            style={{ width: "480px", height: "auto" }}
+          />
         </div>
       </div>
     </div>
@@ -236,7 +247,13 @@ const SecondContainer = () => {
     <div className="w-full flex flex-col justify-center h-96 p-8 bg-white">
       <div className="p-48">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/2 space-y-6"></div>
+          <div className="lg:w-1/2 space-y-6">
+            <img
+              src={`${NEXT_PUBLIC_CDN_BASE}/images/MottoBanner.png`}
+              alt="logo"
+              style={{ width: "480px", height: "auto" }}
+            />
+          </div>
           <div className="flex flex-col items-center lg:items-start lg:w-1/2">
             <h2 className="text-4xl font-bold text-black mb-4">Motto</h2>
 
@@ -314,6 +331,11 @@ const ThirdContainer = () => {
               </li>
             </ul>
           </div>
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/MissionBanner.png`}
+            alt="logo"
+            style={{ width: "480px", height: "auto" }}
+          />
         </div>
       </div>
     </div>

@@ -9,9 +9,9 @@ import {
   SiteNavCloseIcon,
   SiteNavHamburgerIcon,
 } from "../icons";
-// import { LogoIcon } from "../constants/nav/logo";
 import { useResponsive } from "../lib/useResponsive";
 import { NAV, type DefaultLinkType } from "../constants/nav";
+import { NEXT_PUBLIC_CDN_BASE } from "../lib/env";
 
 export default function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -24,6 +24,9 @@ export default function SiteNav() {
   const disabledNav =
     pathname.includes("/addeep-is/summary/gpr") ||
     pathname.includes("/about-us/team-work/jaeyoung");
+
+  const disableLogo = pathname.includes("/about-us/core-value");
+
   // body scroll lock
   useEffect(() => {
     if (!open) return;
@@ -59,6 +62,11 @@ export default function SiteNav() {
             <SiteNavHamburgerIcon className="h-8 w-8 text-gray-900" />
           </button>
           <div aria-hidden className="flex-1" />
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+            alt="logo"
+            className="h-8 w-8"
+          />
           {/* 오버레이는 Portal로 띄워서 나머지 레이아웃에 영향 X */}
           {open &&
             typeof window !== "undefined" &&
@@ -175,8 +183,14 @@ export default function SiteNav() {
           </button>
 
           <div aria-hidden className="flex-1" />
+          {!disableLogo && (
+            <img
+              src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+              alt="logo"
+              className="h-16 w-16"
+            />
+          )}
         </div>
-        {/* <LogoIcon /> */}
       </header>
 
       {/* 오버레이는 Portal로 띄워서 나머지 레이아웃에 영향 X */}
