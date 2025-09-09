@@ -15,6 +15,7 @@ import {
   slideData,
 } from "../../../../constants/we-are";
 import { useState } from "react";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 // Image imports
 import gradientImage from "/public/images/Gradient.png";
@@ -24,9 +25,14 @@ gsap.registerPlugin(ScrollTrigger);
 interface AnimatedSectionProps {
   children: ReactNode;
   index: number;
+  col?: boolean;
 }
 
-const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
+const AnimatedSection = ({
+  children,
+  index,
+  col = false,
+}: AnimatedSectionProps) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -112,7 +118,10 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   }, [index]);
 
   return (
-    <div ref={sectionRef} className="min-h-screen flex items-center">
+    <div
+      ref={sectionRef}
+      className={`min-h-screen flex items-center ${col ? "flex-col" : ""}`}
+    >
       {children}
     </div>
   );
@@ -296,7 +305,7 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1"
+        className="mt-96 text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1"
       >
         <AnimatedSection index={1}>
           {HeroText.map((section, index) => (
@@ -374,9 +383,14 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="text-3xl md:text-5xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-6"
+        className="mt-96 text-3xl md:text-5xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-6"
       >
-        <AnimatedSection index={1}>
+        <AnimatedSection index={1} col={true}>
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            alt="logo"
+            style={{ width: "300px", height: "auto" }}
+          />
           {HeroText.map((section, index) => (
             <div key={index}>
               {section.text.map((line, lineIndex) => (
@@ -390,11 +404,6 @@ export default function LandingPage() {
       </div>
       <div className="p-16 -mt-48 flex flex-col items-center justify-center">
         <AboutSwiper />
-      </div>
-      <div className="flex-1 flex items-center justify-center mt-8 mb-20">
-        <h2 className="text-[#FF0169] font-normal text-[72px]">
-          We Bridge Values
-        </h2>
       </div>
     </div>
   );

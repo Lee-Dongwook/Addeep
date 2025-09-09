@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
 import { LandingBottomArrowIcon } from "../../../../icons";
 import { sectionData, items } from "../../../../constants/careers";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -300,14 +301,23 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-200">
-      <div className="flex flex-col items-center justify-center text-center">
+    <div className="min-h-screen">
+      <div
+        className="flex flex-col h-[600px] items-center justify-center text-center"
+        style={{
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/CareerBanner.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.9,
+        }}
+      >
         {sectionData.map((section, index) => (
           <AnimatedSection key={index} index={index}>
             <div className="flex flex-col w-full">
               {/* Text Section */}
               <div className="items-center justify-center text-center">
-                <p className="text-5xl font-sans flex flex-col font-bold text-gray-800 gap-6">
+                <p className="text-5xl font-sans flex flex-col font-bold text-white gap-6">
                   {section.text.map((line, lineIndex) => (
                     <span key={lineIndex} className="animate-text">
                       {line}
