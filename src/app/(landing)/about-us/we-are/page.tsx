@@ -187,14 +187,14 @@ function AboutSwiper() {
 
         {/* Image */}
         <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
-          <div className="relative w-[280px] h-[560px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-            <Image
-              src={slide.image ?? ""}
-              alt={slide.title}
-              width={280}
-              height={560}
+          <div className="relative w-[280px] h-[560px] rounded-3xl overflow-hidden shadow-lg">
+            <video
+              src={slide.image}
+              autoPlay
+              loop
+              muted
+              playsInline
               className="object-cover w-full h-full"
-              priority
             />
           </div>
         </div>
