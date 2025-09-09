@@ -15,6 +15,11 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# 환경변수 직접 설정 (빌드 인자 대신)
+ENV NEXT_PUBLIC_SUPABASE_URL=https://cgojadkcijfvmmxmstyq.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnb2phZGtjaWpmdm1teG1zdHlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczNzY1NjEsImV4cCI6MjA3Mjk1MjU2MX0.A8oe-xek9kTKcM5vx6H3-8mhffQNfIQU_LGh2Xq6KXc
+
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 # CSS 빌드를 위한 환경 변수 추가

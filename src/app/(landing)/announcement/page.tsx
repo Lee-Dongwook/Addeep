@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type ReactNode, useState } from "react";
+import React, { type ReactNode, useState, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
@@ -129,7 +129,7 @@ const AnnouncementHeader = () => {
   );
 };
 
-export default function LandingPage() {
+function AnnouncementContent() {
   const { isMobile, isTablet } = useResponsive();
   const searchParams = useSearchParams();
 
@@ -198,5 +198,13 @@ export default function LandingPage() {
         <NoticeList title="공지사항" items={announcementList?.data || []} />
       </div>
     </div>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AnnouncementContent />
+    </Suspense>
   );
 }
