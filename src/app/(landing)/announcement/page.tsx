@@ -1,9 +1,13 @@
 "use client";
 
-import React, { type ReactNode } from "react";
+import React, { type ReactNode, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../lib/useResponsive";
+import type { Announcement } from "../../../shared/types/announcement";
+import { supabase } from "../../../lib/supabase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,8 +19,8 @@ interface AnimatedSectionProps {
 type NoticeItem = {
   id: string;
   title: string;
-  summary: string;
-  date: string; // "2024-01-08" 또는 Date ISO
+  description: string;
+  created_at: string; // "2024-01-08" 또는 Date ISO
   href?: string; // 상세 페이지 링크 (옵션)
 };
 
@@ -89,11 +93,11 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                   <h3 className="text-xl font-extrabold text-neutral-900">
                     {it.title}
                   </h3>
-                  <p className="mt-2 text-neutral-500">{it.summary}</p>
+                  <p className="mt-2 text-neutral-500">{it.description}</p>
                   <div className="mt-6 flex items-center gap-2 text-neutral-500">
                     <CalendarIcon />
-                    <time dateTime={it.date} className="text-sm">
-                      {formatKoreanDate(it.date)}
+                    <time dateTime={it.created_at} className="text-sm">
+                      {formatKoreanDate(it.created_at)}
                     </time>
                   </div>
                 </div>
@@ -127,44 +131,71 @@ const AnnouncementHeader = () => {
 
 export default function LandingPage() {
   const { isMobile, isTablet } = useResponsive();
+  const searchParams = useSearchParams();
+
+  const [pagination, setPagination] = useState({
+    pageIndex: Number(searchParams.get("page") || 0),
+    pageSize: Number(searchParams.get("size") || 10),
+  });
+
+  const getAnnouncementData = async () => {
+    try {
+      const { data, count, error } = await supabase
+        .from("announcement")
+        .select("*", { count: "exact" })
+        .order("id")
+        .range(
+          pagination.pageIndex * 10,
+          pagination.pageIndex * 10 + (pagination.pageSize - 1)
+        );
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+
+      return { data, count };
+    } catch (err) {
+      console.error("getAnnouncementData 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: announcementList,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["announcement", pagination.pageIndex, pagination.pageSize],
+    queryFn: () => getAnnouncementData(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
 
   const NoticeListSectionClassname =
     isMobile || isTablet
       ? "flex flex-col items-center justify-center flex-1"
       : "flex flex-col items-center justify-center flex-1 w-3/4 p-24";
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center flex-1">
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="flex flex-col items-center text-center min-h-screen bg-white p-2">
       <AnnouncementHeader />
       <div className={NoticeListSectionClassname}>
-        <NoticeList
-          title="공지사항"
-          items={
-            [
-              // {
-              //   id: "n1",
-              //   title: "테스트 공지사항",
-              //   summary: "테스트 공지사항입니다.",
-              //   date: "2024-01-08",
-              //   href: "/announcement/n1",
-              // },
-              // {
-              //   id: "n2",
-              //   title: "테스트 공지사항",
-              //   summary: "테스트 공지사항입니다.",
-              //   date: "2024-01-08",
-              //   href: "/announcement/n2",
-              // },
-              // {
-              //   id: "n3",
-              //   title: "테스트 공지사항",
-              //   summary: "테스트 공지사항입니다.",
-              //   date: "2024-01-08",
-              //   href: "/announcement/n3",
-              // },
-            ]
-          }
-        />
+        <NoticeList title="공지사항" items={announcementList?.data || []} />
       </div>
     </div>
   );
