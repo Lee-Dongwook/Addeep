@@ -39,20 +39,11 @@ const TeamWorkHeader = () => {
   }
 
   return (
-    <div className="w-full h-48 md:h-96 text-center">
-      <div
-        className="w-full h-48 md:h-96 rounded-lg flex flex-col items-center justify-center"
-        style={{
-          background:
-            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
-          border: "1px solid #E5E7EB",
-        }}
-      >
-        <h1 className="text-2xl font-bold text-white mb-4">
-          Outstanding manpower!
-        </h1>
-        <h1 className="text-2xl font-bold text-white mb-4">Creative brains!</h1>
-        <h1 className="text-2xl font-bold text-white mb-4">
+    <div className="w-full h-full text-center">
+      <div className="w-full rounded-lg flex flex-col items-center justify-center">
+        <h1 className="text-5xl font-bold mb-4">Outstanding manpower!</h1>
+        <h1 className="text-5xl font-bold mb-4">Creative brains!</h1>
+        <h1 className="text-5xl font-bold mb-4">
           High-potential core capabilities!
         </h1>
       </div>

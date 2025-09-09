@@ -175,10 +175,11 @@ function AboutSwiper() {
       <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
         {/* Text */}
         <div className="md:w-2/3 space-y-6">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-600 leading-snug">
+          <h1 className="text-[60px] font-bold">We Are</h1>
+          <h2 className="text-2xl md:text-4xl font-bold text-[#833AB4] leading-snug">
             {slide.title}
           </h2>
-          <div className="text-gray-400 leading-relaxed whitespace-pre-line">
+          <div className="text-[#374151] text-xl leading-relaxed">
             {slide.text.map((t, index) => (
               <div key={index}>{t}</div>
             ))}
