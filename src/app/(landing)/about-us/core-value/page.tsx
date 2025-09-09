@@ -63,34 +63,18 @@ const CoreValueHeader = () => {
   if (isMobile) {
     return (
       <div className="w-full h-48 text-center">
-        <div
-          className="w-full h-48 rounded-lg flex flex-col items-center justify-center"
-          style={{
-            background:
-              "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
-            border: "1px solid #E5E7EB",
-          }}
-        >
-          <h1 className="text-2xl font-bold text-white mb-4">
-            We Bridge Values
-          </h1>
+        <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center">
+          <h1 className="text-2xl font-bold mb-4">We Bridge Values</h1>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-48 md:h-96 text-center">
-      <div
-        className="w-full h-48 md:h-96 rounded-lg flex flex-col items-center justify-center"
-        style={{
-          background:
-            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
-          border: "1px solid #E5E7EB",
-        }}
-      >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          We Bridge Values
+    <div className="w-full text-center">
+      <div className="w-full rounded-lg flex flex-col items-center justify-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          We <span className="text-[#B641E9]">Bridge</span> Values
         </h1>
       </div>
     </div>
@@ -129,13 +113,18 @@ function CoreValues() {
         {values.map((item, i) => (
           <div key={i} className="flex flex-col items-center space-y-4">
             {/* 아이콘 */}
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white text-3xl shadow-md">
+            <div className="w-28 h-28 flex items-center justify-center rounded-full text-white border-2 border-gray-300 text-3xl">
               {item.icon}
             </div>
 
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#833AB4] to-[#818CF8] text-white text-xl font-bold shadow-md">
+              {i + 1}
+            </div>
+
             {/* 텍스트 */}
-            <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+            <p className="text-xl font-semibold text-gray-600 leading-relaxed">
+              {item.desc}
+            </p>
           </div>
         ))}
       </div>
@@ -161,14 +150,13 @@ const CoreValueHero = () => {
   }
 
   return (
-    <div className="w-full p-12 text-center flex flex-col h-48 md:h-96 bg-white">
+    <div className="w-full p-12 text-center flex flex-col bg-white">
       <div className="flex-1 flex flex-col items-center justify-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-          Core Values
-        </h1>
+        <h1 className="text-4xl font-bold text-black mb-4">Core Values</h1>
         <p className="text-2xl mt-2 font-normal text-[#4B5563] leading-relaxed">
           Our core values are
         </p>
+        <div className="h-1 mt-4 w-24 bg-gradient-to-r from-[#6366F1] to-[#818CF8]" />
         <CoreValues />
       </div>
     </div>
@@ -302,18 +290,27 @@ const ThirdContainer = () => {
     <div className="w-full flex flex-col justify-center h-96 p-8 bg-[#F9FAFB]">
       <div className="p-48">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="flex flex-col items-center lg:items-start lg:w-1/2">
+          <div className="flex flex-col items-center lg:items-start">
             <h2 className="text-4xl font-bold text-black mb-4">Mission</h2>
 
             <ul className="text-xl text-gray-700 font-normal font-sans space-y-4">
-              <li className="flex flex-row items-center gap-4">
-                작은 성공에 분투하자. 작은 성공에 분투하자.
+              <li className="flex flex-row items-center">
+                <span className="text-[#833AB4] font-bold w-28">
+                  Let's strive
+                </span>
+                for small successes.
               </li>
-              <li className="flex flex-row items-center gap-4">
-                함께하는 힘으로 도전과 모험을 즐기자.
+              <li className="flex flex-row items-center">
+                <span className="text-[#833AB4] font-bold w-28">
+                  Let's enjoy
+                </span>
+                challenges and adventures together with the power of unity.
               </li>
-              <li className="flex flex-row items-center gap-4">
-                스마트하게 생각하고 바람직하게 행동하자.
+              <li className="flex flex-row items-center">
+                <span className="text-[#833AB4] font-bold w-28">
+                  Let's think
+                </span>
+                smart and act appropriately.
               </li>
             </ul>
           </div>

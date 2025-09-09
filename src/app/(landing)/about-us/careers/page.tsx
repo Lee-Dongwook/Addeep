@@ -146,25 +146,12 @@ const CareerHero = () => {
         <div className="mx-auto px-6 py-14 text-center">
           {/* 제목 */}
           <h1 className="text-2xl font-extrabold text-gray-800 tracking-tight">
-            채용 목적
+            Job Openings
           </h1>
-
-          {/* 그라디언트 언더라인 */}
-          <div
-            className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
-            aria-hidden
-          />
 
           {/* 본문 */}
           <p className="mt-8 text-md font-normal text-gray-700 leading-relaxed">
-            우리가 추구하는 상상이 현실과 연결되는 Addeep에서는
-          </p>
-          <p className="mt-3 text-md font-normal text-gray-700 leading-relaxed">
-            함께 일하는 다양한 인재들의{" "}
-            <span className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent font-bold">
-              안전과 만족감
-            </span>
-            을 큰 가치로 두고 있습니다.
+            We are currently seeking talented individuals
           </p>
         </div>
       </section>
@@ -173,29 +160,46 @@ const CareerHero = () => {
 
   return (
     <section className="w-full bg-[#F9FAFB]">
-      <div className="max-w-5xl mx-auto px-6 py-14 text-center">
-        {/* 제목 */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 tracking-tight">
-          채용 목적
+      <div className="mx-auto max-w-6xl px-6 py-14">
+        <h1 className="text-5xl font-bold text-gray-800 tracking-tight">
+          Job Openings
         </h1>
+        <h3 className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+          We are currently seeking talented individuals
+        </h3>
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+          to join our team in the following roles:
+        </h3>
 
-        {/* 그라디언트 언더라인 */}
-        <div
-          className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
-          aria-hidden
-        />
-
-        {/* 본문 */}
-        <p className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700 leading-relaxed">
-          우리가 추구하는 상상이 현실과 연결되는 Addeep에서는
-        </p>
-        <p className="mt-3 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700 leading-relaxed">
-          함께 일하는 다양한 인재들의{" "}
-          <span className="bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent font-bold">
-            안전과 만족감
-          </span>
-          을 큰 가치로 두고 있습니다.
-        </p>
+        <div className="flex flex-col gap-6 mt-8">
+          <div className="flex flex-row gap-24">
+            <h3 className="text-2xl font-normal text-gray-700 min-w-72">
+              Backend Planner
+            </h3>
+            <p className="text-lg font-normal text-gray-700">
+              Designs the backend system architecture and plans new features to
+              ensure the service's stability and efficiency.
+            </p>
+          </div>
+          <div className="flex flex-row gap-24">
+            <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+              Engineer
+            </h3>
+            <p className="text-lg font-normal text-gray-700 leading-relaxed">
+              Utilizes a diverse tech stack to implement and develop Addeep's
+              innovative AI and Web 3.0 platform.
+            </p>
+          </div>
+          <div className="flex flex-row gap-24">
+            <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+              Global Business Strategist
+            </h3>
+            <p className="text-lg font-normal text-gray-700 leading-relaxed">
+              Analyzes global market trends and formulates strategies to achieve
+              Addeep's business objectives.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -356,39 +360,19 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gray-200">
-      <div className="max-w-4xl mx-auto">
+      <div className="flex flex-col items-center justify-center text-center">
         {sectionData.map((section, index) => (
           <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col md:flex-row w-full">
+            <div className="flex flex-col w-full">
               {/* Text Section */}
-              <div className="md:w-1/2 absolute top-1/3 left-20 items-center justify-center p-8 md:p-12">
-                <p className="text-3xl md:text-5xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+              <div className="items-center justify-center text-center">
+                <p className="text-5xl font-sans flex flex-col font-bold text-gray-800 gap-6">
                   {section.text.map((line, lineIndex) => (
                     <span key={lineIndex} className="animate-text">
                       {line}
                     </span>
                   ))}
                 </p>
-              </div>
-              {/* Bottom Arrow */}
-              <div
-                className="absolute top-3/4 mt-12 left-28 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
-                onClick={handleArrowClick}
-              >
-                <LandingBottomArrowIcon />
-              </div>
-
-              {/* Image Section */}
-              <div
-                className={[
-                  "absolute top-0 right-0 w-1/2 h-full animate-image",
-                ].join(" ")}
-              >
-                <img
-                  src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
-                  alt="girl taking a photo with a tunnel filter"
-                  className="object-cover w-full h-full"
-                />
               </div>
             </div>
           </AnimatedSection>
