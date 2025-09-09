@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "./context/ThemeProvider";
+import QueryProvider from "./components/providers/query-provider";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <QueryProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }
