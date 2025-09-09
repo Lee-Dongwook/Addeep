@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../lib/useResponsive";
 import type { Announcement } from "../../../shared/types/announcement";
 import { supabase } from "../../../lib/supabase";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +66,7 @@ interface NoticeListProps {
 
 function NoticeList({ items, title = "" }: NoticeListProps) {
   return (
-    <section className="w-full px-6 md:px-10">
+    <section className="w-full">
       {title ? (
         <h2 className="mb-6 text-3xl font-bold text-neutral-900 md:text-4xl">
           {title}
@@ -112,12 +113,11 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
 
 const AnnouncementHeader = () => {
   return (
-    <div className="w-full p-2 text-center">
+    <div className="w-full text-center">
       <div
-        className="w-full p-24 rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
         style={{
-          background:
-            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AnnouncementBanner.png)`,
           border: "1px solid #E5E7EB",
         }}
       >
@@ -192,10 +192,10 @@ function AnnouncementContent() {
   }
 
   return (
-    <div className="flex flex-col items-center text-center min-h-screen bg-white p-2">
+    <div className="flex flex-col items-center min-h-screen bg-white">
       <AnnouncementHeader />
       <div className={NoticeListSectionClassname}>
-        <NoticeList title="공지사항" items={announcementList?.data || []} />
+        <NoticeList title="" items={announcementList?.data || []} />
       </div>
     </div>
   );

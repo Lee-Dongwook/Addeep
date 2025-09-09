@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +49,7 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
       d="M64.3906 0C73.2272 0 80.3906 7.16344 80.3906 16V64C80.3906 72.8366 73.2272 80 64.3906 80H16.3906C7.55407 80 0.390625 72.8366 0.390625 64V16C0.390625 7.16344 7.55407 0 16.3906 0H64.3906Z"
       stroke="#E5E7EB"
     />
-    <g clip-path="url(#clip0_2_5961)">
+    <g clipPath="url(#clip0_2_5961)">
       <path
         d="M40.3965 32.0117C36.6699 32.0117 33.6641 35.0176 33.6641 38.7441C33.6641 42.4707 36.6699 45.4766 40.3965 45.4766C44.123 45.4766 47.1289 42.4707 47.1289 38.7441C47.1289 35.0176 44.123 32.0117 40.3965 32.0117ZM40.3965 43.1211C37.9883 43.1211 36.0195 41.1582 36.0195 38.7441C36.0195 36.3301 37.9824 34.3672 40.3965 34.3672C42.8105 34.3672 44.7734 36.3301 44.7734 38.7441C44.7734 41.1582 42.8047 43.1211 40.3965 43.1211ZM48.9746 31.7363C48.9746 32.6094 48.2715 33.3066 47.4043 33.3066C46.5313 33.3066 45.834 32.6035 45.834 31.7363C45.834 30.8691 46.5371 30.166 47.4043 30.166C48.2715 30.166 48.9746 30.8691 48.9746 31.7363ZM53.4336 33.3301C53.334 31.2266 52.8535 29.3633 51.3125 27.8281C49.7773 26.293 47.9141 25.8125 45.8105 25.707C43.6426 25.584 37.1445 25.584 34.9766 25.707C32.8789 25.8066 31.0156 26.2871 29.4746 27.8223C27.9336 29.3574 27.459 31.2207 27.3535 33.3242C27.2305 35.4922 27.2305 41.9902 27.3535 44.1582C27.4531 46.2617 27.9336 48.125 29.4746 49.6602C31.0156 51.1953 32.873 51.6758 34.9766 51.7812C37.1445 51.9043 43.6426 51.9043 45.8105 51.7812C47.9141 51.6816 49.7773 51.2012 51.3125 49.6602C52.8477 48.125 53.3281 46.2617 53.4336 44.1582C53.5566 41.9902 53.5566 35.498 53.4336 33.3301ZM50.6328 46.4844C50.1758 47.6328 49.291 48.5176 48.1367 48.9805C46.4082 49.666 42.3066 49.5078 40.3965 49.5078C38.4863 49.5078 34.3789 49.6602 32.6562 48.9805C31.5078 48.5234 30.623 47.6387 30.1602 46.4844C29.4746 44.7559 29.6328 40.6543 29.6328 38.7441C29.6328 36.834 29.4805 32.7266 30.1602 31.0039C30.6172 29.8555 31.502 28.9707 32.6562 28.5078C34.3848 27.8223 38.4863 27.9805 40.3965 27.9805C42.3066 27.9805 46.4141 27.8281 48.1367 28.5078C49.2852 28.9648 50.1699 29.8496 50.6328 31.0039C51.3184 32.7324 51.1602 36.834 51.1602 38.7441C51.1602 40.6543 51.3184 44.7617 50.6328 46.4844Z"
         fill="white"
@@ -63,9 +64,9 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
         y2="40"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#833AB4" />
-        <stop offset="0.5" stop-color="#E4405F" />
-        <stop offset="1" stop-color="#F56040" />
+        <stop stopColor="#833AB4" />
+        <stop offset="0.5" stopColor="#E4405F" />
+        <stop offset="1" stopColor="#F56040" />
       </linearGradient>
       <clipPath id="clip0_2_5961">
         <path d="M27.2656 23.75H53.5156V53.75H27.2656V23.75Z" fill="white" />
@@ -90,7 +91,7 @@ const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
       d="M64.3906 0C73.2272 0 80.3906 7.16344 80.3906 16V64C80.3906 72.8366 73.2272 80 64.3906 80H16.3906C7.55407 80 0.390625 72.8366 0.390625 64V16C0.390625 7.16344 7.55407 0 16.3906 0H64.3906Z"
       stroke="#E5E7EB"
     />
-    <g clip-path="url(#clip0_2_5965)">
+    <g clipPath="url(#clip0_2_5965)">
       <path
         d="M47.3716 40.625L48.2048 35.1957H42.9952V31.6725C42.9952 30.1871 43.7229 28.7393 46.0562 28.7393H48.4245V24.1168C48.4245 24.1168 46.2753 23.75 44.2204 23.75C39.9302 23.75 37.1259 26.3504 37.1259 31.0578V35.1957H32.3569V40.625H37.1259V53.75H42.9952V40.625H47.3716Z"
         fill="white"
@@ -105,8 +106,8 @@ const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
         y2="40"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2563EB" />
-        <stop offset="1" stop-color="#1E40AF" />
+        <stop stopColor="#2563EB" />
+        <stop offset="1" stopColor="#1E40AF" />
       </linearGradient>
       <clipPath id="clip0_2_5965">
         <path d="M31.0156 23.75H49.7656V53.75H31.0156V23.75Z" fill="white" />
@@ -174,8 +175,8 @@ const YouTubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
         y2="40"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EF4444" />
-        <stop offset="1" stop-color="#B91C1C" />
+        <stop stopColor="#EF4444" />
+        <stop offset="1" stopColor="#B91C1C" />
       </linearGradient>
     </defs>
   </svg>
@@ -411,10 +412,12 @@ const CoreValueHeader = () => {
   return (
     <div className="w-full text-center">
       <div
-        className="w-full h-full p-4 rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-[600px] p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-50"
         style={{
-          background:
-            "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           border: "1px solid #E5E7EB",
         }}
       >
