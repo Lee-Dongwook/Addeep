@@ -39,10 +39,12 @@ const TeamWorkHeader = () => {
   }
 
   return (
-    <div className="w-full h-full text-center">
-      <div className="w-full rounded-lg flex flex-col items-center justify-center">
+    <div className="w-full h-full text-center mt-10 mb-20">
+      <div className="w-full rounded-lg flex flex-1 flex-col items-center justify-center">
         <h1 className="text-5xl font-bold mb-4">Outstanding manpower!</h1>
-        <h1 className="text-5xl font-bold mb-4">Creative brains!</h1>
+        <h1 className="text-5xl font-bold mb-4 text-[#B641E9]">
+          Creative brains!
+        </h1>
         <h1 className="text-5xl font-bold mb-4">
           High-potential core capabilities!
         </h1>
@@ -113,7 +115,7 @@ const FirstHuman = () => {
               <div className="flex flex-col items-center text-center">
                 <div className="w-48 h-48 mb-24 rounded-full">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/jaeyoung.png"
+                    src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
                     alt="Kevin Jaeyoung Yoon"
                     width={256}
                     height={256}
@@ -121,7 +123,7 @@ const FirstHuman = () => {
                     priority
                   />
                   <button
-                    className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                    className="mt-6 px-6 py-2 bg-gradient-to-r from-[#CE9AFF] via-[#A855F7] to-[#833AB4] text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
                     onClick={() => router.push("/about-us/team-work/jaeyoung")}
                   >
                     더보기
@@ -196,31 +198,24 @@ const FirstHuman = () => {
   }
 
   return (
-    <div className="w-full p-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
+    <div className="w-full min-h-full p-8 bg-white">
+      <div className="max-w-full mx-auto">
+        <div>
+          <div className="flex flex-col lg:flex-row">
             {/* Left Section - Profile Summary */}
-            <div className="flex flex-col items-center text-center lg:w-1/2">
-              <div className="w-48 h-48 mb-24 rounded-full overflow-hidden">
+            <div className="flex flex-col items-center text-center lg:w-1/3">
+              <div className="w-64 h-64 rounded-full overflow-hidden">
                 <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/jaeyoung.png"
+                  src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
                   alt="Kevin Jaeyoung Yoon"
-                  width={256}
-                  height={256}
-                  className="w-full h-full object-cover"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-contain"
                   priority
                 />
               </div>
-              <h2 className="text-2xl font-bold text-black mb-1">
-                Kevin Jaeyoung Yoon
-              </h2>
-              <div className="text-sm text-black space-y-1">
-                <p>Addeep Inc. Founder and CVO (Chief Vision Officer)</p>
-                <p>US Addeep Inc. Chief Executive Officer CEO</p>
-              </div>
               <button
-                className="mt-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                className="mt-10 py-5 px-12 bg-gradient-to-r from-[#CE9AFF] via-[#A855F7] to-[#833AB4] text-white rounded-full hover:bg-purple-700 transition-colors duration-200 font-bold"
                 onClick={() => router.push("/about-us/team-work/jaeyoung")}
               >
                 View More
@@ -228,32 +223,49 @@ const FirstHuman = () => {
             </div>
 
             {/* Right Section - Detailed Information */}
-            <div className="lg:w-1/2 space-y-6">
+            <div className="lg:w-2/3 space-y-6">
+              <h2 className="text-4xl font-bold text-black mb-1">
+                Kevin Jaeyoung Yoon
+              </h2>
+              <div className="text-xl space-y-1">
+                <p className="text-[#4A1A5C] font-semibold">
+                  Addeep Inc. Founder and CVO (Chief Vision Officer)
+                </p>
+                <p>US Addeep Inc. Chief Executive Officer CEO</p>
+              </div>
               {/* Education */}
               <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Education & Leadership
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>Current) Director, Korea AGI Enterprises Association</li>
-                  <li>Hayfield University Graduate School of Business MBA</li>
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Education & Leadership
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>
-                    Completed CFO Academy at Seoul National University Graduate
-                    School of Business
+                    • Current) Director, Korea AGI Enterprises Association
                   </li>
-                  <li>Founder of Addeep Group</li>
+                  <li>• Hayfield University Graduate School of Business MBA</li>
+                  <li>
+                    • Completed CFO Academy at Seoul National University
+                    Graduate School of Business
+                  </li>
+                  <li>• Founder of Addeep Group</li>
                 </ul>
               </div>
 
               {/* Experience */}
               <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Key Achievements
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Key Achievements
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>
-                    •Launched Addeep Platform Series Product Global Service, R&D
-                    Secured SNS Service, and Base Digital Platform Service
+                    • Launched Addeep Platform Series Product Global Service,
+                    R&D Secured SNS Service, and Base Digital Platform Service
                   </li>
                   <li>
                     • Commercialized OTT smart content platform and smart
@@ -272,42 +284,50 @@ const FirstHuman = () => {
 
               {/* Awards */}
               <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Major Awards
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>
-                    • 2017 18th Small and Medium-sized Enterprise Technology
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Major Awards
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 gap-4 text-md text-gray-700 space-y-1 p-3">
+                  <li className="max-w-md">
+                    2017 18th Small and Medium-sized Enterprise Technology
                     Innovation Exhibition hosted by the Ministry of SMEs and
                     Startups, awarded the Prime Minister's Award
                   </li>
-                  <li>• 2017 KCS CICON Award for Creative Management</li>
-                  <li>
-                    • 2017 Ministry of Trade, Industry, and Energy, selected as
-                    an outstanding company for brainpower in the 'K -
-                    BrainPower' program
+                  <li className="max-w-md">
+                    2017 KCS CICON Award for Creative Management
                   </li>
-                  <li>
-                    • 2017 received the US White House Donald Trump Presidential
+                  <li className="max-w-md">
+                    2017 Ministry of Trade, Industry, and Energy, selected as an
+                    outstanding company for brainpower in the 'K - BrainPower'
+                    program
+                  </li>
+                  <li className="max-w-md">
+                    2017 received the US White House Donald Trump Presidential
                     Award
                   </li>
-                  <li>
-                    • 2016 ICOTEC International Copyright Technology Conference,
+                  <li className="max-w-md">
+                    2016 ICOTEC International Copyright Technology Conference,
                     awarded for copyright technology
                   </li>
-                  <li>
-                    • 2015 Best Management Award in Korea, awarded for
+                  <li className="max-w-md">
+                    2015 Best Management Award in Korea, awarded for
                     technological innovation
                   </li>
-                </ul>
+                </div>
               </div>
 
               {/* Book */}
               <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Published Books & Columns
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Published Books & Columns
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>• Book: Smart Platform One Core</li>
                   <li>
                     • Column: Series on innovation in social media platforms and
