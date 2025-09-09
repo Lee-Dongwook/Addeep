@@ -47,9 +47,14 @@ export const footerLinks: FooterLink[] = [
         text: "Digital Platform Innovation",
         href: "/addeep-is/digital-platform-innovation",
       },
-      { id: "3-2", text: "Addeep Summary", href: "/addeep-is/summary" },
+      { id: "3-2", text: "Addeep AI Summary", href: "/addeep-is/summary" },
       {
         id: "3-3",
+        text: "Addeep SNS Summary",
+        href: "/addeep-is/summary?type=sns",
+      },
+      {
+        id: "3-4",
         text: "Addeep Platform to Earn",
         href: "/addeep-is/platform-to-earn",
       },
