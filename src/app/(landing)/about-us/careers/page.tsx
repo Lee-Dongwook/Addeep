@@ -207,22 +207,19 @@ const CareerHero = () => {
 
 const CareerCard = () => {
   return (
-    <section
-      className="
-        w-full
-        bg-gradient-to-b from-[#FFF9F5] via-[#F9F0FF] to-[#F6EDF8]
-      "
-    >
+    <section className="w-full bg-white">
       <div className="max-w-6xl mx-auto px-6 py-14">
-        {/* 섹션 타이틀 */}
-        <div className="text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-800 tracking-tight">
-            근무 환경
-          </h2>
-          <div
-            className="mt-3 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA]"
-            aria-hidden
-          />
+        <div>
+          <h1 className="text-5xl font-bold text-gray-800 tracking-tight">
+            Recuritment Purpose
+          </h1>
+          <h3 className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+            At Addeep, we highly value the safety and satisfaction of the
+            diverse
+          </h3>
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+            talents who work together to bring our imaginative ideas to reality.
+          </h3>
         </div>
 
         {/* 카드 그리드 */}
@@ -236,61 +233,6 @@ const CareerCard = () => {
   );
 };
 
-const CareerBackground = () => {
-  const { isMobile } = useResponsive();
-
-  if (isMobile) {
-    return (
-      <section className="relative w-full bg-[#F9FAFB]">
-        {/* 상단 얇은 그라디언트 라인 (옵션) */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D300C5]/30 to-transparent" />
-
-        <div className="mx-auto px-6 py-20 text-center">
-          <h2 className="text-slate-800 font-pretendard font-extrabold tracking-tight text-xl">
-            함께 성장할 준비가 되셨나요?
-          </h2>
-
-          <p className="mt-6 text-slate-500 font-pretendard text-sm leading-relaxed">
-            Addeep에서 여러분의 꿈을 현실로 만들어보세요
-          </p>
-          <div className="mt-8">
-            <a
-              href="/careers"
-              className="inline-flex items-center justify-center h-14 px-8 rounded-full text-white font-pretendard font-bold bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA] shadow-[0_12px_30px_rgba(118,56,250,0.25)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
-            >
-              지원하기
-            </a>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="relative w-full bg-[#F9FAFB]">
-      {/* 상단 얇은 그라디언트 라인 (옵션) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D300C5]/30 to-transparent" />
-
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
-        <h2 className="text-slate-800 font-pretendard font-extrabold tracking-tight text-3xl md:text-5xl lg:text-6xl">
-          함께 성장할 준비가 되셨나요?
-        </h2>
-
-        <p className="mt-6 text-slate-500 font-pretendard text-base md:text-xl lg:text-2xl leading-relaxed">
-          Addeep에서 여러분의 꿈을 현실로 만들어보세요
-        </p>
-        <div className="mt-12">
-          <a
-            href="/careers"
-            className="inline-flex items-center justify-center h-14 md:h-[60px] px-8 md:px-10 rounded-full text-white font-pretendard font-bold bg-gradient-to-r from-[#FF7A34] via-[#FF0169] to-[#7638FA] shadow-[0_12px_30px_rgba(118,56,250,0.25)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
-          >
-            지원하기
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
 export default function LandingPage() {
   const { isMobile } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
@@ -352,7 +294,6 @@ export default function LandingPage() {
         <div ref={secondSectionRef}>
           <CareerHero />
           <CareerCard />
-          <CareerBackground />
         </div>
       </div>
     );
@@ -381,7 +322,6 @@ export default function LandingPage() {
       <div ref={secondSectionRef}>
         <CareerHero />
         <CareerCard />
-        <CareerBackground />
       </div>
     </div>
   );

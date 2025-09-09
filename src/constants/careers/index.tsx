@@ -114,26 +114,26 @@ export const sectionData = [
 export const items: InfoCardProps[] = [
   {
     icon: <LocationIcon />,
-    title: "회사 위치",
+    title: "Company Location",
     description:
-      "서울 강남에 본사를 두고 있습니다. 우리는 세계 도시에서 성장하고 발전합니다.",
+      "Our headquarters are located in Gangnam, Seoul. We grow and develop in cities around the world.",
   },
   {
     icon: <RemoteIcon />,
-    title: "원격근무 지원",
+    title: "Remote Work Support",
     description:
-      "근무환경 개선과 함께 원격근무를 지원하여 구성원 모두의 업무 효율을 극대화하고 있습니다.",
+      "To enhance the work environment and productivity, we support remote work to maximize the efficiency of all members.",
   },
   {
     icon: <PayIcon />,
-    title: "급여 및 4대 보험",
+    title: "Wage and Benefits",
     description:
-      "경쟁력 있는 급여, 4대 보험, 인센티브 등 다양한 복지를 제공합니다.",
+      "Addeep prioritizes the best talents and provides competitive wage packages, including incentives and various welfare benefits such as the four major insurances.",
   },
   {
     icon: <WorkBalanceIcon />,
-    title: "워라밸",
+    title: "Work-Life Balance",
     description:
-      "유연한 근무시간과 넉넉한 휴가, 가족 중심 복지 등 건강한 일·생활 균형을 지원합니다.",
+      "We offer flexible working hours, generous vacation benefits, and family-oriented work policies. We also provide additional events and welfare benefits based on performance.",
   },
 ];
