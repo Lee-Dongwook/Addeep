@@ -329,54 +329,57 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       {sectionData.map((section, index) => (
         <AnimatedSection key={index} index={index}>
-          <div className="flex flex-col md:flex-row w-full">
-            {/* Text Section */}
-            <div className="md:w-1/2 absolute top-1/3 left-20 items-center justify-center p-8 md:p-12">
-              <p className="text-3xl md:text-5xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-6">
+          <div className="grid grid-cols-2 grid-rows-2 gap-2">
+            {/* Top Left - Text */}
+            <div className="animate-text flex items-center justify-center">
+              <p className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-left gap-6">
                 {section.text.map((line, lineIndex) => (
-                  <span key={lineIndex} className="animate-text block">
+                  <span key={lineIndex} className="block">
                     {line}
                   </span>
                 ))}
               </p>
             </div>
+
+            {/* Top Right - Image */}
+            <div className="animate-image flex justify-center items-center mt-24">
+              <div className="relative max-w-[700px] max-h-[800px]">
+                <Image
+                  src={gradientImage}
+                  alt="boy"
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Bottom Left - Image */}
+            <div className="animate-image flex justify-center items-center">
+              <div className="relative max-w-[700px] max-h-[800px]">
+                <img
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/ComputerWeAre.png`}
+                  alt="boy"
+                />
+              </div>
+            </div>
+
+            {/* Bottom Right - Text */}
+            <div className="animate-text flex items-center justify-center p-24">
+              <p className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-right gap-6">
+                {HeaderImageData.map((header, headerIndex) => (
+                  <span key={headerIndex} className="block">
+                    {header.text.join(" ")}
+                  </span>
+                ))}
+              </p>
+            </div>
+
             {/* Bottom Arrow */}
             <div
-              className="absolute top-3/4 mt-12 left-28 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
+              className="absolute top-full left-44 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
               onClick={handleArrowClick}
             >
               <LandingBottomArrowIcon />
-            </div>
-
-            {/* Image Section */}
-            <div
-              className={[
-                "absolute top-0 right-0 w-1/2 h-full animate-image",
-              ].join(" ")}
-            >
-              <Image
-                src={gradientImage}
-                alt="girl taking a photo with a tunnel filter"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-black/50" />
-              <div className="absolute left-72 bottom-4 inset-0 z-10 flex items-end p-6">
-                {HeaderImageData.map((header, index) => {
-                  return (
-                    <div key={index}>
-                      {header.text.map((line, lineIndex) => (
-                        <span
-                          key={lineIndex}
-                          className="animate-text block text-white font-sans font-normal text-[48px] text-right"
-                        >
-                          {line}
-                        </span>
-                      ))}
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           </div>
         </AnimatedSection>
