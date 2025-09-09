@@ -412,7 +412,7 @@ const CoreValueHeader = () => {
   return (
     <div className="w-full text-center">
       <div
-        className="w-full h-[600px] p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-50"
+        className="w-full h-[600px] p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-10"
         style={{
           background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
           backgroundSize: "cover",

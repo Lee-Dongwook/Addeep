@@ -31,5 +31,5 @@ export const NAV: Item[] = [
     ],
   },
   { label: "Blog & Social Media Channels", href: "/blog-social-media-channel" },
-  { label: "Help & Customer Service", href: "/announcement" },
+  { label: "Announcement", href: "/announcement" },
 ];

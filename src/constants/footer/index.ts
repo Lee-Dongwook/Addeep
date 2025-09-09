@@ -62,7 +62,7 @@ export const footerLinks: FooterLink[] = [
   },
   {
     id: "6",
-    text: "Help & Customer Service",
+    text: "Announcement",
     href: "/announcement",
   },
 ];
