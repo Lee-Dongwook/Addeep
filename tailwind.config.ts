@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Arial", "Helvetica", "sans-serif"],
+        arial: ["Arial", "Helvetica", "sans-serif"],
       },
     },
   },

@@ -165,7 +165,7 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* Middle Left Image - Smiling Man */}
+                {/* Middle Left Image - Social Woman */}
                 <div className="animate-image">
                   <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                     <Image
@@ -252,13 +252,13 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* First Section - Collage Layout */}
-      <div className="p-8">
+      <div className="p-12">
         <div className="max-w-full items-center flex flex-col">
           <AnimatedSection index={0}>
             <div className="min-h-screen grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-[auto_auto_auto]">
               {/* Top Left Text Block */}
               <div className="animate-text">
-                <p className="font-sans font-normal text-[40px] text-gray-800 leading-[56px] md:text-[64px] md:leading-[90px] tracking-normal">
+                <p className="font-arial font-normal text-[80px] text-gray-800 leading-tight md:text-[64px] md:leading-[90px] tracking-normal">
                   {collageData[0].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -269,7 +269,7 @@ export default function LandingPage() {
 
               {/* Top Right Image - Fisheye Effect */}
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
-                <div className="relative w-56 h-56 md:w-[400px] md:h-[400px] overflow-hidden">
+                <div className="relative w-64 h-64 md:w-[600px] md:h-[400px] overflow-hidden">
                   <Image
                     src={jessicaImage}
                     alt="Person with fisheye lens effect"
@@ -279,9 +279,9 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Middle Left Image - Smiling Man */}
-              <div className="animate-image md:row-start-3 md:col-start-1 -mt-80">
-                <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
+              {/* Middle Left Image - Social Woman */}
+              <div className="animate-image md:row-start-3 md:col-start-1 -mt-96">
+                <div className="relative w-full md:w-[500px] md:h-[700px] rounded-lg overflow-hidden">
                   <Image
                     src={socialImage}
                     alt="Smiling man with hands on cheeks"
@@ -293,7 +293,7 @@ export default function LandingPage() {
 
               {/* Middle Right Text Block - Purple Gradient */}
               <div className="animate-text mt-32 md:row-start-2 md:col-start-2 md:justify-self-end">
-                <p className="font-sans font-normal text-[28px] leading-[42px] md:text-[40px] md:leading-[70px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent tracking-normal text-right">
+                <p className="font-arial font-normal text-[28px] leading-[42px] md:text-[70px] md:leading-[70px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent tracking-normal text-right">
                   {collageData[1].text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
@@ -302,9 +302,9 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              {/* Bottom Right Image - Three People */}
-              <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
-                <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
+              {/* Bottom Right Image - Good Face Man */}
+              <div className="animate-image -mt-48 md:row-start-5 md:col-start-2 md:justify-self-end">
+                <div className="relative w-full h-56 md:w-[700px] md:h-[400px] rounded-lg overflow-hidden">
                   <Image
                     src={goodFaceImage}
                     alt="Three people looking down"
@@ -318,7 +318,7 @@ export default function LandingPage() {
               <button
                 type="button"
                 onClick={handleArrowClick}
-                className="animate-text justify-self-start self-end mt-4 md:row-start-4 md:col-start-1 hover:scale-110 transition-transform duration-200"
+                className="animate-text justify-self-start self-end mt-64 md:row-start-5 md:col-start-1 hover:scale-110 transition-transform duration-200"
                 aria-label="Scroll Down"
               >
                 <LandingBottomArrowIcon />
@@ -328,7 +328,7 @@ export default function LandingPage() {
         </div>
       </div>
       {/* Second Section - Split Screen Portrait */}
-      <div ref={secondSectionRef} className="mt-96 mb-12 bg-black/5">
+      <div ref={secondSectionRef} className="mt-56 bg-black/50">
         <AnimatedSection index={1}>
           <div className="relative w-full h-1/2">
             {/* Split Screen Container */}
@@ -342,6 +342,7 @@ export default function LandingPage() {
                     className="object-cover w-full h-full"
                     priority
                   />
+                  <div className="absolute inset-0 bg-black/50"></div>
                 </div>
               </div>
             </div>
@@ -349,7 +350,7 @@ export default function LandingPage() {
             {/* Overlay Text */}
             <div className="absolute inset-0 flex items-center justify-center animate-text">
               <div className="text-left px-8">
-                <p className="text-[60px] font-sans font-normal text-white leading-normal">
+                <p className="text-[80px] font-sans font-normal text-white leading-normal">
                   {splitScreenData.text.map((line, index) => (
                     <span key={index} className="block">
                       {line}
