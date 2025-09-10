@@ -35,6 +35,128 @@ function SummaryAI() {
   if (isMobile) {
     return (
       <div className="flex flex-col gap-8 p-4">
+        <div
+          className="w-full rounded-lg flex flex-col items-center text-center justify-center p-8"
+          style={{
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AISummaryBanner.png)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <h1 className="text-2xl font-bold text-white mb-4">Addeep GPR</h1>
+          <h3 className="text-lg font-bold text-white mb-4">
+            Introducing a non-conversational,
+          </h3>
+          <h3 className="text-lg font-bold text-white mb-4">
+            fully automated generative AI that understands your mindset.
+          </h3>
+          <button
+            className="mt-4 mb-6 px-6 w-32 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+            onClick={() => router.push("/addeep-is/summary/gpr")}
+          >
+            Explore Technology
+          </button>
+        </div>
+        <div className="flex flex-col flex-1">
+          <h2 className="mb-4 text-2xl font-bold">
+            Redefining <span className="text-[#B641E9]">Web 3.0 </span>
+            Social Media
+          </h2>
+          <div className="border border-[#B641E9] text-[#B641E9] w-10 h-px mb-4"></div>
+          <p className="text-xl leading-relaxed">
+            <span className="text-[#B641E9] font-bold">Addeep-GPR-1</span>{" "}
+            (Generative Pre-trained Recommender) represents the core technology
+            powering our revolutionary Web 3.0 social media platform. Our
+            breakthrough integration of{" "}
+            <span className="text-[#B641E9] font-bold">
+              next-generation CNN and RNN technologies{" "}
+            </span>
+            into existing conversational AI models creates an unprecendented
+            user experience.
+          </p>
+          <p className="text-xl leading-relaxed mt-6">
+            Unlike traditional AI systems, GPR focuses on{" "}
+            <span className="text-[#B641E9] font-bold">
+              automatically generating and recommending personalized
+              content{" "}
+            </span>
+            without requiring explicit user input-a truly non-conversational,
+            fully automated generative AI.
+          </p>
+        </div>
+
+        <div className="flex flex-col flex-1">
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-[56px] font-bold">Beyond the Conversation:</h2>
+            <h2 className="mb-4 text-[56px] font-bold">
+              Our Technical Advantage
+            </h2>
+            <div className="border border-[#B641E9] text-[#B641E9] w-36 h-px mt-2 mb-4"></div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-3 gap-4">
+            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+              <h2 className="text-[26px] text-[#B641E9] font-bold mb-4">
+                UnderStanding the Mind
+              </h2>
+              <p className="text-lg leading-relaxed mb-12 p-4">
+                Multi-dimensional user data collection from Addeep SNS including{" "}
+                <span className="font-bold">
+                  communication metrics, activity patterns, and demographic
+                  data.
+                </span>
+              </p>
+              <p className="text-lg leading-relaxed p-4">
+                Our proprietary{" "}
+                <span className="font-bold">
+                  Large Mind-mining Model (LMM){" "}
+                </span>
+                mines user thoughts and intentions, differentiating from
+                traditional LLMs that focus solely on linguistic data.
+              </p>
+            </div>
+            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+              <h2 className="text-[26px] text-[#B641E9] font-bold">
+                True Automation
+              </h2>
+              <p className="text-lg leading-relaxed mb-12 p-4">
+                <span className="font-bold">
+                  Non-interactive, fully automatic
+                </span>{" "}
+                generative AI implementation.
+              </p>
+              <p className="text-lg leading-relaxed p-4">
+                Deep neural network continously calibrated with reinforcement
+                training, enabling{" "}
+                <span className="font-bold">instant personalized content </span>
+                without complex user input.
+              </p>
+            </div>
+            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
+              <h2 className="text-[26px] text-[#B641E9] font-bold">
+                The ACT Engine
+              </h2>
+              <p className="text-lg leading-relaxed p-4">
+                <span className="font-bold">
+                  Addeep Automatic Content Convergence Technology
+                </span>{" "}
+                powered by our Augmented AI and A-GPR inference model.
+              </p>
+              <p className="text-lg leading-relaxed p-4">
+                Automatically generates personalized content by decomposing and
+                fusing <span className="font-bold">multi-format content </span>{" "}
+                from our platform ecosystem.
+              </p>
+              <p className="text-lg leading-relaxed p-4">
+                <span className="font-bold">Deep Blend </span> technology
+                recreates user-intended content without complex authoring tools.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="space-y-20">
           <section className="copy-ai">
             <h2 className="mb-4 text-2xl font-semibold text-pink-500">
