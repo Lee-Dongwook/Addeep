@@ -64,8 +64,15 @@ const CoreValueHeader = () => {
   if (isMobile) {
     return (
       <div className="w-full h-48 text-center">
-        <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold mb-4">We Bridge Values</h1>
+        <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center gap-4">
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+            alt="logo"
+            className="h-12 w-12"
+          />
+          <h1 className="text-2xl font-bold mb-4">
+            We <span className="text-[#B641E9]">Bridge</span> Values
+          </h1>
         </div>
       </div>
     );
@@ -95,15 +102,18 @@ function CoreValues() {
       <div className="mx-auto p-3 mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 text-center">
           {values.map((item, i) => (
-            <div key={i} className="flex flex-col items-center space-y-4">
+            <div key={i} className="flex flex-col items-center gap-6">
               {/* 아이콘 */}
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-opacity-20 text-white text-3xl shadow-md">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full text-white border-2 border-gray-300 text-3xl">
                 {item.icon}
               </div>
 
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#833AB4] to-[#818CF8] text-white text-xl font-bold shadow-md">
+                {i + 1}
+              </div>
+
               {/* 텍스트 */}
-              <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed font-semibold">
                 {item.desc}
               </p>
             </div>
@@ -181,11 +191,8 @@ const FirstContainer = () => {
               <h2 className="text-4xl font-bold text-black mb-4">Vision</h2>
 
               <ul className="text-lg text-gray-700 font-normal font-sans space-y-1">
-                <li>디지털 콘텐츠 세상을 향한</li>
-                <li>
-                  깨끗하고 바람직한 단 하나의 &nbsp;
-                  <span className="font-bold text-[#D300C5]">'Addeep'</span>
-                </li>
+                <li>The one and only Addeep, aiming</li>
+                <li>for a clean and desirable digital content world</li>
               </ul>
             </div>
           </div>
