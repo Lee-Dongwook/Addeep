@@ -408,11 +408,27 @@ const SecondHuman = () => {
   }
 
   return (
-    <div className="w-full p-8 bg-[#E5E7EB]">
-      <div className="max-w-6xl mx-auto">
-        <div className="p-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-2/3 space-y-6 flex flex-col items-center justify-center">
+    <div className="w-full min-h-full p-8 bg-[#E5E7EB]">
+      <div className="max-w-full mx-auto">
+        <div>
+          <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col items-center lg:w-1/3">
+              <div className="w-64 h-64 rounded-full overflow-hidden">
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/kyoungsu.png"
+                  alt="Chris Kang"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="lg:w-2/3 space-y-6">
+              <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
+              <div className="text-sm text-black space-y-1">
+                <p>Addeep Inc CEO</p>
+              </div>
               {/* Education */}
               <div>
                 <h3 className="text-lg font-semibold text-black mb-2">
@@ -475,22 +491,6 @@ const SecondHuman = () => {
                     with Softbank Solution China
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div className="flex flex-col items-center lg:w-1/2">
-              <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/kyoungsu.png"
-                  alt="Chris Kang"
-                  width={256}
-                  height={256}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
-              <div className="text-sm text-black space-y-1">
-                <p>Addeep Inc CEO</p>
               </div>
             </div>
           </div>
