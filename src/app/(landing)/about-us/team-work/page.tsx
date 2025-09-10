@@ -199,7 +199,7 @@ const FirstHuman = () => {
 
   return (
     <div className="w-full min-h-full p-8 bg-white">
-      <div className="max-w-full mx-auto">
+      <div className="max-w-full mx-auto mt-10">
         <div>
           <div className="flex flex-col lg:flex-row">
             {/* Left Section - Profile Summary */}
@@ -408,14 +408,14 @@ const SecondHuman = () => {
   }
 
   return (
-    <div className="w-full min-h-full p-8 bg-[#E5E7EB]">
-      <div className="max-w-full mx-auto">
+    <div className="w-full min-h-full p-8 bg-gray-50">
+      <div className="max-w-full mx-auto mt-10">
         <div>
           <div className="flex flex-col lg:flex-row">
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/kyoungsu.png"
+                  src="https://storage.googleapis.com/assets-addeep/images/KyoungsuProfile.png"
                   alt="Chris Kang"
                   width={256}
                   height={256}
@@ -425,31 +425,37 @@ const SecondHuman = () => {
               </div>
             </div>
             <div className="lg:w-2/3 space-y-6">
-              <h2 className="text-2xl font-bold text-black mb-1">Chris Kang</h2>
-              <div className="text-sm text-black space-y-1">
-                <p>Addeep Inc CEO</p>
+              <h2 className="text-4xl font-bold text-black mb-1">Chris Kang</h2>
+              <div className="text-xl space-y-1">
+                <p className="text-[#4A1A5C] font-semibold">Addeep Inc CEO</p>
               </div>
               {/* Education */}
               <div>
-                <h3 className="text-lg font-semibold text-black mb-2">
-                  Education & Background
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Education & Background
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>
-                    Bachelor's degree in Computer Engineering from Woosong
+                    • Bachelor's degree in Computer Engineering from Woosong
                     University
                   </li>
-                  <li>Former Vice President and COO of Titan Platform</li>
-                  <li>Former CEO of Titan Studio</li>
+                  <li>• Former Vice President and COO of Titan Platform</li>
+                  <li>• Former CEO of Titan Studio</li>
                   <li>
-                    Expert in network integration, information security
+                    • Expert in network integration, information security
                     development, and security consulting
                   </li>
                 </ul>
-                <h3 className="mt-8 text-lg font-semibold text-black mb-2">
-                  Global Operations & Management
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Global Operations & Management
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>
                     • Managed operations and established global business
                     strategies, administrative management for 7 overseas
@@ -468,10 +474,13 @@ const SecondHuman = () => {
                     affairs, and business planning and management
                   </li>
                 </ul>
-                <h3 className="mt-8 text-lg font-semibold text-black mb-2">
-                  International Partnerships
-                </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    International Partnerships
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-1 p-3">
                   <li>
                     • Established network cooperation partnerships for business
                     expansion in France, Switzerland, and other EU countries
