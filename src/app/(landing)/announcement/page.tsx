@@ -12,11 +12,6 @@ import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface AnimatedSectionProps {
-  children: ReactNode;
-  index: number;
-}
-
 type NoticeItem = {
   id: string;
   title: string;
@@ -113,9 +108,9 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
 
 const AnnouncementHeader = () => {
   return (
-    <div className="w-full text-center">
+    <div className="w-full text-center p-3">
       <div
-        className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
+        className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
           background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AnnouncementBanner.png)`,
           border: "1px solid #E5E7EB",
@@ -176,7 +171,7 @@ function AnnouncementContent() {
 
   const NoticeListSectionClassname =
     isMobile || isTablet
-      ? "flex flex-col items-center justify-center flex-1"
+      ? "flex flex-col items-center justify-center flex-1 p-2"
       : "flex flex-col items-center justify-center flex-1 w-3/4 p-24";
 
   if (isLoading) {

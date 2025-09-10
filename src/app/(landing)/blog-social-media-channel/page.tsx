@@ -397,8 +397,10 @@ const CoreValueHeader = () => {
         <div
           className="w-full h-full p-16 rounded-lg flex flex-col items-center justify-center"
           style={{
-            background:
-              "linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F56040 100%)",
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             border: "1px solid #E5E7EB",
           }}
         >
