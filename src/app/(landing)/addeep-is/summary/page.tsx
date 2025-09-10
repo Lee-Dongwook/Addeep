@@ -89,16 +89,14 @@ function SummaryAI() {
 
         <div className="flex flex-col flex-1">
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-[56px] font-bold">Beyond the Conversation:</h2>
-            <h2 className="mb-4 text-[56px] font-bold">
-              Our Technical Advantage
-            </h2>
+            <h2 className="text-3xl font-bold">Beyond the Conversation:</h2>
+            <h2 className="mb-4 text-3xl font-bold">Our Technical Advantage</h2>
             <div className="border border-[#B641E9] text-[#B641E9] w-36 h-px mt-2 mb-4"></div>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-4">
-            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-              <h2 className="text-[26px] text-[#B641E9] font-bold mb-4">
+          <div className="mt-12 grid grid-cols-1 gap-4">
+            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-2 rounded-2xl flex flex-col items-center">
+              <h2 className="text-xl text-[#B641E9] font-bold mb-4 mt-4">
                 UnderStanding the Mind
               </h2>
               <p className="text-lg leading-relaxed mb-12 p-4">
@@ -117,11 +115,11 @@ function SummaryAI() {
                 traditional LLMs that focus solely on linguistic data.
               </p>
             </div>
-            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-              <h2 className="text-[26px] text-[#B641E9] font-bold">
+            <div className="max-w-96 border-[1.2px] border-[#1F2937] p-2 rounded-2xl flex flex-col items-center">
+              <h2 className="text-xl text-[#B641E9] font-bold mt-4">
                 True Automation
               </h2>
-              <p className="text-lg leading-relaxed mb-12 p-4">
+              <p className="text-lg leading-relaxed mb-4 p-4">
                 <span className="font-bold">
                   Non-interactive, fully automatic
                 </span>{" "}
@@ -135,7 +133,7 @@ function SummaryAI() {
               </p>
             </div>
             <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-              <h2 className="text-[26px] text-[#B641E9] font-bold">
+              <h2 className="text-xl text-[#B641E9] font-bold">
                 The ACT Engine
               </h2>
               <p className="text-lg leading-relaxed p-4">
