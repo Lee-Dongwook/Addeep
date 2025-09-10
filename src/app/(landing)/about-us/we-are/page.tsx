@@ -7,7 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { LandingBottomArrowIcon } from "../../../../icons";
+import {
+  MobileLandingBottomArrowIcon,
+  LandingBottomArrowIcon,
+} from "../../../../icons";
 import {
   sectionData,
   HeaderImageData,
@@ -142,26 +145,27 @@ function AboutSwiper() {
   ) => {
     if (isMobileView) {
       return (
-        <div className="flex flex-col items-center justify-between overflow-y-auto p-2">
+        <div className="flex flex-col items-center justify-between overflow-y-auto p-2 min-h-full">
           {/* Image */}
           <div className="flex justify-center mt-8 mb-8">
-            <div className="relative w-[150px] h-[200px] border-2 border-pink-500 rounded-3xl overflow-hidden shadow-lg">
-              <Image
-                src={slide.image ?? ""}
-                alt={slide.title}
-                width={150}
-                height={200}
-                className="object-contain w-full h-full"
-                priority
+            <div className="relative w-[200px] h-[200px] rounded-3xl overflow-hidden shadow-lg">
+              <video
+                src={slide.image}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover w-full h-full"
               />
             </div>
           </div>
           {/* Text */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-600 leading-normal mt-2 mb-2">
+            <h1 className="text-3xl font-bold">We Are</h1>
+            <h2 className="text-xl font-bold text-[#833AB4] leading-normal mt-2 mb-2">
               {slide.title}
             </h2>
-            <div className="text-sm text-gray-400 leading-relaxed whitespace-normal overflow-auto">
+            <div className="text-md text-[#374151 leading-relaxed whitespace-normal overflow-auto">
               {slide.text.map((t, index) => (
                 <div key={index}>{t}</div>
               ))}
@@ -252,9 +256,9 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       {sectionData.map((section, index) => (
         <AnimatedSection key={index} index={index}>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full -mt-64">
             {/* Text Section */}
-            <div className="absolute top-1/3 items-center justify-center p-8">
+            <div className="items-center justify-center p-8">
               <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-1">
                 {section.text.map((line, lineIndex) => (
                   <span key={lineIndex} className="animate-text block">
@@ -268,7 +272,7 @@ export default function LandingPage() {
               className="absolute top-3/4 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
               onClick={handleArrowClick}
             >
-              <LandingBottomArrowIcon />
+              <MobileLandingBottomArrowIcon />
             </div>
 
             {/* Image Section */}
@@ -306,11 +310,16 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="mt-96 text-2xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1"
+        className="mt-64 text-xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1 p-2"
       >
-        <AnimatedSection index={1}>
+        <AnimatedSection col={true} index={1}>
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            alt="logo"
+            style={{ width: "200px", height: "auto" }}
+          />
           {HeroText.map((section, index) => (
-            <div key={index}>
+            <div key={index} className="mt-8">
               {section.text.map((line, lineIndex) => (
                 <div key={lineIndex} className="animate-text block mt-4">
                   {line}
@@ -320,7 +329,7 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
       </div>
-      <div className="p-8 -mt-64 flex flex-col items-center justify-center">
+      <div className="p-8 -mt-96 flex flex-col items-center justify-center">
         <AboutSwiper />
       </div>
     </div>
