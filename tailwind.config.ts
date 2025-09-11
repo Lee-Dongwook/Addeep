@@ -12,6 +12,8 @@ const config: Config = {
       fontFamily: {
         sans: ["Arial", "Helvetica", "sans-serif"],
         arial: ["Arial", "Helvetica", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
     },
   },
