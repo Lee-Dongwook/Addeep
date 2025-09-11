@@ -4,9 +4,9 @@ import { useResponsive } from "../../../../lib/useResponsive";
 import { YoutubePlayer } from "../../../../components/YoutubePlayer";
 
 const DigitalPlatformInnovation = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="stage relative mb-20">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-24 md:grid-cols-2 md:py-32">

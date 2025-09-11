@@ -139,21 +139,53 @@ const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
   );
 };
 const CareerHero = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <section className="w-full bg-[#F9FAFB]">
-        <div className="mx-auto px-6 py-14 text-center">
+        <div className="mx-auto px-6 py-14">
           {/* 제목 */}
           <h1 className="text-2xl font-extrabold text-gray-800 tracking-tight">
             Job Openings
           </h1>
 
           {/* 본문 */}
-          <p className="mt-8 text-md font-normal text-gray-700 leading-relaxed">
+          <h3 className="mt-8 text-md font-normal text-gray-700 leading-relaxed">
             We are currently seeking talented individuals
-          </p>
+          </h3>
+          <h3 className="text-md font-normal text-gray-700">
+            to join our team in the following roles:
+          </h3>
+          <div className="flex flex-col gap-6 mt-8">
+            <div className="flex flex-col gap-2">
+              <h3 className="text-2xl font-normal text-gray-700 min-w-72">
+                Backend Planner
+              </h3>
+              <p className="text-lg font-normal text-gray-700">
+                Designs the backend system architecture and plans new features
+                to ensure the service's stability and efficiency.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+                Engineer
+              </h3>
+              <p className="text-lg font-normal text-gray-700 leading-relaxed">
+                Utilizes a diverse tech stack to implement and develop Addeep's
+                innovative AI and Web 3.0 platform.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+                Global Business Strategist
+              </h3>
+              <p className="text-lg font-normal text-gray-700 leading-relaxed">
+                Analyzes global market trends and formulates strategies to
+                achieve Addeep's business objectives.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -235,7 +267,7 @@ const CareerCard = () => {
 };
 
 export default function LandingPage() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
   const handleArrowClick = () => {
@@ -251,7 +283,7 @@ export default function LandingPage() {
     }
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="min-h-screen bg-gray-200">
         <div className="mx-auto">

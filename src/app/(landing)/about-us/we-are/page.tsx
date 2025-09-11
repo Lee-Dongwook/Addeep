@@ -131,7 +131,7 @@ const AnimatedSection = ({
 };
 
 function AboutSwiper() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -208,7 +208,7 @@ function AboutSwiper() {
   };
 
   // 서버사이드 렌더링 시에는 항상 데스크톱 버전 렌더링 (하이드레이션 불일치 방지)
-  const shouldRenderMobile = mounted && isMobile;
+  const shouldRenderMobile = (mounted && isMobile) || (mounted && isTablet);
 
   return (
     <Swiper
@@ -228,7 +228,7 @@ function AboutSwiper() {
 }
 
 export default function LandingPage() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const secondSectionRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -250,7 +250,7 @@ export default function LandingPage() {
   };
 
   // 하이드레이션 불일치 방지를 위해 서버와 클라이언트에서 동일한 구조 렌더링
-  const shouldRenderMobile = mounted && isMobile;
+  const shouldRenderMobile = (mounted && isMobile) || (mounted && isTablet);
 
   const renderMobileLayout = () => (
     <div className="min-h-screen bg-white">

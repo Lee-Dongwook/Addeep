@@ -29,10 +29,10 @@ function useVariant(): "ai" | "sns" {
 }
 
 function SummaryAI() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const router = useRouter();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="flex flex-col gap-8 p-4">
         <div
@@ -438,9 +438,9 @@ function SummaryAI() {
 }
 
 function SummarySNS() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="flex flex-col flex-1">
         <div className="w-full text-center">

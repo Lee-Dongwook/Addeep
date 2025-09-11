@@ -336,7 +336,7 @@ function HelpAccordion({
   type = "multiple",
   defaultOpenIds = [],
 }: HelpAccordionProps) {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
   const [openIds, setOpenIds] = useState<string[]>(defaultOpenIds);
 
@@ -348,7 +348,7 @@ function HelpAccordion({
     });
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <section className="w-full p-6 flex flex-col items-center justify-center">
         <h2 className="mb-6 text-2xl font-normal text-neutral-900 md:text-4xl">

@@ -18,7 +18,7 @@ export default function Footer() {
     return null;
   }
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <footer className="border-t border-gray-200 bg-white">
         <div className="mx-auto px-6 py-12">

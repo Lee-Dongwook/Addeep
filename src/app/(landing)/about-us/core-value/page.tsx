@@ -60,8 +60,8 @@ const MainGsapPanelMolecule = ({ image }: GsapPanelProps) => {
 
 // Header Component
 const CoreValueHeader = () => {
-  const { isMobile } = useResponsive();
-  if (isMobile) {
+  const { isMobile, isTablet } = useResponsive();
+  if (isMobile || isTablet) {
     return (
       <div className="w-full h-48 text-center">
         <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center gap-4">
@@ -95,9 +95,9 @@ const CoreValueHeader = () => {
 };
 
 function CoreValues() {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="mx-auto p-3 mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 text-center">
@@ -150,8 +150,8 @@ function CoreValues() {
 
 // Hero Component
 const CoreValueHero = () => {
-  const { isMobile } = useResponsive();
-  if (isMobile) {
+  const { isMobile, isTablet } = useResponsive();
+  if (isMobile || isTablet) {
     return (
       <div className="w-full p-6 text-center flex flex-col bg-white mt-8">
         <div className="flex-1 flex flex-col items-center justify-center">
@@ -180,9 +180,9 @@ const CoreValueHero = () => {
 };
 
 const FirstContainer = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full flex flex-col justify-center p-4 text-center bg-[#F9FAFB]">
         <div className="p-4">
@@ -225,8 +225,8 @@ const FirstContainer = () => {
 };
 
 const SecondContainer = () => {
-  const { isMobile } = useResponsive();
-  if (isMobile) {
+  const { isMobile, isTablet } = useResponsive();
+  if (isMobile || isTablet) {
     return (
       <div className="w-full flex flex-col justify-center text-center p-8 bg-white">
         <div className="p-4">
@@ -281,9 +281,9 @@ const SecondContainer = () => {
 };
 
 const ThirdContainer = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full flex flex-col justify-center text-center p-8 bg-[#F9FAFB]">
         <div className="p-4">

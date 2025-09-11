@@ -11,9 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Header Component
 const TeamWorkHeader = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full h-48 text-center p-3">
         <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center">
@@ -46,9 +46,9 @@ const TeamWorkHeader = () => {
 
 // Hero Component
 const TeamWorkHero = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="mt-8 w-full p-4 text-center flex flex-col min-h-48 bg-[#F9FAFB]">
         <div className="flex-1 flex flex-col items-center justify-center">
@@ -93,10 +93,10 @@ const TeamWorkHero = () => {
 
 // First Human Component
 const FirstHuman = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
   const router = useRouter();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full p-4 bg-white">
         <div className=" mx-auto">
@@ -389,9 +389,9 @@ const FirstHuman = () => {
 };
 
 const SecondHuman = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="w-full p-4 bg-[#E5E7EB]">
         <div className="mx-auto">

@@ -4,9 +4,9 @@ import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 import { useResponsive } from "../../../../lib/useResponsive";
 
 const PlatformToEarn = () => {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="mb-20 flex flex-col flex-1">
         <div className="w-full text-center">
