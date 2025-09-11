@@ -47,7 +47,7 @@ export default function JaeyoungPage() {
         subtitle: "Architect of the Augmented Future",
         name: "Kevin Jaeyoung Yoon",
         education: "Hanyang University, Electronic Engineering",
-        slogan: '"We Bridge Values "',
+        slogan: '"We Bridge Values"',
         description:
           "As an AI innovator and founder of Addeep, I design the future by breaking down boundaries between humans and technology through augmented AI technology.",
       },
@@ -381,39 +381,68 @@ export default function JaeyoungPage() {
       <section id="accolades" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "수상 및 인정" : "Accolades & Recognition"}
+            {language === "ko"
+              ? "성취와 인정: 탁월함의 유산"
+              : "Achievement and Recognition: A Legacy of Excellence"}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                Awards
+              </h3>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
                 {language === "ko"
-                  ? "기술 혁신상"
-                  : "Technology Innovation Award"}
+                  ? "미국 대통령 기술혁신 및 자원 봉사상"
+                  : "U.S. President's Award for Innovation and Volunteerism"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "AI 기술 분야 혁신 기여 인정"
-                  : "Recognition for innovation in AI technology"}
+                  ? "2017, 미국 백악관"
+                  : "2017, White House, USA"}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                {language === "ko" ? "기업가상" : "Entrepreneur Award"}
+                {language === "ko" ? "국무총리 표창" : "Prime Minister's Award"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "혁신적 비즈니스 모델 구축"
-                  : "Building innovative business models"}
+                  ? "2017, 중소벤처기업부"
+                  : "2017, Ministry of SMEs and Startups"}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                {language === "ko" ? "리더십상" : "Leadership Award"}
+                {language === "ko"
+                  ? "저작권 기술상"
+                  : "Copyright Technology Award"}
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko" ? "2016, ICOTEC" : "2016, ICOTEC"}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko"
+                  ? "두뇌역량우수전문기업"
+                  : "A company specializing in brain power"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "글로벌 팀 리더십과 비전"
-                  : "Global team leadership and vision"}
+                  ? "2017, 산업통상자원부"
+                  : "2017, Ministry of Trade, Industry and Energy"}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko" ? "저서 및 칼럼" : "Books and Columns"}
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "『스마트플랫폼 단 하나의 Core』 저술 및 다수 칼럼 기고를 통해 산업의 담론을 형성하는 지적 리더십을 발휘했습니다."
+                  : "He has demonstrated intellectual leadership in shaping industry discourse through his work, 'Smart Platform: A Single Core,' and numerous column contributions."}
               </p>
             </div>
           </div>
