@@ -36,9 +36,9 @@ export default function JaeyoungPage() {
         ],
       },
       vision: {
-        title: "가치 연결의 철학",
+        title: "비전과 철학",
         description:
-          "N/W → Info Security → TCI & ACI → Addeep Augmented AI GPR-1로 이어지는 기술 철학의 진화",
+          "그의 모든 혁신은 '가치 연결(Value Bridging)'이라는 하나의 철학에서 시작됩니다. 단절된 가치를 잇고, 생태계에 기여하는 모두에게 정당한 보상을 제공하는 것, 이것이 그가 설계하는 미래의 핵심입니다.",
       },
     },
     en: {
@@ -252,6 +252,18 @@ export default function JaeyoungPage() {
               {currentContent.vision.description}
             </p>
           </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-purple-600 mb-4">
+              {language === "ko"
+                ? "기술 철학의 진화"
+                : "Evolution of Technical Philosophy"}
+            </h3>
+            <p className="text-gray-700">
+              {language === "ko"
+                ? "그의 기술적 여정은 하나의 맥락으로 이어집니다. 네트워크 기술을 시작으로 정보보안 기술로 자산을 보호하는 기반을 다졌고, TCI & ACI 기술로 창작자의 권리를 투명하게 연결했으며, 현재 Addeep의 증강 AI는 모든 참여자의 가치를 지능적으로 연결하고 증폭시키는 단계로 진화했습니다."
+                : "His technical journey follows a single thread. Starting with network technology, he laid the foundation of protecting assets with information security technology, connected the rights of creators transparently through TCI & ACI technology, and evolved to the current Addeep augmented AI, which intelligently connects and amplifies the value of all participants."}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -262,37 +274,50 @@ export default function JaeyoungPage() {
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "핵심 기술" : "Core Technologies"}
+            {language === "ko"
+              ? "핵심 기술: 미래 경제의 기둥"
+              : "Core Technologies: The Pillars of the Future Economy"}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Augmented AI: Addeep GPR-1
+                {language === "ko"
+                  ? "Addeep GPR-1: 비대화형 AI 패러다임"
+                  : "Addeep GPR-1: Non-conversational AI Paradigm"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "대화형 AI 기술을 통한 인간과 AI의 자연스러운 상호작용"
-                  : "Natural interaction between humans and AI through conversational AI technology"}
+                  ? "주류 대화형 AI와 달리, 사용자의 의도를 먼저 파악하고 최적의 결과물을 '먼저 제안'하는 능동적 증강 AI입니다. 독자적인 LMM(Large Mind-mining Model) 추론 모델을 통해 사용자의 '마인드셋'을 모델링하여, 명시적 명령 없이도 필요한 콘텐츠, 광고, SNS 게시물까지 자동으로 생성합니다. AI와의 상호작용을 '명령과 실행'에서 '제안과 선택'으로 전환시키는 혁신입니다."
+                  : "Unlike mainstream conversational AI, Addeep GPR-1 proactively understands the user's intent and 'first proposes' the optimal result. By modeling the user's 'mindset' through an innovative LMM(Large Mind-mining Model) inference model, it automatically generates necessary content, advertisements, and SNS posts without explicit commands. This innovation shifts the interaction between humans and AI from 'commands and execution' to 'proposals and selections'."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Content Economy: ACI & ACT
+                {language === "ko"
+                  ? "ACI & ACT: 투명한 콘텐츠 경제를 위한 이중 엔진"
+                  : "ACI & ACT: Dual Engines for Transparent Content Economy"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "혁신적인 콘텐츠 경제 플랫폼 구축"
-                  : "Building innovative content economy platform"}
+                  ? "ACI (Addeep Content Identifier): 콘텐츠의 DNA와 같은 고유 식별자입니다. 블록체인 기반 특허 기술로, 원본 콘텐츠 파일에 직접 암호화된 식별 코드를 삽입하여 복제되거나 변형되어도 원본의 소유권과 유통 이력을 영구적으로 추적합니다. 이는 모든 디지털 콘텐츠에 법적 효력을 지닌 '디지털 등기부등본'을 발급하는 것과 같으며, 투명한 저작권 보호와 수익 정산의 기반이 됩니다."
+                  : "ACI (Addeep Content Identifier): A unique identifier similar to the DNA of content. Based on blockchain-based patent technology, it directly inserts an encrypted identification code into the original content file so that even if it is copied or modified, the ownership and流通 history of the original can be permanently traced. This is equivalent to issuing a 'digital notarization' with legal effect for all digital content, serving as the foundation for transparent copyright protection and revenue settlement."}
+              </p>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "ACT (Addeep Automatic Content Convergence): ACI로 보호되고 식별된 콘텐츠 자산들을 GPR-1 AI가 실시간으로 융합하여 새로운 가치를 창출하는 기술입니다. 사용자의 마인드셋에 맞춰 크리에이터의 창작물과 광고주의 브랜드 메시지를 가장 적절한 형태로 자동 결합하여, 거부감 없는 고품질의 '네이티브 증강 콘텐츠'를 생성합니다. 이는 창작자와 광고주 모두에게 새로운 수익 모델을 제공하는 혁신적 접근입니다."
+                  : "ACT (Addeep Automatic Content Convergence): Converts protected and identified content assets into GPR-1 AI to create new value in real-time. Automatically combines creator's creative work and advertiser's brand message in the most appropriate form to create high-quality 'native augmented content' without rejection. This is an innovative approach that provides new revenue models for both creators and advertisers."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Reward Ecosystem: S2E
+                {language === "ko"
+                  ? "Social 2 Earn: S2E 혁명"
+                  : "Social 2 Earn: S2E Revolution"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "지속 가능한 보상 생태계 설계"
-                  : "Designing sustainable reward ecosystem"}
+                  ? "GPR-1, ACI, ACT 기술이 결합하여 완성되는 새로운 경제 프로토콜입니다. 기존 Web 2.0의 데이터 착취 구조를 뒤집고, 가치를 창출하는 모든 참여자에게 보상을 제공하는 다자간 보상 시스템입니다. 광고 수익의 50%를 생태계에 환원하여 Users, Creators, Marketers to Earn을 실현합니다."
+                  : "A new economic protocol completed by combining GPR-1, ACI, and ACT technologies. It reverses the data exploitation structure of Web 2.0 and provides rewards to all participants who create value. By returning 50% of advertising revenue to the ecosystem, it realizes Users, Creators, and Marketers to Earn."}
               </p>
             </div>
           </div>
@@ -304,12 +329,38 @@ export default function JaeyoungPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Large Mind-mining Model (LMM)
+              {language === "ko"
+                ? "GPR-1: 증강 AI 추론 모델"
+                : "GPR-1: Augmented AI Inference Model"}
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {language === "ko"
-                ? "기존 LLM과 차별화된 혁신적인 마인드 마이닝 모델"
-                : "Innovative mind-mining model differentiated from existing LLMs"}
+                ? "Addeep GPR-1은 단순한 추천 시스템을 넘어, 사용자의 잠재적 의도를 이해하고 먼저 행동하는 '증강 지능'의 핵심 엔진입니다. 그 기술적 기반은 LMM이라는 독자적인 모델에 있습니다."
+                : "Addeep GPR-1 is a core engine of 'augmented intelligence' that not only understands the user's potential intent but also acts first. Its technical foundation lies in an innovative model called LMM."}
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-purple-600 mb-4">
+              {language === "ko"
+                ? "LMM (Large Mind-mining Model)의 개념"
+                : "Concept of LMM (Large Mind-mining Model)"}
+            </h3>
+            <p className="text-gray-700">
+              {language === "ko"
+                ? "LMM은 텍스트 데이터 학습에 집중하는 LLM(Large Language Model)과 달리, 다차원적인 개인화 데이터를 종합적으로 분석하여 사용자의 '마인드셋(Mindset)'을 추론하는 모델입니다. 마인드셋이란 특정 상황에서 개인이 가질 수 있는 생각, 감정, 의도의 총체적 집합을 의미합니다. LMM은 소통 지수, 활동 패턴, 인구통계학적 정보, 콘텐츠 소비 이력 등 비정형 데이터를 심층적으로 학습하여 이 마인드셋을 확률적으로 모델링합니다."
+                : "Unlike LLM(Large Language Model) that focuses on text data learning, LMM analyzes comprehensive personalized data to infer the user's 'mindset'. Mindset refers to the comprehensive set of thoughts, emotions, and intentions that an individual may have in a specific situation. LMM learns unstructured data such as communication metrics, activity patterns, demographic information, and content consumption history in depth to model this mindset probabilistically."}
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-purple-600 mb-4">
+              {language === "ko"
+                ? "LLM과의 차별점: '명령'이 아닌 '의도'의 이해"
+                : "Difference from LLM: Understanding 'Intent' rather than 'Command'"}
+            </h3>
+            <p className="text-gray-700">
+              {language === "ko"
+                ? "LLM은 문장 단위의 학습에 집중하여 텍스트 데이터를 중심으로 이해하는 반면, LMM은 다차원적인 개인화 데이터를 종합적으로 분석하여 사용자의 '의도'를 이해합니다. 이는 명령어 기반의 대화 형태와 달리, 사용자의 잠재적 의도를 먼저 파악하고 최적의 경험을 자동으로 생성합니다."
+                : "Unlike LLM(Large Language Model) that focuses on text data learning, LMM analyzes comprehensive personalized data to infer the user's 'mindset'. Mindset refers to the comprehensive set of thoughts, emotions, and intentions that an individual may have in a specific situation. LMM learns unstructured data such as communication metrics, activity patterns, demographic information, and content consumption history in depth to model this mindset probabilistically."}
             </p>
           </div>
         </div>
@@ -319,27 +370,43 @@ export default function JaeyoungPage() {
       <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "주요 프로젝트" : "Key Projects"}
+            {language === "ko"
+              ? "주요 프로젝트 및 제품 개발"
+              : "Key Projects and Product Development"}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                OTT Platform Innovation
+                {language === "ko"
+                  ? 'OTT 플랫폼 혁신 "TiTAN Play"'
+                  : "OTT Platform Innovation 'TiTAN Play'"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "차세대 OTT 플랫폼 개발 및 혁신"
-                  : "Next-generation OTT platform development and innovation"}
+                  ? "TCI 저작권 보호 기술을 핵심으로, 창작자 중심의 새로운 미디어 소비 경험을 제공하는 OTT 서비스를 기획하고 출시했습니다."
+                  : "As a core technology, we developed an OTT service that provides a new media consumption experience centered on creators, launching 'TiTAN Play'."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Addeep Ecosystem
+                {language === "ko"
+                  ? 'AI 소셜 로봇 "TiTAN AI"'
+                  : "AI Social Robot 'TiTAN AI'"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "통합 AI 생태계 구축"
-                  : "Building integrated AI ecosystem"}
+                  ? "카메라, 스피커, 디스플레이를 탑재하여 가족 구성원과 교감하고 정보를 제공하는 AI 기반 소셜 로봇 시리즈를 개발 및 상용화했습니다."
+                  : "Developed and commercialized an AI-based social robot series equipped with a camera, speaker, and display to communicate with family members and provide information."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko" ? "TiTAN Core" : "TiTAN Core"}
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "플랫폼과 연동되는 다양한 IoT 스마트 홈 기기를 개발 및 상용화하여 콘텐츠 소비를 넘어 일상 생활 공간까지 지능적으로 확장되는 통합적인 플랫폼 생태계를 제공하였습니다."
+                  : "Developed and commercialized various IoT smart home devices linked to the platform to provide an integrated platform ecosystem that extends from content consumption to everyday living spaces."}
               </p>
             </div>
           </div>
@@ -350,27 +417,39 @@ export default function JaeyoungPage() {
       <section id="journey" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {language === "ko" ? "기업가 여정" : "Entrepreneurial Journey"}
+            {language === "ko"
+              ? "기업가 여정: 엔지니어에서 글로벌 리더로"
+              : "Entrepreneurial Journey: From Engineer to Global Leader"}
           </h2>
           <div className="space-y-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                Addeep Founder & CVO
+                {language === "ko" ? "기술의 기반" : "Foundation of Technology"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "증강 AI 기술의 선구자로서의 역할"
-                  : "Role as a pioneer in augmented AI technology"}
+                  ? "소프트웨어 엔지니어로 시작, 네트워크 및 보안 기술 전문가로 성장하며 훗날의 기술 혁신을 위한 견고한 토대를 마련했습니다. 특히 네트워크 통합보안 시스템(UTM) 개발 경험은 그의 기술적 깊이를 더했습니다."
+                  : "Started as a software engineer, grew into a network and security technology expert, laying a solid foundation for future technological innovation. In particular, the experience of developing a network unified security system (UTM) deepened his technical depth."}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-purple-600 mb-4">
-                US Addeep Inc. CEO
+                {language === "ko" ? "글로벌 도약" : "Global Expansion"}
               </h3>
               <p className="text-gray-700">
                 {language === "ko"
-                  ? "글로벌 시장 진출을 위한 리더십"
-                  : "Leadership for global market expansion"}
+                  ? "TiTAN Platform 설립 후 미국, 중국, 싱가포르 법인을 7년간 경영하고 누적 550억 투자를 유치하며 글로벌 경영자로서의 역량을 입증했습니다."
+                  : "After founding TiTAN Platform, he managed seven overseas subsidiaries for seven years, raised cumulative investments of 550 billion won, and proved his capabilities as a global manager."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko" ? "비전의 집대성" : "Achievement of Vision"}
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "Addeep Inc. 창업. 지난 25년의 경험과 철학, 기술을 집대성하여 Web 3.0 시대의 차세대 증강 AI 산업 생태계를 구축하기 위한 끊임없는 노력으로 연구개발과 AI산업발전에 기여하고 있습니다."
+                  : "After founding TiTAN Platform, he managed seven overseas subsidiaries for seven years, raised cumulative investments of 550 billion won, and proved his capabilities as a global manager."}
               </p>
             </div>
           </div>
@@ -442,10 +521,34 @@ export default function JaeyoungPage() {
               <p className="text-gray-700">
                 {language === "ko"
                   ? "『스마트플랫폼 단 하나의 Core』 저술 및 다수 칼럼 기고를 통해 산업의 담론을 형성하는 지적 리더십을 발휘했습니다."
-                  : "He has demonstrated intellectual leadership in shaping industry discourse through his work, 'Smart Platform: A Single Core,' and numerous column contributions."}
+                  : "Through the publication of 'Smart Platform: A Single Core' and numerous column contributions, he has demonstrated intellectual leadership in shaping industry discourse."}
               </p>
             </div>
           </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+          <h3 className="text-xl font-semibold text-purple-600 mb-4">
+            {language === "ko"
+              ? "윤재영 Kevin Jaeyoung Yoon"
+              : "Kevin Jaeyoung Yoon"}
+          </h3>
+          <p className="text-gray-700">
+            {language === "ko"
+              ? "기술은 인간을 대체하는 것이 아니라, 인간의 가치를 증강시키고 연결하기 위해 존재해야 합니다."
+              : "Technology should not replace humans, but exist to enhance and connect human value."}
+          </p>
+          <hr />
+          <h3 className="text-xl font-semibold text-purple-600 mb-4">
+            {language === "ko" ? "연락처" : "Contact"}
+          </h3>
+          <h3 className="text-xl font-semibold text-purple-600 mb-4">
+            {language === "ko" ? "addeepcvo@gmail.com" : "addeepcvo@gmail.com"}
+          </h3>
+          <h3 className="text-xl font-semibold text-purple-600 mb-4">
+            {language === "ko"
+              ? "© 2025 Kevin Jaeyoung Yoon. All Rights Reserved."
+              : "© 2025 Kevin Jaeyoung Yoon. All Rights Reserved."}
+          </h3>
         </div>
       </section>
 
