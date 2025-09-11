@@ -234,17 +234,17 @@ function SummaryAI() {
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
             Addeep GPR
           </h1>
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-normal font-poppins text-white">
             Introducing a non-conversational,
           </h3>
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-normal font-poppins text-white mb-4">
             fully automated generative AI that understands your mindset.
           </h3>
           <button
-            className="mt-4 mb-6 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+            className="mt-4 mb-6 p-4 font-poppins font-semibold bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200"
             onClick={() => router.push("/addeep-is/summary/gpr")}
           >
             Explore Technology
@@ -252,15 +252,15 @@ function SummaryAI() {
         </div>
       </div>
       <div className="flex flex-col flex-1 p-28">
-        <h2 className="mb-4 text-[56px] font-bold">
+        <h2 className="mb-4 text-[56px] font-montserrat font-bold">
           Redefining <span className="text-[#B641E9]">Web 3.0 </span>
           Social Media
         </h2>
         <div className="border border-[#B641E9] text-[#B641E9] w-20 h-px mb-4"></div>
-        <p className="text-2xl leading-relaxed">
+        <p className="text-2xl leading-relaxed font-poppins font-normal">
           <span className="text-[#B641E9] font-bold">Addeep-GPR-1</span>{" "}
           (Generative Pre-trained Recommender) represents the core technology
-          powering our revolutionary Web 3.0 social media platform. Our
+          powering our revolutionary Web 3.0 social media platform. Ours
           breakthrough integration of{" "}
           <span className="text-[#B641E9] font-bold">
             next-generation CNN and RNN technologies{" "}
@@ -268,7 +268,7 @@ function SummaryAI() {
           into existing conversational AI models creates an unprecendented user
           experience.
         </p>
-        <p className="text-2xl leading-relaxed mt-6">
+        <p className="text-2xl leading-relaxed font-normal font-poppins mt-6">
           Unlike traditional AI systems, GPR focuses on{" "}
           <span className="text-[#B641E9] font-bold">
             automatically generating and recommending personalized content{" "}
@@ -278,44 +278,48 @@ function SummaryAI() {
         </p>
       </div>
 
-      <div className="flex flex-col flex-1 p-28">
+      <div className="flex flex-col flex-1 p-12">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-[56px] font-bold">Beyond the Conversation:</h2>
-          <h2 className="mb-4 text-[56px] font-bold">
+          <h2 className="text-[56px] font-montserrat font-bold">
+            Beyond the Conversation:
+          </h2>
+          <h2 className="mb-4 text-[56px] font-montserrat font-bold">
             Our Technical Advantage
           </h2>
           <div className="border border-[#B641E9] text-[#B641E9] w-36 h-px mt-2 mb-4"></div>
         </div>
 
-        <div className="mt-12 grid grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-3 gap-4 p-12">
           <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-            <h2 className="text-[26px] text-[#B641E9] font-bold mb-4">
+            <h2 className="text-[26px] text-[#B641E9] font-poppins font-bold mb-4">
               UnderStanding the Mind
             </h2>
-            <p className="text-lg leading-relaxed mb-12 p-4">
+            <p className="text-lg leading-relaxed font-poppins mb-12 p-4">
               Multi-dimensional user data collection from Addeep SNS including{" "}
-              <span className="font-bold">
+              <span className="font-poppins font-bold">
                 communication metrics, activity patterns, and demographic data.
               </span>
             </p>
-            <p className="text-lg leading-relaxed p-4">
+            <p className="text-lg font-poppins leading-relaxed p-4">
               Our proprietary{" "}
-              <span className="font-bold">Large Mind-mining Model (LMM) </span>
+              <span className="font-poppins font-bold">
+                Large Mind-mining Model (LMM){" "}
+              </span>
               mines user thoughts and intentions, differentiating from
               traditional LLMs that focus solely on linguistic data.
             </p>
           </div>
           <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-            <h2 className="text-[26px] text-[#B641E9] font-bold">
+            <h2 className="text-[26px] text-[#B641E9] font-poppins font-bold">
               True Automation
             </h2>
-            <p className="text-lg leading-relaxed mb-12 p-4">
-              <span className="font-bold">
+            <p className="text-lg font-poppins leading-relaxed mb-12 p-4">
+              <span className="font-poppins font-bold">
                 Non-interactive, fully automatic
               </span>{" "}
               generative AI implementation.
             </p>
-            <p className="text-lg leading-relaxed p-4">
+            <p className="text-lg font-poppins leading-relaxed p-4">
               Deep neural network continously calibrated with reinforcement
               training, enabling{" "}
               <span className="font-bold">instant personalized content </span>
@@ -323,21 +327,21 @@ function SummaryAI() {
             </p>
           </div>
           <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-            <h2 className="text-[26px] text-[#B641E9] font-bold">
+            <h2 className="text-[26px] text-[#B641E9] font-poppins font-bold">
               The ACT Engine
             </h2>
-            <p className="text-lg leading-relaxed p-4">
+            <p className="text-lg font-poppins leading-relaxed p-4">
               <span className="font-bold">
                 Addeep Automatic Content Convergence Technology
               </span>{" "}
               powered by our Augmented AI and A-GPR inference model.
             </p>
-            <p className="text-lg leading-relaxed p-4">
+            <p className="text-lg font-poppins leading-relaxed p-4">
               Automatically generates personalized content by decomposing and
               fusing <span className="font-bold">multi-format content </span>{" "}
               from our platform ecosystem.
             </p>
-            <p className="text-lg leading-relaxed p-4">
+            <p className="text-lg font-poppins leading-relaxed p-4">
               <span className="font-bold">Deep Blend </span> technology
               recreates user-intended content without complex authoring tools.
             </p>
@@ -345,18 +349,18 @@ function SummaryAI() {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 p-28">
+      <div className="flex flex-col flex-1 p-12">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-[56px] font-bold">
+          <h2 className="text-[56px] font-montserrat font-bold">
             From Generation to Confirmation:
           </h2>
-          <h2 className="mb-4 text-[56px] font-bold">
+          <h2 className="mb-4 text-[56px] font-montserrat font-bold">
             Our <span className="text-[#B641E9]">Core Services</span>
           </h2>
-          <h2 className="text-2xl font-normal">
+          <h2 className="text-2xl font-normal font-poppins">
             Introducing our revolutionary "Generation - Confirmation" model that
           </h2>
-          <h2 className="mb-4 text-2xl font-normal">
+          <h2 className="mb-4 text-2xl font-normal font-poppins">
             transforms how users interact with AI-generated content.
           </h2>
         </div>
@@ -364,39 +368,39 @@ function SummaryAI() {
         <div className="mt-8 flex flex-col items-center justify-center">
           <div className="grid grid-cols-2 gap-8">
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
+              <h3 className="text-2xl leading-relaxed font-poppins text-[#B641E9] font-bold">
                 Automated Content Generation
               </h3>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed font-poppins">
                 Automatically generates and recommends user content including
                 images, memes, and emojis, activated by simple user approval.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
+              <h3 className="text-2xl leading-relaxed font-poppins text-[#B641E9] font-bold">
                 Automated Ad Generation
               </h3>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed font-poppins">
                 Intelligently matches content and advertisements, generating
                 personalized recommendations activated by user approval.
               </p>
             </div>
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
+              <h3 className="text-2xl leading-relaxed font-poppins text-[#B641E9] font-bold">
                 Transaction Automation
               </h3>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed font-poppins">
                 Automatically creates and recommends sale/purchase transactions,
                 completed upon user approval.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col">
-              <h3 className="text-2xl leading-relaxed text-[#B641E9] font-bold">
+              <h3 className="text-2xl leading-relaxed font-poppins text-[#B641E9] font-bold">
                 Social Media Post Automation
               </h3>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed font-poppins">
                 Automatically generates social media posts including text,
                 images, and videos for Addeep accounts, posted upon user
                 approval.
@@ -407,28 +411,32 @@ function SummaryAI() {
       </div>
       <div className="flex flex-col items-center justify-center">
         <div
-          className="max-w-[1240px] border-[1.2px] p-12 rounded-2xl flex flex-col border-[#B641E9] border-opacity-20"
+          className="max-w-[1240px] border-[1.2px] p-12 rounded-2xl flex flex-col gap-4 border-[#B641E9] border-opacity-20"
           style={{
             background:
               "linear-gradient(to right, rgba(182, 65, 233, 0.1) 0%, rgba(0, 0, 0, 0) 100%)",
           }}
         >
-          <h2 className="mb-4 text-3xl font-bold text-[#B641E9]">
+          <h2 className="mb-4 text-3xl font-bold font-poppins text-[#B641E9]">
             Scalability and AI-as-a-Service
           </h2>
-          <p className="text-lg leading-relaxed max-w-2xl">
+          <p className="text-lg leading-relaxed font-poppins max-w-2xl">
             Our AI engine automatically extracts user mindset models without
             explicit input, generating social media behaviors users are most
             likely to intend.
           </p>
-          <p className="text-lg leading-relaxed max-w-2xl">
-            Cloud Adaptability: Instantiated on Addeep's cloud server but
-            adaptable to Azure, AWS, Google Cloud, and other platforms.
+          <p className="text-lg leading-relaxed font-poppins max-w-2xl">
+            <span className="font-bold mr-2">Cloud Adaptability :</span>
+            Instantiated on Addeep's cloud server but adaptable to Azure, AWS,
+            Google Cloud, and other platforms.
           </p>
-          <p className="text-lg leading-relaxed max-w-2xl">
-            Future Vision: Offering 'Artificial Intelligence-as-a-Service'
-            (AIaaS) via subscription model to external clients-individuals and
-            corporations worldwide.
+          <p className="text-lg leading-relaxed font-poppins max-w-2xl">
+            <span className="text-[#B641E9] font-bold mr-2">
+              Future Vision :
+            </span>
+            Offering 'Artificial Intelligence-as-a-Service' (AIaaS) via
+            subscription model to external clients-individuals and corporations
+            worldwide.
           </p>
           <p className="min-w-[1000px]"></p>
         </div>
