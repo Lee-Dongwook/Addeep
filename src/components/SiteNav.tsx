@@ -17,7 +17,7 @@ export default function SiteNav() {
   const [open, setOpen] = useState(false);
   const [exp, setExp] = useState<Record<string, boolean>>({});
 
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
   const pathname = usePathname();
 
@@ -48,7 +48,7 @@ export default function SiteNav() {
     return null;
   }
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <header className="sticky top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md flex items-center justify-end w-full h-[82px] p-8 text-[12px] leading-[16.08px] font-sans text-[#1c1e21] transition-transform duration-500 [transition-timing-function:cubic-bezier(0,0.61,0.28,0.92)]">
@@ -128,7 +128,7 @@ export default function SiteNav() {
                                 }
                                 className="flex w-full items-center gap-3 text-left text-white"
                               >
-                                <span className="text-3xl leading-[1.1]">
+                                <span className="text-2xl leading-[1.1]">
                                   {it.label}
                                 </span>
                                 <SiteNavChevronIcon
@@ -300,7 +300,7 @@ function NavLinkBig({
   onClick?: () => void;
   children: React.ReactNode;
 }) {
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
 
   const mobileCls =
     "inline-block text-3xl leading-normal text-white hover:text-white/90 focus:outline-none";
@@ -308,7 +308,7 @@ function NavLinkBig({
   const cls =
     "inline-block text-[44px] leading-[1.1] sm:text-[56px] text-white hover:text-white/90 focus:outline-none";
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return external ? (
       <a
         href={href}
