@@ -190,9 +190,9 @@ export default function JaeyoungPage() {
         <div className="absolute inset-0 bg-white/80" aria-hidden />
         <div className="relative max-w-7xl mx-auto py-20 md:py-32">
           <div className="text-center">
-            <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
               <img
-                src={"https://placehold.co/160x160/EDE9FE/8B5CF6?text=JY"}
+                src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
                 alt="Kevin Jaeyoung Yoon"
                 className="w-full h-full object-cover"
               />
