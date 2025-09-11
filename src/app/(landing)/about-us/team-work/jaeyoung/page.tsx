@@ -2,6 +2,33 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
+const data = [
+  {
+    name: "S/W Engineer(보안/네트워크/UTM)",
+    years: 15,
+    color: "rgba(139, 92, 246, 1.0)",
+  },
+  {
+    name: "TITAN Platform (Founder/CEO)",
+    years: 10,
+    color: "rgba(139, 92, 246, 0.8)",
+  },
+  {
+    name: "글로벌 경영 (미국/중국/싱가포르)",
+    years: 7,
+    color: "rgba(139, 92, 246, 0.6)",
+  },
+  { name: "Addeep (Founder/CVO)", years: 5, color: "rgba(139, 92, 246, 0.4)" },
+];
 
 export default function JaeyoungPage() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -452,6 +479,14 @@ export default function JaeyoungPage() {
                   : "After founding TiTAN Platform, he managed seven overseas subsidiaries for seven years, raised cumulative investments of 550 billion won, and proved his capabilities as a global manager."}
               </p>
             </div>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={data} layout="vertical">
+                <XAxis type="number" domain={[0, 16]} />
+                <YAxis dataKey="name" type="category" width={200} />
+                <Tooltip formatter={(value) => [`${value}년`, "기간"]} />
+                <Bar dataKey="years" fill="#8B5CF6" />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </section>
