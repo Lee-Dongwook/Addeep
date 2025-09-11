@@ -7,12 +7,12 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useResponsive } from "../../lib/useResponsive";
 import { collageData, splitScreenData } from "../../constants";
 import { LandingBottomArrowIcon } from "../../icons";
+import { NEXT_PUBLIC_CDN_BASE } from "../../lib/env";
 
 // Image imports
 import jessicaImage from "/public/images/jessica.png";
 import socialImage from "/public/images/social.png";
 import goodFaceImage from "/public/images/good-face.png";
-import backgroundImage from "/public/images/Background.png";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -213,19 +213,16 @@ export default function LandingPage() {
             </AnimatedSection>
           </div>
         </div>
-        {/* Second Section - Split Screen Portrait */}
+
         <div ref={secondSectionRef} className="min-h-screen bg-black">
           <AnimatedSection index={1}>
             <div className="relative w-full h-screen">
-              {/* Split Screen Container */}
               <div className="flex w-full h-full">
-                {/* Left Side - Person with hands over eyes */}
                 <div className="flex-1 relative animate-image">
-                  <Image
-                    src={backgroundImage}
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/Background.png`}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover w-full h-full"
-                    priority
                   />
                 </div>
               </div>
@@ -327,20 +324,17 @@ export default function LandingPage() {
           </AnimatedSection>
         </div>
       </div>
-      {/* Second Section - Split Screen Portrait */}
+
       <div ref={secondSectionRef} className="mt-56 bg-black/50">
         <AnimatedSection index={1}>
           <div className="relative w-full h-1/2">
-            {/* Split Screen Container */}
             <div className="flex w-full h-full">
-              {/* Left Side - Person with hands over eyes */}
               <div className="flex-1 relative animate-image">
                 <div className="flex flex-col items-center justify-center">
-                  <Image
-                    src={backgroundImage}
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/Background.png`}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover w-full h-full"
-                    priority
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
