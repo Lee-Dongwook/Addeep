@@ -253,102 +253,102 @@ const PlatformToEarn = () => {
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
             Addeep: A Platform to Earn
           </h1>
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             Addeep has innovated its reward service
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             by providing reward cash to all users.
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             enabling them to realize profits.
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             This model is designed for faster service expansion
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             and higher user satisfaction.
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             By securing flexible users, Addeep offers targeted advertising and
           </h3>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-poppins font-normal text-white">
             data-driven CRM, growing as a global, collaborative platform.
           </h3>
         </div>
       </div>
       <section className="flex flex-col flex-1 p-28">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="font-bold text-[56px]">
+          <h2 className="font-bold font-montserrat text-[56px] mb-4">
             <span className="text-[#B641E9]">For Advertisers:</span> Precision &
             Performance
           </h2>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             Addeep helps advertisers increase their target advertising rates
           </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             and secure customer acquisition through user-specific settings.
           </h4>
         </div>
         <div className="mt-8 mb-8 grid grid-cols-3 gap-4">
           <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8">
-            <h4 className="text-[28px] text-[#4B5563] font-normal">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Data-Driven Insights
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               By analyzing big data patterns, Addeep provides customized AI
               advertising services that drive repeat visits and increased sales.
             </p>
           </div>
           <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8">
-            <h4 className="text-[28px] text-[#4B5563] font-normal">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Strategic Growth
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               Addeep assists advertisers in precise analysis of product stages
               -from production to sales- to facilitate new product launches and
               development.
             </p>
           </div>
           <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8">
-            <h4 className="text-[28px] text-[#4B5563] font-normal">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Integrated Efficiency
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               The platform seamlessly integrates advertising efficiency with
               crucial customer management through Addeep Ads.
             </p>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h2 className="font-bold text-[56px]">
+          <h2 className="font-bold font-montserrat text-[56px] mb-4">
             <span className="text-[#B641E9]">For Users:</span> From Engagement
             to Income
           </h2>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             Many social media users are dependent on platforms
           </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             that offer no consistent rewards. Addeep changes that reality.
           </h4>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#4B5563] font-normal">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Sustainable Profit Models
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               Based on valuable information and targeted ads, creating
               consistent income streams.
             </p>
           </div>
           <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#4B5563] font-normal">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Collaborative Environment
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               An innovative platform ecosystem that connects all participants to
               diverse profit channels.
             </p>
@@ -360,41 +360,43 @@ const PlatformToEarn = () => {
         />
 
         <div className="flex flex-col items-center justify-center mt-28">
-          <h2 className="font-bold text-[56px]">
+          <h2 className="font-bold font-montserrat text-[56px] mb-4">
             <span className="text-[#B641E9]">For Creators:</span> Monetize Your
             Creativity
           </h2>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             By involving creators and influencers, Addeep develops creative and
             engaging content
           </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
             like short videos, memes, and images, which serve as diverse
             advertising services.
           </h4>
         </div>
         <div className="flex flex-col gap-4">
           <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#B641E9] font-normal">
+            <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
               Sustainable Rewards
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               Creators are guaranteed steady incomes and sustainable rewards
               through the continous creation of diverse content. Addeep provides
               more benefits to foster a harmonious platform ecosystem.
             </p>
-            <p className="text-xl font-normal mt-4">Guaranteed steady income</p>
+            <p className="text-xl font-normal mt-4 font-poppins">
+              Guaranteed steady income
+            </p>
           </div>
           <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#B641E9] font-normal">
+            <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
               IP Protection
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-xl text-[#4B5563] font-poppins font-normal">
               ACI content protection technology uses Addeep's AI and blockchain
               to safeguard content ownership and rights, providing assistance
               with IP management.
             </p>
-            <p className="text-xl font-normal mt-4">
+            <p className="text-xl font-normal font-poppins mt-4">
               Blockchain-secured rights
             </p>
           </div>
