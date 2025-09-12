@@ -47,7 +47,7 @@ export default function JaeyoungPage() {
           "현) 사단법인 한국AGI연합협회 이사",
           "전) TiTAN Platform Corp. Founder & CEO",
         ],
-        slogan: '"We Bridge Values "',
+        slogan: '"We Bridge Values"',
         description:
           "기술 창시자, 글로벌 경영자, 그리고 혁신적 비전가. 25년의 경력을 통해 더 공정하고 지능적인 인간 중심의 디지털 생태계를 구축합니다. ICT:Networks, Information Security, Cloud, Platform, AI, DeepTech, Augmented AI을 아우르는 전문성으로 Web 3.0의 새로운 미래를 열어갑니다.",
       },
@@ -206,15 +206,8 @@ export default function JaeyoungPage() {
 
       {/* Hero Section */}
       <section id="hero" className="py-20 md:py-32 relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://placehold.co/1920x1080/C4B5FD/FFFFFF?text=Dynamic+AI+Video)",
-          }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-white/80" aria-hidden />
+        <div className="absolute inset-0 bg-cover bg-center" aria-hidden />
+        <div className="absolute inset-0 bg-purple-50" />
         <div className="relative max-w-7xl mx-auto py-20 md:py-32">
           <div className="text-center">
             <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
@@ -224,10 +217,10 @@ export default function JaeyoungPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-3">
               {currentContent.hero.name}
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 mb-4">
               {currentContent.hero.title}
             </h2>
             <div className="text-lg text-gray-600 mb-4">
@@ -249,18 +242,20 @@ export default function JaeyoungPage() {
 
       {/* Summary Section */}
       <section id="summary" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col">
+            <h2 className="text-4xl text-center font-bold text-purple-600 mb-8">
               {currentContent.summary.title}
             </h2>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-left">
               {currentContent.summary.subTitle}
             </h2>
-            <div className="text-xl text-left text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <div className="text-xl text-gray-700 leading-relaxed">
               {Array.isArray(currentContent.summary.description)
                 ? currentContent.summary.description.map((sum, idx) => (
-                    <ol key={idx}>{sum}</ol>
+                    <ol key={idx} className="mt-4 mb-4">
+                      {sum}
+                    </ol>
                   ))
                 : currentContent.summary.description}
             </div>
@@ -269,27 +264,60 @@ export default function JaeyoungPage() {
       </section>
 
       {/* Vision Section */}
-      <section id="vision" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="vision" className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <h2 className="text-4xl font-bold text-purple-600 mb-8">
               {currentContent.vision.title}
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {currentContent.vision.description}
             </p>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold text-purple-600 mb-4">
-              {language === "ko"
-                ? "기술 철학의 진화"
-                : "Evolution of Technical Philosophy"}
-            </h3>
-            <p className="text-gray-700">
-              {language === "ko"
-                ? "그의 기술적 여정은 하나의 맥락으로 이어집니다. 네트워크 기술을 시작으로 정보보안 기술로 자산을 보호하는 기반을 다졌고, TCI & ACI 기술로 창작자의 권리를 투명하게 연결했으며, 현재 Addeep의 증강 AI는 모든 참여자의 가치를 지능적으로 연결하고 증폭시키는 단계로 진화했습니다."
-                : "His technical journey follows a single thread. Starting with network technology, he laid the foundation of protecting assets with information security technology, connected the rights of creators transparently through TCI & ACI technology, and evolved to the current Addeep augmented AI, which intelligently connects and amplifies the value of all participants."}
-            </p>
+          <div className="flex flex-row items-center gap-24 mt-24">
+            <div className="rounded-lg">
+              <h3 className="text-2xl font-semibold mb-4">
+                {language === "ko"
+                  ? "기술 철학의 진화"
+                  : "Evolution of Technical Philosophy"}
+              </h3>
+              <p className="text-gray-700">
+                {language === "ko"
+                  ? "그의 기술적 여정은 하나의 맥락으로 이어집니다. 네트워크 기술을 시작으로 정보보안 기술로 자산을 보호하는 기반을 다졌고, TCI & ACI 기술로 창작자의 권리를 투명하게 연결했으며, 현재 Addeep의 증강 AI는 모든 참여자의 가치를 지능적으로 연결하고 증폭시키는 단계로 진화했습니다."
+                  : "His technical journey follows a single thread. Starting with network technology, he laid the foundation of protecting assets with information security technology, connected the rights of creators transparently through TCI & ACI technology, and evolved to the current Addeep augmented AI, which intelligently connects and amplifies the value of all participants."}
+              </p>
+              <div className="flex flex-row items-center gap-8 mt-8">
+                <button
+                  disabled
+                  className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-20"
+                >
+                  N/W
+                </button>
+                <button
+                  disabled
+                  className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-24"
+                >
+                  정보보안
+                </button>
+                <button
+                  disabled
+                  className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-28"
+                >
+                  TCI & ACI
+                </button>
+                <button
+                  disabled
+                  className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-48"
+                >
+                  Addeep 증가 AI GPR-1
+                </button>
+              </div>
+            </div>
+            <div className="p-8 rounded-lg shadow-lg w-[1000px] h-[400px] flex flex-col items-center justify-center bg-purple-100">
+              <h2 className="text-[80px] font-bold text-purple-600 mb-4">
+                Vision
+              </h2>
+            </div>
           </div>
         </div>
       </section>
@@ -300,7 +328,7 @@ export default function JaeyoungPage() {
         className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-4xl font-bold text-purple-600 text-center mb-12">
             {language === "ko"
               ? "핵심 기술: 미래 경제의 기둥"
               : "Core Technologies: The Pillars of the Future Economy"}
