@@ -155,6 +155,44 @@ const FirstHuman = () => {
                   </ul>
                 </div>
 
+                {/* Major Work Experience */}
+                <div>
+                  <div className="flex flex-row gap-3">
+                    <div className="w-1 h-7 bg-[#7B2CBF]" />
+                    <h3 className="text-md font-semibold text-black mb-2">
+                      Major Work Experience
+                    </h3>
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-3 p-3">
+                    <li>• Addeep Founder & Chief Vision Officer</li>
+                    <li>
+                      • Founder of Addeep Augmented AI LMM (Large Mind-mining
+                      Model): GPR-1
+                    </li>
+                    <li>
+                      • Overseeing Addeep S2E SNS Platform Series Product
+                      Business
+                    </li>
+                    <li>
+                      • 'ACT' content automatic convergence generation
+                      technology / 'ACI' content security technology [Founder of
+                      security technology for automatically merging multiple
+                      media contents into a single content and real-time cloud
+                      content rights protection]
+                    </li>
+                    <li>
+                      • Commercialization of OTT smart content platform & smart
+                      devices, AI social robot product series Development and
+                      consulting services for network information security
+                      products and integrated security UTM solutions
+                    </li>
+                    <li>
+                      • Overseeing ICT global business strategy for Korea, the
+                      US, China, Singapore, and Southeast Asia
+                    </li>
+                  </ul>
+                </div>
+
                 <div>
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
@@ -296,6 +334,43 @@ const FirstHuman = () => {
                     Graduate School of Business
                   </li>
                   <li>• Founder of Addeep Group</li>
+                </ul>
+              </div>
+
+              {/* Major Work Experience */}
+              <div>
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Major Work Experience
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-3 p-3">
+                  <li>• Addeep Founder & Chief Vision Officer</li>
+                  <li>
+                    • Founder of Addeep Augmented AI LMM (Large Mind-mining
+                    Model): GPR-1
+                  </li>
+                  <li>
+                    • Overseeing Addeep S2E SNS Platform Series Product Business
+                  </li>
+                  <li>
+                    • 'ACT' content automatic convergence generation technology
+                    / 'ACI' content security technology [Founder of security
+                    technology for automatically merging multiple media contents
+                    into a single content and real-time cloud content rights
+                    protection]
+                  </li>
+                  <li>
+                    • Commercialization of OTT smart content platform & smart
+                    devices, AI social robot product series Development and
+                    consulting services for network information security
+                    products and integrated security UTM solutions
+                  </li>
+                  <li>
+                    • Overseeing ICT global business strategy for Korea, the US,
+                    China, Singapore, and Southeast Asia
+                  </li>
                 </ul>
               </div>
 
