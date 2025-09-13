@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useEffect, type ReactNode } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,9 +18,6 @@ import {
 } from "../../../../constants/we-are";
 import { useState } from "react";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
-
-// Image imports
-import gradientImage from "/public/images/Gradient.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -281,11 +277,10 @@ export default function LandingPage() {
                 "absolute top-full -mt-20 right-0 w-full h-1/2 animate-image",
               ].join(" ")}
             >
-              <Image
-                src={gradientImage}
+              <img
+                src={`${NEXT_PUBLIC_CDN_BASE}/images/Gradient.png`}
                 alt="girl taking a photo with a tunnel filter"
                 className="object-cover w-full h-full"
-                priority
               />
               <div className="absolute inset-0 bg-black/50" />
               <div className="absolute bottom-4 inset-0 z-10 flex items-end p-6">
@@ -354,11 +349,10 @@ export default function LandingPage() {
             {/* Top Right - Image */}
             <div className="animate-image flex justify-center items-center mt-24">
               <div className="relative max-w-[700px] max-h-[800px]">
-                <Image
-                  src={gradientImage}
+                <img
+                  src={`${NEXT_PUBLIC_CDN_BASE}/images/Gradient.png`}
                   alt="boy"
                   className="object-cover rounded-lg"
-                  priority
                 />
               </div>
             </div>

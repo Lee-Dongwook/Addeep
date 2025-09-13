@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useEffect, type ReactNode } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -8,11 +7,6 @@ import { useResponsive } from "../../lib/useResponsive";
 import { collageData, splitScreenData } from "../../constants";
 import { LandingBottomArrowIcon } from "../../icons";
 import { NEXT_PUBLIC_CDN_BASE } from "../../lib/env";
-
-// Image imports
-import jessicaImage from "/public/images/jessica.png";
-import socialImage from "/public/images/social.png";
-import goodFaceImage from "/public/images/good-face.png";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -156,11 +150,10 @@ export default function LandingPage() {
                 {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
                   <div className="relative w-56 h-56 overflow-hidden">
-                    <Image
-                      src={jessicaImage}
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
                       alt="Person with fisheye lens effect"
                       className="object-cover"
-                      priority
                     />
                   </div>
                 </div>
@@ -168,11 +161,10 @@ export default function LandingPage() {
                 {/* Middle Left Image - Social Woman */}
                 <div className="animate-image">
                   <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
-                    <Image
-                      src={socialImage}
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
                       alt="Smiling man with hands on cheeks"
                       className="object-cover rounded-lg"
-                      priority
                     />
                   </div>
                 </div>
@@ -191,11 +183,10 @@ export default function LandingPage() {
                 {/* Bottom Right Image - Three People */}
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
                   <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
-                    <Image
-                      src={goodFaceImage}
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
                       alt="Three people looking down"
                       className="object-cover"
-                      priority
                     />
                   </div>
                 </div>
@@ -267,11 +258,10 @@ export default function LandingPage() {
               {/* Top Right Image - Fisheye Effect */}
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
                 <div className="relative w-64 h-64 md:w-[600px] md:h-[400px] overflow-hidden">
-                  <Image
-                    src={jessicaImage}
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
                     alt="Person with fisheye lens effect"
                     className="object-cover"
-                    priority
                   />
                 </div>
               </div>
@@ -279,11 +269,10 @@ export default function LandingPage() {
               {/* Middle Left Image - Social Woman */}
               <div className="animate-image md:row-start-3 md:col-start-1 -mt-96">
                 <div className="relative w-full md:w-[500px] md:h-[700px] rounded-lg overflow-hidden">
-                  <Image
-                    src={socialImage}
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
-                    priority
                   />
                 </div>
               </div>
@@ -302,11 +291,10 @@ export default function LandingPage() {
               {/* Bottom Right Image - Good Face Man */}
               <div className="animate-image -mt-48 md:row-start-5 md:col-start-2 md:justify-self-end">
                 <div className="relative w-full h-56 md:w-[700px] md:h-[400px] rounded-lg overflow-hidden">
-                  <Image
-                    src={goodFaceImage}
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
                     alt="Three people looking down"
                     className="object-cover"
-                    priority
                   />
                 </div>
               </div>
