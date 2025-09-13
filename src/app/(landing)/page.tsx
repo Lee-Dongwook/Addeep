@@ -8,6 +8,8 @@ import { collageData, splitScreenData } from "../../constants";
 import { LandingBottomArrowIcon } from "../../icons";
 import { NEXT_PUBLIC_CDN_BASE } from "../../lib/env";
 
+// hello
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 interface AnimatedSectionProps {
