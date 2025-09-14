@@ -125,7 +125,7 @@ const FirstHuman = () => {
                 </h2>
                 <div className="text-md text-black space-y-1">
                   <p className="text-[#4A1A5C] font-semibold">
-                    Addeep Founder & CVO Chief Vision Officer
+                    Addeep Founder & CVO Chief Visionary Officer
                   </p>
                   <p>US Addeep Inc. Chief Executive Officer CEO</p>
                 </div>
@@ -164,7 +164,7 @@ const FirstHuman = () => {
                     </h3>
                   </div>
                   <ul className="text-sm text-gray-700 space-y-3 p-3">
-                    <li>• Addeep Founder & Chief Vision Officer</li>
+                    <li>• Addeep Founder & Chief Visionary Officer</li>
                     <li>
                       • Founder of Addeep Augmented AI LMM (Large Mind-mining
                       Model): GPR-1
@@ -312,7 +312,7 @@ const FirstHuman = () => {
               </h2>
               <div className="text-xl space-y-1">
                 <p className="text-[#4A1A5C] font-semibold">
-                  Addeep Inc. Founder and CVO (Chief Vision Officer)
+                  Addeep Inc. Founder and CVO (Chief Visionary Officer)
                 </p>
                 <p>US Addeep Inc. Chief Executive Officer CEO</p>
               </div>
@@ -346,7 +346,7 @@ const FirstHuman = () => {
                   </h3>
                 </div>
                 <ul className="text-md text-gray-700 space-y-3 p-3">
-                  <li>• Addeep Founder & Chief Vision Officer</li>
+                  <li>• Addeep Founder & Chief Visionary Officer</li>
                   <li>
                     • Founder of Addeep Augmented AI LMM (Large Mind-mining
                     Model): GPR-1
@@ -675,6 +675,442 @@ const SecondHuman = () => {
   );
 };
 
+const ThirdHuman = () => {
+  const { isMobile, isTablet } = useResponsive();
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="w-full p-4 bg-white">
+        <div className="mx-auto">
+          <div className="p-4">
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col items-center">
+                <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/SeonTaeProfile.JPG"
+                    alt="SeonTae"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-contain"
+                    priority
+                  />
+                </div>
+                <h2 className="text-2xl font-bold text-black mb-1">
+                  SeonTae Kim
+                </h2>
+                <div className="text-md text-black space-y-1">
+                  <p className="text-[#4A1A5C] font-semibold">
+                    Addeep Inc CFO (Chief Financial Officer)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-center">
+                {/* Education */}
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-md font-semibold text-black mb-2">
+                    Education & Background
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-4 p-3">
+                  <li>
+                    • Bachelor's degree in Computer Engineering from Seoul
+                    National University
+                  </li>
+                  <li>
+                    • Completed Bio-CEO Course at Seoul National University
+                  </li>
+                  <li>• Former CEO of K-Longevity</li>
+                  <li>• Former Vise President, CSO of Pharmaworks</li>
+                  <li>• Former CFO of Carin Networks</li>
+                  <li>• Former CSO of KODIAM</li>
+                  <li>• Former CFO of MetaCen Therapeutics</li>
+                  <li>• Former CEO of KangStemBioTech</li>
+                  <li>• Former CEO of ST Asset</li>
+                  <li>• Former Director of CIND</li>
+                  <li>• Former Deputy Manger of Kolon Industries, Ltd.</li>
+                  <li>• Former Manger of E-Land Group Hansae Development</li>
+                </ul>
+
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-md font-semibold text-black mb-2">
+                    Key Achievements on Real Estate Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-4 p-3">
+                  <li>
+                    • Morning at Gyeonghee Palace / Residential-Commercial
+                    Complex / PM (Business Planning, Project Financing, Sales)
+                  </li>
+                  <li>
+                    • Hanwha Mapo Obelisk / Residential-Commercial Complex / PM
+                  </li>
+                  <li>
+                    • Boramae Cherville / Residential-Commercial Complex / PM
+                  </li>
+                  <li>
+                    • COEX Mall / Multi-Shopping Mall / MD Planning Consulting
+                  </li>
+                  <li>
+                    • Tower Palace Bant / Sports Center / Business Planning
+                  </li>
+                  <li>
+                    • Gangnam Station Samsung Town / Multi-Commercial Complex /
+                    Business Planning
+                  </li>
+                  <li>
+                    • Korea Tobacco & Ginseng Corporation Headquarters (Cosmo
+                    Tower), Heungkuk Life Insurance Headquarters / Office
+                    Facilities / Sales and Lease
+                  </li>
+                  <li>
+                    • Incheon CNC, Daehan Textile Spectrum / Commercial Complex
+                    / PM
+                  </li>
+                  <li>
+                    • Large-Scale Real Estate Store Development / Megabox,
+                    E-Mart, 2001 Outlet / Sales and Lease Consulting
+                  </li>
+                  <li>
+                    • Jeju Yongmeori Tourist District / Resort Facilities /
+                    Business Planning and General Contractor Designation
+                  </li>
+                  <li>
+                    • Cheongju Premium Outlet, Cheonan Parking Tower / Real
+                    Estate Implementation
+                  </li>
+                  <li>
+                    • Vietnam Real Estate / Vietnam Asset Management Corporation
+                    (VAMC) Non-Profit Placing (NPL) Project / Market Research
+                    and Business Planning
+                  </li>
+                  <li>
+                    • Vietnam Land Development / Smart City New Town Development
+                    Market Research and Business Planning
+                  </li>
+                </ul>
+
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-md font-semibold text-black mb-2">
+                    Key Achievements on Biology Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-4 p-3">
+                  <li>
+                    • Founded Kangstem Biotech (umbilical cord blood-derived
+                    stem cell therapy), served as first CEO, developed a
+                    business plan, and successfully went public within the
+                    shortest possible time (5 years)
+                  </li>
+                  <li>
+                    • Founded Elbase (anticancer therapy), served as an inside
+                    director, successfully raised investment (Series A: KRW 4
+                    billion, Bridge Fund: KRW 6 billion), expected to IPO within
+                    3 years.
+                  </li>
+                  <li>
+                    • Founded Metacentre Therapeutics (medical food, metabolic
+                    disease therapy), served as CFO, successfully raised
+                    investment (Series A: KRW 4.1 billion, Series B: KRW 6.2
+                    billion), expected to go public through a SPAC in 2025.
+                  </li>
+                  <li>
+                    • Founded Entherapeutics (anticancer, antiviral therapy),
+                    served as an outside director, successfully raised
+                    investment (Series A: KRW 4 billion).
+                  </li>
+                  <li>
+                    • Codiem (Pharmaworks) Bio Platform Business Plan,
+                    Successful Investment Return - Wellmarker Bio, KRW 3 billion
+                    investment, KRW 4.5 billion recovery within one year,
+                    expected to be listed under the Technology Special Act in
+                    2024
+                  </li>
+                  <li>
+                    • Carin Science, KRW 3 billion investment, KRW 18 billion
+                    recovery within two years, expected to be listed under the
+                    Technology Special Act in 2024
+                  </li>
+                  <li>
+                    • Enter Therapeutics, KRW 500 million investment, KRW 1.2
+                    billion recovery within one year and three months, expected
+                    to recover KRW 600 million in additional investment
+                  </li>
+                  <li>
+                    • Establishment of a Vietnamese new drug development bio
+                    company (Mining Medi), CEO and business plan development
+                  </li>
+                  <li>
+                    • Investment attraction consulting for cosmetics companies
+                    (Eo Korea, GNB Vietnam, Luvamanature)
+                  </li>
+                </ul>
+
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-md font-semibold text-black mb-2">
+                    Key Achievements on Other Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-4 p-3">
+                  <li>
+                    • While employed at Kolon International, he worked as a MD
+                    and sales manager for Nino Cerucci (imported licensed
+                    brand), Manstar, and Arpeggio.
+                  </li>
+                  <li>
+                    • Developed customer satisfaction (CS) management innovation
+                    and mid- to long-term strategies at Kolon International.
+                  </li>
+                  <li>
+                    • Served as a fashion marketing instructor at Kolon Fashion
+                    School, FIK, for three years (1992-1994).
+                  </li>
+                  <li>
+                    • Taught four courses in the Yonsei University Real Estate
+                    Developer Program.
+                  </li>
+                  <li>
+                    • Completed the National Community Program at Kyungnam
+                    University's North Korean Graduate School (6-month program).
+                  </li>
+                  <li>
+                    • Completed the Bio-CEO Program at Seoul National University
+                    (6-month program).
+                  </li>
+                  <li>
+                    • A full member of the SEBIT (currently approximately 150
+                    people) as a venture capitalist at Seoul International
+                    University (Department of Business Administration,
+                    Economics, and International Economics).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full min-h-full p-8 bg-white">
+      <div className="max-w-full mx-auto mt-10">
+        <div>
+          <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col items-center lg:w-1/3">
+              <div className="w-64 h-64 rounded-full overflow-hidden">
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/SeonTaeProfile.JPG"
+                  alt="SeonTae"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="lg:w-2/3 space-y-6">
+              <h2 className="text-4xl font-bold text-black mb-1">
+                SeonTae Kim
+              </h2>
+              <div className="text-xl space-y-1">
+                <p className="text-[#4A1A5C] font-semibold">
+                  Addeep Inc CFO (Chief Financial Officer)
+                </p>
+              </div>
+              {/* Education */}
+              <div>
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Education & Background
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-2 p-3">
+                  <li>
+                    • Bachelor's degree in Computer Engineering from Seoul
+                    National University
+                  </li>
+                  <li>
+                    • Completed Bio-CEO Course at Seoul National University
+                  </li>
+                  <li>• Former CEO of K-Longevity</li>
+                  <li>• Former Vise President, CSO of Pharmaworks</li>
+                  <li>• Former CFO of Carin Networks</li>
+                  <li>• Former CSO of KODIAM</li>
+                  <li>• Former CFO of MetaCen Therapeutics</li>
+                  <li>• Former CEO of KangStemBioTech</li>
+                  <li>• Former CEO of ST Asset</li>
+                  <li>• Former Director of CIND</li>
+                  <li>• Former Deputy Manger of Kolon Industries, Ltd.</li>
+                  <li>• Former Manger of E-Land Group Hansae Development</li>
+                </ul>
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Key Achievements on Real Estate Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-3 p-3">
+                  <li>
+                    • Morning at Gyeonghee Palace / Residential-Commercial
+                    Complex / PM (Business Planning, Project Financing, Sales)
+                  </li>
+                  <li>
+                    • Hanwha Mapo Obelisk / Residential-Commercial Complex / PM
+                  </li>
+                  <li>
+                    • Boramae Cherville / Residential-Commercial Complex / PM
+                  </li>
+                  <li>
+                    • COEX Mall / Multi-Shopping Mall / MD Planning Consulting
+                  </li>
+                  <li>
+                    • Tower Palace Bant / Sports Center / Business Planning
+                  </li>
+                  <li>
+                    • Gangnam Station Samsung Town / Multi-Commercial Complex /
+                    Business Planning
+                  </li>
+                  <li>
+                    • Korea Tobacco & Ginseng Corporation Headquarters (Cosmo
+                    Tower), Heungkuk Life Insurance Headquarters / Office
+                    Facilities / Sales and Lease
+                  </li>
+                  <li>
+                    • Incheon CNC, Daehan Textile Spectrum / Commercial Complex
+                    / PM
+                  </li>
+                  <li>
+                    • Large-Scale Real Estate Store Development / Megabox,
+                    E-Mart, 2001 Outlet / Sales and Lease Consulting
+                  </li>
+                  <li>
+                    • Jeju Yongmeori Tourist District / Resort Facilities /
+                    Business Planning and General Contractor Designation
+                  </li>
+                  <li>
+                    • Cheongju Premium Outlet, Cheonan Parking Tower / Real
+                    Estate Implementation
+                  </li>
+                  <li>
+                    • Vietnam Real Estate / Vietnam Asset Management Corporation
+                    (VAMC) Non-Profit Placing (NPL) Project / Market Research
+                    and Business Planning
+                  </li>
+                  <li>
+                    • Vietnam Land Development / Smart City New Town Development
+                    Market Research and Business Planning
+                  </li>
+                </ul>
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Key Achievements on Biology Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-3 p-3">
+                  <li>
+                    • Founded Kangstem Biotech (umbilical cord blood-derived
+                    stem cell therapy), served as first CEO, developed a
+                    business plan, and successfully went public within the
+                    shortest possible time (5 years)
+                  </li>
+                  <li>
+                    • Founded Elbase (anticancer therapy), served as an inside
+                    director, successfully raised investment (Series A: KRW 4
+                    billion, Bridge Fund: KRW 6 billion), expected to IPO within
+                    3 years.
+                  </li>
+                  <li>
+                    • Founded Metacentre Therapeutics (medical food, metabolic
+                    disease therapy), served as CFO, successfully raised
+                    investment (Series A: KRW 4.1 billion, Series B: KRW 6.2
+                    billion), expected to go public through a SPAC in 2025.
+                  </li>
+                  <li>
+                    • Founded Entherapeutics (anticancer, antiviral therapy),
+                    served as an outside director, successfully raised
+                    investment (Series A: KRW 4 billion).
+                  </li>
+                  <li>
+                    • Codiem (Pharmaworks) Bio Platform Business Plan,
+                    Successful Investment Return - Wellmarker Bio, KRW 3 billion
+                    investment, KRW 4.5 billion recovery within one year,
+                    expected to be listed under the Technology Special Act in
+                    2024
+                  </li>
+                  <li>
+                    • Carin Science, KRW 3 billion investment, KRW 18 billion
+                    recovery within two years, expected to be listed under the
+                    Technology Special Act in 2024
+                  </li>
+                  <li>
+                    • Enter Therapeutics, KRW 500 million investment, KRW 1.2
+                    billion recovery within one year and three months, expected
+                    to recover KRW 600 million in additional investment
+                  </li>
+                  <li>
+                    • Establishment of a Vietnamese new drug development bio
+                    company (Mining Medi), CEO and business plan development
+                  </li>
+                  <li>
+                    • Investment attraction consulting for cosmetics companies
+                    (Eo Korea, GNB Vietnam, Luvamanature)
+                  </li>
+                </ul>
+                <div className="flex flex-row gap-3 mt-8">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Key Achievements on Other Business
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-4 p-3">
+                  <li>
+                    • While employed at Kolon International, he worked as a MD
+                    and sales manager for Nino Cerucci (imported licensed
+                    brand), Manstar, and Arpeggio.
+                  </li>
+                  <li>
+                    • Developed customer satisfaction (CS) management innovation
+                    and mid- to long-term strategies at Kolon International.
+                  </li>
+                  <li>
+                    • Served as a fashion marketing instructor at Kolon Fashion
+                    School, FIK, for three years (1992-1994).
+                  </li>
+                  <li>
+                    • Taught four courses in the Yonsei University Real Estate
+                    Developer Program.
+                  </li>
+                  <li>
+                    • Completed the National Community Program at Kyungnam
+                    University's North Korean Graduate School (6-month program).
+                  </li>
+                  <li>
+                    • Completed the Bio-CEO Program at Seoul National University
+                    (6-month program).
+                  </li>
+                  <li>
+                    • A full member of the SEBIT (currently approximately 150
+                    people) as a venture capitalist at Seoul International
+                    University (Department of Business Administration,
+                    Economics, and International Economics).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -683,6 +1119,7 @@ export default function LandingPage() {
       <div className="flex flex-col items-center justify-center">
         <FirstHuman />
         <SecondHuman />
+        <ThirdHuman />
       </div>
     </div>
   );
