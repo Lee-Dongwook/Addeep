@@ -70,11 +70,11 @@ export default function Footer() {
             ))}
           </div>
           {/* Bottom links */}
-          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
+          {/* <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
             <span>English (US)</span>
             <span>개인정보처리방침</span>
             <span>서비스이용약관</span>
-          </div>
+          </div> */}
           <div className="mt-2 flex justify-center text-xs text-gray-400">
             <span>© 2025. Addeep Inc. All rights reserved.</span>
           </div>
@@ -136,11 +136,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom links */}
-        <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
+        {/* <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
           <span>English (US)</span>
           <span>개인정보처리방침</span>
           <span>서비스이용약관</span>
-        </div>
+        </div> */}
         <div className="mt-2 flex justify-center text-xs text-gray-400">
           <span>© 2025. Addeep Inc. All rights reserved.</span>
         </div>
