@@ -187,7 +187,7 @@ export default function SiteNav() {
             <img
               src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
               alt="logo"
-              className="h-16 w-16"
+              className="h-14 w-16"
             />
           )}
         </div>
