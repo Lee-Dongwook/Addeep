@@ -216,15 +216,19 @@ const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const items: Item[] = [
-  { label: "Blog", href: "", Icon: BlogIcon },
+  { label: "Blog", href: "https://blog.naver.com/Addeep", Icon: BlogIcon },
   {
     label: "Instagram",
     href: "https://www.instagram.com/addeep_/",
     Icon: InstagramIcon,
   },
-  { label: "Facebook", href: "#", Icon: FacebookIcon },
-  { label: "X", href: "#", Icon: XIcon },
-  { label: "YouTube", href: "#", Icon: YouTubeIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/Addeep.2023",
+    Icon: FacebookIcon,
+  },
+  { label: "X", href: "https://twitter.com/Addeep_", Icon: XIcon },
+  { label: "YouTube", href: "https://youtube.com/@addeep_", Icon: YouTubeIcon },
 ];
 
 interface HelpAccordionProps {
