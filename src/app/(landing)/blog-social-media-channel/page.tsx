@@ -216,8 +216,12 @@ const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const items: Item[] = [
-  { label: "Blog", href: "#", Icon: BlogIcon },
-  { label: "Instagram", href: "#", Icon: InstagramIcon },
+  { label: "Blog", href: "", Icon: BlogIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/addeep_/",
+    Icon: InstagramIcon,
+  },
   { label: "Facebook", href: "#", Icon: FacebookIcon },
   { label: "X", href: "#", Icon: XIcon },
   { label: "YouTube", href: "#", Icon: YouTubeIcon },

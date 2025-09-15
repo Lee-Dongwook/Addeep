@@ -715,7 +715,7 @@ const ThirdHuman = () => {
                 </div>
                 <ul className="text-md text-gray-700 space-y-4 p-3">
                   <li>
-                    • Bachelor's degree in Computer Engineering from Seoul
+                    • Bachelor's degree in Business Administration from Seoul
                     National University
                   </li>
                   <li>
@@ -932,7 +932,7 @@ const ThirdHuman = () => {
                 </div>
                 <ul className="text-md text-gray-700 space-y-2 p-3">
                   <li>
-                    • Bachelor's degree in Computer Engineering from Seoul
+                    • Bachelor's degree in Business Administration from Seoul
                     National University
                   </li>
                   <li>
