@@ -28,60 +28,6 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   );
 }
 
-function CalendarIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      className="opacity-80"
-      aria-hidden
-    >
-      <path
-        d="M7 2v2M17 2v2M4 7h16M5 12h14M5 16h14M5 20h14"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-      />
-      <rect
-        x="3"
-        y="4"
-        width="18"
-        height="18"
-        rx="3"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
-function PinIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      className="opacity-80"
-      aria-hidden
-    >
-      <path
-        d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-      />
-      <path
-        d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
 const EventDetailHeader = () => {
   return (
     <div className="w-full text-center">
@@ -417,67 +363,19 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section id="register" className="border-t border-gray-100">
-        <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
-          <div className="grid items-center gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold md:text-3xl">
-                등록하고 최신 정보를 받아보세요
-              </h2>
-              <p className="mt-2 text-gray-700">
-                좌석/세션 공지, 스피커 업데이트, 워크숍 가이드 등 안내를
-                이메일로 드립니다.
-              </p>
-            </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-2xl bg-gray-50 p-4 ring-1 ring-gray-200 md:p-6"
-            >
-              <label className="block text-sm font-medium text-gray-700">
-                이메일
-                <input
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                  className="mt-2 w-full rounded-lg border border-gray-300 px-3 py-2 outline-none ring-indigo-600 focus:ring-2"
-                />
-              </label>
-              <button
-                type="submit"
-                className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
-              >
-                등록하기
-              </button>
-              <p className="mt-2 text-xs text-gray-500">
-                등록 시 행사 소식 수신에 동의하게 되며, 언제든지 해지할 수
-                있습니다.
-              </p>
-            </form>
+      <section id="register" className="bg-gray-50">
+        <div className="flex flex-col flex-1 p-16 items-center justify-center">
+          <div className="flex flex-col items-center gap-8 text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">
+              Ready to Shape the Future?
+            </h2>
+            <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]">
+              <span className="text-white font-medium">참가 신청하기</span>
+            </button>
+            <p className="text-gray-700">문의 : jhjeong@addeeplab.com</p>
           </div>
         </div>
       </section>
-      {/* Footer */}
-      <footer className="bg-gray-900 py-10 text-gray-300">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="text-sm">
-              © {new Date().getFullYear()} GCC Fund · HyperCycle. All rights
-              reserved.
-            </div>
-            <div className="flex items-center gap-4 text-sm">
-              <a className="hover:text-white" href="#">
-                개인정보 처리방침
-              </a>
-              <a className="hover:text-white" href="#">
-                이용 약관
-              </a>
-              <a className="hover:text-white" href="#faq">
-                도움말
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
