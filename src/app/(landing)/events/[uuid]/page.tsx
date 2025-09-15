@@ -226,6 +226,72 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Speaker */}
+      <section id="agenda" className="mx-auto px-6 py-16 md:py-20 bg-gray-50">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-3xl font-bold md:text-4xl text-center">
+            Speakers
+          </h2>
+          <h4 className="text-xl text-center">
+            AI 인터넷의 미래를 제시하는 세계적 석학들
+          </h4>
+        </div>
+        <div className="mt-8 mb-8 grid grid-cols-3 gap-4">
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal text-center">
+              Toufi Saliba
+            </h4>
+            <h5 className="text-lg text-[#4B5563] font-poppins font-normal text-center">
+              HyperCycle CEO
+            </h5>
+            <button className="text-white bg-[#BD19F1] max-w-72 h-8 p-4 flex flex-col items-center justify-center rounded-full">
+              IEEE AI 보안 글로벌 의장
+            </button>
+            <div className="text-base text-[#4B5563] font-poppins font-normal">
+              <li>TCP/IP 이후 50년만의 TODA/IP 혁신</li>
+              <li>ACM 글로벌 의장 역임</li>
+              <li>AI 탈중앙화 개념 최초 제시</li>
+            </div>
+            <p>"협력하는 AI 네트워크로 인류의 미래를 설계합니다"</p>
+          </div>
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal text-center">
+              Oskar Mencer
+            </h4>
+            <h5 className="text-lg text-[#4B5563] font-poppins font-normal text-center">
+              HyperCycle AI CEO
+            </h5>
+            <h5 className="text-lg text-[#4B5563] font-poppins font-normal text-center">
+              GROQ 자회사 대표
+            </h5>
+            <button className="text-white bg-[#BD19F1] max-w-72 h-8 p-4 flex flex-col items-center justify-center rounded-full">
+              AI 추론 속도 혁신가
+            </button>
+            <div className="text-base text-[#4B5563] font-poppins font-normal">
+              <li>사우디 15억 달러 투자 유치</li>
+              <li>세계 최대 AI 인프런스 클러스터</li>
+              <li>150개 대학 연구 프로젝트 핵심 솔루션</li>
+            </div>
+          </div>
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal text-center">
+              윤재영 (Kevin Yoon)
+            </h4>
+            <h5 className="text-lg text-[#4B5563] font-poppins font-normal text-center">
+              (주)애딥 CVO
+            </h5>
+            <button className="text-white bg-[#BD19F1] max-w-72 h-8 p-4 flex flex-col items-center justify-center rounded-full">
+              인간 중심 AI 비저너리
+            </button>
+            <div className="text-base text-[#4B5563] font-poppins font-normal">
+              <li>4700억 기업가치 CPND 창립</li>
+              <li>GPR-1 비대화형 증강 AI 창시</li>
+              <li>S2E 경제 프로토콜 개발</li>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Keynote / Tracks */}
       <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="flex flex-col gap-10">
