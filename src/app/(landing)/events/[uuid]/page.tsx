@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState, type ReactNode } from "react";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 type Stat = { label: string; value: string; hint?: string };
 type AgendaItem = { time: string; title: string; desc?: string };
@@ -80,6 +81,35 @@ function PinIcon() {
     </svg>
   );
 }
+
+const EventDetailHeader = () => {
+  return (
+    <div className="w-full text-center">
+      <div
+        className="w-full min-h-[600px] rounded-lg flex flex-col items-center justify-center"
+        style={{
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`,
+          border: "1px solid #E5E7EB",
+        }}
+      >
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
+          The Genesis of AI Internet: 글로벌 비즈니스 서밋
+        </h1>
+        <h3 className="text-xl font-medium text-white">
+          본 서밋은 단순한 기술 컨퍼런스를 넘어, GCC 펀드가 주도하는 글로벌 AI
+          인프라 구축 프로젝트의 아시아 허브를
+        </h3>
+        <h3 className="text-xl font-medium text-white">
+          대한민국에 설립하기 위한 전략적 파트너십을 구축하는 역사적 첫
+          무대입니다.
+        </h3>
+        <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11">
+          <span className="text-white font-medium">참가 신청하기</span>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default function LandingPage() {
   const date = "2025.10.14 (Tue) – 10.15 (Wed)";
@@ -184,6 +214,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <EventDetailHeader />
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div
