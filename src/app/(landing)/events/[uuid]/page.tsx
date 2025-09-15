@@ -6,11 +6,7 @@ import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 type Stat = { label: string; value: string; hint?: string };
 type AgendaItem = { time: string; title: string; desc?: string };
 type Track = { title: string; desc: string };
-type Workshop = {
-  day: string;
-  room: string;
-  slots: { time: string; title: string }[];
-};
+
 type FAQ = { q: string; a: string };
 
 function Timeline({ items }: { items: AgendaItem[] }) {
@@ -110,37 +106,6 @@ export default function LandingPage() {
       desc: "데이터 파이프라인·웨어하우스·BI·거버넌스",
     },
     { title: "Cloud Infra", desc: "컴퓨트/네트워킹/옵저버빌리티/코스트" },
-  ];
-
-  const workshops: Workshop[] = [
-    {
-      day: "10/14 (Tue) · 컨퍼런스룸 402",
-      room: "402",
-      slots: [
-        {
-          time: "11:10 – 14:10",
-          title: "노코드/서버리스로 GenAI 앱 빠르게 만들기",
-        },
-        {
-          time: "15:00 – 18:00",
-          title: "통합 ML 플랫폼으로 엔드투엔드 파이프라인 구축",
-        },
-      ],
-    },
-    {
-      day: "10/15 (Wed) · 컨퍼런스룸 402",
-      room: "402",
-      slots: [
-        {
-          time: "11:10 – 14:10",
-          title: "자연어 기반 BI 분석/예측 워크플로우",
-        },
-        {
-          time: "15:00 – 18:00",
-          title: "멀티 에이전트로 복잡한 업무 시나리오 자동화",
-        },
-      ],
-    },
   ];
 
   const faqs: FAQ[] = [
@@ -261,104 +226,43 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Workshops */}
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <h2 className="text-2xl font-bold md:text-3xl">
-                워크숍 & 라이트닝 토크
-              </h2>
-              <p className="mt-3 text-gray-700">
-                현장 실습과 짧은 인사이트 세션으로 실무 감각 업그레이드.
-              </p>
-            </div>
-            <a
-              href="#register"
-              className="hidden rounded-xl bg-gray-900 px-4 py-2 text-sm text-white md:inline-flex"
-            >
-              워크숍 좌석 확인
-            </a>
-          </div>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {workshops.map((w) => (
-              <div
-                key={w.day}
-                className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200"
-              >
-                <div className="text-sm font-medium text-indigo-700">
-                  {w.day}
-                </div>
-                <ul className="mt-4 space-y-3">
-                  {w.slots.map((s) => (
-                    <li
-                      key={s.time}
-                      className="rounded-lg border border-gray-200 p-4"
-                    >
-                      <div className="text-sm text-gray-500">{s.time}</div>
-                      <div className="font-medium">{s.title}</div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+      {/* Keynote / Tracks */}
+      <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <div className="flex flex-col gap-10">
+          <h2 className="text-3xl font-bold md:text-4xl text-center">
+            Summit Overview
+          </h2>
         </div>
-      </section>
-
-      {/* Download / Resources */}
-      <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-        <div className="grid items-center gap-8 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-600 p-8 text-white md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-bold md:text-3xl">세션 한눈에 보기</h2>
-            <p className="mt-2 text-white/90">
-              전체 아젠다/세션 레벨/트랙을 PDF로 정리해 사전 계획을 세워보세요.
+        <div className="mt-8 mb-8 grid grid-cols-3 gap-4">
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
+              Global Investment Partnership
+            </h4>
+            <p className="text-lg text-[#4B5563] font-poppins font-normal">
+              중동 10개국이 조성한 GCC 펀드가 석유 중심 경제에서 AI 기반 경제로
+              전환하며, 대한민국을 최적의 기술 파트너로 선정. 아시아 허브 설립을
+              통한 글로벌 AI 인프라 구축
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href="#"
-                className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700"
-              >
-                PDF 다운로드
-              </a>
-              <a
-                href="#faq"
-                className="rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/30"
-              >
-                FAQ 보기
-              </a>
-            </div>
           </div>
-          <div className="relative">
-            <div className="aspect-[16/10] w-full overflow-hidden rounded-xl bg-white/10 ring-1 ring-white/30">
-              <img
-                alt="Agenda preview"
-                src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop"
-                width={1200}
-                height={750}
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
+              Internet Revolution
+            </h4>
+            <p className="text-lg text-[#4B5563] font-poppins font-normal">
+              TCP/IP 이후 50년 만의 혁신 TODA/IP 프로토콜. 0.2초 국제 송금, 99%
+              에너지 절감으로 데이터가 아닌 '가치' 전송이 가능한 새로운 인터넷
+              시대
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="bg-gray-50">
-        <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
-          <h2 className="text-2xl font-bold md:text-3xl">자주 묻는 질문</h2>
-          <dl className="mt-6 space-y-6">
-            {faqs.map((f) => (
-              <div
-                key={f.q}
-                className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-gray-200"
-              >
-                <dt className="font-medium">{f.q}</dt>
-                <dd className="mt-2 text-sm text-gray-600">{f.a}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3">
+            <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
+              Fair Digital Ecosystem
+            </h4>
+            <p className="text-lg text-[#4B5563] font-poppins font-normal">
+              애딥의 GPR-1 비화대형 증강 AI와 ACT 콘텐츠 자동 융합 기술로
+              창작자와 사용자 모두에게 공정한 보상이 돌아가는 AUCE 경제 생태계
+            </p>
+          </div>
         </div>
       </section>
 
