@@ -112,7 +112,7 @@ const EventDetailHeader = () => {
 };
 
 export default function LandingPage() {
-  const date = "2025.10.14 (Tue) – 10.15 (Wed)";
+  const date = "2025.10.14 (화)";
   const venue = "서울 · (장소 추후 공개)";
 
   const stats: Stat[] = [
@@ -215,68 +215,41 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <EventDetailHeader />
+
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-blue-50 via-indigo-50 to-white"
-        />
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-          <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="flex flex-col gap-10">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/70 px-3 py-1 text-xs font-medium text-indigo-700 backdrop-blur">
-                <span>GCC Fund × HyperCycle</span>
-                <span className="h-1 w-1 rounded-full bg-indigo-300" />
-                <span>Seoul Summit 2025</span>
-              </div>
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <h1 className="text-2xl font-bold tracking-tight text-black">
+                GCC 펀드 & HyperCycle
+              </h1>
+              <h1 className="text-2xl font-bold tracking-tight text-black">
                 글로벌 인터넷 AI 서울 Summit
               </h1>
-              <p className="mt-4 text-lg leading-relaxed text-gray-700">
-                Internet of AI 비전과 대한민국의 역할을 한자리에서.
-                기술·정책·비즈니스가 만나는 전략 서밋.
+              <p className="mt-8 text-lg leading-relaxed text-gray-700">
+                본 서밋은 'Internet of AI'라는 혁명적 패러다임의 실체와, 이를
+                통해 열릴 무한한 비즈니스 기회를 대한민국 최고의 기술 리더들에게
+                공개하는 역사적인 첫 무대입니다.
               </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-600">
-                <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 shadow-sm ring-1 ring-gray-200">
-                  <CalendarIcon />
-                  <span>{date}</span>
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 shadow-sm ring-1 ring-gray-200">
-                  <PinIcon />
-                  <span>{venue}</span>
-                </div>
-              </div>
-
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-white shadow-md transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                  href="#register"
-                >
-                  지금 등록하기
-                </a>
-                <a
-                  className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-gray-900 ring-1 ring-gray-200 shadow-sm transition hover:bg-gray-50"
-                  href="#agenda"
-                >
-                  아젠다 살펴보기
-                </a>
-              </div>
-              <p className="mt-3 text-xs text-gray-500">
-                * 페이지 구성은 AWS Summit Seoul의 공개 레이아웃 패턴을
-                참고했습니다. (문구/카피는 새로 작성)
+              <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                행사의 핵심 목표는 단순한 기술 소개를 넘어, GCC 펀드가 주도하는
+                글로벌 AI 인프라 구축 프로젝트의 아시아 허브(Hub)를 대한민국에
+                설립하기 위한 최상의 기술 및 제조 파트너십을 구축하는데
+                있습니다.
               </p>
             </div>
-
-            <div className="relative">
-              <div className="aspect-[16/10] w-full overflow-hidden rounded-2xl ring-1 ring-gray-200">
-                <img
-                  alt="Summit hero"
-                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1920&auto=format&fit=crop"
-                  width={1280}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
+            <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-2">
+              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+                {/* <CalendarIcon /> */}
+                <span className="text-xl font-bold text-[#BD19F1]">{date}</span>
+                <span className="text-xl font-normal text-[#4B5563]">
+                  09:30 - 16:00
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2">
+                {/* <PinIcon /> */}
+                <span className="text-lg font-bold">{venue}</span>
               </div>
             </div>
           </div>
