@@ -10,9 +10,6 @@ type AgendaItem = {
   speaker: string;
   desc?: string;
 };
-type Track = { title: string; desc: string };
-
-type FAQ = { q: string; a: string };
 
 function Timeline({ items }: { items: AgendaItem[] }) {
   return (
@@ -108,23 +105,6 @@ export default function LandingPage() {
     },
   ];
 
-  const tracks: Track[] = [
-    {
-      title: "Industry",
-      desc: "제조/반도체/통신/금융 등 산업별 성공사례/전략",
-    },
-    { title: "GenAI & ML", desc: "모델·에이전트·프롬프트 엔지니어링·평가" },
-    {
-      title: "Developer Productivity",
-      desc: "DevEx, 플랫폼 엔지니어링, 품질/보안",
-    },
-    {
-      title: "Data & Analytics",
-      desc: "데이터 파이프라인·웨어하우스·BI·거버넌스",
-    },
-    { title: "Cloud Infra", desc: "컴퓨트/네트워킹/옵저버빌리티/코스트" },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <EventDetailHeader />
@@ -165,29 +145,6 @@ export default function LandingPage() {
                 <span className="text-lg font-bold">{venue}</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="border-y border-gray-100 bg-gray-50/50">
-        <div className="mx-auto max-w-7xl px-6 py-10 md:py-14">
-          <h2 className="sr-only">행사 하이라이트</h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200"
-              >
-                <div className="text-3xl font-extrabold">{s.value}</div>
-                <div className="mt-1 text-sm font-medium text-gray-700">
-                  {s.label}
-                </div>
-                {s.hint && (
-                  <p className="mt-2 text-sm text-gray-500">{s.hint}</p>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -314,6 +271,25 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section id="register" className="bg-gray-50">
+        <div className="flex flex-row flex-1 items-center justify-around gap-8 p-20">
+          <div className="flex flex-col gap-8">
+            <h2 className="text-2xl font-bold md:text-3xl">
+              Who Should Attend
+            </h2>
+            <li>IT, 반도체, 통신, 제조업 CEO/CTO/CFO</li>
+            <li>신사업 전략 총괄 임원</li>
+            <li>최상위 VC 및 자산운용사 대표 파트너</li>
+            <li>AI 스타트업 창업자 및 기술 리더</li>
+          </div>
+          <div className="flex flex-col gap-8">
+            <h2 className="text-2xl font-bold md:text-3xl">Key Benefits</h2>
+            <li>GCC 펀드 직접 투자 기회 논의</li>
+            <li>아시아 AI 허브 구축 우선 파트너십</li>
+            <li>차세대 인터넷 표준 기술 선공개</li>
+            <li>세계적 석학과의 프리미엄 네트워킹</li>
+          </div>
+        </div>
+
         <div className="flex flex-col flex-1 p-16 items-center justify-center">
           <div className="flex flex-col items-center gap-8 text-center">
             <h2 className="text-2xl font-bold md:text-3xl">
