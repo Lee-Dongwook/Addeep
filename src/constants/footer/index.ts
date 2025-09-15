@@ -66,10 +66,11 @@ export const footerLinks: FooterLink[] = [
     href: "/blog-social-media-channel",
   },
   {
-    id: "6",
+    id: "5",
     text: "Announcement",
     href: "/announcement",
   },
+  { id: "6", text: "Event", href: "/events" },
 ];
 
 export const socialIcons: FooterSocial[] = [

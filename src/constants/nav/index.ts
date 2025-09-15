@@ -33,4 +33,5 @@ export const NAV: Item[] = [
   },
   { label: "Blog & Social Media Channels", href: "/blog-social-media-channel" },
   { label: "Announcement", href: "/announcement" },
+  { label: "Event", href: "/events" },
 ];
