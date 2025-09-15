@@ -4,23 +4,42 @@ import React, { useRef, useEffect, useState, type ReactNode } from "react";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 type Stat = { label: string; value: string; hint?: string };
-type AgendaItem = { time: string; title: string; desc?: string };
+type AgendaItem = {
+  time: string;
+  title: string;
+  speaker: string;
+  desc?: string;
+};
 type Track = { title: string; desc: string };
 
 type FAQ = { q: string; a: string };
 
 function Timeline({ items }: { items: AgendaItem[] }) {
   return (
-    <ol className="mt-4 space-y-5">
-      {items.map((it) => (
-        <li key={it.time} className="relative pl-6">
-          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-indigo-600" />
-          <div className="text-sm text-gray-500">{it.time}</div>
-          <div className="font-medium">{it.title}</div>
-          {it.desc && <p className="text-sm text-gray-600">{it.desc}</p>}
-        </li>
-      ))}
-    </ol>
+    <>
+      <ol className="mt-4 space-y-12">
+        {items.slice(0, items.length - 1).map((it) => (
+          <li key={it.time} className="relative pl-8 flex flex-col gap-3.5">
+            <span className="absolute left-0 top-2 h-3 w-3 rounded-full bg-indigo-600" />
+            <span className="absolute left-1 top-5 h-44 w-1 rounded-full bg-gray-200" />
+            <div className="mt-2 text-sm text-gray-500">{it.time}</div>
+            <div className="font-medium">{it.title}</div>
+            <div className="font-medium text-sm">연사: {it.speaker}</div>
+            {it.desc && <p className="text-sm text-gray-600">{it.desc}</p>}
+          </li>
+        ))}
+      </ol>
+      <div className="mt-24 bg-[#F5F7FA] p-6 border-l-4 border-[#BD19F1] rounded-2xl">
+        {items.slice(items.length - 1, items.length).map((it) => (
+          <li key={it.time} className="relative pl-6 flex flex-col gap-4">
+            <div className="text-sm text-gray-500">{it.time}</div>
+            <div className="font-medium">{it.title}</div>
+            <div className="font-medium text-sm">연사: {it.speaker}</div>
+            {it.desc && <p className="text-sm text-gray-600">{it.desc}</p>}
+          </li>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -65,29 +84,27 @@ export default function LandingPage() {
   ];
 
   const agendaDay1: AgendaItem[] = [
-    { time: "08:30 – 09:30", title: "등록/웰컴" },
     {
-      time: "09:30 – 10:40",
-      title: "기조연설",
-      desc: "Internet of AI 비전, 글로벌 인프라 로드맵",
+      time: "09:30 – 11:00",
+      title: "Internet Of AI & GROQ 글로벌 AI 인프라",
+      speaker: "오스카 멘서",
+      desc: "HyperCycle과 GROQ의 사우디 15억 달러 투자 프로젝트. 차세대 AI 검색 엔진과 세계 최대 AI 인프런스 클러스터 구축 계획",
     },
     {
-      time: "11:10 – 17:10",
-      title: "브레이크아웃 트랙",
-      desc: "산업/코어 서비스 병렬 세션",
-    },
-  ];
-  const agendaDay2: AgendaItem[] = [
-    { time: "08:30 – 09:30", title: "등록/네트워킹" },
-    {
-      time: "09:30 – 10:40",
-      title: "기조연설",
-      desc: "국가 AI 주권/표준 전략",
+      time: "11:00 – 12:00",
+      title: "애딥 초지능 증강 AI GPR 아시아 R&D 센터 발표",
+      speaker: "윤재영 CVO",
+      desc: "비대화형 증강 AI GPR-1과 아시아 R&D 센터 설립 계획",
     },
     {
-      time: "11:10 – 16:30",
-      title: "브레이크아웃/정책 세션",
-      desc: "정책/생태계/투자",
+      time: "14:00",
+      title: "Internet of AI World Report 2030 도서 출간",
+      speaker: "투피 살리바 & 박영숙 교수",
+    },
+    {
+      time: "15:00",
+      title: "GCC HyperCycle 프로젝트 참여 기업 간담회",
+      speaker: "전체 연사진",
     },
   ];
 
@@ -106,21 +123,6 @@ export default function LandingPage() {
       desc: "데이터 파이프라인·웨어하우스·BI·거버넌스",
     },
     { title: "Cloud Infra", desc: "컴퓨트/네트워킹/옵저버빌리티/코스트" },
-  ];
-
-  const faqs: FAQ[] = [
-    {
-      q: "행사 등록은 어떻게 하나요?",
-      a: "상단/하단의 등록 버튼을 통해 기본 정보를 제출하면 됩니다. 좌석이 제한될 수 있어 조기 등록을 권장합니다.",
-    },
-    {
-      q: "발표 자료는 제공되나요?",
-      a: "행사 종료 후 발표자 승인 범위 내에서 하이라이트/요약본을 순차 공개합니다.",
-    },
-    {
-      q: "현장 데모는 어떤 준비가 필요한가요?",
-      a: "일부 핸즈온 세션은 개인 노트북 지참이 필요합니다. 세션별 안내문을 확인하세요.",
-    },
   ];
 
   return (
@@ -192,35 +194,13 @@ export default function LandingPage() {
 
       {/* Keynote / Tracks */}
       <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-        <div className="grid gap-10 md:grid-cols-5">
-          <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold md:text-3xl">기조연설 & 트랙</h2>
-            <p className="mt-3 text-gray-700">
-              글로벌 표준을 향한 로드맵과 산업·핵심기술 트랙으로 구성된 병렬
-              세션.
-            </p>
-            <ul className="mt-6 space-y-4">
-              {tracks.map((t) => (
-                <li
-                  key={t.title}
-                  className="rounded-xl border border-gray-200 p-4"
-                >
-                  <div className="font-semibold">{t.title}</div>
-                  <p className="mt-1 text-sm text-gray-600">{t.desc}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-3">
-            <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
-              <h3 className="text-lg font-semibold">Day 1 · 10/14 (Tue)</h3>
+        <div className="flex flex-col gap-10">
+          <h2 className="text-2xl font-bold md:text-3xl text-center">
+            Program Schedule
+          </h2>
+          <div>
+            <div className="rounded-2xl bg-white p-6">
               <Timeline items={agendaDay1} />
-              <div className="mt-6 h-px w-full bg-gray-100" />
-              <h3 className="mt-6 text-lg font-semibold">
-                Day 2 · 10/15 (Wed)
-              </h3>
-              <Timeline items={agendaDay2} />
             </div>
           </div>
         </div>
