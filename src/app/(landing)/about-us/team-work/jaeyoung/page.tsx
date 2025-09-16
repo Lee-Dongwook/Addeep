@@ -11,6 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useResponsive } from "../../../../../lib/useResponsive";
 
 const data = [
   {
@@ -35,6 +36,8 @@ export default function JaeyoungPage() {
   const [activeSection, setActiveSection] = useState("hero");
   const [language, setLanguage] = useState("ko");
   const [tabState, setTabState] = useState("GPR");
+
+  const { isMobile, isTablet } = useResponsive();
 
   const handleTabChange = (tab: string) => {
     switch (tab) {
@@ -149,6 +152,136 @@ export default function JaeyoungPage() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  if (isMobile) {
+    return (
+      <div className="min-h-screen bg-white text-gray-800 font-['Inter','Noto_Sans_KR',sans-serif]">
+        <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+          <div className="max-w-full mx-auto p-4">
+            <div className="flex justify-between items-center">
+              <button
+                onClick={() => scrollToSection("hero")}
+                className="text-lg font-bold text-black min-w-48"
+              >
+                윤재영 Kevin Jaeyoung Yoon
+              </button>
+              <div className="flex items-center space-x-6">
+                <div className="hidden space-x-6">
+                  {[
+                    {
+                      id: "summary",
+                      label: language === "ko" ? "소개" : "About me",
+                    },
+                    {
+                      id: "vision",
+                      label: language === "ko" ? "비전" : "Vision",
+                    },
+                    {
+                      id: "technologies",
+                      label: language === "ko" ? "핵심 기술" : "Core Tech",
+                    },
+                    {
+                      id: "gpr1",
+                      label: language === "ko" ? "GPR-1 모델" : "GPR-1 Model",
+                    },
+                    {
+                      id: "projects",
+                      label: language === "ko" ? "주요 프로젝트" : "Projects",
+                    },
+                    {
+                      id: "journey",
+                      label: language === "ko" ? "기업가 여정" : "Journey",
+                    },
+                    {
+                      id: "accolades",
+                      label: language === "ko" ? "성취와 인정" : "Accolades",
+                    },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`nav-link px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                        activeSection === item.id
+                          ? "text-purple-600 border-b-2 border-purple-600"
+                          : "text-gray-600 hover:text-purple-600"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setLanguage(language === "ko" ? "en" : "ko")}
+                  className="px-4 py-2 text-sm font-medium text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-200"
+                >
+                  {language === "ko" ? "English" : "한국어"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <section id="hero" className="relative overflow-hidden p-8">
+          <div className="absolute inset-0 bg-cover bg-center" aria-hidden />
+          <div className="absolute inset-0 bg-purple-50" />
+          <div className="relative max-w-7xl mx-auto py-20 md:py-32">
+            <div className="text-center">
+              <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                <img
+                  src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                  alt="Kevin Jaeyoung Yoon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">
+                {currentContent.hero.name}
+              </h1>
+              <h2 className="text-xl font-semibold text-purple-600 mb-4">
+                {currentContent.hero.title}
+              </h2>
+              <div className="text-md text-gray-600 mb-4 flex flex-col gap-1">
+                {Array.isArray(currentContent.hero.education)
+                  ? currentContent.hero.education.map((edu, idx) => (
+                      <ol key={idx}>{edu}</ol>
+                    ))
+                  : currentContent.hero.education}
+              </div>
+              <h2 className="text-xl font-semibold text-blue-600 mb-6">
+                {currentContent.hero.slogan}
+              </h2>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                {currentContent.hero.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Summary Section */}
+        <section id="summary" className="bg-gray-50 p-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col">
+              <h2 className="text-3xl font-bold text-purple-600 mb-8">
+                {currentContent.summary.title}
+              </h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-8 text-left">
+                {currentContent.summary.subTitle}
+              </h2>
+              <div className="text-lg text-gray-700 leading-relaxed">
+                {Array.isArray(currentContent.summary.description)
+                  ? currentContent.summary.description.map((sum, idx) => (
+                      <ol key={idx} className="mt-4 mb-4">
+                        {sum}
+                      </ol>
+                    ))
+                  : currentContent.summary.description}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-['Inter','Noto_Sans_KR',sans-serif]">
