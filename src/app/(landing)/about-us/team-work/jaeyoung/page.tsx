@@ -468,6 +468,58 @@ export default function JaeyoungPage() {
             </div>
           </div>
         </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="p-6 bg-gray-50">
+          <div className="max-w-7xl mx-auto mt-8">
+            <h2 className="text-2xl font-bold text-purple-600 mb-12">
+              {language === "ko"
+                ? "주요 프로젝트 및 제품 개발"
+                : "Key Projects and Product Development"}
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              {language === "ko"
+                ? "그의 제품 개발 여정은 정보보안 솔루션에서 시작하여, 클라우드 기반 플랫폼 서비스와 AI 및 딥테크 분야로 확장되었습니다. 이 과정에서 그는 아이디어를 현실로 만드는 탁월한 실행력을 입증했습니다"
+                : "His product development journey started with information security solutions, expanded to cloud-based platform services, and AI and deep tech fields. During this process, he proved his exceptional execution ability to turn ideas into reality."}
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 mt-8 mb-6">
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko"
+                    ? 'OTT 플랫폼 혁신 "TiTAN Play"'
+                    : "OTT Platform Innovation 'TiTAN Play'"}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {language === "ko"
+                    ? "TCI 저작권 보호 기술을 핵심으로, 창작자 중심의 새로운 미디어 소비 경험을 제공하는 OTT 서비스를 기획하고 출시했습니다."
+                    : "As a core technology, we developed an OTT service that provides a new media consumption experience centered on creators, launching 'TiTAN Play'."}
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko"
+                    ? 'AI 소셜 로봇 "TiTAN AI"'
+                    : "AI Social Robot 'TiTAN AI'"}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {language === "ko"
+                    ? "카메라, 스피커, 디스플레이를 탑재하여 가족 구성원과 교감하고 정보를 제공하는 AI 기반 소셜 로봇 시리즈를 개발 및 상용화했습니다."
+                    : "Developed and commercialized an AI-based social robot series equipped with a camera, speaker, and display to communicate with family members and provide information."}
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko" ? "TiTAN Core" : "TiTAN Core"}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {language === "ko"
+                    ? "플랫폼과 연동되는 다양한 IoT 스마트 홈 기기를 개발 및 상용화하여 콘텐츠 소비를 넘어 일상 생활 공간까지 지능적으로 확장되는 통합적인 플랫폼 생태계를 제공하였습니다."
+                    : "Developed and commercialized various IoT smart home devices linked to the platform to provide an integrated platform ecosystem that extends from content consumption to everyday living spaces."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
