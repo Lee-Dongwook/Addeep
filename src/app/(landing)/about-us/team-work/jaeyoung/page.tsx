@@ -13,25 +13,6 @@ import {
 } from "recharts";
 import { useResponsive } from "../../../../../lib/useResponsive";
 
-const data = [
-  {
-    name: "S/W Engineer(보안/네트워크/UTM)",
-    years: 15,
-    color: "rgba(139, 92, 246, 1.0)",
-  },
-  {
-    name: "TITAN Platform (Founder/CEO)",
-    years: 10,
-    color: "rgba(139, 92, 246, 0.8)",
-  },
-  {
-    name: "글로벌 경영 (미국/중국/싱가포르)",
-    years: 7,
-    color: "rgba(139, 92, 246, 0.6)",
-  },
-  { name: "Addeep (Founder/CVO)", years: 5, color: "rgba(139, 92, 246, 0.4)" },
-];
-
 export default function JaeyoungPage() {
   const [activeSection, setActiveSection] = useState("hero");
   const [language, setLanguage] = useState("ko");
@@ -52,6 +33,53 @@ export default function JaeyoungPage() {
         break;
     }
   };
+
+  const data =
+    isMobile || isTablet
+      ? [
+          {
+            name: "S/W Engineer",
+            years: 15,
+            color: "rgba(139, 92, 246, 1.0)",
+          },
+          {
+            name: "TITAN Platform",
+            years: 10,
+            color: "rgba(139, 92, 246, 0.8)",
+          },
+          {
+            name: "글로벌 경영",
+            years: 7,
+            color: "rgba(139, 92, 246, 0.6)",
+          },
+          {
+            name: "Addeep",
+            years: 5,
+            color: "rgba(139, 92, 246, 0.4)",
+          },
+        ]
+      : [
+          {
+            name: "S/W Engineer(보안/네트워크/UTM)",
+            years: 15,
+            color: "rgba(139, 92, 246, 1.0)",
+          },
+          {
+            name: "TITAN Platform (Founder/CEO)",
+            years: 10,
+            color: "rgba(139, 92, 246, 0.8)",
+          },
+          {
+            name: "글로벌 경영 (미국/중국/싱가포르)",
+            years: 7,
+            color: "rgba(139, 92, 246, 0.6)",
+          },
+          {
+            name: "Addeep (Founder/CVO)",
+            years: 5,
+            color: "rgba(139, 92, 246, 0.4)",
+          },
+        ];
 
   const content = {
     ko: {
@@ -517,6 +545,63 @@ export default function JaeyoungPage() {
                     : "Developed and commercialized various IoT smart home devices linked to the platform to provide an integrated platform ecosystem that extends from content consumption to everyday living spaces."}
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Entrepreneurial Journey Section */}
+        <section id="journey" className="p-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-purple-600 mb-12">
+              {language === "ko"
+                ? "기업가 여정: 엔지니어에서 글로벌 리더로"
+                : "Entrepreneurial Journey: From Engineer to Global Leader"}
+            </h2>
+            <div className="flex flex-col gap-8 mb-12">
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko"
+                    ? "기술의 기반"
+                    : "Foundation of Technology"}
+                </h3>
+                <p className="text-gray-700">
+                  {language === "ko"
+                    ? "소프트웨어 엔지니어로 시작, 네트워크 및 보안 기술 전문가로 성장하며 훗날의 기술 혁신을 위한 견고한 토대를 마련했습니다. 특히 네트워크 통합보안 시스템(UTM) 개발 경험은 그의 기술적 깊이를 더했습니다."
+                    : "Started as a software engineer, grew into a network and security technology expert, laying a solid foundation for future technological innovation. In particular, the experience of developing a network unified security system (UTM) deepened his technical depth."}
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko" ? "글로벌 도약" : "Global Expansion"}
+                </h3>
+                <p className="text-gray-700">
+                  {language === "ko"
+                    ? "TiTAN Platform 설립 후 미국, 중국, 싱가포르 법인을 7년간 경영하고 누적 550억 투자를 유치하며 글로벌 경영자로서의 역량을 입증했습니다."
+                    : "After founding TiTAN Platform, he managed seven overseas subsidiaries for seven years, raised cumulative investments of 550 billion won, and proved his capabilities as a global manager."}
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                  {language === "ko"
+                    ? "비전의 집대성"
+                    : "Achievement of Vision"}
+                </h3>
+                <p className="text-gray-700">
+                  {language === "ko"
+                    ? "Addeep Inc. 창업. 지난 25년의 경험과 철학, 기술을 집대성하여 Web 3.0 시대의 차세대 증강 AI 산업 생태계를 구축하기 위한 끊임없는 노력으로 연구개발과 AI산업발전에 기여하고 있습니다."
+                    : "After founding TiTAN Platform, he managed seven overseas subsidiaries for seven years, raised cumulative investments of 550 billion won, and proved his capabilities as a global manager."}
+                </p>
+              </div>
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center p-4">
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={data} layout="vertical">
+                  <XAxis type="number" domain={[0, 16]} />
+                  <YAxis dataKey="name" type="category" width={70} />
+                  <Tooltip formatter={(value) => [`${value}년`, "기간"]} />
+                  <Bar dataKey="years" fill="#8B5CF6" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </section>
