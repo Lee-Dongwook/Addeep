@@ -82,10 +82,11 @@ export default function LandingPage() {
 
   const agendaDay1: AgendaItem[] = [
     {
-      time: "09:30 – 11:00",
-      title: "Internet Of AI & GROQ 글로벌 AI 인프라",
-      speaker: "오스카 멘서",
-      desc: "HyperCycle과 GROQ의 사우디 15억 달러 투자 프로젝트. 차세대 AI 검색 엔진과 세계 최대 AI 인프런스 클러스터 구축 계획",
+      time: "09:30 ~ 11:00",
+      title:
+        "What is Internet of AI, and how GROQ can accelerate global AI infrastructure",
+      speaker: "Oskar Mencer",
+      desc: "",
     },
     {
       time: "11:00 – 12:00",
@@ -112,52 +113,107 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-          <div className="flex flex-col gap-10">
-            <div>
-              <h1 className="text-2xl font-bold tracking-tight text-black">
-                GCC 펀드 & HyperCycle
-              </h1>
-              <h1 className="text-2xl font-bold tracking-tight text-black">
-                글로벌 인터넷 AI 서울 Summit
-              </h1>
-              <p className="mt-8 text-lg leading-relaxed text-gray-700">
-                본 서밋은 'Internet of AI'라는 혁명적 패러다임의 실체와, 이를
-                통해 열릴 무한한 비즈니스 기회를 대한민국 최고의 기술 리더들에게
-                공개하는 역사적인 첫 무대입니다.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-gray-700">
-                행사의 핵심 목표는 단순한 기술 소개를 넘어, GCC 펀드가 주도하는
-                글로벌 AI 인프라 구축 프로젝트의 아시아 허브(Hub)를 대한민국에
-                설립하기 위한 최상의 기술 및 제조 파트너십을 구축하는데
-                있습니다.
-              </p>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col gap-10">
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight text-black">
+                  GCC 펀드 & HyperCycle
+                </h1>
+                <h1 className="text-2xl font-bold tracking-tight text-black">
+                  글로벌 인터넷 AI 서울 Summit
+                </h1>
+                <p className="mt-8 text-lg leading-relaxed text-gray-700">
+                  본 서밋은 'Internet of AI'라는 혁명적 패러다임의 실체와, 이를
+                  통해 열릴 무한한 비즈니스 기회를 대한민국 최고의 기술
+                  리더들에게 공개하는 역사적인 첫 무대입니다.
+                </p>
+                <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                  행사의 핵심 목표는 단순한 기술 소개를 넘어, GCC 펀드가
+                  주도하는 글로벌 AI 인프라 구축 프로젝트의 아시아 허브(Hub)를
+                  대한민국에 설립하기 위한 최상의 기술 및 제조 파트너십을
+                  구축하는데 있습니다.
+                </p>
+              </div>
             </div>
-            <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-2">
-              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
-                {/* <CalendarIcon /> */}
-                <span className="text-xl font-bold text-[#BD19F1]">{date}</span>
-                <span className="text-xl font-normal text-[#4B5563]">
-                  09:30 - 16:00
-                </span>
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2">
-                {/* <PinIcon /> */}
-                <span className="text-lg font-bold">{venue}</span>
-              </div>
+            <div
+              className="w-full rounded-lg flex flex-col items-center justify-center"
+              style={{
+                background: `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`,
+                border: "1px solid #E5E7EB",
+              }}
+            />
+          </div>
+          <div className="mt-6 flex flex-row items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-64">
+            <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+              <span className="text-xl font-bold text-[#BD19F1]">일정</span>
+              <span className="text-lg font-normal text-[#4B5563]">
+                2025. 10. 14 (화) 09:30 - 16:00
+              </span>
+            </div>
+            <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+              <span className="text-xl font-bold text-[#BD19F1]">장소</span>
+              <span className="text-lg font-normal text-[#4B5563]">
+                서울 종로구 세종대로 149 광화문빌딩 13층, 20층
+              </span>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
+            <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+              <span className="text-xl font-bold text-[#BD19F1]">
+                참석 대상
+              </span>
+              <span className="text-lg font-normal text-[#4B5563]">
+                국내 IT, 반도체, 통신, 제조 분야 최고 경영진(CEO, CTO, CFO),
+                신사업 전략 총괄, 국내외 최상위 벤처캐피탈(VC) 및 자산운용사
+                대표 파트너
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Keynote / Tracks */}
-      <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <section id="intro" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="flex flex-col gap-10">
           <h2 className="text-2xl font-bold md:text-3xl text-center">
-            Program Schedule
+            행사 개요 및 목표
           </h2>
-          <div>
-            <div className="rounded-2xl bg-white p-6">
-              <Timeline items={agendaDay1} />
+
+          <div className="mt-8 mb-8 flex flex-row items-center justify-between gap-10">
+            <div className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+              <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
+                GCC HyperCycle 인터넷 AI 비전과 대한민국의 역할
+              </h4>
+              <p>
+                본 프로젝트는 사우디아라비아, UAE 등 중동 10여 개국이 참여하여
+                조성한 GCC 펀드(Gulf Cooperation Council Funds)가 주도하는 미래
+                전략의 핵심입니다. 이 펀드의 목표는 석유 중심 경제에서 벗어나
+                AI, 클라우드 등 미래 기술 기반 경제로 전환하는 것으로, 세계 최고
+                수준의 반도체 및 제조 역량을 갖춘 대한민국을 최적의 파트너로
+                선택했습니다. 본 서밋은 대한민국이 어떻게 이 거대한 자본과
+                결합하여 차세대 인터넷 AI의 글로벌 표준을 창조하고 주도하는 기술
+                주권 국가로 도약할 수 있는지 그 청사진을 제시합니다.
+              </p>
+            </div>
+
+            <div className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+              <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
+                애딥의 전략적 가치와 디지털 생태계 패러다임 전환
+              </h4>
+              <p>
+                기존 소셜 미디어는 소수 플랫폼의 데이터 독점과 일부
+                크리에이터에게 집중된 불공정한 수익 구조라는 명백한 한계에
+                직면해 있습니다. (주)애딥은 이 문제의 근본적인 해결책을
+                제시합니다. 애딥의 핵심 기술인 비대화형 증강 AI 'GPR-1'은
+                사용자의 명시적 명령 없이 잠재적 의도를 파악하는 LMM(Large
+                Mind-mining Model)을 기반으로 하며, 콘텐츠 자동 융합 기술(ACT)을
+                통해 창작자와 사용자 모두에게 공정한 보상이 돌아가는 새로운
+                디지털 콘텐츠 경제 생태계(AUCE: All User's & Creator Economy)를
+                구현합니다. 본 서밋에서는 애딥의 기술이 어떻게 하이퍼사이클의
+                탈중앙화 인프라 위에서 작동하여, 대한민국을 글로벌 디지털 콘텐츠
+                강국으로 이끌 전략적 자산이 될 수 있는지 그 비전을 명확히 제시할
+                것입니다.
+              </p>
             </div>
           </div>
         </div>
@@ -224,6 +280,20 @@ export default function LandingPage() {
               <li>4700억 기업가치 CPND 창립</li>
               <li>GPR-1 비대화형 증강 AI 창시</li>
               <li>S2E 경제 프로토콜 개발</li>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Keynote / Tracks */}
+      <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <div className="flex flex-col gap-10">
+          <h2 className="text-2xl font-bold md:text-3xl text-center">
+            Program Schedule
+          </h2>
+          <div>
+            <div className="rounded-2xl bg-white p-6">
+              <Timeline items={agendaDay1} />
             </div>
           </div>
         </div>
