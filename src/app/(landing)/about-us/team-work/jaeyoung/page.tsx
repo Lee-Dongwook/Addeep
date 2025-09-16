@@ -153,7 +153,7 @@ export default function JaeyoungPage() {
     }
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <div className="min-h-screen bg-white text-gray-800 font-['Inter','Noto_Sans_KR',sans-serif]">
         <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
@@ -276,6 +276,195 @@ export default function JaeyoungPage() {
                     ))
                   : currentContent.summary.description}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision Section */}
+        <section id="vision" className="bg-purple-50 p-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-purple-600 mb-8">
+              {currentContent.vision.title}
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              {currentContent.vision.description}
+            </p>
+            <div className="flex flex-col items-center gap-10 mt-10">
+              <div className="rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">
+                  {language === "ko"
+                    ? "기술 철학의 진화"
+                    : "Evolution of Technical Philosophy"}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {language === "ko"
+                    ? "그의 기술적 여정은 하나의 맥락으로 이어집니다. 네트워크 기술을 시작으로 정보보안 기술로 자산을 보호하는 기반을 다졌고, TCI & ACI 기술로 창작자의 권리를 투명하게 연결했으며, 현재 Addeep의 증강 AI는 모든 참여자의 가치를 지능적으로 연결하고 증폭시키는 단계로 진화했습니다."
+                    : "His technical journey follows a single thread. Starting with network technology, he laid the foundation of protecting assets with information security technology, connected the rights of creators transparently through TCI & ACI technology, and evolved to the current Addeep augmented AI, which intelligently connects and amplifies the value of all participants."}
+                </p>
+                <div className="flex flex-col gap-8 mt-8">
+                  <button
+                    disabled
+                    className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-20"
+                  >
+                    N/W
+                  </button>
+                  <button
+                    disabled
+                    className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-24"
+                  >
+                    정보보안
+                  </button>
+                  <button
+                    disabled
+                    className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-28"
+                  >
+                    TCI & ACI
+                  </button>
+                  <button
+                    disabled
+                    className="text-purple-600 font-bold text-lg bg-purple-200/50 rounded-lg p-2 min-w-48"
+                  >
+                    Addeep 증가 AI GPR-1
+                  </button>
+                </div>
+              </div>
+              <div className="rounded-lg shadow-lg flex flex-col items-center justify-center bg-purple-100 p-6">
+                <h2 className="text-6xl font-bold text-purple-600">Vision</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies Section */}
+        <section id="technologies" className="bg-gray-50 p-6">
+          <div className="max-w-7xl mx-auto mt-8">
+            <h2 className="text-2xl font-bold text-purple-600 mb-12">
+              {language === "ko"
+                ? "핵심 기술: 미래 경제의 기둥"
+                : "Core Technologies: The Pillars of the Future Economy"}
+            </h2>
+
+            <div className="flex flex-col gap-6 justify-center p-4 mb-8">
+              <button
+                className={clsx(
+                  "font-semibold text-lg rounded-full p-4 min-w-48",
+                  tabState === "GPR" && "bg-purple-600 text-white",
+                  tabState !== "GPR" && "bg-gray-200/50"
+                )}
+                onClick={() => handleTabChange("GPR")}
+              >
+                증강 AI: Addeeep GPR-1
+              </button>
+              <button
+                className={clsx(
+                  "font-semibold text-lg rounded-full p-4 min-w-48",
+                  tabState === "ACI" && "bg-purple-600 text-white",
+                  tabState !== "ACI" && "bg-gray-200/50"
+                )}
+                onClick={() => handleTabChange("ACI")}
+              >
+                콘텐츠 경제: ACI & ACT
+              </button>
+              <button
+                className={clsx(
+                  "font-semibold text-lg rounded-full p-4 min-w-48",
+                  tabState === "S2E" && "bg-purple-600 text-white",
+                  tabState !== "S2E" && "bg-gray-200/50"
+                )}
+                onClick={() => handleTabChange("S2E")}
+              >
+                보상 생태계: S2E
+              </button>
+            </div>
+
+            <div className="flex items-center justify-center max-w-4xl mx-auto">
+              {tabState === "GPR" && (
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                    {language === "ko"
+                      ? "Addeep GPR-1: 비대화형 AI 패러다임"
+                      : "Addeep GPR-1: Non-conversational AI Paradigm"}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {language === "ko"
+                      ? "주류 대화형 AI와 달리, 사용자의 의도를 먼저 파악하고 최적의 결과물을 '먼저 제안'하는 능동적 증강 AI입니다. 독자적인 LMM(Large Mind-mining Model) 추론 모델을 통해 사용자의 '마인드셋'을 모델링하여, 명시적 명령 없이도 필요한 콘텐츠, 광고, SNS 게시물까지 자동으로 생성합니다. AI와의 상호작용을 '명령과 실행'에서 '제안과 선택'으로 전환시키는 혁신입니다."
+                      : "Unlike mainstream conversational AI, Addeep GPR-1 proactively understands the user's intent and 'first proposes' the optimal result. By modeling the user's 'mindset' through an innovative LMM(Large Mind-mining Model) inference model, it automatically generates necessary content, advertisements, and SNS posts without explicit commands. This innovation shifts the interaction between humans and AI from 'commands and execution' to 'proposals and selections'."}
+                  </p>
+                </div>
+              )}
+              {tabState === "ACI" && (
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                    {language === "ko"
+                      ? "ACI & ACT: 투명한 콘텐츠 경제를 위한 이중 엔진"
+                      : "ACI & ACT: Dual Engines for Transparent Content Economy"}
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    {language === "ko"
+                      ? "ACI (Addeep Content Identifier): 콘텐츠의 DNA와 같은 고유 식별자입니다. 블록체인 기반 특허 기술로, 원본 콘텐츠 파일에 직접 암호화된 식별 코드를 삽입하여 복제되거나 변형되어도 원본의 소유권과 유통 이력을 영구적으로 추적합니다. 이는 모든 디지털 콘텐츠에 법적 효력을 지닌 '디지털 등기부등본'을 발급하는 것과 같으며, 투명한 저작권 보호와 수익 정산의 기반이 됩니다."
+                      : "ACI (Addeep Content Identifier): A unique identifier similar to the DNA of content. Based on blockchain-based patent technology, it directly inserts an encrypted identification code into the original content file so that even if it is copied or modified, the ownership and流通 history of the original can be permanently traced. This is equivalent to issuing a 'digital notarization' with legal effect for all digital content, serving as the foundation for transparent copyright protection and revenue settlement."}
+                  </p>
+                  <p className="text-gray-700">
+                    {language === "ko"
+                      ? "ACT (Addeep Automatic Content Convergence): ACI로 보호되고 식별된 콘텐츠 자산들을 GPR-1 AI가 실시간으로 융합하여 새로운 가치를 창출하는 기술입니다. 사용자의 마인드셋에 맞춰 크리에이터의 창작물과 광고주의 브랜드 메시지를 가장 적절한 형태로 자동 결합하여, 거부감 없는 고품질의 '네이티브 증강 콘텐츠'를 생성합니다. 이는 창작자와 광고주 모두에게 새로운 수익 모델을 제공하는 혁신적 접근입니다."
+                      : "ACT (Addeep Automatic Content Convergence): Converts protected and identified content assets into GPR-1 AI to create new value in real-time. Automatically combines creator's creative work and advertiser's brand message in the most appropriate form to create high-quality 'native augmented content' without rejection. This is an innovative approach that provides new revenue models for both creators and advertisers."}
+                  </p>
+                </div>
+              )}
+              {tabState === "S2E" && (
+                <div className="bg-white p-8 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                    {language === "ko"
+                      ? "Social 2 Earn: S2E 혁명"
+                      : "Social 2 Earn: S2E Revolution"}
+                  </h3>
+                  <p className="text-gray-700">
+                    {language === "ko"
+                      ? "GPR-1, ACI, ACT 기술이 결합하여 완성되는 새로운 경제 프로토콜입니다. 기존 Web 2.0의 데이터 착취 구조를 뒤집고, 가치를 창출하는 모든 참여자에게 보상을 제공하는 다자간 보상 시스템입니다. 광고 수익의 50%를 생태계에 환원하여 Users, Creators, Marketers to Earn을 실현합니다."
+                      : "A new economic protocol completed by combining GPR-1, ACI, and ACT technologies. It reverses the data exploitation structure of Web 2.0 and provides rewards to all participants who create value. By returning 50% of advertising revenue to the ecosystem, it realizes Users, Creators, and Marketers to Earn."}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* GPR-1 Model Section */}
+        <section id="gpr1" className="p-6">
+          <div className="max-w-7xl mx-auto mt-8">
+            <h2 className="text-2xl font-bold text-purple-600 mb-8">
+              {language === "ko"
+                ? "GPR-1: 증강 AI 추론 모델"
+                : "GPR-1: Augmented AI Inference Model"}
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              {language === "ko"
+                ? "Addeep GPR-1은 단순한 추천 시스템을 넘어, 사용자의 잠재적 의도를 이해하고 먼저 행동하는 '증강 지능'의 핵심 엔진입니다. 그 기술적 기반은 LMM이라는 독자적인 모델에 있습니다."
+                : "Addeep GPR-1 is a core engine of 'augmented intelligence' that not only understands the user's potential intent but also acts first. Its technical foundation lies in an innovative model called LMM."}
+            </p>
+            <div className="bg-white p-8 rounded-lg shadow-lg mt-4 mb-4">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko"
+                  ? "LMM (Large Mind-mining Model)의 개념"
+                  : "Concept of LMM (Large Mind-mining Model)"}
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                {language === "ko"
+                  ? "LMM은 텍스트 데이터 학습에 집중하는 LLM(Large Language Model)과 달리, 다차원적인 개인화 데이터를 종합적으로 분석하여 사용자의 '마인드셋(Mindset)'을 추론하는 모델입니다. 마인드셋이란 특정 상황에서 개인이 가질 수 있는 생각, 감정, 의도의 총체적 집합을 의미합니다. LMM은 소통 지수, 활동 패턴, 인구통계학적 정보, 콘텐츠 소비 이력 등 비정형 데이터를 심층적으로 학습하여 이 마인드셋을 확률적으로 모델링합니다."
+                  : "Unlike LLM(Large Language Model) that focuses on text data learning, LMM analyzes comprehensive personalized data to infer the user's 'mindset'. Mindset refers to the comprehensive set of thoughts, emotions, and intentions that an individual may have in a specific situation. LMM learns unstructured data such as communication metrics, activity patterns, demographic information, and content consumption history in depth to model this mindset probabilistically."}
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg mt-4 mb-4">
+              <h3 className="text-xl font-semibold text-purple-600 mb-4">
+                {language === "ko"
+                  ? "LLM과의 차별점: '명령'이 아닌 '의도'의 이해"
+                  : "Difference from LLM: Understanding 'Intent' rather than 'Command'"}
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                {language === "ko"
+                  ? "LLM 기반의 대화형 AI는 사용자의 '명령(Command)'을 정확히 이해하고 텍스트로 답변하는 데 최적화되어 있습니다. 반면, LMM 기반의 GPR-1은 사용자가 명시적으로 표현하지 않은 잠재적 '의도(Intent)'를 파악하는 데 중점을 둡니다. 예를 들어, 사용자가 '오늘 날씨 좋다'라고 포스팅하면, LLM은 이 문장의 의미를 분석하지만, LMM은 '이 사용자는 지금 긍정적인 감정 상태이며, 야외 활동과 관련된 콘텐츠나 상쾌한 느낌의 광고에 반응할 확률이 높다'는 마인드셋을 추론합니다. 이 추론을 바탕으로 GPR-1은 질문을 기다리지 않고, 관련 콘텐츠와 광고를 자동으로 생성하여 먼저 제안합니다."
+                  : "Conversational AI based on LLM is optimized to accurately understand the user's 'command (Command)' and answer in text. In contrast, GPR-1 based on LMM focuses on understanding the user's latent 'intent (Intent)' that is not explicitly expressed. For example, when a user posts 'today's weather is good', LLM analyzes the meaning of this sentence, but LMM infers that the user is in a positive emotional state and has a high probability of reacting to content or advertisements related to outdoor activities and refreshing feelings. Based on this inference, GPR-1 automatically generates and proposes relevant content and advertisements without waiting for questions."}
+              </p>
             </div>
           </div>
         </section>
