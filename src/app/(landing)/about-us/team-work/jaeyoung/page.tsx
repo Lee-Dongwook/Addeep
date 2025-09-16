@@ -605,6 +605,113 @@ export default function JaeyoungPage() {
             </div>
           </div>
         </section>
+
+        {/* Accolades Section */}
+        <section id="accolades" className="bg-gray-50 p-6">
+          <div className="max-w-7xl mx-auto mb-12 mt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-12">
+              {language === "ko"
+                ? "성취와 인정: 탁월함의 유산"
+                : "Achievement and Recognition: A Legacy of Excellence"}
+            </h2>
+
+            <div className="flex flex-col gap-8">
+              <div className="bg-purple-100 p-8 rounded-lg shadow-lg text-center flex flex-col items-center justify-center">
+                <h3 className="text-4xl font-semibold text-purple-600">
+                  Awards
+                </h3>
+              </div>
+
+              <div className="flex flex-col gap-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 className="text-lg font-semibold text-purple-600 mb-4">
+                      {language === "ko"
+                        ? "미국 대통령 기술혁신 및 자원 봉사상"
+                        : "U.S. President's Award for Innovation and Volunteerism"}
+                    </h3>
+                    <p className="text-gray-700">
+                      {language === "ko"
+                        ? "2017, 미국 백악관"
+                        : "2017, White House, USA"}
+                    </p>
+                  </div>
+                  <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 className="text-lg font-semibold text-purple-600 mb-4">
+                      {language === "ko"
+                        ? "국무총리 표창"
+                        : "Prime Minister's Award"}
+                    </h3>
+                    <p className="text-gray-700">
+                      {language === "ko"
+                        ? "2017, 중소벤처기업부"
+                        : "2017, Ministry of SMEs and Startups"}
+                    </p>
+                  </div>
+                  <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 className="text-lg font-semibold text-purple-600 mb-4">
+                      {language === "ko"
+                        ? "저작권 기술상"
+                        : "Copyright Technology Award"}
+                    </h3>
+                    <p className="text-gray-700">
+                      {language === "ko" ? "2016, ICOTEC" : "2016, ICOTEC"}
+                    </p>
+                  </div>
+                  <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 className="text-lg font-semibold text-purple-600 mb-4">
+                      {language === "ko"
+                        ? "두뇌역량우수전문기업"
+                        : "A company specializing in brain power"}
+                    </h3>
+                    <p className="text-gray-700">
+                      {language === "ko"
+                        ? "2017, 산업통상자원부"
+                        : "2017, Ministry of Trade, Industry and Energy"}
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                  <h3 className="text-lg font-semibold text-purple-600 mb-4">
+                    {language === "ko" ? "저서 및 칼럼" : "Books and Columns"}
+                  </h3>
+                  <p className="text-gray-700">
+                    {language === "ko"
+                      ? "『스마트플랫폼 단 하나의 Core』 저술 및 다수 칼럼 기고를 통해 산업의 담론을 형성하는 지적 리더십을 발휘했습니다."
+                      : "Through the publication of 'Smart Platform: A Single Core' and numerous column contributions, he has demonstrated intellectual leadership in shaping industry discourse."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="rounded-lg shadow-lg text-center p-12 bg-slate-800">
+          <h3 className="text-2xl font-bold text-white mb-4">
+            {language === "ko"
+              ? "윤재영 Kevin Jaeyoung Yoon"
+              : "Kevin Jaeyoung Yoon"}
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            {language === "ko"
+              ? "기술은 인간을 대체하는 것이 아니라, 인간의 가치를 증강시키고 연결하기 위해 존재해야 합니다."
+              : "Technology should not replace humans, but exist to enhance and connect human value."}
+          </p>
+
+          <hr className="mt-4 mb-4 border-gray-500" />
+
+          <h3 className="text-lg font-semibold text-white mt-8 mb-4">
+            {language === "ko" ? "연락처" : "Contact"}
+          </h3>
+          <h3 className="text-lg font-semibold text-gray-400 mb-4">
+            {language === "ko" ? "addeepcvo@gmail.com" : "addeepcvo@gmail.com"}
+          </h3>
+          <h3 className="text-sm font-medium text-gray-400 mt-8 mb-4">
+            {language === "ko"
+              ? "© 2025 Kevin Jaeyoung Yoon. All Rights Reserved."
+              : "© 2025 Kevin Jaeyoung Yoon. All Rights Reserved."}
+          </h3>
+        </div>
       </div>
     );
   }
@@ -1120,6 +1227,7 @@ export default function JaeyoungPage() {
           </div>
         </div>
       </section>
+
       <div className="rounded-lg shadow-lg text-center p-12 bg-slate-800">
         <h3 className="text-3xl font-bold text-white mb-4">
           {language === "ko"
