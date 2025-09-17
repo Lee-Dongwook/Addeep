@@ -69,12 +69,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          {/* Bottom links */}
-          {/* <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
-            <span>English (US)</span>
-            <span>개인정보처리방침</span>
-            <span>서비스이용약관</span>
-          </div> */}
           <div className="mt-2 flex justify-center text-xs text-gray-400">
             <span>© 2025. Addeep Inc. All rights reserved.</span>
           </div>
@@ -87,7 +81,7 @@ export default function Footer() {
     <footer className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-screen-2xl px-6 py-12 md:px-10">
         {/* Top navigation columns */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-6">
           {footerLinks.map((link) => (
             <div key={link.id} className="flex flex-col">
               <Link
@@ -99,7 +93,7 @@ export default function Footer() {
                 </span>
               </Link>
               {link.subItems && (
-                <div className="ml-2 mt-2 space-y-1">
+                <div className="ml-2 mt-2 space-y-3">
                   {link.subItems.map((subItem) => (
                     <Link
                       key={subItem.id}
@@ -134,13 +128,6 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-
-        {/* Bottom links */}
-        {/* <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
-          <span>English (US)</span>
-          <span>개인정보처리방침</span>
-          <span>서비스이용약관</span>
-        </div> */}
         <div className="mt-2 flex justify-center text-xs text-gray-400">
           <span>© 2025. Addeep Inc. All rights reserved.</span>
         </div>
