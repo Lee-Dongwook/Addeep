@@ -82,7 +82,7 @@ export default function SiteNav() {
                   className="fixed inset-0 z-[60] overflow-y-auto"
                 >
                   {/* gradient backdrop */}
-                  <div className="pointer-events-none absolute inset-0 bg-black" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#9A16D8] via-[#561BAA] to-[#4B16A3]" />
 
                   {/* content */}
                   <div className="relative mx-auto flex min-h-full w-full max-w-[1440px] flex-col px-6 pt-6 md:px-10">
@@ -205,7 +205,7 @@ export default function SiteNav() {
               className="fixed inset-0 z-[60] overflow-y-auto"
             >
               {/* gradient backdrop */}
-              <div className="pointer-events-none absolute inset-0 bg-black" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#9A16D8] via-[#561BAA] to-[#4B16A3]" />
 
               {/* content */}
               <div className="relative mx-auto flex min-h-full w-full max-w-[1440px] flex-col px-6 pt-6 md:px-10">
@@ -222,7 +222,7 @@ export default function SiteNav() {
 
                 {/* big menu */}
                 <nav className="mt-10 mb-16 text-white">
-                  <ul className="space-y-6">
+                  <ul className="space-y-8">
                     {NAV.map((it) => {
                       const isParent = "children" in it;
                       if (!isParent) {
