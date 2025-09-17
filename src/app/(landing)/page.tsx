@@ -135,7 +135,7 @@ export default function LandingPage() {
       <div className="min-h-screen bg-white">
         {/* First Section - Collage Layout */}
         <div className="p-6">
-          <div className="max-w-full items-center flex flex-col">
+          <div className="items-center flex flex-col">
             <AnimatedSection index={0}>
               <div className="min-h-screen grid grid-cols-1 gap-2">
                 {/* Top Left Text Block */}
@@ -151,7 +151,7 @@ export default function LandingPage() {
 
                 {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
-                  <div className="relative w-56 h-56 overflow-hidden">
+                  <div className="relative w-96 h-72 rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
                       alt="Person with fisheye lens effect"
@@ -161,18 +161,18 @@ export default function LandingPage() {
                 </div>
 
                 {/* Middle Left Image - Social Woman */}
-                <div className="animate-image">
-                  <div className="relative w-full h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
+                <div className="animate-image mt-8">
+                  <div className="relative w-96 h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
                       alt="Smiling man with hands on cheeks"
-                      className="object-cover rounded-lg"
+                      className="object-contain rounded-lg"
                     />
                   </div>
                 </div>
 
                 {/* Middle Right Text Block - Purple Gradient */}
-                <div className="animate-text mt-32 md:row-start-2 md:col-start-2 md:justify-self-end">
+                <div className="animate-text mt-16 md:row-start-2 md:col-start-2 md:justify-self-end">
                   <p className="font-sans font-normal text-[28px] leading-[42px] md:text-[40px] md:leading-[70px] bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent tracking-normal text-right">
                     {collageData[1].text.map((line, index) => (
                       <span key={index} className="block">
@@ -183,8 +183,8 @@ export default function LandingPage() {
                 </div>
 
                 {/* Bottom Right Image - Three People */}
-                <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end">
-                  <div className="relative w-full h-56 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
+                <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end mt-16">
+                  <div className="relative w-96 h-72 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
                       alt="Three people looking down"
