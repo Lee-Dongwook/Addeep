@@ -1,12 +1,12 @@
 "use client";
 
 import React, { type ReactNode, useState, Suspense } from "react";
+import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../lib/useResponsive";
-import type { Announcement } from "../../../shared/types/announcement";
 import { supabase } from "../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
 
@@ -60,6 +60,11 @@ interface NoticeListProps {
 }
 
 function NoticeList({ items, title = "" }: NoticeListProps) {
+  const router = useRouter();
+  const handleMoveToEventDetail = (it: NoticeItem) => {
+    router.push(`/events/${it.id}`);
+  };
+
   return (
     <section className="w-full">
       {title ? (
@@ -69,7 +74,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
       ) : null}
 
       <ul className="space-y-8">
-        {items.length === 0 && <h4>공지사항이 존재하지 않습니다.</h4>}
+        {items.length === 0 && <h4>이벤트가 존재하지 않습니다.</h4>}
         {items.map((it) => {
           const Card = it.href ? "a" : "div";
           const props = it.href ? { href: it.href } : {};
@@ -83,7 +88,9 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                   transition
                   hover:shadow-md hover:-translate-y-0.5
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300
+                  cursor-pointer
                 "
+                onClick={() => handleMoveToEventDetail(it)}
               >
                 <div className="p-8">
                   <h3 className="text-xl font-extrabold text-neutral-900">
@@ -106,7 +113,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
   );
 }
 
-const AnnouncementHeader = () => {
+const EventHeader = () => {
   return (
     <div className="w-full text-center p-3">
       <div
@@ -125,7 +132,7 @@ const AnnouncementHeader = () => {
   );
 };
 
-function AnnouncementContent() {
+function EventContent() {
   const { isMobile, isTablet } = useResponsive();
   const searchParams = useSearchParams();
 
@@ -134,10 +141,10 @@ function AnnouncementContent() {
     pageSize: Number(searchParams.get("size") || 10),
   });
 
-  const getAnnouncementData = async () => {
+  const getEventData = async () => {
     try {
       const { data, count, error } = await supabase
-        .from("announcement")
+        .from("events")
         .select("*", { count: "exact" })
         .order("id")
         .range(
@@ -152,18 +159,18 @@ function AnnouncementContent() {
 
       return { data, count };
     } catch (err) {
-      console.error("getAnnouncementData 에러:", err);
+      console.error("getEventData 에러:", err);
       throw err;
     }
   };
 
   const {
-    data: announcementList,
+    data: eventList,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["announcement", pagination.pageIndex, pagination.pageSize],
-    queryFn: () => getAnnouncementData(),
+    queryKey: ["event", pagination.pageIndex, pagination.pageSize],
+    queryFn: () => getEventData(),
     retry: 0,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
@@ -189,9 +196,9 @@ function AnnouncementContent() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-white">
-      <AnnouncementHeader />
+      <EventHeader />
       <div className={NoticeListSectionClassname}>
-        <NoticeList title="" items={announcementList?.data || []} />
+        <NoticeList title="" items={eventList?.data || []} />
       </div>
     </div>
   );
@@ -200,7 +207,7 @@ function AnnouncementContent() {
 export default function LandingPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <AnnouncementContent />
+      <EventContent />
     </Suspense>
   );
 }
