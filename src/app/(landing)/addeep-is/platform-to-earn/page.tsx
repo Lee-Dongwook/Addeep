@@ -196,7 +196,7 @@ const PlatformToEarn = () => {
             </div>
             <div className="text-center">
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSMeme.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESNSMeme.png`}
                 alt="Platform to Earn"
               />
               <h4 className="text-[28px] text-[#4B5563] font-normal mt-8">
@@ -373,35 +373,53 @@ const PlatformToEarn = () => {
             advertising services.
           </h4>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
-              Sustainable Rewards
-            </h4>
-            <p className="text-xl text-[#4B5563] font-poppins font-normal">
-              Creators are guaranteed steady incomes and sustainable rewards
-              through the continous creation of diverse content. Addeep provides
-              more benefits to foster a harmonious platform ecosystem.
-            </p>
-            <p className="text-xl font-normal mt-4 font-poppins">
-              Guaranteed steady income
-            </p>
+
+        <div className="grid gap-4 items-center mt-8 mb-8 justify-center">
+          <div className="flex flex-row justify-between">
+            <div className="max-w-[500px] p-8">
+              <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
+                Sustainable Rewards
+              </h4>
+              <p className="text-xl text-[#4B5563] font-poppins font-normal">
+                Creators are guaranteed steady incomes and sustainable rewards
+                through the continous creation of diverse content. Addeep
+                provides more benefits to foster a harmonious platform
+                ecosystem.
+              </p>
+              <p className="text-xl font-normal mt-4 font-poppins">
+                Guaranteed steady income
+              </p>
+            </div>
+            <img
+              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESustain.png`}
+              alt="Platform to Earn Sustain"
+              width={450}
+            />
           </div>
-          <div className="max-w-[500px] p-8">
-            <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
-              IP Protection
-            </h4>
-            <p className="text-xl text-[#4B5563] font-poppins font-normal">
-              ACI content protection technology uses Addeep's AI and blockchain
-              to safeguard content ownership and rights, providing assistance
-              with IP management.
-            </p>
-            <p className="text-xl font-normal font-poppins mt-4">
-              Blockchain-secured rights
-            </p>
+
+          <div className="flex flex-row justify-between">
+            <img
+              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2EIP.png`}
+              alt="Platform to Earn IP"
+              width={450}
+            />
+            <div className="max-w-[500px] p-8">
+              <h4 className="text-[28px] text-[#B641E9] font-bold font-poppins">
+                IP Protection
+              </h4>
+              <p className="text-xl text-[#4B5563] font-poppins font-normal">
+                ACI content protection technology uses Addeep's AI and
+                blockchain to safeguard content ownership and rights, providing
+                assistance with IP management.
+              </p>
+              <p className="text-xl font-normal font-poppins mt-4">
+                Blockchain-secured rights
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+
+        <div className="flex flex-col items-center justify-center mt-12">
           <h2 className="font-bold text-[56px]">
             The Content That Connects Us
           </h2>
@@ -428,7 +446,7 @@ const PlatformToEarn = () => {
           </div>
           <div className="text-center">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSMeme.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESNSMeme.png`}
               alt="Platform to Earn"
             />
             <h4 className="text-[28px] text-[#4B5563] font-normal mt-8">
@@ -450,21 +468,6 @@ const PlatformToEarn = () => {
               Modern connection
             </p>
           </div>
-        </div>
-        <div className="flex flex-col items-center justify-center mt-28">
-          <h2 className="font-bold text-[56px]">Your Bridge to Freedom</h2>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
-            Addeep is the bridge that connects users and allows them to freely
-          </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
-            communicate and achieve sustained incomes. Users can freely engage
-          </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
-            as creators, not just consumers, fostering open communication and a
-          </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
-            diverse digital content ecosystem.
-          </h4>
         </div>
       </section>
       <div className="w-full text-center">
