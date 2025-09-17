@@ -42,13 +42,22 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   );
 }
 
-const EventDetailHeader = ({ eventDetail }: { eventDetail: any }) => {
+const EventDetailHeader = ({
+  eventDetail,
+  uuid,
+}: {
+  eventDetail: any;
+  uuid: any;
+}) => {
   return (
     <div className="w-full text-center">
       <div
         className="w-full min-h-[600px] rounded-lg flex flex-col items-center justify-center"
         style={{
-          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`,
+          background:
+            uuid === "1"
+              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`
+              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventParliament.png)`,
           border: "1px solid #E5E7EB",
         }}
       >
@@ -129,7 +138,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <EventDetailHeader eventDetail={eventDetail || {}} />
+      <EventDetailHeader eventDetail={eventDetail || {}} uuid={uuid} />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
