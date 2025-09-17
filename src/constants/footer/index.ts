@@ -1,10 +1,9 @@
 import {
   FooterInstagramIcon,
   FooterFacebookIcon,
-  FooterThreadIcon,
   FooterYoutubeIcon,
-  FooterTwitterIcon,
-  FooterLinkedinIcon,
+  FooterXICon,
+  FooterBlogIcon,
 } from "../../icons";
 
 interface FooterLink {
@@ -75,6 +74,11 @@ export const footerLinks: FooterLink[] = [
 
 export const socialIcons: FooterSocial[] = [
   {
+    name: "blog",
+    icon: FooterBlogIcon,
+    link: "https://blog.naver.com/addeep/",
+  },
+  {
     name: "instagram",
     icon: FooterInstagramIcon,
     link: "https://www.instagram.com/addeep_/",
@@ -85,13 +89,13 @@ export const socialIcons: FooterSocial[] = [
     link: "https://www.facebook.com/share/1BTnZGhM8g",
   },
   {
-    name: "youtube",
-    icon: FooterYoutubeIcon,
-    link: "https://www.youtube.com/channel/UCsPs7L-j9fKlwdz6sRBywVQ",
+    name: "X",
+    icon: FooterXICon,
+    link: "https://x.com/Addeep_",
   },
   {
-    name: "twitter",
-    icon: FooterTwitterIcon,
-    link: "https://www.twitter.com/Addeep_",
+    name: "youtube",
+    icon: FooterYoutubeIcon,
+    link: "https://www.youtube.com/@addeep_",
   },
 ];
