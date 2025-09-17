@@ -57,6 +57,58 @@ type AgendaItem = {
 };
 
 function Timeline({ items }: { items: AgendaItem[] }) {
+  const { isMobile, isTablet } = useResponsive();
+  if (isMobile || isTablet) {
+    return (
+      <>
+        <div className="relative mt-4 space-y-12">
+          {/* <div className="absolute top-12 left-7 h-full w-1.5 bg-indigo-200 z-0" /> */}
+          {items.map((it, idx) => (
+            <div
+              key={it.time || idx}
+              className="flex flex-col gap-10 z-10 relative"
+            >
+              <div className="flex flex-col">
+                <div className="h-16 w-16 rounded-full bg-indigo-600 text-white flex items-center justify-center">
+                  {it.time}
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 bg-white p-6 border-l-4 border-[#BD19F1] rounded-2xl shadow-lg">
+                <div className="font-bold text-lg">{it.title}</div>
+                {it.subTitle && (
+                  <div className="font-medium text-sm">{it.subTitle}</div>
+                )}
+                {it.speaker && (
+                  <div className="font-medium text-md">{it.speaker}</div>
+                )}
+                <div className="font-medium text-sm">
+                  Duration: {it.duration}
+                </div>
+                {Array.isArray(it.desc) ? (
+                  <div className="flex flex-col gap-2">
+                    {it.desc.map((line, i) => (
+                      <p
+                        key={i}
+                        className="text-sm text-gray-600 leading-loose text-left"
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                  it.desc && (
+                    <p className="text-sm text-gray-600 leading-loose text-left">
+                      {it.desc}
+                    </p>
+                  )
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div className="relative mt-4 space-y-12">
@@ -110,6 +162,46 @@ const EventDetailHeader = ({
   eventDetail: any;
   uuid: any;
 }) => {
+  const { isMobile, isTablet } = useResponsive();
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="w-full text-center">
+        <div
+          className="w-full min-h-[400px] rounded-lg flex flex-col items-center justify-center p-2"
+          style={{
+            background:
+              uuid === "1"
+                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`
+                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventParliament.png)`,
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <h1 className="text-xl font-bold text-white mb-12">
+            {eventDetail[0].title}
+          </h1>
+          <h3 className="text-lg font-medium text-white mb-4">
+            {eventDetail[0].banner_description[0]}
+          </h3>
+          <h3 className="text-lg font-medium text-white">
+            {eventDetail[0].banner_description[1]}
+          </h3>
+          <button
+            className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
+            onClick={() =>
+              window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
+                "_blank"
+              )
+            }
+          >
+            <span className="text-white font-medium">참가 신청하기</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full text-center">
       <div
@@ -149,7 +241,7 @@ const EventDetailHeader = ({
 
 const renderWithNewlines = (text: string) => {
   return text.split("\n").map((line, index) => (
-    <p key={index} className="mb-0.5 last:mb-0">
+    <p key={index} className="mb-2 last:mb-0">
       {line}
     </p>
   ));
@@ -214,7 +306,7 @@ export default function LandingPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+          <div className="mx-auto max-w-7xl p-6">
             <div className="flex flex-row gap-10">
               <div className="flex flex-col gap-10">
                 <div>
@@ -321,10 +413,10 @@ export default function LandingPage() {
                       className="w-52 h-52 rounded-full"
                     />
                   )}
-                  <h4 className="font-poppins font-bold text-[#373737] text-3xl">
+                  <h4 className="font-poppins font-bold text-[#373737] text-2xl">
                     {item.speaker}
                   </h4>
-                  <h4 className="font-poppins font-bold text-[#373737] text-2xl">
+                  <h4 className="font-poppins font-bold text-[#373737] text-xl text-center">
                     ({item.en_name})
                   </h4>
                   <h4 className="text-center font-poppins font-medium text-[#373737]">
@@ -333,7 +425,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="flex flex-col gap-4">
-                  <h2 className="font-poppins font-bold text-[#373737] text-2xl">
+                  <h2 className="font-poppins font-bold text-[#373737] text-xl">
                     {item.title}
                   </h2>
                   <div className="flex flex-col gap-6">
@@ -341,7 +433,7 @@ export default function LandingPage() {
                       item.desc.map((d: any, idx: number) => (
                         <div
                           key={idx}
-                          className="font-poppins font-normal text-[#202020]"
+                          className="font-poppins font-normal text-[#202020] leading-relaxed"
                         >
                           {d}
                         </div>
@@ -385,7 +477,7 @@ export default function LandingPage() {
               >
                 <span className="text-white font-medium">참가 신청하기</span>
               </button>
-              <p className="text-gray-700">문의 : jhjeong@addeeplab.com</p>
+              <p className="text-gray-700">문의 : yubin@addeep.co.kr</p>
             </div>
           </div>
         </section>
@@ -577,7 +669,7 @@ export default function LandingPage() {
             >
               <span className="text-white font-medium">참가 신청하기</span>
             </button>
-            <p className="text-gray-700">문의 : jhjeong@addeeplab.com</p>
+            <p className="text-gray-700">문의 : yubin@addeep.co.kr</p>
           </div>
         </div>
       </section>
