@@ -163,12 +163,12 @@ export default function LandingPage() {
             <div
               className="w-full rounded-lg flex flex-col items-center justify-center"
               style={{
-                background: `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`,
-                border: "1px solid #E5E7EB",
+                background: "transparent",
+                border: "none",
               }}
             />
           </div>
-          <div className="mt-6 flex flex-row items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-64">
+          <div className="mt-12 flex flex-row items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-64">
             <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
               <span className="text-xl font-bold text-[#BD19F1]">일정</span>
               <span className="text-lg font-normal text-[#4B5563]">
@@ -205,7 +205,7 @@ export default function LandingPage() {
             {eventDetail?.[0].Overview.data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center"
+                className="max-w-[600px] h-80 border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-3 items-center"
               >
                 <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
                   {item.title}
