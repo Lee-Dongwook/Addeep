@@ -19,8 +19,8 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   return (
     <>
       <div className="mt-4 space-y-12">
-        {items.map((it) => (
-          <div key={it.time} className="flex flex-row gap-10">
+        {items.map((it, idx) => (
+          <div key={it.time || idx} className="flex flex-row gap-10">
             <div className="h-12 w-12 rounded-full bg-indigo-600 text-white flex items-center justify-center">
               {it.time}
             </div>
