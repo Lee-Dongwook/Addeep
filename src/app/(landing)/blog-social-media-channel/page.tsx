@@ -216,7 +216,7 @@ const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const items: Item[] = [
-  { label: "Blog", href: "https://blog.naver.com/Addeep", Icon: BlogIcon },
+  { label: "Blog", href: "https://blog.naver.com/addeep", Icon: BlogIcon },
   {
     label: "Instagram",
     href: "https://www.instagram.com/addeep_/",
@@ -443,6 +443,11 @@ const CoreValueHeader = () => {
 const SocialLinksRow = () => {
   const { isMobile, isTablet } = useResponsive();
 
+  const linkProps = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
+
   if (isMobile || isTablet) {
     return (
       <section
@@ -458,6 +463,7 @@ const SocialLinksRow = () => {
               >
                 <a
                   href={href}
+                  {...linkProps}
                   className="flex flex-col items-center justify-center gap-2"
                 >
                   <Icon className="h-5 w-5" />
@@ -481,6 +487,7 @@ const SocialLinksRow = () => {
             >
               <a
                 href={href}
+                {...linkProps}
                 className="flex flex-col items-center justify-center gap-2"
               >
                 <div className="h-12">
