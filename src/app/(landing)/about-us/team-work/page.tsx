@@ -721,16 +721,16 @@ const ThirdHuman = () => {
                   <li>
                     • Completed Bio-CEO Course at Seoul National University
                   </li>
-                  <li>• Former CEO of K-Longevity</li>
-                  <li>• Former Vise President, CSO of Pharmaworks</li>
-                  <li>• Former CFO of Carin Networks</li>
-                  <li>• Former CSO of KODIAM</li>
-                  <li>• Former CFO of MetaCen Therapeutics</li>
-                  <li>• Former CEO of KangStemBioTech</li>
-                  <li>• Former CEO of ST Asset</li>
+                  <li>
+                    • Former CEO of K-Longevity, KangStemBioTech, ST Asset
+                  </li>
+                  <li>• Former CSO of Pharmaworks, KODIAM</li>
+                  <li>• Former CFO of Carin Networks, MetaCen Therapeutics</li>
                   <li>• Former Director of CIND</li>
-                  <li>• Former Deputy Manger of Kolon Industries, Ltd.</li>
-                  <li>• Former Manger of E-Land Group Hansae Development</li>
+                  <li>
+                    • Former Manger of E-Land Group Hansae Development, Kolon
+                    Industries, Ltd.
+                  </li>
                 </ul>
 
                 <div className="flex flex-row gap-3 mt-8">
@@ -741,54 +741,29 @@ const ThirdHuman = () => {
                 </div>
                 <ul className="text-md text-gray-700 space-y-4 p-3">
                   <li>
-                    • Morning at Gyeonghee Palace / Residential-Commercial
-                    Complex / PM (Business Planning, Project Financing, Sales)
+                    • Performed PM role on various projects (Morning at
+                    Geyonghee Palace, Hanwha Mapo Obelisk, Borame Cherville,
+                    Incheon CNC, Daehan Textile Spectrum)
                   </li>
                   <li>
-                    • Hanwha Mapo Obelisk / Residential-Commercial Complex / PM
+                    • Performed Business Planning role on various projects
+                    (Tower Palace Bant, Gangnam Station Samsung Town, Jeju
+                    Yongmeori Tourist District, Vietnam Real Estate, VAMC NPL
+                    Project, Vietnam Land Development/Smart City)
                   </li>
                   <li>
-                    • Boramae Cherville / Residential-Commercial Complex / PM
+                    • Performed Sales and Lease role on various projects
+                    (Megabox, E-Mart, 2001 Outlet, Korea Tobacco & Ginseng
+                    Corporation Headquarters (Cosmo Tower), Heungkuk Life
+                    Insurance Headquarters)
                   </li>
                   <li>
-                    • COEX Mall / Multi-Shopping Mall / MD Planning Consulting
+                    • Performed MD Planning Consulting role on various projects
+                    (COEX Mall)
                   </li>
                   <li>
-                    • Tower Palace Bant / Sports Center / Business Planning
-                  </li>
-                  <li>
-                    • Gangnam Station Samsung Town / Multi-Commercial Complex /
-                    Business Planning
-                  </li>
-                  <li>
-                    • Korea Tobacco & Ginseng Corporation Headquarters (Cosmo
-                    Tower), Heungkuk Life Insurance Headquarters / Office
-                    Facilities / Sales and Lease
-                  </li>
-                  <li>
-                    • Incheon CNC, Daehan Textile Spectrum / Commercial Complex
-                    / PM
-                  </li>
-                  <li>
-                    • Large-Scale Real Estate Store Development / Megabox,
-                    E-Mart, 2001 Outlet / Sales and Lease Consulting
-                  </li>
-                  <li>
-                    • Jeju Yongmeori Tourist District / Resort Facilities /
-                    Business Planning and General Contractor Designation
-                  </li>
-                  <li>
-                    • Cheongju Premium Outlet, Cheonan Parking Tower / Real
-                    Estate Implementation
-                  </li>
-                  <li>
-                    • Vietnam Real Estate / Vietnam Asset Management Corporation
-                    (VAMC) Non-Profit Placing (NPL) Project / Market Research
-                    and Business Planning
-                  </li>
-                  <li>
-                    • Vietnam Land Development / Smart City New Town Development
-                    Market Research and Business Planning
+                    • Performed Implementation role on various projects
+                    (Cheongju Premium Outlet, Cheonan Parking Tower)
                   </li>
                 </ul>
 
@@ -938,16 +913,16 @@ const ThirdHuman = () => {
                   <li>
                     • Completed Bio-CEO Course at Seoul National University
                   </li>
-                  <li>• Former CEO of K-Longevity</li>
-                  <li>• Former Vise President, CSO of Pharmaworks</li>
-                  <li>• Former CFO of Carin Networks</li>
-                  <li>• Former CSO of KODIAM</li>
-                  <li>• Former CFO of MetaCen Therapeutics</li>
-                  <li>• Former CEO of KangStemBioTech</li>
-                  <li>• Former CEO of ST Asset</li>
+                  <li>
+                    • Former CEO of K-Longevity, KangStemBioTech, ST Asset
+                  </li>
+                  <li>• Former CSO of Pharmaworks, KODIAM</li>
+                  <li>• Former CFO of Carin Networks, MetaCen Therapeutics</li>
                   <li>• Former Director of CIND</li>
-                  <li>• Former Deputy Manger of Kolon Industries, Ltd.</li>
-                  <li>• Former Manger of E-Land Group Hansae Development</li>
+                  <li>
+                    • Former Manger of E-Land Group Hansae Development, Kolon
+                    Industries, Ltd.
+                  </li>
                 </ul>
                 <div className="flex flex-row gap-3 mt-8">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
@@ -957,54 +932,29 @@ const ThirdHuman = () => {
                 </div>
                 <ul className="text-md text-gray-700 space-y-3 p-3">
                   <li>
-                    • Morning at Gyeonghee Palace / Residential-Commercial
-                    Complex / PM (Business Planning, Project Financing, Sales)
+                    • Performed PM role on various projects (Morning at
+                    Geyonghee Palace, Hanwha Mapo Obelisk, Borame Cherville,
+                    Incheon CNC, Daehan Textile Spectrum)
                   </li>
                   <li>
-                    • Hanwha Mapo Obelisk / Residential-Commercial Complex / PM
+                    • Performed Business Planning role on various projects
+                    (Tower Palace Bant, Gangnam Station Samsung Town, Jeju
+                    Yongmeori Tourist District, Vietnam Real Estate, VAMC NPL
+                    Project, Vietnam Land Development/Smart City)
                   </li>
                   <li>
-                    • Boramae Cherville / Residential-Commercial Complex / PM
+                    • Performed Sales and Lease role on various projects
+                    (Megabox, E-Mart, 2001 Outlet, Korea Tobacco & Ginseng
+                    Corporation Headquarters (Cosmo Tower), Heungkuk Life
+                    Insurance Headquarters)
                   </li>
                   <li>
-                    • COEX Mall / Multi-Shopping Mall / MD Planning Consulting
+                    • Performed MD Planning Consulting role on various projects
+                    (COEX Mall)
                   </li>
                   <li>
-                    • Tower Palace Bant / Sports Center / Business Planning
-                  </li>
-                  <li>
-                    • Gangnam Station Samsung Town / Multi-Commercial Complex /
-                    Business Planning
-                  </li>
-                  <li>
-                    • Korea Tobacco & Ginseng Corporation Headquarters (Cosmo
-                    Tower), Heungkuk Life Insurance Headquarters / Office
-                    Facilities / Sales and Lease
-                  </li>
-                  <li>
-                    • Incheon CNC, Daehan Textile Spectrum / Commercial Complex
-                    / PM
-                  </li>
-                  <li>
-                    • Large-Scale Real Estate Store Development / Megabox,
-                    E-Mart, 2001 Outlet / Sales and Lease Consulting
-                  </li>
-                  <li>
-                    • Jeju Yongmeori Tourist District / Resort Facilities /
-                    Business Planning and General Contractor Designation
-                  </li>
-                  <li>
-                    • Cheongju Premium Outlet, Cheonan Parking Tower / Real
-                    Estate Implementation
-                  </li>
-                  <li>
-                    • Vietnam Real Estate / Vietnam Asset Management Corporation
-                    (VAMC) Non-Profit Placing (NPL) Project / Market Research
-                    and Business Planning
-                  </li>
-                  <li>
-                    • Vietnam Land Development / Smart City New Town Development
-                    Market Research and Business Planning
+                    • Performed Implementation role on various projects
+                    (Cheongju Premium Outlet, Cheonan Parking Tower)
                   </li>
                 </ul>
                 <div className="flex flex-row gap-3 mt-8">
