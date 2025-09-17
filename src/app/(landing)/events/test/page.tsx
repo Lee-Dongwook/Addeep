@@ -50,15 +50,10 @@ const EventDetailHeader = () => {
         }}
       >
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
-          The Genesis of AI Internet: 글로벌 비즈니스 서밋
+          AI 주권 국가로의 길: 국회 정책 서밋
         </h1>
         <h3 className="text-xl font-medium text-white">
-          본 서밋은 단순한 기술 컨퍼런스를 넘어, GCC 펀드가 주도하는 글로벌 AI
-          인프라 구축 프로젝트의 아시아 허브를
-        </h3>
-        <h3 className="text-xl font-medium text-white">
-          대한민국에 설립하기 위한 전략적 파트너십을 구축하는 역사적 첫
-          무대입니다.
+          대한민국, 차세대 인터넷의 표준을 주도하다
         </h3>
         <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11">
           <span className="text-white font-medium">참가 신청하기</span>
@@ -71,40 +66,66 @@ const EventDetailHeader = () => {
 export default function LandingPage() {
   const agendaDay1: AgendaItem[] = [
     {
-      time: "09:30",
-      title:
-        "What is Internet of AI, and how GROQ can accelerate global AI infrastructure",
-      speaker: "Oskar Mencer",
-      duration: "09:30 ~ 11:00",
-      desc: "",
-    },
-    {
-      time: "11:00",
-      title: "Addeep Superintelligence Augmented AI GPR R&D Center",
-      speaker: "Addeep CVO Jaeyoung Yoon",
-      duration: "11:00 ~ 12:00",
-    },
-    {
       time: "14:00",
-      title: 'Book Launch "Internet of AI World Report 2030" co-authors',
-      speaker: "Toufi Saliba and Youngsook",
-      duration: "14:00 ~ 15:00",
-      desc: "",
+      title: "개회",
+      speaker: "이정현 국회의원",
+      duration: "14:00 ~ 14:05",
+      desc: "개회사 및 행사 취지 소개",
     },
     {
-      time: "15:00",
-      title:
-        "Meeting with companies interested in participating in the GCC HyperCycle project",
-      subTitle: "(GCC HyperCycle 프로젝트 참여 희망기업과 만남)",
-      duration: "15:00 ~ 16:00",
-      desc: "",
+      time: "14:05",
+      title: "환영사 / 축사",
+      speaker: "김경수 지방시대 위원장",
+      duration: "14:05 ~ 14:15",
+      desc: "개회사 및 행사 취지 소개",
+    },
+    {
+      time: "14:15",
+      title: "주요 내빈 소개",
+      speaker: "박영숙 하이퍼사이클코리아",
+      duration: "14:15 ~ 14:20",
+      desc: "참석 주요 인사 소개",
+    },
+    {
+      time: "14:20",
+      title: "LOC Signing",
+      speaker: "투피 살리바, 박동진 MJY Partners",
+      duration: "14:20 ~ 14:30",
+      desc: "미래의 부산 기장 200MW 데이터센터의 활용, AI 인터넷발전에 기여할 무한한 가능성",
+    },
+    {
+      time: "14:30",
+      title: "기조연설1",
+      speaker: "투피 살리바",
+      duration: "14:30 ~ 15:10",
+      desc: "HyperCycle이 만드는 Internet of AI",
+    },
+    {
+      time: "15:10",
+      title: "기조연설2",
+      speaker: "HyperCycle AI 인터넷 CEO 오스카 멘서",
+      duration: "15:10 ~ 16:00",
+      desc: "콘텐츠 경제 생태계 혁신을 위한 비대화형 콘텐츠 생성 모델: GPR",
+    },
+    {
+      time: "16:00",
+      title: "기조연설3",
+      speaker: "(주)애딥 윤재영CVO 최고비전책임자",
+      duration: "16:00 ~ 16:40",
+      desc: "미래의 부산 기장 200MW 데이터센터의 활용, AI 인터넷발전에 기여할 무한한 가능성",
+    },
+    {
+      time: "16:40",
+      title: "폐회",
+      speaker: "사회자 정리",
+      duration: "16:40 ~ 16:50",
+      desc: "세미나 요약 및 폐회 선언",
     },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <EventDetailHeader />
-
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -112,21 +133,16 @@ export default function LandingPage() {
             <div className="flex flex-col gap-10">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight text-black">
-                  GCC 펀드 & HyperCycle
+                  AI 주권 국가로의 길:
                 </h1>
                 <h1 className="text-2xl font-bold tracking-tight text-black">
-                  글로벌 인터넷 AI 서울 Summit
+                  대한민국, 차세대 인터넷의 표준을 주도하다
                 </h1>
                 <p className="mt-8 text-lg leading-relaxed text-gray-700">
-                  본 서밋은 'Internet of AI'라는 혁명적 패러다임의 실체와, 이를
-                  통해 열릴 무한한 비즈니스 기회를 대한민국 최고의 기술
-                  리더들에게 공개하는 역사적인 첫 무대입니다.
-                </p>
-                <p className="mt-4 text-lg leading-relaxed text-gray-700">
-                  행사의 핵심 목표는 단순한 기술 소개를 넘어, GCC 펀드가
-                  주도하는 글로벌 AI 인프라 구축 프로젝트의 아시아 허브(Hub)를
-                  대한민국에 설립하기 위한 최상의 기술 및 제조 파트너십을
-                  구축하는데 있습니다.
+                  본 정책 서밋은 'Internet of AI'가 단순한 민간 비즈니스를 넘어,
+                  대한민국의 미래 100년을 좌우할 기술 주권 및 경제 안보와 직결된
+                  국가적 아젠다임을 국회와 정부 최고위급 리더들에게 천명하고,
+                  범국가적 지원 전략의 기틀을 마련하기 위해 기획되었습니다.
                 </p>
               </div>
             </div>
@@ -142,13 +158,13 @@ export default function LandingPage() {
             <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
               <span className="text-xl font-bold text-[#BD19F1]">일정</span>
               <span className="text-lg font-normal text-[#4B5563]">
-                2025. 10. 14 (화) 09:30 - 16:00
+                2025. 10. 15 (수) 14:00 ~ 16:30
               </span>
             </div>
             <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
               <span className="text-xl font-bold text-[#BD19F1]">장소</span>
               <span className="text-lg font-normal text-[#4B5563]">
-                서울 종로구 세종대로 149 광화문빌딩 13층, 20층
+                국회 의원회관 제2간담회실
               </span>
             </div>
           </div>
@@ -158,15 +174,14 @@ export default function LandingPage() {
                 참석 대상
               </span>
               <span className="text-lg font-normal text-[#4B5563]">
-                국내 IT, 반도체, 통신, 제조 분야 최고 경영진(CEO, CTO, CFO),
-                신사업 전략 총괄, 국내외 최상위 벤처캐피탈(VC) 및 자산운용사
-                대표 파트너
+                국무총리, 경제부총리, 과학기술정보통신부 장관 등 정부 최고위급
+                인사, 국회 상임위원장단, 여야 정책위원회 의장, 주요 언론사
+                논설위원 및 IT 전문 기자
               </span>
             </div>
           </div>
         </div>
       </section>
-
       {/* Keynote / Tracks */}
       <section id="intro" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="flex flex-col gap-10">
@@ -174,46 +189,45 @@ export default function LandingPage() {
             행사 개요 및 목표
           </h2>
 
-          <div className="mt-8 mb-8 flex flex-row items-center justify-between gap-10">
+          <div className="mt-8 mb-8 flex flex-row items-center gap-10">
             <div className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
               <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
-                GCC HyperCycle 인터넷 AI 비전과 대한민국의 역할
+                국가 미래 비전 제시
               </h4>
               <p>
-                본 프로젝트는 사우디아라비아, UAE 등 중동 10여 개국이 참여하여
-                조성한 GCC 펀드(Gulf Cooperation Council Funds)가 주도하는 미래
-                전략의 핵심입니다. 이 펀드의 목표는 석유 중심 경제에서 벗어나
-                AI, 클라우드 등 미래 기술 기반 경제로 전환하는 것으로, 세계 최고
-                수준의 반도체 및 제조 역량을 갖춘 대한민국을 최적의 파트너로
-                선택했습니다. 본 서밋은 대한민국이 어떻게 이 거대한 자본과
-                결합하여 차세대 인터넷 AI의 글로벌 표준을 창조하고 주도하는 기술
-                주권 국가로 도약할 수 있는지 그 청사진을 제시합니다.
+                반도체와 ICT 인프라 강국을 넘어, 차세대 인터넷의 표준을 주도하는
+                'AI 네트워크 기술 강국'으로 도약하기 위한 국가적 비전을
+                제시합니다. 이는 AI 시대의 '중앙은행'이자 '증권거래소'와 같은
+                핵심 인프라를 대한민국이 선점하는 것을 의미합니다.
               </p>
             </div>
 
             <div className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
               <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
-                애딥의 전략적 가치와 디지털 생태계 패러다임 전환
+                국가 미래 비전 제시
               </h4>
               <p>
-                기존 소셜 미디어는 소수 플랫폼의 데이터 독점과 일부
-                크리에이터에게 집중된 불공정한 수익 구조라는 명백한 한계에
-                직면해 있습니다. (주)애딥은 이 문제의 근본적인 해결책을
-                제시합니다. 애딥의 핵심 기술인 비대화형 증강 AI 'GPR-1'은
-                사용자의 명시적 명령 없이 잠재적 의도를 파악하는 LMM(Large
-                Mind-mining Model)을 기반으로 하며, 콘텐츠 자동 융합 기술(ACT)을
-                통해 창작자와 사용자 모두에게 공정한 보상이 돌아가는 새로운
-                디지털 콘텐츠 경제 생태계(AUCE: All User's & Creator Economy)를
-                구현합니다. 본 서밋에서는 애딥의 기술이 어떻게 하이퍼사이클의
-                탈중앙화 인프라 위에서 작동하여, 대한민국을 글로벌 디지털 콘텐츠
-                강국으로 이끌 전략적 자산이 될 수 있는지 그 비전을 명확히 제시할
-                것입니다.
+                반도체와 ICT 인프라 강국을 넘어, 차세대 인터넷의 표준을 주도하는
+                'AI 네트워크 기술 강국'으로 도약하기 위한 국가적 비전을
+                제시합니다. 이는 AI 시대의 '중앙은행'이자 '증권거래소'와 같은
+                핵심 인프라를 대한민국이 선점하는 것을 의미합니다.
+              </p>
+            </div>
+
+            <div className="max-w-[600px] h-80 border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center">
+              <h4 className="text-2xl text-[#4B5563] font-poppins font-normal text-center">
+                국가 미래 비전 제시
+              </h4>
+              <p>
+                반도체와 ICT 인프라 강국을 넘어, 차세대 인터넷의 표준을 주도하는
+                'AI 네트워크 기술 강국'으로 도약하기 위한 국가적 비전을
+                제시합니다. 이는 AI 시대의 '중앙은행'이자 '증권거래소'와 같은
+                핵심 인프라를 대한민국이 선점하는 것을 의미합니다.
               </p>
             </div>
           </div>
         </div>
       </section>
-
       {/* Speaker */}
       <section id="agenda" className="mx-auto px-6 py-16 md:py-20 bg-gray-50">
         <div className="flex flex-col gap-6">
@@ -352,7 +366,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* Keynote / Tracks */}
       <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="flex flex-col gap-10">
@@ -366,8 +379,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
+      ㅌ{/* CTA */}
       <section id="register" className="bg-gray-50">
         <div className="flex flex-col flex-1 p-16 items-center justify-center">
           <div className="flex flex-col items-center gap-8 text-center">
