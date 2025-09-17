@@ -58,22 +58,42 @@ type AgendaItem = {
 function Timeline({ items }: { items: AgendaItem[] }) {
   return (
     <>
-      <div className="mt-4 space-y-12">
+      <div className="relative mt-4 space-y-12">
+        <div className="absolute top-12 left-7 h-full w-1.5 bg-indigo-200 z-0" />
         {items.map((it, idx) => (
-          <div key={it.time || idx} className="flex flex-row gap-10">
-            <div className="h-12 w-12 rounded-full bg-indigo-600 text-white flex items-center justify-center">
-              {it.time}
+          <div
+            key={it.time || idx}
+            className="flex flex-row gap-10 z-10 relative"
+          >
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-16 rounded-full bg-indigo-600 text-white flex items-center justify-center">
+                {it.time}
+              </div>
             </div>
-            <div className="flex flex-col gap-4 bg-white p-6 border-l-4 border-[#BD19F1] rounded-2xl lg:w-[1000px] shadow-lg">
-              <div className="font-medium">{it.title}</div>
+            <div className="flex flex-col gap-4 bg-white p-6 border-l-4 border-[#BD19F1] rounded-2xl lg:w-[1000px] lg:min-h-0 shadow-lg">
+              <div className="font-bold text-xl">{it.title}</div>
               {it.subTitle && (
                 <div className="font-medium text-sm">{it.subTitle}</div>
               )}
               {it.speaker && (
-                <div className="font-medium text-sm">by {it.speaker}</div>
+                <div className="font-medium text-md">{it.speaker}</div>
               )}
               <div className="font-medium text-sm">Duration: {it.duration}</div>
-              {it.desc && <p className="text-sm text-gray-600">{it.desc}</p>}
+              {Array.isArray(it.desc) ? (
+                <div className="flex flex-col gap-2">
+                  {it.desc.map((line, i) => (
+                    <p key={i} className="text-sm text-gray-600 leading-loose">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                it.desc && (
+                  <p className="text-sm text-gray-600 leading-loose">
+                    {it.desc}
+                  </p>
+                )
+              )}
             </div>
           </div>
         ))}
@@ -270,23 +290,58 @@ export default function LandingPage() {
             AI 인터넷의 미래를 제시하는 세계적 석학들
           </h4>
         </div>
-        <div className="mt-8 mb-8 grid grid-cols-3 gap-4">
+        <div className="mt-8 mb-8 flex flex-col gap-16">
           {eventDetail?.[0].Person.data.map((item: any, idx: number) => (
             <div
               key={idx}
-              className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-3 items-center"
+              className="p-8 flex flex-row items-center justify-center"
             >
-              <h4>{item.speaker}</h4>
-              <h4>({item.en_name})</h4>
-              <h4 className="text-center">
-                {renderWithNewlines(item.sub_title)}
-              </h4>
-              <h2>{item.title}</h2>
-              <div className="flex flex-col gap-6">
-                {item.desc &&
-                  item.desc.map((d: any, idx: number) => (
-                    <div key={idx}>{d}</div>
-                  ))}
+              <div className="flex flex-col items-center gap-5 w-1/3">
+                {(item.speaker as string).startsWith("투") ? (
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/ToufiSaliba.png`}
+                    alt="Person"
+                    className="w-48 h-48 rounded-full"
+                  />
+                ) : (item.speaker as string).startsWith("오") ? (
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/OskarMencer.png`}
+                    alt="Person"
+                    className="w-48 h-48 rounded-full"
+                  />
+                ) : (
+                  <img
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfile.png`}
+                    alt="Person"
+                    className="w-52 h-52 rounded-full"
+                  />
+                )}
+                <h4 className="font-poppins font-bold text-[#373737] text-3xl">
+                  {item.speaker}
+                </h4>
+                <h4 className="font-poppins font-bold text-[#373737] text-2xl">
+                  ({item.en_name})
+                </h4>
+                <h4 className="text-center font-poppins font-medium text-[#373737]">
+                  {renderWithNewlines(item.sub_title)}
+                </h4>
+              </div>
+
+              <div className="flex flex-col gap-4 w-1/3">
+                <h2 className="font-poppins font-bold text-[#373737] text-2xl">
+                  {item.title}
+                </h2>
+                <div className="flex flex-col gap-6">
+                  {item.desc &&
+                    item.desc.map((d: any, idx: number) => (
+                      <div
+                        key={idx}
+                        className="font-poppins font-normal text-[#202020]"
+                      >
+                        {d}
+                      </div>
+                    ))}
+                </div>
               </div>
             </div>
           ))}
