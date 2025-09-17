@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useRef, useEffect, useState, type ReactNode } from "react";
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "../../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
 type AgendaItem = {
@@ -39,7 +42,7 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   );
 }
 
-const EventDetailHeader = () => {
+const EventDetailHeader = ({ eventDetail }: { eventDetail: any }) => {
   return (
     <div className="w-full text-center">
       <div
@@ -50,15 +53,13 @@ const EventDetailHeader = () => {
         }}
       >
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
-          The Genesis of AI Internet: 글로벌 비즈니스 서밋
+          {eventDetail[0].title}
         </h1>
         <h3 className="text-xl font-medium text-white">
-          본 서밋은 단순한 기술 컨퍼런스를 넘어, GCC 펀드가 주도하는 글로벌 AI
-          인프라 구축 프로젝트의 아시아 허브를
+          {eventDetail[0].banner_description[0]}
         </h3>
         <h3 className="text-xl font-medium text-white">
-          대한민국에 설립하기 위한 전략적 파트너십을 구축하는 역사적 첫
-          무대입니다.
+          {eventDetail[0].banner_description[1]}
         </h3>
         <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11">
           <span className="text-white font-medium">참가 신청하기</span>
@@ -69,6 +70,41 @@ const EventDetailHeader = () => {
 };
 
 export default function LandingPage() {
+  const params = useParams();
+  const uuid = params.uuid as any;
+
+  const getEventDetailData = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .eq("id", uuid);
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+
+      return data;
+    } catch (err) {
+      console.error("getEventDetailData 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: eventDetail,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["eventDetail", uuid],
+    queryFn: () => getEventDetailData(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
+
   const agendaDay1: AgendaItem[] = [
     {
       time: "09:30",
@@ -101,9 +137,23 @@ export default function LandingPage() {
     },
   ];
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-1 items-center justify-center">Loading...</div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-1 items-center justify-center">
+        Error Occurred
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      <EventDetailHeader />
+      <EventDetailHeader eventDetail={eventDetail || {}} />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
