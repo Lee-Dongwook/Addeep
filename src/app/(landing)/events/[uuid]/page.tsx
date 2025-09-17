@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, type ReactNode } from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { useResponsive } from "../../../../lib/useResponsive";
 import { supabase } from "../../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
@@ -130,7 +131,15 @@ const EventDetailHeader = ({
         <h3 className="text-xl font-medium text-white">
           {eventDetail[0].banner_description[1]}
         </h3>
-        <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11">
+        <button
+          className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
+              "_blank"
+            )
+          }
+        >
           <span className="text-white font-medium">참가 신청하기</span>
         </button>
       </div>
@@ -149,6 +158,8 @@ const renderWithNewlines = (text: string) => {
 export default function LandingPage() {
   const params = useParams();
   const uuid = params.uuid as any;
+
+  const { isMobile, isTablet } = useResponsive();
 
   const getEventDetailData = async () => {
     try {
@@ -192,6 +203,192 @@ export default function LandingPage() {
     return (
       <div className="flex flex-1 items-center justify-center">
         Error Occurred
+      </div>
+    );
+  }
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="min-h-screen bg-white">
+        <EventDetailHeader eventDetail={eventDetail || {}} uuid={uuid} />
+
+        {/* Hero */}
+        <section className="relative overflow-hidden">
+          <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+            <div className="flex flex-row gap-10">
+              <div className="flex flex-col gap-10">
+                <div>
+                  <h1 className="text-2xl font-bold tracking-tight text-black">
+                    {eventDetail?.[0].Hero.title[0]}
+                  </h1>
+                  <h1 className="text-2xl font-bold tracking-tight text-black">
+                    {eventDetail?.[0].Hero.title[1]}
+                  </h1>
+                  <p className="mt-8 text-lg leading-relaxed text-gray-700">
+                    {eventDetail?.[0].Hero.description[0]}
+                  </p>
+                  <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                    {eventDetail?.[0].Hero.description[1]}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-12 flex flex-col items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-10">
+              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+                <span className="text-xl font-bold text-[#BD19F1]">일정</span>
+                <span className="text-lg font-normal text-[#4B5563]">
+                  {eventDetail?.[0].Hero.date}
+                </span>
+              </div>
+              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+                <span className="text-xl font-bold text-[#BD19F1]">장소</span>
+                <span className="text-lg font-normal text-[#4B5563]">
+                  {eventDetail?.[0].Hero.space}
+                </span>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
+              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
+                <span className="text-xl font-bold text-[#BD19F1]">
+                  참석 대상
+                </span>
+                <span className="text-lg font-normal text-[#4B5563]">
+                  {eventDetail?.[0].Hero.participant}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Keynote / Tracks */}
+        <section id="intro" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <div className="flex flex-col gap-10">
+            <h2 className="text-2xl font-bold md:text-3xl text-center">
+              행사 개요 및 목표
+            </h2>
+            <div className="mt-8 mb-8 flex flex-col items-center gap-10">
+              {eventDetail?.[0].Overview.data.map((item: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="max-w-[600px] min-h-[500px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
+                >
+                  <GlobalIcon />
+                  <h4 className="text-2xl text-[#1F2937] font-poppins font-bold">
+                    {item.title}
+                  </h4>
+                  <p className="font-poppins font-normal text-[#4B5563] text-base leading-loose">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Speaker */}
+        <section id="agenda" className="mx-auto p-10 bg-gray-50">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-3xl font-bold md:text-4xl text-center">
+              Speakers
+            </h2>
+            <h4 className="text-xl text-center">
+              AI 인터넷의 미래를 제시하는 세계적 석학들
+            </h4>
+          </div>
+          <div className="mt-8 mb-8 flex flex-col gap-16">
+            {eventDetail?.[0].Person.data.map((item: any, idx: number) => (
+              <div
+                key={idx}
+                className="p-8 flex flex-col items-center justify-center gap-4"
+              >
+                <div className="flex flex-col items-center gap-5">
+                  {(item.speaker as string).startsWith("투") ? (
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/ToufiSaliba.png`}
+                      alt="Person"
+                      className="w-48 h-48 rounded-full"
+                    />
+                  ) : (item.speaker as string).startsWith("오") ? (
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/OskarMencer.png`}
+                      alt="Person"
+                      className="w-48 h-48 rounded-full"
+                    />
+                  ) : (
+                    <img
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfile.png`}
+                      alt="Person"
+                      className="w-52 h-52 rounded-full"
+                    />
+                  )}
+                  <h4 className="font-poppins font-bold text-[#373737] text-3xl">
+                    {item.speaker}
+                  </h4>
+                  <h4 className="font-poppins font-bold text-[#373737] text-2xl">
+                    ({item.en_name})
+                  </h4>
+                  <h4 className="text-center font-poppins font-medium text-[#373737]">
+                    {renderWithNewlines(item.sub_title)}
+                  </h4>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-poppins font-bold text-[#373737] text-2xl">
+                    {item.title}
+                  </h2>
+                  <div className="flex flex-col gap-6">
+                    {item.desc &&
+                      item.desc.map((d: any, idx: number) => (
+                        <div
+                          key={idx}
+                          className="font-poppins font-normal text-[#202020]"
+                        >
+                          {d}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Keynote / Tracks */}
+        <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <div className="flex flex-col gap-10">
+            <h2 className="text-2xl font-bold md:text-3xl text-center">
+              Program Schedule
+            </h2>
+            <div>
+              <div className="rounded-2xl bg-white p-6">
+                <Timeline items={eventDetail?.[0].Schedule.data || []} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section id="register" className="bg-gray-50">
+          <div className="flex flex-col flex-1 p-16 items-center justify-center">
+            <div className="flex flex-col items-center gap-8 text-center">
+              <h2 className="text-2xl font-bold md:text-3xl">
+                Ready to Shape the Future?
+              </h2>
+              <button
+                className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]"
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
+                    "_blank"
+                  )
+                }
+              >
+                <span className="text-white font-medium">참가 신청하기</span>
+              </button>
+              <p className="text-gray-700">문의 : jhjeong@addeeplab.com</p>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
@@ -369,7 +566,15 @@ export default function LandingPage() {
             <h2 className="text-2xl font-bold md:text-3xl">
               Ready to Shape the Future?
             </h2>
-            <button className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]">
+            <button
+              className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]"
+              onClick={() =>
+                window.open(
+                  "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
+                  "_blank"
+                )
+              }
+            >
               <span className="text-white font-medium">참가 신청하기</span>
             </button>
             <p className="text-gray-700">문의 : jhjeong@addeeplab.com</p>
