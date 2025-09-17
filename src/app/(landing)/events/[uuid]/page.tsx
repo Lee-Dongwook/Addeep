@@ -379,7 +379,7 @@ export default function LandingPage() {
           </h2>
           <div>
             <div className="rounded-2xl bg-white p-6">
-              <Timeline items={agendaDay1} />
+              <Timeline items={eventDetail?.[0].Schedule.data || []} />
             </div>
           </div>
         </div>
