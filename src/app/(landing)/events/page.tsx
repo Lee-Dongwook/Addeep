@@ -63,9 +63,62 @@ interface NoticeListProps {
 
 function NoticeList({ items, title = "" }: NoticeListProps) {
   const router = useRouter();
+  const { isMobile, isTablet } = useResponsive();
   const handleMoveToEventDetail = (it: NoticeItem) => {
     router.push(`/events/${it.id}`);
   };
+
+  if (isMobile || isTablet) {
+    return (
+      <section className="w-full flex flex-col items-center justify-center mb-8">
+        {title ? (
+          <h2 className="mb-6 text-3xl font-bold text-neutral-900 md:text-4xl">
+            {title}
+          </h2>
+        ) : null}
+        <ul className="space-y-8 p-4">
+          {items.length === 0 && <h4>이벤트가 존재하지 않습니다.</h4>}
+          {items.map((it) => {
+            const Card = it.href ? "a" : "div";
+            const props = it.href ? { href: it.href } : {};
+            return (
+              <li key={it.id}>
+                <Card
+                  {...props}
+                  className="rounded-3xl bg-white border border-neutral-100 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition
+                  hover:shadow-md hover:-translate-y-0.5
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300
+                  cursor-pointer
+                  min-h-[400px]
+                "
+                  onClick={() => handleMoveToEventDetail(it)}
+                >
+                  <div className="flex flex-col">
+                    <EventSpeakerSlider
+                      onClick={(e) => e.stopPropagation()}
+                      uuid={it.id as unknown as number}
+                    />
+                    <div className="p-8">
+                      <h3 className="text-xl font-extrabold text-neutral-900">
+                        {it.title}
+                      </h3>
+                      <p className="mt-2 text-neutral-500">{it.description}</p>
+                      <div className="mt-6 flex items-center gap-2 text-neutral-500">
+                        <CalendarIcon />
+                        <time dateTime={it.created_at} className="text-sm">
+                          {formatKoreanDate(it.created_at)} {it.day}
+                        </time>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full">
@@ -200,6 +253,17 @@ function EventContent() {
 
   if (error) {
     return <div>Error: {error.message}</div>;
+  }
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="flex flex-col items-center min-h-screen bg-white">
+        <EventHeader />
+        <div className={NoticeListSectionClassname}>
+          <NoticeList title="" items={eventList?.data || []} />
+        </div>
+      </div>
+    );
   }
 
   return (
