@@ -370,7 +370,7 @@ export default function LandingPage() {
               {eventDetail?.[0].Overview.data.map((item: any, idx: number) => (
                 <div
                   key={idx}
-                  className="max-w-[600px] min-h-[500px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
+                  className="max-w-[600px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
                 >
                   <GlobalIcon />
                   <h4 className="text-2xl text-[#1F2937] font-poppins font-bold">
@@ -556,16 +556,16 @@ export default function LandingPage() {
       </section>
 
       {/* Keynote / Tracks */}
-      <section id="intro" className="mx-auto p-4">
+      <section id="intro" className="mx-auto mb-8">
         <div className="flex flex-col gap-10">
           <h2 className="text-2xl font-bold md:text-3xl text-center">
             행사 개요 및 목표
           </h2>
-          <div className="mt-8 mb-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 mb-8 flex flex-col items-center justify-center gap-8">
             {eventDetail?.[0].Overview.data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="min-w-[600px] h-[500px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
+                className="max-w-5xl border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
               >
                 <GlobalIcon />
                 <h4 className="text-2xl text-[#1F2937] font-poppins font-bold">
