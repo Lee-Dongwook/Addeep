@@ -166,9 +166,9 @@ const EventDetailHeader = ({
 
   if (isMobile || isTablet) {
     return (
-      <div className="w-full text-center">
+      <div className="w-full text-center flex-1">
         <div
-          className="w-full min-h-[400px] rounded-lg flex flex-col items-center justify-center p-2"
+          className="w-full min-h-[400px] rounded-lg flex flex-col items-center justify-center p-12"
           style={{
             background:
               uuid === "1"
@@ -177,8 +177,11 @@ const EventDetailHeader = ({
             border: "1px solid #E5E7EB",
           }}
         >
+          <h1 className="text-xl font-bold text-white mb-2">
+            {eventDetail[0].title.split(":")[0] + " : "}
+          </h1>
           <h1 className="text-xl font-bold text-white mb-12">
-            {eventDetail[0].title}
+            {eventDetail[0].title.split(":")[1]}
           </h1>
           <h3 className="text-lg font-medium text-white mb-4">
             {eventDetail[0].banner_description[0]}
@@ -187,7 +190,7 @@ const EventDetailHeader = ({
             {eventDetail[0].banner_description[1]}
           </h3>
           <button
-            className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
+            className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
             onClick={() =>
               window.open(
                 "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
@@ -251,7 +254,7 @@ export default function LandingPage() {
   const params = useParams();
   const uuid = params.uuid as any;
 
-  const { isMobile, isTablet } = useResponsive();
+  const { isMobile, isMobileTablet, isTablet } = useResponsive();
 
   const getEventDetailData = async () => {
     try {
@@ -299,7 +302,7 @@ export default function LandingPage() {
     );
   }
 
-  if (isMobile || isTablet) {
+  if (isMobile || isMobileTablet || isTablet) {
     return (
       <div className="min-h-screen bg-white">
         <EventDetailHeader eventDetail={eventDetail || {}} uuid={uuid} />
@@ -391,7 +394,7 @@ export default function LandingPage() {
             {eventDetail?.[0].Person.data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="p-8 flex flex-col items-center justify-center gap-4"
+                className="p-2 flex flex-col items-center justify-center gap-4"
               >
                 <div className="flex flex-col items-center gap-5">
                   {(item.speaker as string).startsWith("투") ? (
@@ -408,7 +411,7 @@ export default function LandingPage() {
                     />
                   ) : (
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfile.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfileCircle.png`}
                       alt="Person"
                       className="w-52 h-52 rounded-full"
                     />
@@ -545,16 +548,16 @@ export default function LandingPage() {
       </section>
 
       {/* Keynote / Tracks */}
-      <section id="intro" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+      <section id="intro" className="mx-auto p-4">
         <div className="flex flex-col gap-10">
           <h2 className="text-2xl font-bold md:text-3xl text-center">
             행사 개요 및 목표
           </h2>
-          <div className="mt-8 mb-8 flex flex-row items-center gap-10">
+          <div className="mt-8 mb-8 flex flex-wrap items-center gap-4">
             {eventDetail?.[0].Overview.data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="max-w-[600px] h-[500px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
+                className="min-w-[600px] h-[500px] border border-[#F3E8FF] bg-gradient-to-r from-[#FAF5FF] to-[#FDF2F8] shadow-md rounded-lg p-8 flex flex-col gap-6"
               >
                 <GlobalIcon />
                 <h4 className="text-2xl text-[#1F2937] font-poppins font-bold">
@@ -600,7 +603,7 @@ export default function LandingPage() {
                   />
                 ) : (
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfile.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfileCircle.png`}
                     alt="Person"
                     className="w-52 h-52 rounded-full"
                   />
