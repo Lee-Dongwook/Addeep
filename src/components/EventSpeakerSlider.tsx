@@ -17,6 +17,7 @@ export default function EventSpeakerSlider({
 }) {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
+  // test
 
   const speakers =
     uuid === 1
