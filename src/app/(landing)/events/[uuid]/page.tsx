@@ -477,6 +477,7 @@ export default function LandingPage() {
                 <span className="text-white font-medium">참가 신청하기</span>
               </button>
               <p className="text-gray-700">문의 : yubin@addeep.co.kr</p>
+              <p className="text-gray-700 text-center">(애딥 김유빈 PL)</p>
             </div>
           </div>
         </section>
@@ -668,6 +669,7 @@ export default function LandingPage() {
               <span className="text-white font-medium">참가 신청하기</span>
             </button>
             <p className="text-gray-700">문의 : yubin@addeep.co.kr</p>
+            <p className="text-gray-700 text-center">(애딥 김유빈 PL)</p>
           </div>
         </div>
       </section>
