@@ -314,41 +314,45 @@ export default function LandingPage() {
             <div className="flex flex-row gap-10">
               <div className="flex flex-col gap-10">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight text-black">
+                  <h1 className="text-xl font-bold tracking-tight text-black">
                     {eventDetail?.[0].Hero.title[0]}
                   </h1>
-                  <h1 className="text-2xl font-bold tracking-tight text-black">
+                  <h1 className="text-xl font-bold tracking-tight text-black">
                     {eventDetail?.[0].Hero.title[1]}
                   </h1>
-                  <p className="mt-8 text-lg leading-relaxed text-gray-700">
+                  <p className="mt-8 text-md leading-relaxed text-gray-700">
                     {eventDetail?.[0].Hero.description[0]}
                   </p>
-                  <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                  <p className="mt-4 text-md leading-relaxed text-gray-700">
                     {eventDetail?.[0].Hero.description[1]}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="mt-12 flex flex-col items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-10">
-              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
-                <span className="text-xl font-bold text-[#BD19F1]">일정</span>
-                <span className="text-lg font-normal text-[#4B5563]">
-                  {eventDetail?.[0].Hero.date}
-                </span>
-              </div>
-              <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
-                <span className="text-xl font-bold text-[#BD19F1]">장소</span>
-                <span className="text-lg font-normal text-[#4B5563]">
-                  {eventDetail?.[0].Hero.space}
-                </span>
+
+            <div className="mt-12 flex flex-col text-gray-600 border border-gray-200 rounded-xl p-6 gap-10">
+              <div className="flex flex-col gap-12 rounded-lg bg-white px-3 py-2">
+                <div className="flex flex-col gap-2">
+                  <div className="text-xl font-bold text-[#BD19F1]">일정</div>
+                  <div className="text-lg font-normal text-[#4B5563]">
+                    {eventDetail?.[0].Hero.date}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="text-xl font-bold text-[#BD19F1]">장소</div>
+                  <div className="text-lg font-normal text-[#4B5563]">
+                    {eventDetail?.[0].Hero.space}
+                  </div>
+                </div>
               </div>
             </div>
+
             <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
               <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
                 <span className="text-xl font-bold text-[#BD19F1]">
                   참석 대상
                 </span>
-                <span className="text-lg font-normal text-[#4B5563]">
+                <span className="text-md font-normal text-[#4B5563]">
                   {eventDetail?.[0].Hero.participant}
                 </span>
               </div>
