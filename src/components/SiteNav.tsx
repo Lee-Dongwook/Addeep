@@ -74,7 +74,7 @@ export default function SiteNav() {
               <>
                 <div
                   aria-hidden="true"
-                  className="fixed inset-0 z-[59] bg-black"
+                  className="fixed inset-0 z-[59] bg-gradient-to-b from-[#9A16D8] via-[#561BAA] to-[#4B16A3]"
                 />
                 <div
                   role="dialog"
@@ -198,7 +198,10 @@ export default function SiteNav() {
         typeof window !== "undefined" &&
         createPortal(
           <>
-            <div aria-hidden="true" className="fixed inset-0 z-[59] bg-black" />
+            <div
+              aria-hidden="true"
+              className="fixed inset-0 z-[59] bg-gradient-to-b from-[#9A16D8] via-[#561BAA] to-[#4B16A3]"
+            />
             <div
               role="dialog"
               aria-modal="true"
