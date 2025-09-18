@@ -5,6 +5,7 @@ import { debounce } from "lodash";
 
 interface ResponsiveState {
   isMobile: boolean;
+  isMobileTablet: boolean;
   isTablet: boolean;
   isDesktop: boolean;
 }
@@ -13,17 +14,20 @@ const getResponsiveState = (): ResponsiveState => {
   if (typeof window === "undefined") {
     return {
       isMobile: false,
+      isMobileTablet: false,
       isTablet: false,
       isDesktop: true,
     };
   }
 
   const mobile = window.matchMedia("(max-width:392px)");
+  const mobileTablet = window.matchMedia("(max-width:768px)");
   const tablet = window.matchMedia("(max-width:1023px)");
   const desktop = window.matchMedia("(min-width: 1024px)");
 
   return {
     isMobile: mobile.matches,
+    isMobileTablet: mobileTablet.matches,
     isTablet: tablet.matches,
     isDesktop: desktop.matches,
   };
@@ -32,6 +36,7 @@ const getResponsiveState = (): ResponsiveState => {
 export const useResponsive = (): ResponsiveState => {
   const [responsiveState, setResponsiveState] = useState<ResponsiveState>({
     isMobile: false,
+    isMobileTablet: false,
     isTablet: false,
     isDesktop: true,
   });
@@ -70,6 +75,7 @@ export const useResponsive = (): ResponsiveState => {
   if (!mounted) {
     return {
       isMobile: false,
+      isMobileTablet: false,
       isTablet: false,
       isDesktop: true,
     };
