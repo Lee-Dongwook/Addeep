@@ -158,9 +158,11 @@ function Timeline({ items }: { items: AgendaItem[] }) {
 const EventDetailHeader = ({
   eventDetail,
   uuid,
+  formLink,
 }: {
   eventDetail: any;
   uuid: any;
+  formLink: string;
 }) => {
   const { isMobile, isTablet } = useResponsive();
 
@@ -191,12 +193,7 @@ const EventDetailHeader = ({
           </h3>
           <button
             className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
-            onClick={() =>
-              window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
-                "_blank"
-              )
-            }
+            onClick={() => window.open(formLink, "_blank")}
           >
             <span className="text-white font-medium">참가 신청하기</span>
           </button>
@@ -228,12 +225,7 @@ const EventDetailHeader = ({
         </h3>
         <button
           className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
-          onClick={() =>
-            window.open(
-              "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
-              "_blank"
-            )
-          }
+          onClick={() => window.open(formLink, "_blank")}
         >
           <span className="text-white font-medium">참가 신청하기</span>
         </button>
@@ -275,6 +267,11 @@ export default function LandingPage() {
     }
   };
 
+  const formLink =
+    uuid === "1"
+      ? "https://forms.gle/3JDucMLwAC1K7Tqv5"
+      : "https://forms.gle/7wTnbXNTCUMabEE57";
+
   const {
     data: eventDetail,
     isLoading,
@@ -305,7 +302,11 @@ export default function LandingPage() {
   if (isMobile || isMobileTablet || isTablet) {
     return (
       <div className="min-h-screen bg-white">
-        <EventDetailHeader eventDetail={eventDetail || {}} uuid={uuid} />
+        <EventDetailHeader
+          eventDetail={eventDetail || {}}
+          uuid={uuid}
+          formLink={formLink}
+        />
 
         {/* Hero */}
         <section className="relative overflow-hidden">
@@ -471,12 +472,7 @@ export default function LandingPage() {
               </h2>
               <button
                 className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]"
-                onClick={() =>
-                  window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
-                    "_blank"
-                  )
-                }
+                onClick={() => window.open(formLink, "_blank")}
               >
                 <span className="text-white font-medium">참가 신청하기</span>
               </button>
@@ -490,7 +486,11 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <EventDetailHeader eventDetail={eventDetail || {}} uuid={uuid} />
+      <EventDetailHeader
+        eventDetail={eventDetail || {}}
+        uuid={uuid}
+        formLink={formLink}
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -663,12 +663,7 @@ export default function LandingPage() {
             </h2>
             <button
               className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]"
-              onClick={() =>
-                window.open(
-                  "https://docs.google.com/forms/d/e/1FAIpQLSeqNKU0F2B0mAH0fNs1zfzOemVzk5T1XXCojvjXnERRdLT-CA/viewform",
-                  "_blank"
-                )
-              }
+              onClick={() => window.open(formLink, "_blank")}
             >
               <span className="text-white font-medium">참가 신청하기</span>
             </button>
