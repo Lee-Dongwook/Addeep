@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import EventSpeakerSlider from "../../../components/EventSpeakerSlider";
 import { useResponsive } from "../../../lib/useResponsive";
 import { supabase } from "../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
@@ -18,6 +19,7 @@ type NoticeItem = {
   description: string;
   created_at: string; // "2024-01-08" 또는 Date ISO
   href?: string; // 상세 페이지 링크 (옵션)
+  day?: string;
 };
 
 function formatKoreanDate(input: string) {
@@ -89,19 +91,23 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                   hover:shadow-md hover:-translate-y-0.5
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300
                   cursor-pointer
+                  h-[400px]
                 "
                 onClick={() => handleMoveToEventDetail(it)}
               >
-                <div className="p-8">
-                  <h3 className="text-xl font-extrabold text-neutral-900">
-                    {it.title}
-                  </h3>
-                  <p className="mt-2 text-neutral-500">{it.description}</p>
-                  <div className="mt-6 flex items-center gap-2 text-neutral-500">
-                    <CalendarIcon />
-                    <time dateTime={it.created_at} className="text-sm">
-                      {formatKoreanDate(it.created_at)}
-                    </time>
+                <div className="flex flex-row">
+                  <EventSpeakerSlider />
+                  <div className="p-8">
+                    <h3 className="text-xl font-extrabold text-neutral-900">
+                      {it.title}
+                    </h3>
+                    <p className="mt-2 text-neutral-500">{it.description}</p>
+                    <div className="mt-6 flex items-center gap-2 text-neutral-500">
+                      <CalendarIcon />
+                      <time dateTime={it.created_at} className="text-sm">
+                        {formatKoreanDate(it.created_at)} {it.day}
+                      </time>
+                    </div>
                   </div>
                 </div>
               </Card>
