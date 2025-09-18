@@ -91,12 +91,15 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                   hover:shadow-md hover:-translate-y-0.5
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300
                   cursor-pointer
-                  h-[400px]
+                  min-h-[400px]
                 "
                 onClick={() => handleMoveToEventDetail(it)}
               >
                 <div className="flex flex-row">
-                  <EventSpeakerSlider />
+                  <EventSpeakerSlider
+                    onClick={(e) => e.stopPropagation()}
+                    uuid={it.id as unknown as number}
+                  />
                   <div className="p-8">
                     <h3 className="text-xl font-extrabold text-neutral-900">
                       {it.title}
@@ -125,9 +128,8 @@ const EventHeader = () => {
       <div
         className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
-          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AnnouncementBanner.png)`,
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/EventDefaultBanner.png)`,
           border: "1px solid #E5E7EB",
-          opacity: 0.6,
         }}
       >
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
