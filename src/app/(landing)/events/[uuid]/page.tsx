@@ -179,10 +179,10 @@ const EventDetailHeader = ({
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-xl font-bold text-white mb-2">
+          <h1 className="text-2xl font-bold text-white mb-2">
             {eventDetail[0].title.split(":")[0] + " : "}
           </h1>
-          <h1 className="text-xl font-bold text-white mb-12">
+          <h1 className="text-2xl font-bold text-white mb-12">
             {eventDetail[0].title.split(":")[1]}
           </h1>
           <h3 className="text-lg font-medium text-white mb-4">
