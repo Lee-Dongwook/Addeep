@@ -172,8 +172,8 @@ const EventDetailHeader = ({
           style={{
             background:
               uuid === "1"
-                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`
-                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventParliament.png)`,
+                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
+                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
             border: "1px solid #E5E7EB",
           }}
         >
@@ -212,8 +212,8 @@ const EventDetailHeader = ({
         style={{
           background:
             uuid === "1"
-              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventGlobalBusinessSummit.png)`
-              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventParliament.png)`,
+              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
+              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
           border: "1px solid #E5E7EB",
         }}
       >
