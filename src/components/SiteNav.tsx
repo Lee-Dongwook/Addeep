@@ -65,7 +65,7 @@ export default function SiteNav() {
           <img
             src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
             alt="logo"
-            className="h-8 w-8"
+            className="h-9 w-10"
           />
           {/* 오버레이는 Portal로 띄워서 나머지 레이아웃에 영향 X */}
           {open &&
