@@ -34,7 +34,7 @@ function SummaryAI() {
 
   if (isMobile || isTablet) {
     return (
-      <div className="flex flex-col gap-8 p-4">
+      <div className="flex flex-col gap-8">
         <div
           className="w-full rounded-lg flex flex-col items-center text-center justify-center p-8"
           style={{
@@ -59,13 +59,13 @@ function SummaryAI() {
             Explore Technology
           </button>
         </div>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 p-6">
           <h2 className="mb-4 text-2xl font-bold">
             Redefining <span className="text-[#B641E9]">Web 3.0 </span>
             Social Media
           </h2>
           <div className="border border-[#B641E9] text-[#B641E9] w-10 h-px mb-4"></div>
-          <p className="text-xl leading-relaxed">
+          <p className="text-xl leading-loose">
             <span className="text-[#B641E9] font-bold">Addeep-GPR-1</span>{" "}
             (Generative Pre-trained Recommender) represents the core technology
             powering our revolutionary Web 3.0 social media platform. Our
@@ -76,7 +76,7 @@ function SummaryAI() {
             into existing conversational AI models creates an unprecendented
             user experience.
           </p>
-          <p className="text-xl leading-relaxed mt-6">
+          <p className="text-xl leading-loose mt-6">
             Unlike traditional AI systems, GPR focuses on{" "}
             <span className="text-[#B641E9] font-bold">
               automatically generating and recommending personalized
@@ -87,11 +87,13 @@ function SummaryAI() {
           </p>
         </div>
 
-        <div className="flex flex-col flex-1">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold">Beyond the Conversation:</h2>
-            <h2 className="mb-4 text-3xl font-bold">Our Technical Advantage</h2>
-            <div className="border border-[#B641E9] text-[#B641E9] w-36 h-px mt-2 mb-4"></div>
+        <div className="flex flex-col flex-1 p-6">
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-bold mb-1">
+              Beyond the Conversation:
+            </h2>
+            <h2 className="mb-4 text-2xl font-bold">Our Technical Advantage</h2>
+            <div className="border border-[#B641E9] text-[#B641E9] w-10 h-px mt-2 mb-4"></div>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-4">

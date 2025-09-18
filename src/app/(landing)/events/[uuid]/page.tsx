@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState, type ReactNode } from "react";
+import React from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { useResponsive } from "../../../../lib/useResponsive";
@@ -112,7 +112,7 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   return (
     <>
       <div className="relative mt-4 space-y-12 flex flex-col items-center justify-center">
-        <div className="absolute top-12 left-[68px] h-full w-1.5 bg-indigo-200 z-0 max-[1320px]:hidden" />
+        <div className="absolute top-12 left-[68px] h-full w-1.5 bg-indigo-200 z-0 hidden" />
         {items.map((it, idx) => (
           <div
             key={it.time || idx}
@@ -191,6 +191,22 @@ const EventDetailHeader = ({
           <h3 className="text-lg font-medium text-white">
             {eventDetail[0].banner_description[1]}
           </h3>
+
+          <div className="flex flex-col gap-8 rounded-lg bg-white/20 p-4 my-16">
+            <div className="flex flex-col gap-2">
+              <div className="text-xl font-bold text-[#BD19F1]">일정</div>
+              <div className="text-lg font-normal text-white">
+                {eventDetail?.[0].Hero.date}
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="text-xl font-bold text-[#BD19F1]">장소</div>
+              <div className="text-lg font-normal text-white">
+                {eventDetail?.[0].Hero.space}
+              </div>
+            </div>
+          </div>
+
           <button
             className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
             onClick={() => window.open(formLink, "_blank")}
@@ -223,6 +239,22 @@ const EventDetailHeader = ({
         <h3 className="text-xl font-medium text-white">
           {eventDetail[0].banner_description[1]}
         </h3>
+
+        <div className="flex flex-col gap-12 rounded-lg bg-white/20 px-3 py-2 my-4 w-2/3">
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-bold text-[#BD19F1]">일정</div>
+            <div className="text-lg font-normal text-white">
+              {eventDetail?.[0].Hero.date}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-bold text-[#BD19F1]">장소</div>
+            <div className="text-lg font-normal text-white">
+              {eventDetail?.[0].Hero.space}
+            </div>
+          </div>
+        </div>
+
         <button
           className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
           onClick={() => window.open(formLink, "_blank")}
@@ -330,6 +362,7 @@ export default function LandingPage() {
               </div>
             </div>
 
+            {/* 
             <div className="mt-12 flex flex-col text-gray-600 border border-gray-200 rounded-xl p-6 gap-10">
               <div className="flex flex-col gap-12 rounded-lg bg-white px-3 py-2">
                 <div className="flex flex-col gap-2">
@@ -345,9 +378,9 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
+            <div className="mt-12 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
               <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
                 <span className="text-xl font-bold text-[#BD19F1]">
                   참석 대상
@@ -528,6 +561,8 @@ export default function LandingPage() {
               }}
             />
           </div>
+
+          {/* 
           <div className="mt-12 flex flex-row items-center text-gray-600 border border-gray-200 rounded-xl p-6 gap-64">
             <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
               <span className="text-xl font-bold text-[#BD19F1]">일정</span>
@@ -541,8 +576,9 @@ export default function LandingPage() {
                 {eventDetail?.[0].Hero.space}
               </span>
             </div>
-          </div>
-          <div className="mt-6 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
+          </div> */}
+
+          <div className="mt-12 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
             <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
               <span className="text-xl font-bold text-[#BD19F1]">
                 참석 대상
