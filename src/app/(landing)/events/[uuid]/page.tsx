@@ -111,8 +111,8 @@ function Timeline({ items }: { items: AgendaItem[] }) {
   }
   return (
     <>
-      <div className="relative mt-4 space-y-12">
-        <div className="absolute top-12 left-7 h-full w-1.5 bg-indigo-200 z-0" />
+      <div className="relative mt-4 space-y-12 flex flex-col items-center justify-center">
+        <div className="absolute top-12 left-[68px] h-full w-1.5 bg-indigo-200 z-0 max-[1320px]:hidden" />
         {items.map((it, idx) => (
           <div
             key={it.time || idx}
@@ -454,13 +454,16 @@ export default function LandingPage() {
         </section>
 
         {/* Keynote / Tracks */}
-        <section id="agenda" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-          <div className="flex flex-col gap-10">
+        <section
+          id="agenda"
+          className="mx-auto px-6 py-16 md:py-20 flex flex-col items-center justify-center"
+        >
+          <div className="flex flex-col items-center justify-center gap-10">
             <h2 className="text-2xl font-bold md:text-3xl text-center">
               Program Schedule
             </h2>
             <div>
-              <div className="rounded-2xl bg-white p-6">
+              <div className="rounded-2xl flex flex-col items-center justify-center bg-white p-6">
                 <Timeline items={eventDetail?.[0].Schedule.data || []} />
               </div>
             </div>
