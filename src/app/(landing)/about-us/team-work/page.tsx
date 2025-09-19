@@ -143,14 +143,14 @@ const FirstHuman = () => {
                   </div>
                   <ul className="text-sm text-gray-700 space-y-4 p-3">
                     <li>
-                      • Current) Director, Korea AGI Enterprises Association
-                    </li>
-                    <li>
                       • Hayfield University Graduate School of Business MBA
                     </li>
                     <li>
                       • Completed CFO Academy at Seoul National University
                       Graduate School of Business
+                    </li>
+                    <li>
+                      • Current) Director, Korea AGI Enterprises Association
                     </li>
                     <li>• Founder of Addeep Group</li>
                   </ul>
@@ -224,7 +224,7 @@ const FirstHuman = () => {
                 </div>
 
                 {/* Awards */}
-                <div>
+                <div className="hidden">
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
                     <h3 className="text-md font-semibold font-poppins text-black mb-2">
@@ -260,7 +260,7 @@ const FirstHuman = () => {
                   </ul>
                 </div>
 
-                <div>
+                <div className="hidden">
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
                     <h3 className="text-md font-semibold font-poppins text-black mb-2">
@@ -330,13 +330,13 @@ const FirstHuman = () => {
                   </h3>
                 </div>
                 <ul className="text-md text-gray-700 space-y-1 p-3">
-                  <li>
-                    • Current) Director, Korea AGI Enterprises Association
-                  </li>
                   <li>• Hayfield University Graduate School of Business MBA</li>
                   <li>
                     • Completed CFO Academy at Seoul National University
                     Graduate School of Business
+                  </li>
+                  <li>
+                    • Current) Director, Korea AGI Enterprises Association
                   </li>
                   <li>• Founder of Addeep Group</li>
                 </ul>
@@ -388,7 +388,7 @@ const FirstHuman = () => {
                   </h3>
                 </div>
                 <ul className="text-md text-gray-700 space-y-1 p-3">
-                  <li>
+                  <li className="hidden">
                     • Launched Addeep Platform Series Product Global Service,
                     R&D Secured SNS Service, and Base Digital Platform Service
                   </li>
@@ -408,7 +408,7 @@ const FirstHuman = () => {
               </div>
 
               {/* Awards */}
-              <div>
+              <div className="hidden">
                 <div className="flex flex-row gap-3">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-lg font-semibold text-black mb-2">
@@ -445,7 +445,7 @@ const FirstHuman = () => {
               </div>
 
               {/* Book */}
-              <div>
+              <div className="hidden">
                 <div className="flex flex-row gap-3">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-lg font-semibold text-black mb-2">
@@ -522,7 +522,7 @@ const SecondHuman = () => {
                   </li>
                 </ul>
                 {/* Global Operations & Management */}
-                <div className="flex flex-row gap-3 mt-8">
+                <div className="flex-row gap-3 mt-8 hidden">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     Global Operations & Management
@@ -548,7 +548,7 @@ const SecondHuman = () => {
                   </li>
                 </ul>
 
-                <div className="flex flex-row gap-3 mt-8">
+                <div className="flex flex-row gap-3 mt-8 hidden">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     International Partnerships
@@ -624,13 +624,13 @@ const SecondHuman = () => {
                     development, and security consulting
                   </li>
                 </ul>
-                <div className="flex flex-row gap-3 mt-8">
+                <div className="flex-row gap-3 mt-8 hidden">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-lg font-semibold text-black mb-2">
                     Global Operations & Management
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 space-y-1 p-3">
+                <ul className="text-md text-gray-700 space-y-1 p-3 hidden">
                   <li>
                     • Managed operations and established global business
                     strategies, administrative management for 7 overseas
@@ -649,13 +649,13 @@ const SecondHuman = () => {
                     affairs, and business planning and management
                   </li>
                 </ul>
-                <div className="flex flex-row gap-3 mt-8">
+                <div className="flex-row gap-3 mt-8 hidden">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-lg font-semibold text-black mb-2">
                     International Partnerships
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 space-y-1 p-3">
+                <ul className="text-md text-gray-700 space-y-1 p-3 hidden">
                   <li>
                     • Established network cooperation partnerships for business
                     expansion in France, Switzerland, and other EU countries
