@@ -115,6 +115,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
 const AnnouncementHeader = () => {
   return (
     <div className="w-full text-center">
+      <div className="absolute h-[400px] mt-20 inset-0 bg-black bg-opacity-60 rounded-lg" />
       <div
         className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
@@ -122,9 +123,11 @@ const AnnouncementHeader = () => {
           border: "1px solid #E5E7EB",
         }}
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Announcement
-        </h1>
+        <div className="flex flex-col items-center justify-center z-10">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Announcement
+          </h1>
+        </div>
       </div>
     </div>
   );
