@@ -402,8 +402,9 @@ const CoreValueHeader = () => {
   if (isMobile || isTablet) {
     return (
       <div className="w-full text-center">
+        <div className="absolute h-[745px] mt-20 inset-0 bg-black bg-opacity-60 rounded-lg" />
         <div
-          className="w-full h-screen p-16 rounded-lg flex flex-col items-center justify-center"
+          className="w-full h-screen p-8 rounded-lg flex flex-col items-center justify-center"
           style={{
             background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
             border: "1px solid #E5E7EB",
@@ -412,10 +413,12 @@ const CoreValueHeader = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <h1 className="text-xl md:text-2xl font-bold text-white mb-4">
-            Connect with Us
-          </h1>
-          <SocialLinksRow />
+          <div className="flex flex-col gap-4 items-center justify-center z-10">
+            <h1 className="text-2xl font-bold text-white mb-4">
+              Connect with Us
+            </h1>
+            <SocialLinksRow />
+          </div>
         </div>
       </div>
     );

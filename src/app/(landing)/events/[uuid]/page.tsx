@@ -74,14 +74,20 @@ function Timeline({ items }: { items: AgendaItem[] }) {
                 </div>
               </div>
               <div className="flex flex-col gap-4 bg-white p-6 border-l-4 border-[#BD19F1] rounded-2xl shadow-lg">
-                <div className="font-bold text-lg">{it.title}</div>
+                <div className="font-bold font-montserrat text-lg">
+                  {it.title}
+                </div>
                 {it.subTitle && (
-                  <div className="font-medium text-sm">{it.subTitle}</div>
+                  <div className="font-medium font-poppins text-sm">
+                    {it.subTitle}
+                  </div>
                 )}
                 {it.speaker && (
-                  <div className="font-medium text-md">{it.speaker}</div>
+                  <div className="font-medium font-poppins text-md">
+                    {it.speaker}
+                  </div>
                 )}
-                <div className="font-medium text-sm">
+                <div className="font-medium font-poppins text-sm">
                   Duration: {it.duration}
                 </div>
                 {Array.isArray(it.desc) ? (
@@ -89,7 +95,7 @@ function Timeline({ items }: { items: AgendaItem[] }) {
                     {it.desc.map((line, i) => (
                       <p
                         key={i}
-                        className="text-sm text-gray-600 leading-loose text-left"
+                        className="text-sm font-poppins text-gray-600 leading-loose text-left"
                       >
                         {line}
                       </p>
@@ -97,7 +103,7 @@ function Timeline({ items }: { items: AgendaItem[] }) {
                   </div>
                 ) : (
                   it.desc && (
-                    <p className="text-sm text-gray-600 leading-loose text-left">
+                    <p className="text-sm font-poppins text-gray-600 leading-loose text-left">
                       {it.desc}
                     </p>
                   )
@@ -181,44 +187,48 @@ const EventDetailHeader = ({
           }}
         >
           <div className="flex flex-col items-center justify-center z-10">
-            <h1 className="text-2xl font-bold text-white mb-2">
+            <h1 className="text-2xl font-montserrat font-bold text-white mb-2">
               {eventDetail[0].title.split(":")[0] + " : "}
             </h1>
-            <h1 className="text-2xl font-bold text-white mb-12">
+            <h1 className="text-2xl font-montserrat font-bold text-white mb-12">
               {eventDetail[0].title.split(":")[1]}
             </h1>
-            <h3 className="text-lg font-medium text-white mb-4">
+            <h3 className="text-lg font-medium font-poppins text-white mb-4">
               {eventDetail[0].banner_description[0]}
             </h3>
-            <h3 className="text-lg font-medium text-white">
+            <h3 className="text-lg font-medium font-poppins text-white">
               {eventDetail[0].banner_description[1]}
             </h3>
 
             <div className="flex flex-col gap-8 rounded-lg bg-white/20 p-4 my-16">
               <div className="flex flex-col gap-2">
-                <div className="text-xl font-bold text-[#BD19F1]">일정</div>
-                <div className="text-lg font-normal text-white">
+                <div className="text-xl font-poppins font-bold text-[#BD19F1]">
+                  일정
+                </div>
+                <div className="text-lg font-poppins font-normal text-white">
                   {eventDetail?.[0].Hero.date}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="text-xl font-bold text-[#BD19F1]">장소</div>
-                <div className="text-lg font-normal text-white">
+                <div className="text-xl font-poppins font-bold text-[#BD19F1]">
+                  장소
+                </div>
+                <div className="text-lg font-poppins font-normal text-white">
                   {eventDetail?.[0].Hero.space}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <div className="text-xl font-bold text-[#BD19F1]">
+                <div className="text-xl font-poppins font-bold text-[#BD19F1]">
                   사전 신청 기간
                 </div>
-                <div className="text-lg font-normal text-white">
+                <div className="text-lg font-poppins font-normal text-white">
                   {eventDetail?.[0].Hero.pre}
                 </div>
               </div>
             </div>
 
             <button
-              className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
+              className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] py-4 px-11 mb-8"
               onClick={() => window.open(formLink, "_blank")}
             >
               <span className="text-white font-medium">참가 신청하기</span>
@@ -434,16 +444,16 @@ export default function LandingPage() {
             <div className="flex flex-row gap-10">
               <div className="flex flex-col gap-10">
                 <div>
-                  <h1 className="text-xl font-bold tracking-tight text-black">
+                  <h1 className="text-xl font-montserrat font-bold tracking-tight text-black">
                     {eventDetail?.[0].Hero.title[0]}
                   </h1>
-                  <h1 className="text-xl font-bold tracking-tight text-black">
+                  <h1 className="text-xl font-montserrat font-bold tracking-tight text-black">
                     {eventDetail?.[0].Hero.title[1]}
                   </h1>
-                  <p className="mt-8 text-md leading-relaxed text-gray-700">
+                  <p className="mt-8 text-md font-poppins leading-relaxed text-gray-700">
                     {eventDetail?.[0].Hero.description[0]}
                   </p>
-                  <p className="mt-4 text-md leading-relaxed text-gray-700">
+                  <p className="mt-4 text-md font-poppins leading-relaxed text-gray-700">
                     {eventDetail?.[0].Hero.description[1]}
                   </p>
                 </div>
@@ -470,10 +480,10 @@ export default function LandingPage() {
 
             <div className="mt-12 flex flex-row items-center justify-between text-gray-600 border border-gray-200 rounded-xl p-6">
               <div className="flex flex-col gap-2 rounded-lg bg-white px-3 py-2">
-                <span className="text-xl font-bold text-[#BD19F1]">
+                <span className="text-xl font-poppins font-bold text-[#BD19F1]">
                   참석 대상
                 </span>
-                <span className="text-md font-normal text-[#4B5563]">
+                <span className="text-md font-poppins font-normal text-[#4B5563]">
                   {eventDetail?.[0].Hero.participant}
                 </span>
               </div>
@@ -484,7 +494,7 @@ export default function LandingPage() {
         {/* Keynote / Tracks */}
         <section id="intro" className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           <div className="flex flex-col gap-10">
-            <h2 className="text-2xl font-bold md:text-3xl text-center">
+            <h2 className="text-2xl font-poppins font-bold md:text-3xl text-center">
               행사 개요 및 목표
             </h2>
             <div className="mt-8 mb-8 flex flex-col items-center gap-10">
@@ -562,7 +572,7 @@ export default function LandingPage() {
                       item.desc.map((d: any, idx: number) => (
                         <div
                           key={idx}
-                          className="font-poppins font-normal text-[#202020] leading-relaxed"
+                          className="font-poppins font-normal text-[#202020] leading-loose"
                         >
                           {d}
                         </div>
@@ -580,7 +590,7 @@ export default function LandingPage() {
           className="mx-auto px-6 py-16 md:py-20 flex flex-col items-center justify-center"
         >
           <div className="flex flex-col items-center justify-center gap-10">
-            <h2 className="text-2xl font-bold md:text-3xl text-center">
+            <h2 className="text-2xl font-montserrat font-bold md:text-3xl text-center">
               Program Schedule
             </h2>
             <div>
@@ -594,18 +604,24 @@ export default function LandingPage() {
         {/* CTA */}
         <section id="register" className="bg-gray-50">
           <div className="flex flex-col flex-1 p-16 items-center justify-center">
-            <div className="flex flex-col items-center gap-8 text-center">
-              <h2 className="text-2xl font-bold md:text-3xl">
+            <div className="flex flex-col items-center gap-6 text-center">
+              <h2 className="text-xl font-montserrat font-bold md:text-2xl">
                 Ready to Shape the Future?
               </h2>
               <button
-                className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5]"
+                className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] font-poppins"
                 onClick={() => window.open(formLink, "_blank")}
               >
-                <span className="text-white font-medium">참가 신청하기</span>
+                <span className="text-white font-medium font-poppins">
+                  참가 신청하기
+                </span>
               </button>
-              <p className="text-gray-700">문의 : yubin@addeep.co.kr</p>
-              <p className="text-gray-700 text-center">(애딥 김유빈 PL)</p>
+              <p className="text-gray-700 font-poppins">
+                문의 : yubin@addeep.co.kr
+              </p>
+              <p className="text-gray-700 text-center font-poppins">
+                (애딥 김유빈 PL)
+              </p>
             </div>
           </div>
         </section>
