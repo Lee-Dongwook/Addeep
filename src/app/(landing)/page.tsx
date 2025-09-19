@@ -5,7 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useResponsive } from "../../lib/useResponsive";
 import { collageData, splitScreenData } from "../../constants";
-import { LandingBottomArrowIcon } from "../../icons";
+import {
+  LandingBottomArrowIcon,
+  MobileLandingBottomArrowIcon,
+} from "../../icons";
 import { NEXT_PUBLIC_CDN_BASE } from "../../lib/env";
 
 // hello
@@ -151,7 +154,7 @@ export default function LandingPage() {
 
                 {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
-                  <div className="relative w-96 h-72 rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
                       alt="Person with fisheye lens effect"
@@ -162,7 +165,7 @@ export default function LandingPage() {
 
                 {/* Middle Left Image - Social Woman */}
                 <div className="animate-image mt-8">
-                  <div className="relative w-96 h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
                       alt="Smiling man with hands on cheeks"
@@ -184,7 +187,7 @@ export default function LandingPage() {
 
                 {/* Bottom Right Image - Three People */}
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end mt-16">
-                  <div className="relative w-96 h-72 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
                       alt="Three people looking down"
@@ -197,10 +200,10 @@ export default function LandingPage() {
                 <button
                   type="button"
                   onClick={handleArrowClick}
-                  className="animate-text justify-self-start self-end mt-4 md:row-start-4 md:col-start-1 hover:scale-110 transition-transform duration-200"
+                  className="animate-text justify-self-start self-end -mt-12 md:row-start-4 md:col-start-1 hover:scale-110 transition-transform duration-200"
                   aria-label="Scroll Down"
                 >
-                  <LandingBottomArrowIcon />
+                  <MobileLandingBottomArrowIcon />
                 </button>
               </div>
             </AnimatedSection>
@@ -215,7 +218,7 @@ export default function LandingPage() {
                   <img
                     src={`${NEXT_PUBLIC_CDN_BASE}/images/Background.png`}
                     alt="Person with hands over eyes peeking through fingers"
-                    className="object-cover w-full h-full"
+                    className="object-cover max-w-full h-full"
                   />
                 </div>
               </div>
