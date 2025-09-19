@@ -141,7 +141,7 @@ function AboutSwiper() {
   ) => {
     if (isMobileView) {
       return (
-        <div className="flex flex-col items-center justify-between overflow-y-auto p-2 min-h-full">
+        <div className="flex flex-col items-center justify-between overflow-y-auto p-2 min-h-full mt-16">
           {/* Image */}
           <div className="flex justify-center mt-8 mb-8">
             <div className="relative w-[200px] h-[200px] rounded-3xl overflow-hidden shadow-lg">
@@ -158,7 +158,7 @@ function AboutSwiper() {
           {/* Text */}
           <div className="space-y-6">
             <h1 className="text-3xl font-bold font-montserrat">We Are</h1>
-            <h2 className="text-xl font-bold text-[#833AB4] font-poppins leading-normal mt-2 mb-2">
+            <h2 className="text-xl font-normal text-[#833AB4] font-poppins leading-normal mt-2 mb-2">
               {slide.title}
             </h2>
             <div className="text-md text-[#374151 leading-relaxed font-poppins">
@@ -274,7 +274,7 @@ export default function LandingPage() {
             {/* Image Section */}
             <div
               className={[
-                "absolute top-full -mt-64 right-0 w-full h-1/2 animate-image",
+                "absolute top-full -mt-80 right-0 w-full h-1/2 animate-image",
               ].join(" ")}
             >
               <img
@@ -305,7 +305,7 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="mt-48 text-xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1 p-2"
+        className="mt-16 text-xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1 p-2"
       >
         <AnimatedSection col={true} index={1}>
           <img

@@ -157,7 +157,7 @@ const FirstHuman = () => {
                 </div>
 
                 {/* Major Work Experience */}
-                <div className="font-poppins">
+                <div className="font-poppins hidden">
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
                     <h3 className="text-md font-semibold font-poppins text-black mb-2">
@@ -528,7 +528,7 @@ const SecondHuman = () => {
                     Global Operations & Management
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3 hidden">
                   <li className="font-poppins">
                     • Managed operations and established global business
                     strategies, administrative management for 7 overseas
@@ -554,7 +554,7 @@ const SecondHuman = () => {
                     International Partnerships
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3 hidden">
                   <li className="font-poppins">
                     • Established network cooperation partnerships for business
                     expansion in France, Switzerland, and other EU countries
@@ -731,7 +731,7 @@ const ThirdHuman = () => {
                     • Completed Bio-CEO Course at Seoul National University
                   </li>
                   <li className="font-poppins">
-                    • Former CEO o f K-Longevity, KangStemBioTech, ST Asset
+                    • Former CEO of K-Longevity, KangStemBioTech, ST Asset
                   </li>
                   <li className="font-poppins">
                     • Former CSO of Pharmaworks, KODIAM

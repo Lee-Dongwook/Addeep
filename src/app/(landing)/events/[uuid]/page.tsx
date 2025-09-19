@@ -193,10 +193,10 @@ const EventDetailHeader = ({
             <h1 className="text-2xl font-montserrat font-bold text-white mb-12">
               {eventDetail[0].title.split(":")[1]}
             </h1>
-            <h3 className="text-lg font-medium font-poppins text-white mb-4">
+            <h3 className="text-lg font-medium font-poppins text-white mb-4 hidden">
               {eventDetail[0].banner_description[0]}
             </h3>
-            <h3 className="text-lg font-medium font-poppins text-white">
+            <h3 className="text-lg font-medium font-poppins text-white hidden">
               {eventDetail[0].banner_description[1]}
             </h3>
 
