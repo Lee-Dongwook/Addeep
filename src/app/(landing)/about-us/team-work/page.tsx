@@ -17,11 +17,13 @@ const TeamWorkHeader = () => {
     return (
       <div className="w-full h-48 text-center p-3">
         <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center">
-          <h1 className="text-xl font-bold  mb-4">Outstanding manpower!</h1>
-          <h1 className="text-xl font-bold text-[#B641E9] mb-4">
+          <h1 className="text-xl font-bold font-montserrat mb-4">
+            Outstanding manpower!
+          </h1>
+          <h1 className="text-xl font-bold font-montserrat text-[#B641E9] mb-4">
             Creative brains!
           </h1>
-          <h1 className="text-xl font-bold mb-4">
+          <h1 className="text-xl font-bold font-montserrat mb-4">
             High-potential core capabilities!
           </h1>
         </div>
@@ -51,18 +53,18 @@ const TeamWorkHero = () => {
   if (isMobile || isTablet) {
     return (
       <div className="mt-8 w-full p-4 text-center flex flex-col min-h-48 bg-[#F9FAFB]">
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <p className="text-xl font-normal text-gray-800 leading-relaxed">
+        <div className="flex-1 flex flex-col items-center justify-center mt-4 mb-4">
+          <p className="text-lg md:text-xl font-normal font-poppins text-gray-800 leading-relaxed">
             With the experties of top professionals
           </p>
-          <p className="text-xl text-gray-800 leading-relaxed mt-4">
+          <p className="text-lg md:text-xl text-gray-800 font-poppins leading-relaxed mt-4">
             in the field of digital platform services and advanced technical
             capabilities,
           </p>
-          <p className="text-xl font-normal text-gray-800 leading-relaxed mt-4">
+          <p className="text-lg md:text-xl font-normal font-poppins text-gray-800 leading-relaxed mt-4">
             we lead the way in driving innovative transformations
           </p>
-          <p className="text-xl font-normal text-gray-800 leading-relaxed mt-4">
+          <p className="text-lg md:text-xl font-normal font-poppins text-gray-800 leading-relaxed mt-4">
             within the global platform ecosystem.
           </p>
         </div>
@@ -99,10 +101,9 @@ const FirstHuman = () => {
   if (isMobile || isTablet) {
     return (
       <div className="w-full p-4 bg-white">
-        <div className=" mx-auto">
+        <div className="mx-auto">
           <div className="p-4">
             <div className="flex flex-col gap-8">
-              {/* Left Section - Profile Summary */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-48 h-48 mb-24 rounded-full">
                   <Image
@@ -114,16 +115,16 @@ const FirstHuman = () => {
                     priority
                   />
                   <button
-                    className="mt-6 px-6 py-2 bg-gradient-to-r from-[#CE9AFF] via-[#A855F7] to-[#833AB4] text-white rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium"
+                    className="mt-6 px-6 py-2 bg-gradient-to-r font-poppins from-[#CE9AFF] via-[#A855F7] to-[#833AB4] text-white rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium"
                     onClick={() => router.push("/about-us/team-work/jaeyoung")}
                   >
                     View More
                   </button>
                 </div>
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="text-2xl font-bold font-montserrat text-black mb-4">
                   Kevin Jaeyoung Yoon
                 </h2>
-                <div className="text-md text-black space-y-1">
+                <div className="text-md text-black font-poppins space-y-1">
                   <p className="text-[#4A1A5C] font-semibold">
                     Addeep Founder & CVO Chief Visionary Officer
                   </p>
@@ -132,7 +133,7 @@ const FirstHuman = () => {
               </div>
 
               {/* Right Section - Detailed Information */}
-              <div className="space-y-6">
+              <div className="space-y-6 font-poppins">
                 <div>
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
@@ -156,37 +157,39 @@ const FirstHuman = () => {
                 </div>
 
                 {/* Major Work Experience */}
-                <div>
+                <div className="font-poppins">
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
-                    <h3 className="text-md font-semibold text-black mb-2">
+                    <h3 className="text-md font-semibold font-poppins text-black mb-2">
                       Major Work Experience
                     </h3>
                   </div>
                   <ul className="text-sm text-gray-700 space-y-3 p-3">
-                    <li>• Addeep Founder & Chief Visionary Officer</li>
-                    <li>
+                    <li className="font-poppins">
+                      • Addeep Founder & Chief Visionary Officer
+                    </li>
+                    <li className="font-poppins">
                       • Founder of Addeep Augmented AI LMM (Large Mind-mining
                       Model): GPR-1
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Overseeing Addeep S2E SNS Platform Series Product
                       Business
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • 'ACT' content automatic convergence generation
                       technology / 'ACI' content security technology [Founder of
                       security technology for automatically merging multiple
                       media contents into a single content and real-time cloud
                       content rights protection]
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Commercialization of OTT smart content platform & smart
                       devices, AI social robot product series Development and
                       consulting services for network information security
                       products and integrated security UTM solutions
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Overseeing ICT global business strategy for Korea, the
                       US, China, Singapore, and Southeast Asia
                     </li>
@@ -201,19 +204,19 @@ const FirstHuman = () => {
                     </h3>
                   </div>
                   <ul className="text-sm text-gray-700 space-y-4 p-3">
-                    <li>
+                    <li className="font-poppins">
                       • Launched Addeep Platform Series Product Global Service,
                       R&D Secured SNS Service, and Base Digital Platform Service
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Commercialized OTT smart content platform and smart
                       device, as well as AI social robot product series
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Pioneer of 'ACI' content security technology for
                       protecting digital content rights
                     </li>
-                    <li>
+                    <li className="font-poppins">
                       • Oversaw global management strategies in South Korea,
                       U.S., China, Singapore, Southeast Asia, and EU ICT
                     </li>
@@ -224,33 +227,33 @@ const FirstHuman = () => {
                 <div>
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
-                    <h3 className="text-md font-semibold text-black mb-2">
+                    <h3 className="text-md font-semibold font-poppins text-black mb-2">
                       Major Awards
                     </h3>
                   </div>
                   <ul className="text-sm text-gray-700 space-y-4 p-3">
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2017 18th Small and Medium-sized Enterprise Technology
                       Innovation Exhibition hosted by the Ministry of SMEs and
                       Startups, awarded the Prime Minister's Award
                     </li>
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2017 KCS CICON Award for Creative Management
                     </li>
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2017 Ministry of Trade, Industry, and Energy, selected
                       as an outstanding company for brainpower in the 'K -
                       BrainPower' program
                     </li>
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2017 received the US White House Donald Trump
                       Presidential Award
                     </li>
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2016 ICOTEC International Copyright Technology
                       Conference, awarded for copyright technology
                     </li>
-                    <li className="max-w-md">
+                    <li className="max-w-md font-poppins">
                       • 2015 Best Management Award in Korea, awarded for
                       technological innovation
                     </li>
@@ -260,13 +263,15 @@ const FirstHuman = () => {
                 <div>
                   <div className="flex flex-row gap-3">
                     <div className="w-1 h-7 bg-[#7B2CBF]" />
-                    <h3 className="text-md font-semibold text-black mb-2">
+                    <h3 className="text-md font-semibold font-poppins text-black mb-2">
                       Published Books & Columns
                     </h3>
                   </div>
-                  <ul className="text-sm text-gray-700 space-y-4 p-3">
-                    <li>• Book: Smart Platform One Core</li>
-                    <li>
+                  <ul className="text-sm text-gray-700 font-poppins space-y-4 p-3">
+                    <li className="font-poppins">
+                      • Book: Smart Platform One Core
+                    </li>
+                    <li className="font-poppins">
                       • Column: Series on innovation in social media platforms
                       and digital advertising ecosystems, and many more
                     </li>
@@ -483,31 +488,35 @@ const SecondHuman = () => {
                     priority
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-black mb-1">
+                <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
                   Chris Kang
                 </h2>
-                <div className="text-md text-black space-y-1">
-                  <p className="text-[#4A1A5C] font-semibold">Addeep Inc CEO</p>
+                <div className="text-md text-black font-poppins space-y-1">
+                  <p className="text-[#4A1A5C] font-semibold font-poppins">
+                    Addeep Inc CEO
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center font-poppins">
                 {/* Education */}
                 <div className="flex flex-row gap-3">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
-                  <h3 className="text-md font-semibold text-black mb-2">
+                  <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     Education & Background
                   </h3>
                 </div>
 
-                <ul className="text-md text-gray-700 space-y-4 p-3">
-                  <li>
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                  <li className="font-poppins">
                     • Bachelor's degree in Computer Engineering from Woosong
                     University
                   </li>
-                  <li>• Former Vice President and COO of Titan Platform</li>
-                  <li>• Former CEO of Titan Studio</li>
-                  <li>
+                  <li className="font-poppins">
+                    • Former Vice President and COO of Titan Platform
+                  </li>
+                  <li className="font-poppins">• Former CEO of Titan Studio</li>
+                  <li className="font-poppins">
                     • Expert in network integration, information security
                     development, and security consulting
                   </li>
@@ -515,25 +524,25 @@ const SecondHuman = () => {
                 {/* Global Operations & Management */}
                 <div className="flex flex-row gap-3 mt-8">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
-                  <h3 className="text-md font-semibold text-black mb-2">
+                  <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     Global Operations & Management
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 space-y-4 p-3">
-                  <li>
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                  <li className="font-poppins">
                     • Managed operations and established global business
                     strategies, administrative management for 7 overseas
                     subsidiaries
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Recipient of the Excellent Award at the 1st JST Venture
                     Startup Contest
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Oversaw the management of a studio for producing digital
                     content for broadcasting and advertising
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Responsivle for personal affairs, administration, legal
                     affairs, and business planning and management
                   </li>
@@ -541,26 +550,26 @@ const SecondHuman = () => {
 
                 <div className="flex flex-row gap-3 mt-8">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
-                  <h3 className="text-md font-semibold text-black mb-2">
+                  <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     International Partnerships
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 space-y-4 p-3">
-                  <li>
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                  <li className="font-poppins">
                     • Established network cooperation partnerships for business
                     expansion in France, Switzerland, and other EU countries
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Established and operated IDC data infrastructure services
                     for smart content services in collaboration with China
                     Unicorn
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Collaborated with China Unicorn for strategic joint
                     ventures to promote smart content platforms and smart device
                     business in China
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Established strategic business cooperation partnerships
                     with Softbank Solution China
                   </li>
@@ -695,37 +704,41 @@ const ThirdHuman = () => {
                     priority
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-black mb-1">
+                <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
                   SeonTae Kim
                 </h2>
-                <div className="text-md text-black space-y-1">
-                  <p className="text-[#4A1A5C] font-semibold">
+                <div className="text-md text-black font-poppins space-y-1">
+                  <p className="text-[#4A1A5C] font-semibold font-poppins">
                     Addeep Inc CFO (Chief Financial Officer)
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center font-poppins">
                 {/* Education */}
                 <div className="flex flex-row gap-3">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
-                  <h3 className="text-md font-semibold text-black mb-2">
+                  <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     Education & Background
                   </h3>
                 </div>
-                <ul className="text-md text-gray-700 space-y-4 p-3">
-                  <li>
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                  <li className="font-poppins">
                     • Bachelor's degree in Business Administration from Seoul
                     National University
                   </li>
-                  <li>
+                  <li className="font-poppins">
                     • Completed Bio-CEO Course at Seoul National University
                   </li>
-                  <li>
-                    • Former CEO of K-Longevity, KangStemBioTech, ST Asset
+                  <li className="font-poppins">
+                    • Former CEO o f K-Longevity, KangStemBioTech, ST Asset
                   </li>
-                  <li>• Former CSO of Pharmaworks, KODIAM</li>
-                  <li>• Former CFO of Carin Networks, MetaCen Therapeutics</li>
+                  <li className="font-poppins">
+                    • Former CSO of Pharmaworks, KODIAM
+                  </li>
+                  <li className="font-poppins">
+                    • Former CFO of Carin Networks, MetaCen Therapeutics
+                  </li>
                 </ul>
               </div>
             </div>
