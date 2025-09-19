@@ -240,6 +240,9 @@ function EventContent() {
   if (isMobile || isTablet) {
     return (
       <div className="flex flex-col items-center min-h-screen bg-white">
+        <h2 className="text-3xl font-bold text-neutral-900 md:text-4xl font-montserrat">
+          Event
+        </h2>
         <div className={NoticeListSectionClassname}>
           <NoticeList title="" items={eventList?.data || []} />
         </div>
@@ -248,9 +251,14 @@ function EventContent() {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-white">
-      <div className={NoticeListSectionClassname}>
-        <NoticeList title="" items={eventList?.data || []} />
+    <div className="flex flex-col p-28">
+      <h2 className="text-3xl font-bold text-neutral-900 md:text-4xl font-montserrat ml-72">
+        Event
+      </h2>
+      <div className="flex flex-col items-center min-h-screen bg-white">
+        <div className={NoticeListSectionClassname}>
+          <NoticeList title="" items={eventList?.data || []} />
+        </div>
       </div>
     </div>
   );

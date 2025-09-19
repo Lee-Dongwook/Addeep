@@ -302,12 +302,12 @@ export default function LandingPage() {
                   </p>
                 </div>
                 {/* Bottom Arrow */}
-                <div
+                {/* <div
                   className="absolute top-2/4 mt-12 left-8 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
                   onClick={handleArrowClick}
                 >
                   <LandingBottomArrowIcon />
-                </div>
+                </div> */}
 
                 {/* Image Section */}
                 <div
