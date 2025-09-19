@@ -172,16 +172,16 @@ function AboutSwiper() {
     }
 
     return (
-      <div className="flex flex-col md:flex-row items-center justify-between h-full px-8 md:px-20">
+      <div className="flex flex-col md:flex-row items-center h-full px-8">
         {/* Text */}
-        <div className="md:w-2/3 space-y-6">
+        <div className="w-full space-y-6">
           <h1 className="text-[60px] font-bold">We Are</h1>
           <h2 className="text-2xl md:text-4xl font-bold text-[#833AB4] leading-snug">
             {slide.title}
           </h2>
-          <div className="text-[#374151] text-xl leading-relaxed">
+          <div className="text-[#374151] text-xl leading-loose">
             {slide.text.map((t, index) => (
-              <div key={index}>{t}</div>
+              <h4 key={index}>{t}</h4>
             ))}
           </div>
         </div>
@@ -334,12 +334,12 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       {sectionData.map((section, index) => (
         <AnimatedSection key={index} index={index}>
-          <div className="grid grid-cols-2 grid-rows-2 gap-2">
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 items-center justify-center">
             {/* Top Left - Text */}
             <div className="animate-text flex items-center justify-center">
               <p className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-left gap-6">
                 {section.text.map((line, lineIndex) => (
-                  <span key={lineIndex} className="block">
+                  <span key={lineIndex} className="block mt-3 mb-3">
                     {line}
                   </span>
                 ))}
@@ -369,13 +369,24 @@ export default function LandingPage() {
 
             {/* Bottom Right - Text */}
             <div className="animate-text flex items-center justify-center p-24">
-              <p className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-right gap-6">
+              <div className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-right gap-6">
                 {HeaderImageData.map((header, headerIndex) => (
-                  <span key={headerIndex} className="block">
-                    {header.text.join(" ")}
-                  </span>
+                  <div key={headerIndex}>
+                    <span key={1} className="block mt-4 mb-4">
+                      {header.text[0]}
+                    </span>
+                    <span key={2} className="block mt-4 mb-4">
+                      {header.text[1]}
+                    </span>
+                    <span key={3} className="block mt-4 mb-4">
+                      {header.text[2]}
+                    </span>
+                    <span key={4} className="block mt-4 mb-4">
+                      {header.text[3]}
+                    </span>
+                  </div>
                 ))}
-              </p>
+              </div>
             </div>
 
             {/* Bottom Arrow */}
