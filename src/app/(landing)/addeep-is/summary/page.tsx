@@ -539,6 +539,7 @@ function SummarySNS() {
     return (
       <div className="flex flex-col flex-1">
         <div className="w-full text-center">
+          <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-20 rounded-lg" />
           <div
             className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
             style={{
@@ -549,23 +550,26 @@ function SummarySNS() {
               border: "1px solid #E5E7EB",
             }}
           >
-            <h1 className="text-2xl font-bold text-white mb-4">
-              Addeep S2E SNS GPR Platform
-            </h1>
-            <h3 className="text-xl font-bold text-white mb-4">
-              Experience an innovative platform where engagement genuinely
-            </h3>
-            <h3 className="text-xl font-bold text-white mb-4">
-              rewards every participant, powered by Addeep GPR AI.
-            </h3>
+            <div className="flex flex-col items-center justify-center z-10">
+              <h1 className="text-2xl font-bold font-montserrat text-white mb-4">
+                Addeep S2E SNS GPR Platform
+              </h1>
+              <h3 className="text-xl font-normal font-poppins text-white mb-4">
+                Experience an innovative platform where engagement genuinely
+              </h3>
+              <h3 className="text-xl font-normal font-poppins text-white mb-4">
+                rewards every participant, powered by Addeep GPR AI.
+              </h3>
+            </div>
           </div>
         </div>
+
         <div className="flex flex-col flex-1 p-6 gap-4">
-          <h2 className="mb-4 text-2xl font-bold">
+          <h2 className="mb-4 text-2xl font-bold font-montserrat">
             <span className="text-[#B641E9] font-bold">Redefining Value: </span>
             Shared Prosperity for All
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-loose font-poppins font-normal">
             Addeep allows users to accumulate reward cash, optimized through
             Addeep GPR Ai's sophisticated analysis, which can be used like real
             money. Our innovative structure ensures reward cash accumulates for
@@ -573,10 +577,10 @@ function SummarySNS() {
             creators/influencers - where increased usage generates more economic
             profit for everyone.
           </p>
-          <h2 className="mb-4 text-2xl text-[#B641E9] font-bold mt-4">
+          <h2 className="mb-4 text-2xl text-[#B641E9] font-bold font-montserrat mt-4">
             Empowering Users, Beyond Traditional Models
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-loose font-poppins font-normal">
             Addeep addresses the imbalance in existing platform ecosystems where
             users were subordinate. We introduce an SNS platform based on a user
             and participant-centric reward-based advertising service for users
@@ -584,45 +588,45 @@ function SummarySNS() {
           </p>
 
           <div className="flex flex-col mt-16 gap-4">
-            <h2 className="text-2xl text-[#B641E9] font-bold">
+            <h2 className="text-2xl text-[#B641E9] font-bold font-montserrat">
               Addeep GRP AI:
             </h2>
-            <h2 className="text-xl font-bold">
+            <h2 className="text-xl font-bold font-montserrat">
               Intelligent Engagement & Fair Distribution
             </h2>
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed font-poppins font-normal">
               Addeep's core strength lies in the enhanced predicitive and
               generative capabilities of Addeep GPR AI, differentiated big data
               analysis, and improved targeted advertising marketing services.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 mt-12">
+          <div className="grid grid-cols-1 gap-4 mt-6">
             <div className="max-w-[600px] border-[1.2px] border-transparent shadow-xl p-6 rounded-2xl flex flex-col">
-              <h2 className="mb-4 text-2xl font-semibold text-[#B641E9]">
+              <h2 className="mb-4 text-xl font-semibold text-[#B641E9] font-montserrat">
                 Personalized Content Generation
               </h2>
-              <p className="text-2xl leading-relaxed">
+              <p className="text-lg leading-relaxed font-poppins font-normal">
                 Addeep GPR AI automatically generates and recommends
                 personalized content without explicit user input.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-transparent shadow-xl p-6 rounded-2xl flex flex-col">
-              <h2 className="mb-4 text-2xl font-semibold text-[#B641E9]">
+              <h2 className="mb-4 text-xl font-semibold text-[#B641E9] font-montserrat">
                 Fair Revenue Sharing
               </h2>
-              <p className="text-2xl leading-relaxed">
+              <p className="text-lg leading-relaxed font-poppins font-normal">
                 Builds a platform ecosystem that more fairly and efficiently
                 shares advertising costs among all participants.
               </p>
             </div>
 
             <div className="max-w-[600px] border-[1.2px] border-transparent shadow-xl p-6 rounded-2xl flex flex-col">
-              <h2 className="mb-4 text-2xl font-semibold text-[#B641E9]">
+              <h2 className="mb-4 text-xl font-semibold text-[#B641E9] font-montserrat">
                 100% Targeted Accuracy
               </h2>
-              <p className="text-2xl leading-relaxed">
+              <p className="text-lg leading-relaxed font-poppins font-normal">
                 Innovative AI-driven revenue-sharing model where targeted
                 advertising accuracy approaches 100%, maximizing efficiency.
               </p>
@@ -630,28 +634,28 @@ function SummarySNS() {
           </div>
 
           <div className="flex flex-col items-center justify-center mt-16">
-            <h2 className="mb-4 text-2xl font-bold">
+            <h2 className="mb-4 text-2xl font-bold font-montserrat">
               Next-Generation Technology
             </h2>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl font-bold font-montserrat">
               for{" "}
               <span className="text-[#B641E9]">Creators and Industries</span>
             </h2>
           </div>
 
-          <h2 className="mb-4 text-xl font-semibold text-[#B641E9]">
+          <h2 className="mb-4 text-xl font-semibold text-[#B641E9] font-montserrat">
             AI & Cloud Platform
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed font-poppins font-normal">
             Addeep GPR AI advances deep learning AI technology to a new level,
             providing cloud-based data platform technology. This optimizes the
             platform for various industry customers to conveniently utilize
             customized, domain-specialized services.
           </p>
-          <h2 className="mb-4 text-xl font-semibold text-[#B641E9] mt-8">
+          <h2 className="mb-4 text-xl font-semibold text-[#B641E9] font-montserrat mt-8">
             ACI Content Protection
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed font-poppins font-normal">
             The ACI (Addeep Contents Identifier) content protection technology
             leverages Addeep GPR AI's content analysis and identification
             capabilities, along with blockchain security technology, to enhance
@@ -670,14 +674,14 @@ function SummarySNS() {
               border: "1px solid #E5E7EB",
             }}
           >
-            <h1 className="text-3xl font-bold text-white mb-12">
+            <h1 className="text-3xl font-bold font-montserrat text-white mb-12">
               Expanding Our Global Footprint
             </h1>
-            <h3 className="text-lg font-bold text-white mb-4">
+            <h3 className="text-lg font-normal font-poppins text-white mb-4">
               Addeep will expand this new platform ecosystem, starting in South
               Korea,
             </h3>
-            <h3 className="text-lg font-bold text-white mb-4">
+            <h3 className="text-lg font-normal font-poppins text-white mb-4">
               to be accessible to people worldwide.
             </h3>
           </div>
