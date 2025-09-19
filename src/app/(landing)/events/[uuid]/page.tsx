@@ -166,10 +166,11 @@ const EventDetailHeader = ({
 }) => {
   const { isMobile, isTablet } = useResponsive();
 
-  if (isMobile || isTablet) {
+  if (isMobile) {
     return (
       <div className="w-full text-center flex-1">
-        <div
+        <div className="absolute min-h-[300px] max-h-[900px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
+        <header
           className="w-full min-h-[400px] rounded-lg flex flex-col items-center justify-center p-12"
           style={{
             background:
@@ -179,30 +180,164 @@ const EventDetailHeader = ({
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-2xl font-bold text-white mb-2">
-            {eventDetail[0].title.split(":")[0] + " : "}
+          <div className="flex flex-col items-center justify-center z-10">
+            <h1 className="text-2xl font-bold text-white mb-2">
+              {eventDetail[0].title.split(":")[0] + " : "}
+            </h1>
+            <h1 className="text-2xl font-bold text-white mb-12">
+              {eventDetail[0].title.split(":")[1]}
+            </h1>
+            <h3 className="text-lg font-medium text-white mb-4">
+              {eventDetail[0].banner_description[0]}
+            </h3>
+            <h3 className="text-lg font-medium text-white">
+              {eventDetail[0].banner_description[1]}
+            </h3>
+
+            <div className="flex flex-col gap-8 rounded-lg bg-white/20 p-4 my-16">
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">일정</div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.date}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">장소</div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.space}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">
+                  사전 신청 기간
+                </div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.pre}
+                </div>
+              </div>
+            </div>
+
+            <button
+              className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
+              onClick={() => window.open(formLink, "_blank")}
+            >
+              <span className="text-white font-medium">참가 신청하기</span>
+            </button>
+          </div>
+        </header>
+      </div>
+    );
+  }
+
+  if (isTablet) {
+    return (
+      <div className="w-full text-center flex-1">
+        <div className="absolute min-h-[200px] max-h-[750px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
+        <header
+          className="w-full min-h-[400px] rounded-lg flex flex-col items-center justify-center p-12"
+          style={{
+            background:
+              uuid === "1"
+                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
+                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <div className="flex flex-col items-center justify-center z-10">
+            <h1 className="text-2xl font-bold text-white mb-2">
+              {eventDetail[0].title.split(":")[0] + " : "}
+            </h1>
+            <h1 className="text-2xl font-bold text-white mb-12">
+              {eventDetail[0].title.split(":")[1]}
+            </h1>
+            <h3 className="text-lg font-medium text-white mb-4">
+              {eventDetail[0].banner_description[0]}
+            </h3>
+            <h3 className="text-lg font-medium text-white">
+              {eventDetail[0].banner_description[1]}
+            </h3>
+
+            <div className="flex flex-col gap-8 rounded-lg bg-white/20 p-4 my-16">
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">일정</div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.date}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">장소</div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.space}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="text-xl font-bold text-[#BD19F1]">
+                  사전 신청 기간
+                </div>
+                <div className="text-lg font-normal text-white">
+                  {eventDetail?.[0].Hero.pre}
+                </div>
+              </div>
+            </div>
+
+            <button
+              className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11 mb-8"
+              onClick={() => window.open(formLink, "_blank")}
+            >
+              <span className="text-white font-medium">참가 신청하기</span>
+            </button>
+          </div>
+        </header>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full text-center">
+      <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
+      <header
+        className="w-full min-h-[600px] rounded-lg flex flex-col items-center justify-center"
+        style={{
+          background:
+            uuid === "1"
+              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
+              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
+          border: "1px solid #E5E7EB",
+        }}
+      >
+        <div className="flex flex-col items-center justify-center z-10 mt-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+            {eventDetail[0].title.split(":")[0] + ":"}
           </h1>
-          <h1 className="text-2xl font-bold text-white mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
             {eventDetail[0].title.split(":")[1]}
           </h1>
-          <h3 className="text-lg font-medium text-white mb-4">
+          <h3 className="text-xl font-medium text-white">
             {eventDetail[0].banner_description[0]}
           </h3>
-          <h3 className="text-lg font-medium text-white">
+          <h3 className="text-xl font-medium text-white">
             {eventDetail[0].banner_description[1]}
           </h3>
 
-          <div className="flex flex-col gap-8 rounded-lg bg-white/20 p-4 my-16">
+          <div className="flex flex-row gap-12 rounded-lg bg-white/20 px-3 py-2 my-4 w-full h-full">
             <div className="flex flex-col gap-2">
-              <div className="text-xl font-bold text-[#BD19F1]">일정</div>
+              <div className="text-2xl font-bold text-[#BD19F1]">일정</div>
               <div className="text-lg font-normal text-white">
                 {eventDetail?.[0].Hero.date}
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="text-xl font-bold text-[#BD19F1]">장소</div>
+              <div className="text-2xl font-bold text-[#BD19F1]">장소</div>
               <div className="text-lg font-normal text-white">
                 {eventDetail?.[0].Hero.space}
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="text-2xl font-bold text-[#BD19F1]">
+                사전 신청 기간
+              </div>
+              <div className="text-lg font-normal text-white">
+                {eventDetail?.[0].Hero.pre}
               </div>
             </div>
           </div>
@@ -214,54 +349,7 @@ const EventDetailHeader = ({
             <span className="text-white font-medium">참가 신청하기</span>
           </button>
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-full text-center">
-      <div
-        className="w-full min-h-[600px] rounded-lg flex flex-col items-center justify-center"
-        style={{
-          background:
-            uuid === "1"
-              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
-              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
-          border: "1px solid #E5E7EB",
-        }}
-      >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12">
-          {eventDetail[0].title}
-        </h1>
-        <h3 className="text-xl font-medium text-white">
-          {eventDetail[0].banner_description[0]}
-        </h3>
-        <h3 className="text-xl font-medium text-white">
-          {eventDetail[0].banner_description[1]}
-        </h3>
-
-        <div className="flex flex-col gap-12 rounded-lg bg-white/20 px-3 py-2 my-4 w-2/3">
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-bold text-[#BD19F1]">일정</div>
-            <div className="text-lg font-normal text-white">
-              {eventDetail?.[0].Hero.date}
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="text-2xl font-bold text-[#BD19F1]">장소</div>
-            <div className="text-lg font-normal text-white">
-              {eventDetail?.[0].Hero.space}
-            </div>
-          </div>
-        </div>
-
-        <button
-          className="w-48 h-14 rounded-full bg-gradient-to-r from-[#4C15A1] via-[#A218DE] to-[#FF17C5] mt-8 py-4 px-11"
-          onClick={() => window.open(formLink, "_blank")}
-        >
-          <span className="text-white font-medium">참가 신청하기</span>
-        </button>
-      </div>
+      </header>
     </div>
   );
 };
