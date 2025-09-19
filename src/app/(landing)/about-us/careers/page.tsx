@@ -5,7 +5,6 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
-import { LandingBottomArrowIcon } from "../../../../icons";
 import { sectionData, items } from "../../../../constants/careers";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
@@ -121,10 +120,10 @@ const InfoCard = ({ title, description, img = `` }: InfoCardProps) => {
 
       <div className="flex items-start gap-5 mt-8 min-w-96">
         <div className="space-y-2">
-          <h3 className="text-base md:text-2xl font-poppins font-extrabold text-gray-900">
+          <h3 className="text-xl md:text-2xl font-poppins font-extrabold text-gray-900">
             {title}
           </h3>
-          <p className="text-sm md:text-lg text-gray-600 font-poppins leading-loose">
+          <p className="text-lg text-gray-600 font-poppins leading-loose">
             {description}
           </p>
         </div>
@@ -138,44 +137,44 @@ const CareerHero = () => {
 
   if (isMobile || isTablet) {
     return (
-      <section className="w-full bg-[#F9FAFB]">
+      <section className="w-full bg-[#F9FAFB] -mt-64">
         <div className="mx-auto px-6 py-14">
           {/* 제목 */}
-          <h1 className="text-2xl font-extrabold text-gray-800 tracking-tight">
+          <h1 className="text-3xl font-extrabold text-gray-800 tracking-tight font-montserrat">
             Job Openings
           </h1>
 
           {/* 본문 */}
-          <h3 className="mt-8 text-md font-normal text-gray-700 leading-relaxed">
+          <h3 className="mt-8 text-lg font-normal text-gray-700 leading-relaxed font-poppins">
             We are currently seeking talented individuals
           </h3>
-          <h3 className="text-md font-normal text-gray-700">
+          <h3 className="text-lg font-normal text-gray-700 font-poppins">
             to join our team in the following roles:
           </h3>
           <div className="flex flex-col gap-6 mt-8">
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-normal text-gray-700 min-w-72">
+              <h3 className="text-2xl font-normal text-gray-700 min-w-72 font-poppins">
                 Backend Planner
               </h3>
-              <p className="text-lg font-normal text-gray-700">
+              <p className="text-lg font-normal text-gray-700 font-poppins">
                 Designs the backend system architecture and plans new features
                 to ensure the service's stability and efficiency.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72 font-poppins">
                 Engineer
               </h3>
-              <p className="text-lg font-normal text-gray-700 leading-relaxed">
+              <p className="text-lg font-normal text-gray-700 leading-relaxed font-poppins">
                 Utilizes a diverse tech stack to implement and develop Addeep's
                 innovative AI and Web 3.0 platform.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+              <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72 font-poppins">
                 Global Business Strategist
               </h3>
-              <p className="text-lg font-normal text-gray-700 leading-relaxed">
+              <p className="text-lg font-normal text-gray-700 leading-relaxed font-poppins">
                 Analyzes global market trends and formulates strategies to
                 achieve Addeep's business objectives.
               </p>
@@ -238,10 +237,10 @@ const CareerCard = () => {
     <section className="w-full bg-white">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div>
-          <h1 className="text-5xl font-montserrat font-bold text-gray-800 tracking-tight">
+          <h1 className="text-3xl font-montserrat font-bold text-gray-800 tracking-tight">
             Recuritment
           </h1>
-          <h1 className="text-5xl font-montserrat font-bold text-gray-800 tracking-tight">
+          <h1 className="text-3xl font-montserrat font-bold text-gray-800 tracking-tight">
             Purpose
           </h1>
           <h3 className="mt-8 text-xl lg:text-2xl font-poppins font-normal text-gray-700">
@@ -286,20 +285,32 @@ export default function LandingPage() {
 
   if (isMobile || isTablet) {
     return (
-      <div className="min-h-screen bg-gray-200">
+      <div className="min-h-screen">
         <div className="mx-auto">
           {sectionData.map((section, index) => (
             <AnimatedSection key={index} index={index}>
-              <div className="flex flex-col w-full">
-                {/* Text Section */}
-                <div className="absolute top-1/4 items-center justify-center p-8">
-                  <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-2">
-                    {section.text.map((line, lineIndex) => (
-                      <span key={lineIndex} className="animate-text">
-                        {line}
-                      </span>
-                    ))}
-                  </p>
+              <div className="flex flex-col w-full -mt-48">
+                <div className="absolute h-[600px] inset-0 bg-black mt-36 rounded-lg" />
+                <div
+                  className="flex flex-col h-[600px] items-center justify-center text-center"
+                  style={{
+                    background: `url(${NEXT_PUBLIC_CDN_BASE}/images/CareerBanner.png)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    opacity: 0.9,
+                  }}
+                >
+                  {/* Text Section */}
+                  <div className="items-center justify-center relative z-10">
+                    <p className="text-2xl font-montserrat flex flex-col font-bold text-white leading-loose text-center gap-2">
+                      {section.text.map((line, lineIndex) => (
+                        <span key={lineIndex} className="animate-text">
+                          {line}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
                 </div>
                 {/* Bottom Arrow */}
                 {/* <div
@@ -308,19 +319,6 @@ export default function LandingPage() {
                 >
                   <LandingBottomArrowIcon />
                 </div> */}
-
-                {/* Image Section */}
-                <div
-                  className={[
-                    "absolute top-3/4 mt-6 right-0 w-full h-1/3 animate-image",
-                  ].join(" ")}
-                >
-                  <img
-                    src="https://storage.googleapis.com/assets-addeep/images/Career_Background.png"
-                    alt="girl taking a photo with a tunnel filter"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
               </div>
             </AnimatedSection>
           ))}

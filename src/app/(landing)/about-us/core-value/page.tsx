@@ -68,9 +68,9 @@ const CoreValueHeader = () => {
           <img
             src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
             alt="logo"
-            className="h-12 w-12"
+            className="h-14 w-16"
           />
-          <h1 className="text-2xl font-bold mb-4">
+          <h1 className="text-2xl font-bold font-montserrat mb-4">
             We <span className="text-[#B641E9]">Bridge</span> Values
           </h1>
         </div>
@@ -113,7 +113,7 @@ function CoreValues() {
               </div>
 
               {/* 텍스트 */}
-              <p className="text-lg text-gray-600 leading-relaxed font-semibold">
+              <p className="text-lg text-gray-600 leading-relaxed font-semibold font-poppins">
                 {item.desc}
               </p>
             </div>
@@ -155,8 +155,10 @@ const CoreValueHero = () => {
     return (
       <div className="w-full p-6 text-center flex flex-col bg-white mt-8">
         <div className="flex-1 flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold text-black mb-4">Core Values</h1>
-          <p className="text-xl mt-2 font-normal text-[#4B5563] leading-relaxed">
+          <h1 className="text-2xl font-bold text-black font-montserrat mb-4">
+            Core Values
+          </h1>
+          <p className="text-xl mt-2 font-normal text-[#4B5563] leading-relaxed font-poppins">
             Our core values are
           </p>
           <CoreValues />
@@ -188,9 +190,11 @@ const FirstContainer = () => {
         <div className="p-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center">
-              <h2 className="text-4xl font-bold text-black mb-4">Vision</h2>
+              <h2 className="text-4xl font-bold text-black font-montserrat mb-4">
+                Vision
+              </h2>
 
-              <ul className="text-lg text-gray-700 font-normal font-sans space-y-1">
+              <ul className="text-lg text-gray-700 font-normal font-poppins space-y-1">
                 <li>The one and only Addeep, aiming</li>
                 <li>for a clean and desirable digital content world</li>
               </ul>
@@ -232,13 +236,15 @@ const SecondContainer = () => {
         <div className="p-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center">
-              <h2 className="text-4xl font-bold text-black mb-4">Motto</h2>
+              <h2 className="text-4xl font-bold text-black font-montserrat mb-4">
+                Motto
+              </h2>
 
-              <p className="text-xl font-bold text-[#833AB4] leading-relaxed mb-6">
+              <p className="text-xl font-bold text-[#833AB4] leading-relaxed mb-6 font-poppins">
                 Aspiration, Empathy, Agility
               </p>
 
-              <ul className="text-lg text-gray-700 font-normal font-sans space-y-1">
+              <ul className="text-lg text-gray-700 font-normal font-poppins space-y-1">
                 <li>Let's collaborate with</li>
                 <li>aspiration, empathy, and agility</li>
                 <li>to make the most of our precious time.</li>
@@ -289,9 +295,11 @@ const ThirdContainer = () => {
         <div className="p-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center">
-              <h2 className="text-4xl font-bold text-black mb-4">Mission</h2>
+              <h2 className="text-4xl font-bold text-black font-montserrat mb-4">
+                Mission
+              </h2>
 
-              <ul className="text-lg text-gray-700 font-normal font-sans flex flex-col items-center justify-center space-y-4">
+              <ul className="text-lg text-gray-700 font-normal font-poppins flex flex-col items-center justify-center space-y-4">
                 <li className="flex flex-row items-center gap-4">
                   Let's strive for small successes.
                 </li>
