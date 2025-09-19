@@ -548,7 +548,7 @@ const SecondHuman = () => {
                   </li>
                 </ul>
 
-                <div className="flex flex-row gap-3 mt-8 hidden">
+                <div className="flex-row gap-3 mt-8 hidden">
                   <div className="w-1 h-7 bg-[#7B2CBF]" />
                   <h3 className="text-md font-semibold font-poppins text-black mb-2">
                     International Partnerships
