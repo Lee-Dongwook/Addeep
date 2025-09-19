@@ -61,25 +61,25 @@ function SummaryAI() {
           </button>
         </div>
         <div className="flex flex-col flex-1 p-6">
-          <h2 className="mb-4 text-2xl font-bold">
+          <h2 className="mb-4 text-xl font-bold font-montserrat">
             Redefining <span className="text-[#B641E9]">Web 3.0 </span>
             Social Media
           </h2>
           <div className="border border-[#B641E9] text-[#B641E9] w-10 h-px mb-4"></div>
-          <p className="text-xl leading-loose">
-            <span className="text-[#B641E9] font-bold">Addeep-GPR-1</span>{" "}
+          <p className="text-lg leading-relaxed font-poppins font-normal">
+            <span className="text-[#B641E9] font-semibold">Addeep-GPR-1</span>{" "}
             (Generative Pre-trained Recommender) represents the core technology
             powering our revolutionary Web 3.0 social media platform. Our
             breakthrough integration of{" "}
-            <span className="text-[#B641E9] font-bold">
+            <span className="text-[#B641E9] font-semibold">
               next-generation CNN and RNN technologies{" "}
             </span>
             into existing conversational AI models creates an unprecendented
             user experience.
           </p>
-          <p className="text-xl leading-loose mt-6">
+          <p className="text-lg leading-relaxed mt-6 font-poppins font-normal">
             Unlike traditional AI systems, GPR focuses on{" "}
-            <span className="text-[#B641E9] font-bold">
+            <span className="text-[#B641E9] font-semibold">
               automatically generating and recommending personalized
               content{" "}
             </span>
@@ -90,26 +90,28 @@ function SummaryAI() {
 
         <div className="flex flex-col flex-1 p-6">
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold mb-1">
+            <h2 className="text-xl font-bold mb-1 font-montserrat">
               Beyond the Conversation:
             </h2>
-            <h2 className="mb-4 text-2xl font-bold">Our Technical Advantage</h2>
+            <h2 className="mb-4 text-xl font-bold font-montserrat">
+              Our Technical Advantage
+            </h2>
             <div className="border border-[#B641E9] text-[#B641E9] w-10 h-px mt-2 mb-4"></div>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-4">
             <div className="max-w-96 border-[1.2px] border-[#1F2937] p-2 rounded-2xl flex flex-col items-center">
-              <h2 className="text-xl text-[#B641E9] font-bold mb-4 mt-4">
+              <h2 className="text-xl text-[#B641E9] font-bold mb-4 mt-4 font-montserrat">
                 UnderStanding the Mind
               </h2>
-              <p className="text-lg leading-relaxed mb-12 p-4">
+              <p className="text-lg leading-relaxed mb-12 p-4 font-poppins font-normal">
                 Multi-dimensional user data collection from Addeep SNS including{" "}
                 <span className="font-bold">
                   communication metrics, activity patterns, and demographic
                   data.
                 </span>
               </p>
-              <p className="text-lg leading-relaxed p-4">
+              <p className="text-lg leading-relaxed p-4 font-poppins font-normal">
                 Our proprietary{" "}
                 <span className="font-bold">
                   Large Mind-mining Model (LMM){" "}
@@ -119,10 +121,10 @@ function SummaryAI() {
               </p>
             </div>
             <div className="max-w-96 border-[1.2px] border-[#1F2937] p-2 rounded-2xl flex flex-col items-center">
-              <h2 className="text-xl text-[#B641E9] font-bold mt-4">
+              <h2 className="text-xl text-[#B641E9] font-bold mt-4 font-montserrat">
                 True Automation
               </h2>
-              <p className="text-lg leading-relaxed mb-4 p-4">
+              <p className="text-lg leading-relaxed mb-4 p-4 font-poppins font-normal">
                 <span className="font-bold">
                   Non-interactive, fully automatic
                 </span>{" "}
@@ -136,21 +138,21 @@ function SummaryAI() {
               </p>
             </div>
             <div className="max-w-96 border-[1.2px] border-[#1F2937] p-6 rounded-2xl flex flex-col items-center">
-              <h2 className="text-xl text-[#B641E9] font-bold">
+              <h2 className="text-xl text-[#B641E9] font-bold font-montserrat">
                 The ACT Engine
               </h2>
-              <p className="text-lg leading-relaxed p-4">
+              <p className="text-lg leading-relaxed p-4 font-poppins font-normal">
                 <span className="font-bold">
                   Addeep Automatic Content Convergence Technology
                 </span>{" "}
                 powered by our Augmented AI and A-GPR inference model.
               </p>
-              <p className="text-lg leading-relaxed p-4">
+              <p className="text-lg leading-relaxed p-4 font-poppins font-normal">
                 Automatically generates personalized content by decomposing and
                 fusing <span className="font-bold">multi-format content </span>{" "}
                 from our platform ecosystem.
               </p>
-              <p className="text-lg leading-relaxed p-4">
+              <p className="text-lg leading-relaxed p-4 font-poppins font-normal">
                 <span className="font-bold">Deep Blend </span> technology
                 recreates user-intended content without complex authoring tools.
               </p>
