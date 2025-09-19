@@ -85,7 +85,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
               <li key={it.id}>
                 <Card
                   {...props}
-                  className="rounded-3xl bg-white border border-neutral-100 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition
+                  className="rounded-3xl bg-white border border-gray-200 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition
                   hover:shadow-md hover:-translate-y-0.5
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300
                   cursor-pointer
