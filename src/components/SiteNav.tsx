@@ -21,9 +21,7 @@ export default function SiteNav() {
 
   const pathname = usePathname();
 
-  const disabledNav =
-    pathname.includes("/addeep-is/summary/gpr") ||
-    pathname.includes("/about-us/team-work/jaeyoung");
+  const disabledNav = "";
 
   const disableLogo = pathname.includes("/about-us/core-value");
 

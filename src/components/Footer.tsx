@@ -1,22 +1,11 @@
 "use client";
 import React from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useResponsive } from "../lib/useResponsive";
 import { footerLinks, socialIcons } from "../constants/footer";
 
 export default function Footer() {
   const { isMobile, isTablet } = useResponsive();
-
-  const pathname = usePathname();
-
-  const disabledFooter =
-    pathname.includes("/addeep-is/summary/gpr") ||
-    pathname.includes("/about-us/team-work/jaeyoung");
-
-  if (disabledFooter) {
-    return null;
-  }
 
   if (isMobile || isTablet) {
     return (

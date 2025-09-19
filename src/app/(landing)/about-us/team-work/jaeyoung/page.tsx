@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import clsx from "clsx";
 import {
   BarChart,
@@ -12,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useResponsive } from "../../../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../../lib/env";
 
 export default function JaeyoungPage() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -85,21 +85,33 @@ export default function JaeyoungPage() {
       title: "Architect of the Augmented Future",
       subtitle: "Architect of the Augmented Future",
       name: "Kevin Jaeyoung Yoon",
-      education: "Hanyang University, Electronic Engineering",
+      education: [
+        "Hayfield University MBA",
+        "Seoul National University Graduate School of Business",
+        "CFO Academy",
+        "Current) Director, Korea AGI Association",
+        "Former) TiTAN Platform Corp. Founder & CEO",
+      ],
       slogan: '"We Bridge Values"',
       description:
-        "As an AI innovator and founder of Addeep, I design the future by breaking down boundaries between humans and technology through augmented AI technology.",
+        "Technology creator, global executive, and innovative visionary. With 25 years of experience, he builds a fairer, more intelligent, human-centric digital ecosystem. His expertise across ICT: Networks, Information Security, Cloud, Platform, AI, DeepTech, and Augmented AI opens up a new future for Web 3.0",
     },
     summary: {
-      title: "AI Innovator",
-      subTitle: "미래 기술의 지평을 여는 AI 혁신가, 윤재영",
-      description:
-        "Evolution from engineer to global leader, leadership and technical contributions through TCI & ACI, ACT technologies",
+      title: "Introduction",
+      subTitle:
+        "Jaeyoung Yoon, an AI Innovator Opening the Horizon of the Future Technology",
+      description: [
+        "Jaeyoung Yoon has established himself as an innovation leader spanning the AI, platform, cloud, and ICT industries by adding business insight to his solid technical foundation as a software engineer. His journey, which began with a major in electronic data processing in high school, was completed with a unique expertise that fuses technology and management through an MBA and the completion of the CFO program at Seoul National University's Graduate School of Business.",
+        "His outstanding leadership, proven while serving as CEO of TiTAN Platform Corp., is now the driving force leading innovation towards the future as the Chairman/CVO of Addeep Inc. and a director of the Korea AGI Association. Over the past 25 years, he has internalized core competencies of the ICT industry, such as business planning, product development, and business strategy, laying a solid foundation for turning ideas into reality.",
+        "He has demonstrated exceptional competence in transforming imaginary technologies into businesses by successfully commercializing an AI-based social media platform, OTT smart content, and an AI social robot series. In particular, he proved he is at the center of technological innovation by personally creating the 'TCI & ACI' technology, which presents a new paradigm for data sovereignty and digital copyright protection, and the 'ACT' automatic content convergence technology, which opened up the possibilities of generative augmented AI.",
+        "His vision has led to successful global management achievements across borders in Korea, the US, China, Singapore, and Southeast Asia. He succeeded in attracting cumulative investments of 55 billion KRW from investors, gaining recognition for his technological management competitiveness, and the 2017 Prime Minister's Award and the US White House Donald Trump Presidential Award are honorable testaments to his innovative leadership.",
+        "Currently, Jaeyoung Yoon is leading future technology with constant challenges and innovation. As a visionary business leader opening a new horizon in the augmented AI and deep tech industries, he is creating the value of coexistence for the next era, where 'technology should not exist to replace humans, but to augment and connect human value.'",
+      ],
     },
     vision: {
-      title: "Philosophy of Value Bridging",
+      title: "Vision and Philosophy",
       description:
-        "Evolution of technical philosophy: N/W → Info Security → TCI & ACI → Addeep Augmented AI GPR-1",
+        "All his innovation stems from a single philosophy: 'Value Bridging.' Connecting disconnected values and providing fair compensation to everyone who contributes to the ecosystem is the core of the future he designs.",
     },
   };
 
@@ -249,8 +261,12 @@ export default function JaeyoungPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-8 text-left">
                 {currentContent.summary.subTitle}
               </h2>
-              <div className="text-lg text-gray-700 leading-relaxed">
-                {currentContent.summary.description}
+              <div className="text-lg text-gray-700 leading-relaxed flex flex-col gap-4">
+                {currentContent.summary.description.map((description, idx) => (
+                  <div key={idx}>
+                    <p>{description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -657,96 +673,46 @@ export default function JaeyoungPage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-['Inter','Noto_Sans_KR',sans-serif]">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="max-w-full mx-auto px-24">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("hero")}
-                className="text-xl font-bold text-black"
-              >
-                Kevin Jaeyoung Yoon
-              </button>
-            </div>
-            <div className="flex items-center space-x-6">
-              <div className="hidden md:flex space-x-6">
-                {[
-                  {
-                    id: "summary",
-                    label: "About me",
-                  },
-                  {
-                    id: "vision",
-                    label: "Vision",
-                  },
-                  {
-                    id: "technologies",
-                    label: "Core Tech",
-                  },
-                  {
-                    id: "gpr1",
-                    label: "GPR-1 Model",
-                  },
-                  {
-                    id: "projects",
-                    label: "Projects",
-                  },
-                  {
-                    id: "journey",
-                    label: "Journey",
-                  },
-                  {
-                    id: "accolades",
-                    label: "Accolades",
-                  },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`nav-link px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                      activeSection === item.id
-                        ? "text-purple-600 border-b-2 border-purple-600"
-                        : "text-gray-600 hover:text-purple-600"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
+      {/* Hero Section */}
+      <section id="hero" className="relative overflow-hidden">
+        <div className="absolute h-[800px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
+        <div
+          className="w-full h-[800px] rounded-lg flex flex-col items-center justify-center"
+          style={{
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungDetailBanner.png)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            border: "1px solid #E5E7EB",
+          }}
+        >
+          <div className="relative max-w-7xl mx-auto p-28">
+            <div className="text-center">
+              <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
+                <img
+                  src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                  alt="Kevin Jaeyoung Yoon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
+                {currentContent.hero.name}
+              </h1>
+              <h2 className="text-2xl md:text-2xl font-semibold text-purple-600 mb-4">
+                {currentContent.hero.title}
+              </h2>
+              <div className="text-lg text-gray-200 mb-4">
+                {currentContent.hero.education.map((education) => (
+                  <p key={education}>{education}</p>
                 ))}
               </div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
+                {currentContent.hero.slogan}
+              </h2>
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                {currentContent.hero.description}
+              </p>
             </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" aria-hidden />
-        <div className="absolute inset-0 bg-purple-50" />
-        <div className="relative max-w-7xl mx-auto py-20 md:py-32">
-          <div className="text-center">
-            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
-              <img
-                src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
-                alt="Kevin Jaeyoung Yoon"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-3">
-              {currentContent.hero.name}
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 mb-4">
-              {currentContent.hero.title}
-            </h2>
-            <div className="text-lg text-gray-600 mb-4">
-              {currentContent.hero.education}
-            </div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
-              {currentContent.hero.slogan}
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              {currentContent.hero.description}
-            </p>
           </div>
         </div>
       </section>
@@ -761,8 +727,12 @@ export default function JaeyoungPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-left">
               {currentContent.summary.subTitle}
             </h2>
-            <div className="text-xl text-gray-700 leading-relaxed">
-              {currentContent.summary.description}
+            <div className="text-xl text-gray-700 leading-relaxed flex flex-col gap-12">
+              {currentContent.summary.description.map((description, idx) => (
+                <div key={idx}>
+                  <p>{description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -835,7 +805,7 @@ export default function JaeyoungPage() {
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-purple-600 text-center mb-12">
-            Core Technologies: The Pillars of the Future Economy
+            Core Technologies: Pillars of the Future Economy
           </h2>
 
           <div className="flex flex-row items-center gap-2 justify-center p-4 mb-8">
@@ -939,7 +909,7 @@ export default function JaeyoungPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-purple-600 mb-8">
-              GPR-1: Augmented AI Inference Model
+              GPR-1: The Augmented AI Inference Model
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               Addeep GPR-1 is a core engine of 'augmented intelligence' that not
@@ -987,7 +957,7 @@ export default function JaeyoungPage() {
       <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-purple-600 text-center mb-12">
-            Key Projects and Product Development
+            Key Projects & Product Development
           </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             His product development journey started with information security
@@ -1090,7 +1060,7 @@ export default function JaeyoungPage() {
       <section id="accolades" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto mb-12">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Achievement and Recognition: A Legacy of Excellence
+            Accolades: A Legacy of Excellence
           </h2>
 
           <div className="flex flex-row justify-between gap-8 w-[1200px]">
@@ -1146,7 +1116,7 @@ export default function JaeyoungPage() {
         </div>
       </section>
 
-      <div className="rounded-lg shadow-lg text-center p-12 bg-slate-800">
+      <div className="rounded-lg shadow-lg text-center p-12 bg-slate-800 hidden">
         <h3 className="text-3xl font-bold text-white mb-4">
           Kevin Jaeyoung Yoon
         </h3>
