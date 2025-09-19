@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useEffect, type ReactNode } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
@@ -114,6 +113,25 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
 };
 
 const InfoCard = ({ title, description, img = `` }: InfoCardProps) => {
+  const { isMobile, isTablet } = useResponsive();
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="bg-white w-full">
+        <img src={img} alt={title} className="w-full h-auto" />
+        <div className="flex items-start gap-5 mt-8 max-w-96">
+          <div className="space-y-2">
+            <h3 className="text-xl font-poppins font-extrabold text-gray-900">
+              {title}
+            </h3>
+            <p className="text-md text-gray-600 font-poppins leading-loose">
+              {description}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="bg-white w-full">
       <img src={img} alt={title} className="w-[600px] h-auto" />
@@ -137,7 +155,7 @@ const CareerHero = () => {
 
   if (isMobile || isTablet) {
     return (
-      <section className="w-full bg-[#F9FAFB] -mt-64">
+      <section className="w-full bg-[#F9FAFB] -mt-80">
         <div className="mx-auto px-6 py-14">
           {/* 제목 */}
           <h1 className="text-3xl font-extrabold text-gray-800 tracking-tight font-montserrat">
@@ -289,10 +307,10 @@ export default function LandingPage() {
         <div className="mx-auto">
           {sectionData.map((section, index) => (
             <AnimatedSection key={index} index={index}>
-              <div className="flex flex-col w-full -mt-48">
-                <div className="absolute h-[600px] inset-0 bg-black mt-36 rounded-lg" />
+              <div className="flex flex-col w-full -mt-32">
+                <div className="absolute h-[400px] inset-0 bg-black mt-24 rounded-lg" />
                 <div
-                  className="flex flex-col h-[600px] items-center justify-center text-center"
+                  className="flex flex-col h-[590px] items-center justify-center text-center"
                   style={{
                     background: `url(${NEXT_PUBLIC_CDN_BASE}/images/CareerBanner.png)`,
                     backgroundSize: "cover",
@@ -303,7 +321,7 @@ export default function LandingPage() {
                 >
                   {/* Text Section */}
                   <div className="items-center justify-center relative z-10">
-                    <p className="text-2xl font-montserrat flex flex-col font-bold text-white leading-loose text-center gap-2">
+                    <p className="text-2xl font-montserrat flex flex-col font-bold text-white leading-loose text-center gap-2 p-2">
                       {section.text.map((line, lineIndex) => (
                         <span key={lineIndex} className="animate-text">
                           {line}
@@ -323,7 +341,7 @@ export default function LandingPage() {
             </AnimatedSection>
           ))}
         </div>
-        <div ref={secondSectionRef}>
+        <div ref={secondSectionRef} className="mt-48">
           <CareerHero />
           <CareerCard />
         </div>
