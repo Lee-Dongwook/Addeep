@@ -157,11 +157,11 @@ function AboutSwiper() {
           </div>
           {/* Text */}
           <div className="space-y-6">
-            <h1 className="text-3xl font-bold">We Are</h1>
-            <h2 className="text-xl font-bold text-[#833AB4] leading-normal mt-2 mb-2">
+            <h1 className="text-3xl font-bold font-montserrat">We Are</h1>
+            <h2 className="text-xl font-bold text-[#833AB4] font-poppins leading-normal mt-2 mb-2">
               {slide.title}
             </h2>
-            <div className="text-md text-[#374151 leading-relaxed whitespace-normal overflow-auto">
+            <div className="text-md text-[#374151 leading-relaxed font-poppins">
               {slide.text.map((t, index) => (
                 <div key={index}>{t}</div>
               ))}
@@ -252,7 +252,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white">
       {sectionData.map((section, index) => (
         <AnimatedSection key={index} index={index}>
-          <div className="flex flex-col w-full -mt-64">
+          <div className="flex flex-col w-full -mt-[400px]">
             {/* Text Section */}
             <div className="items-center justify-center p-8">
               <p className="text-2xl font-sans flex flex-col font-normal text-gray-800 leading-loose text-left gap-1">
@@ -264,17 +264,17 @@ export default function LandingPage() {
               </p>
             </div>
             {/* Bottom Arrow */}
-            <div
+            {/* <div
               className="absolute top-3/4 left-10 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
               onClick={handleArrowClick}
             >
               <MobileLandingBottomArrowIcon />
-            </div>
+            </div> */}
 
             {/* Image Section */}
             <div
               className={[
-                "absolute top-full -mt-20 right-0 w-full h-1/2 animate-image",
+                "absolute top-full -mt-64 right-0 w-full h-1/2 animate-image",
               ].join(" ")}
             >
               <img
@@ -305,7 +305,7 @@ export default function LandingPage() {
       ))}
       <div
         ref={secondSectionRef}
-        className="mt-64 text-xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1 p-2"
+        className="mt-48 text-xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-normal text-center space-y-1 p-2"
       >
         <AnimatedSection col={true} index={1}>
           <img
@@ -327,7 +327,7 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
       </div>
-      <div className="p-8 -mt-96 flex flex-col items-center justify-center">
+      <div className="p-8 -mt-[500px] flex flex-col items-center justify-center">
         <AboutSwiper />
       </div>
     </div>
