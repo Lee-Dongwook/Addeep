@@ -19,7 +19,7 @@ interface AnimatedSectionProps {
 type InfoCardProps = {
   title: string;
   description: string;
-  icon?: React.ReactNode;
+  img?: any;
 };
 
 const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
@@ -114,23 +114,17 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   );
 };
 
-const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
+const InfoCard = ({ title, description, img = `` }: InfoCardProps) => {
   return (
-    <div className="group bg-white w-full p-6 md:p-8 rounded-2xl shadow-[0_12px_30px_rgba(16,24,40,0.08)] ring-1 ring-black/5">
-      <div className="flex items-start gap-5">
-        {/* 아이콘 원형 그라디언트 */}
-        <div
-          className="flex-none w-12 h-12 md:w-14 md:h-14 rounded-full grid place-items-center
-  bg-[linear-gradient(to_bottom_right,#F09433,#E6683C,#DC2743,#CC2366,#BC1888)]
-  text-white text-xl shadow-md"
-        >
-          <span>{icon}</span>
-        </div>
+    <div className="bg-white w-full">
+      <img src={img} alt={title} className="w-[600px] h-auto" />
+
+      <div className="flex items-start gap-5 mt-8 min-w-96">
         <div className="space-y-2">
-          <h3 className="text-base md:text-lg font-extrabold text-gray-900">
+          <h3 className="text-base md:text-2xl font-poppins font-extrabold text-gray-900">
             {title}
           </h3>
-          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+          <p className="text-sm md:text-lg text-gray-600 font-poppins leading-loose">
             {description}
           </p>
         </div>
@@ -138,6 +132,7 @@ const InfoCard = ({ title, description, icon = "📍" }: InfoCardProps) => {
     </div>
   );
 };
+
 const CareerHero = () => {
   const { isMobile, isTablet } = useResponsive();
 
@@ -194,40 +189,40 @@ const CareerHero = () => {
   return (
     <section className="w-full bg-[#F9FAFB]">
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <h1 className="text-5xl font-bold text-gray-800 tracking-tight">
+        <h1 className="text-5xl font-bold font-montserrat text-gray-800 tracking-tight">
           Job Openings
         </h1>
-        <h3 className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+        <h3 className="mt-8 text-xl md:text-2xl lg:text-3xl font-poppins font-normal text-gray-700">
           We are currently seeking talented individuals
         </h3>
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-poppins font-normal text-gray-700">
           to join our team in the following roles:
         </h3>
 
-        <div className="flex flex-col gap-6 mt-8">
+        <div className="flex flex-col gap-6 mt-12">
           <div className="flex flex-row gap-24">
-            <h3 className="text-2xl font-normal text-gray-700 min-w-72">
+            <h3 className="text-xl font-normal font-poppins text-gray-700 min-w-72">
               Backend Planner
             </h3>
-            <p className="text-lg font-normal text-gray-700">
+            <p className="text-lg font-normal font-poppins text-gray-700">
               Designs the backend system architecture and plans new features to
               ensure the service's stability and efficiency.
             </p>
           </div>
           <div className="flex flex-row gap-24">
-            <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+            <h3 className="text-xl font-normal font-poppins text-gray-700 leading-relaxed min-w-72">
               Engineer
             </h3>
-            <p className="text-lg font-normal text-gray-700 leading-relaxed">
+            <p className="text-lg font-normal font-poppins text-gray-700 leading-relaxed">
               Utilizes a diverse tech stack to implement and develop Addeep's
               innovative AI and Web 3.0 platform.
             </p>
           </div>
           <div className="flex flex-row gap-24">
-            <h3 className="text-2xl font-normal text-gray-700 leading-relaxed min-w-72">
+            <h3 className="text-xl font-poppins font-normal text-gray-700 leading-relaxed min-w-72">
               Global Business Strategist
             </h3>
-            <p className="text-lg font-normal text-gray-700 leading-relaxed">
+            <p className="text-lg font-poppins font-normal text-gray-700 leading-relaxed">
               Analyzes global market trends and formulates strategies to achieve
               Addeep's business objectives.
             </p>
@@ -241,22 +236,28 @@ const CareerHero = () => {
 const CareerCard = () => {
   return (
     <section className="w-full bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="mx-auto max-w-6xl px-6 py-14">
         <div>
-          <h1 className="text-5xl font-bold text-gray-800 tracking-tight">
-            Recuritment Purpose
+          <h1 className="text-5xl font-montserrat font-bold text-gray-800 tracking-tight">
+            Recuritment
           </h1>
-          <h3 className="mt-8 text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+          <h1 className="text-5xl font-montserrat font-bold text-gray-800 tracking-tight">
+            Purpose
+          </h1>
+          <h3 className="mt-8 text-xl lg:text-2xl font-poppins font-normal text-gray-700">
             At Addeep, we highly value the safety and satisfaction of the
             diverse
           </h3>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-normal text-gray-700">
+          <h3 className="text-xl lg:text-2xl font-poppins font-normal text-gray-700">
             talents who work together to bring our imaginative ideas to reality.
+          </h3>
+          <h3 className="text-xl lg:text-2xl font-poppins font-normal text-gray-700">
+            Here is an overview of our working environment.
           </h3>
         </div>
 
         {/* 카드 그리드 */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 xl:gap-12">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
           {items.map((it, i) => (
             <InfoCard key={i} {...it} />
           ))}
@@ -334,6 +335,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen">
+      <div className="absolute h-[600px] inset-0 bg-black mt-32 mx-1 rounded-lg" />
       <div
         className="flex flex-col h-[600px] items-center justify-center text-center"
         style={{
@@ -346,10 +348,10 @@ export default function LandingPage() {
       >
         {sectionData.map((section, index) => (
           <AnimatedSection key={index} index={index}>
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full p-4">
               {/* Text Section */}
               <div className="items-center justify-center text-center">
-                <p className="text-5xl font-sans flex flex-col font-bold text-white gap-6">
+                <p className="text-5xl font-montserrat flex flex-col font-bold text-white gap-6">
                   {section.text.map((line, lineIndex) => (
                     <span key={lineIndex} className="animate-text">
                       {line}
