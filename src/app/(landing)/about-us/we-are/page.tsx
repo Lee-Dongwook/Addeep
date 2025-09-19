@@ -172,14 +172,14 @@ function AboutSwiper() {
     }
 
     return (
-      <div className="flex flex-col md:flex-row items-center h-full px-8">
+      <div className="flex flex-col md:flex-row items-center h-full w-full justify-center">
         {/* Text */}
-        <div className="w-full space-y-6">
-          <h1 className="text-[60px] font-bold">We Are</h1>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#833AB4] leading-snug">
+        <div className="space-y-6 ml-24 lg:ml-48">
+          <h1 className="text-4xl font-bold font-montserrat">We Are</h1>
+          <h2 className="text-2xl font-bold font-poppins text-[#833AB4] leading-snug">
             {slide.title}
           </h2>
-          <div className="text-[#374151] text-xl leading-loose">
+          <div className="text-[#374151] text-xl font-poppins leading-loose">
             {slide.text.map((t, index) => (
               <h4 key={index}>{t}</h4>
             ))}
@@ -187,7 +187,7 @@ function AboutSwiper() {
         </div>
 
         {/* Image */}
-        <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+        <div className="md:w-1/2 flex items-center justify-center mt-8">
           <div className="relative w-[280px] h-[560px] rounded-3xl overflow-hidden shadow-lg">
             <video
               src={slide.image}
@@ -316,7 +316,10 @@ export default function LandingPage() {
           {HeroText.map((section, index) => (
             <div key={index} className="mt-8">
               {section.text.map((line, lineIndex) => (
-                <div key={lineIndex} className="animate-text block mt-4">
+                <div
+                  key={lineIndex}
+                  className="animate-text font-montserrat block mt-6"
+                >
                   {line}
                 </div>
               ))}
@@ -332,76 +335,61 @@ export default function LandingPage() {
 
   const renderDesktopLayout = () => (
     <div className="min-h-screen bg-white">
-      {sectionData.map((section, index) => (
-        <AnimatedSection key={index} index={index}>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 items-center justify-center">
-            {/* Top Left - Text */}
-            <div className="animate-text flex items-center justify-center">
-              <p className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-left gap-6">
-                {section.text.map((line, lineIndex) => (
-                  <span key={lineIndex} className="block mt-3 mb-3">
-                    {line}
-                  </span>
-                ))}
-              </p>
-            </div>
+      <div className="flex flex-col items-center justify-center">
+        {sectionData.map((section, index) => (
+          <AnimatedSection key={index} index={index}>
+            <div className="grid grid-cols-2 grid-rows-2 items-stretch justify-stretch">
+              {/* Top Left - Text */}
+              <div className="flex items-center justify-center p-2">
+                <p className="text-3xl md:text-5xl font-arial font-normal text-gray-800 leading-normal text-left">
+                  {section.text.map((line, lineIndex) => (
+                    <span key={lineIndex} className="block mt-8 mb-8">
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
 
-            {/* Top Right - Image */}
-            <div className="animate-image flex justify-center items-center mt-24">
-              <div className="relative max-w-[700px] max-h-[800px]">
+              {/* Top Right - Image */}
+              <div className="flex items-center justify-center p-2">
                 <img
                   src={`${NEXT_PUBLIC_CDN_BASE}/images/Gradient.png`}
-                  alt="boy"
-                  className="object-cover rounded-lg"
+                  alt="Gradient"
+                  className="w-full h-full object-contain"
                 />
               </div>
-            </div>
 
-            {/* Bottom Left - Image */}
-            <div className="animate-image flex justify-center items-center">
-              <div className="relative max-w-[700px] max-h-[800px]">
+              {/* Bottom Left - Image */}
+              <div className="flex items-center justify-center p-2">
                 <img
                   src={`${NEXT_PUBLIC_CDN_BASE}/images/ComputerWeAre.png`}
-                  alt="boy"
+                  alt="Computer"
+                  className="w-full h-full object-contain"
                 />
               </div>
-            </div>
 
-            {/* Bottom Right - Text */}
-            <div className="animate-text flex items-center justify-center p-24">
-              <div className="text-3xl md:text-5xl flex flex-col font-arial font-normal text-gray-800 leading-loose text-right gap-6">
-                {HeaderImageData.map((header, headerIndex) => (
-                  <div key={headerIndex}>
-                    <span key={1} className="block mt-4 mb-4">
-                      {header.text[0]}
-                    </span>
-                    <span key={2} className="block mt-4 mb-4">
-                      {header.text[1]}
-                    </span>
-                    <span key={3} className="block mt-4 mb-4">
-                      {header.text[2]}
-                    </span>
-                    <span key={4} className="block mt-4 mb-4">
-                      {header.text[3]}
-                    </span>
-                  </div>
-                ))}
+              {/* Bottom Right - Text */}
+              <div className="flex items-center justify-center p-2">
+                <div className="text-3xl md:text-5xl font-arial font-normal bg-gradient-to-r from-[#FF0169] via-[#D300C5] to-[#7638FA] bg-clip-text text-transparent leading-normal text-right">
+                  {HeaderImageData.map((header, headerIndex) => (
+                    <div key={headerIndex}>
+                      {header.text.map((t, i) => (
+                        <span key={i} className="block mt-8 mb-8">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </AnimatedSection>
+        ))}
+      </div>
 
-            {/* Bottom Arrow */}
-            <div
-              className="absolute top-full left-44 animate-text cursor-pointer hover:scale-110 transition-transform duration-200"
-              onClick={handleArrowClick}
-            >
-              <LandingBottomArrowIcon />
-            </div>
-          </div>
-        </AnimatedSection>
-      ))}
       <div
         ref={secondSectionRef}
-        className="mt-96 text-3xl md:text-5xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-6"
+        className="mt-48 text-3xl md:text-5xl flex-1 flex flex-col items-center justify-center font-sans font-normal text-gray-800 leading-loose text-center space-y-6"
       >
         <AnimatedSection index={1} col={true}>
           <img
@@ -409,6 +397,7 @@ export default function LandingPage() {
             alt="logo"
             style={{ width: "300px", height: "auto" }}
           />
+          <div className="mt-8" />
           {HeroText.map((section, index) => (
             <div key={index}>
               {section.text.map((line, lineIndex) => (
@@ -420,7 +409,7 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
       </div>
-      <div className="p-16 -mt-48 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center -mt-96 p-4">
         <AboutSwiper />
       </div>
     </div>
