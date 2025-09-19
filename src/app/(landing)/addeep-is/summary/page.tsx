@@ -604,7 +604,8 @@ function SummarySNS() {
   return (
     <div className="mb-20 flex flex-col flex-1">
       <div className="w-full text-center">
-        <div
+        <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
+        <header
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
             background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBanner.png)`,
@@ -614,39 +615,53 @@ function SummarySNS() {
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Addeep S2E SNS GPR Platform
-          </h1>
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Experience an innovative platform where engagement genuinely
-          </h3>
-          <h3 className="text-2xl font-bold text-white mb-4">
-            rewards every participant, powered by Addeep GPR AI.
-          </h3>
-        </div>
+          <div className="flex flex-col items-center justify-center z-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-white mb-12">
+              Addeep S2E SNS GPR Platform
+            </h1>
+            <h3 className="text-2xl font-normal font-poppins text-white mb-1">
+              Experience an innovative platform where engagement genuinely
+            </h3>
+            <h3 className="text-2xl font-normal font-poppins text-white mb-4">
+              rewards every participant, powered by Addeep GPR AI.
+            </h3>
+          </div>
+        </header>
       </div>
+
       <div className="flex flex-col flex-1 p-28">
-        <h2 className="mb-4 text-[56px] font-bold">
-          <span className="text-[#B641E9] font-bold">Redefining Value: </span>
-          Shared Prosperity for All
-        </h2>
-        <p className="text-2xl leading-relaxed">
-          Addeep allows users to accumulate reward cash, optimized through
-          Addeep GPR Ai's sophisticated analysis, which can be used like real
-          money. Our innovative structure ensures reward cash accumulates for
-          all participants - advertiesers, platform operators, users, and
-          creators/influencers - where increased usage generates more economic
-          profit for everyone.
-        </p>
-        <h2 className="mb-4 text-2xl text-[#B641E9] font-bold mt-4">
-          Empowering Users, Beyond Traditional Models
-        </h2>
-        <p className="text-2xl leading-relaxed">
-          Addeep addresses the imbalance in existing platform ecosystems where
-          users were subordinate. We introduce an SNS platform based on a user
-          and participant-centric reward-based advertising service for users
-          worldwide.
-        </p>
+        <div className="flex flex-row gap-16">
+          <div className="flex flex-col">
+            <h2 className="mb-4 text-4xl font-bold font-montserrat">
+              <span className="text-[#B641E9] font-bold">
+                Redefining Value:{" "}
+              </span>
+              Shared Prosperity for All
+            </h2>
+            <p className="text-xl leading-loose font-poppins font-normal">
+              Addeep allows users to accumulate reward cash, optimized through
+              Addeep GPR Ai's sophisticated analysis, which can be used like
+              real money. Our innovative structure ensures reward cash
+              accumulates for all participants - advertiesers, platform
+              operators, users, and creators/influencers - where increased usage
+              generates more economic profit for everyone.
+            </p>
+            <h2 className="mb-4 text-2xl text-[#B641E9] font-semibold font-poppins mt-16">
+              Empowering Users, Beyond Traditional Models
+            </h2>
+            <p className="text-xl leading-loose font-poppins font-normal">
+              Addeep addresses the imbalance in existing platform ecosystems
+              where users were subordinate. We introduce an SNS platform based
+              on a user and participant-centric reward-based advertising service
+              for users worldwide.
+            </p>
+          </div>
+          <img
+            src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryHeroImage.png`}
+            alt="Addeep S2E SNS GPR Platform"
+            className="w-96 h-auto"
+          />
+        </div>
 
         <div className="flex flex-col items-center justify-center mt-32">
           <h2 className="text-[56px] text-[#B641E9] font-bold">
