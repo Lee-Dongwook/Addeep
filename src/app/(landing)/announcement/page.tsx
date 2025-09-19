@@ -69,7 +69,13 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
       ) : null}
 
       <ul className="space-y-8">
-        {items.length === 0 && <h4>공지사항이 존재하지 않습니다.</h4>}
+        {items.length === 0 && (
+          <div className="flex flex-col items-center justify-center">
+            <h4 className="font-poppins font-semibold text-xl">
+              공지사항이 없습니다.
+            </h4>
+          </div>
+        )}
         {items.map((it) => {
           const Card = it.href ? "a" : "div";
           const props = it.href ? { href: it.href } : {};
@@ -108,7 +114,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
 
 const AnnouncementHeader = () => {
   return (
-    <div className="w-full text-center p-3">
+    <div className="w-full text-center">
       <div
         className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
