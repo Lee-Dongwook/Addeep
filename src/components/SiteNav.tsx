@@ -306,7 +306,7 @@ function NavLinkBig({
   const { isMobile, isTablet } = useResponsive();
 
   const mobileCls =
-    "inline-block text-3xl leading-normal text-white hover:text-white/90 focus:outline-none";
+    "inline-block text-2xl leading-normal text-white hover:text-white/90 focus:outline-none";
 
   const cls =
     "inline-block text-[44px] leading-[1.1] sm:text-[56px] text-white hover:text-white/90 focus:outline-none";
