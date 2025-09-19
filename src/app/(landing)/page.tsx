@@ -140,7 +140,7 @@ export default function LandingPage() {
         <div className="p-6">
           <div className="items-center flex flex-col">
             <AnimatedSection index={0}>
-              <div className="min-h-screen grid grid-cols-1 gap-2">
+              <div className="min-h-screen grid grid-cols-1 gap-12">
                 {/* Top Left Text Block */}
                 <div className="animate-text">
                   <p className="font-sans font-normal text-3xl text-gray-800 leading-[56px] tracking-normal">
@@ -154,7 +154,7 @@ export default function LandingPage() {
 
                 {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
-                  <div className="relative max-w-96 h-72 rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
                       alt="Person with fisheye lens effect"
@@ -165,11 +165,11 @@ export default function LandingPage() {
 
                 {/* Middle Left Image - Social Woman */}
                 <div className="animate-image mt-8">
-                  <div className="relative max-w-96 h-72 md:w-80 md:h-[400px] rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 md:w-80 md:h-[400px] overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
                       alt="Smiling man with hands on cheeks"
-                      className="object-contain rounded-lg"
+                      className="object-contain"
                     />
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function LandingPage() {
 
                 {/* Bottom Right Image - Three People */}
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end mt-16">
-                  <div className="relative max-w-96 h-72 md:w-[500px] md:h-80 rounded-lg overflow-hidden">
+                  <div className="relative max-w-96 h-72 md:w-[500px] md:h-80 overflow-hidden">
                     <img
                       src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
                       alt="Three people looking down"
@@ -203,7 +203,11 @@ export default function LandingPage() {
                   className="animate-text justify-self-start self-end -mt-12 md:row-start-4 md:col-start-1 hover:scale-110 transition-transform duration-200"
                   aria-label="Scroll Down"
                 >
-                  <MobileLandingBottomArrowIcon />
+                  {isMobile ? (
+                    <MobileLandingBottomArrowIcon />
+                  ) : (
+                    <LandingBottomArrowIcon />
+                  )}
                 </button>
               </div>
             </AnimatedSection>
@@ -220,15 +224,16 @@ export default function LandingPage() {
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover max-w-full h-full"
                   />
+                  <div className="absolute inset-0 bg-black/50"></div>
                 </div>
               </div>
 
               {/* Overlay Text */}
               <div className="absolute inset-0 flex items-center justify-center animate-text">
                 <div className="text-left px-8">
-                  <p className="text-2xl font-sans font-normal text-white leading-loose tracking-normal">
+                  <p className="text-2xl font-montserrat font-semibold text-white leading-loose tracking-normal">
                     {splitScreenData.text.map((line, index) => (
-                      <span key={index} className="block">
+                      <span key={index} className="block mt-4 mb-4">
                         {line}
                       </span>
                     ))}
@@ -337,9 +342,9 @@ export default function LandingPage() {
             {/* Overlay Text */}
             <div className="absolute inset-0 flex items-center justify-center animate-text">
               <div className="text-left px-8">
-                <p className="text-[80px] font-sans font-normal text-white leading-normal">
+                <p className="text-5xl font-montserrat font-semibold text-white leading-normal">
                   {splitScreenData.text.map((line, index) => (
-                    <span key={index} className="block">
+                    <span key={index} className="block mt-2 mb-2">
                       {line}
                     </span>
                   ))}

@@ -258,44 +258,52 @@ const PlatformToEarn = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
               Addeep: A Platform to Earn
             </h1>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              Addeep has innovated its reward service
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              by providing reward cash to all users.
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              enabling them to realize profits.
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              This model is designed for faster service expansion
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              and higher user satisfaction.
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              By securing flexible users, Addeep offers targeted advertising and
-            </h3>
-            <h3 className="text-2xl font-poppins font-normal text-white">
-              data-driven CRM, growing as a global, collaborative platform.
-            </h3>
+            <div>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                Addeep has innovated its reward service
+              </h3>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                by providing reward cash to all users.
+              </h3>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                enabling them to realize profits.
+              </h3>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                This model is designed for faster service expansion
+              </h3>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                and higher user satisfaction.
+              </h3>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                By securing flexible users, Addeep offers targeted advertising
+                and
+              </h3>
+              <h3 className="text-xl font-poppins font-normal text-white">
+                data-driven CRM, growing as a global, collaborative platform.
+              </h3>
+            </div>
           </div>
         </div>
       </div>
+
       <section className="flex flex-col flex-1 p-28">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="font-bold font-montserrat text-[56px] mb-4">
+          <h2 className="font-bold font-montserrat text-5xl mb-8">
             <span className="text-[#B641E9]">For Advertisers:</span> Precision &
             Performance
           </h2>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             Addeep helps advertisers increase their target advertising rates
           </h4>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             and secure customer acquisition through user-specific settings.
           </h4>
         </div>
-        <div className="mt-8 mb-8 grid grid-cols-3 gap-4">
+
+        <div className="mt-12 mb-8 grid grid-cols-3 gap-4">
           <div className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8">
             <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
               Data-Driven Insights
@@ -325,18 +333,20 @@ const PlatformToEarn = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="font-bold font-montserrat text-[56px] mb-4">
+
+        <div className="flex flex-col items-center justify-center mt-12">
+          <h2 className="font-bold font-montserrat text-5xl mb-8">
             <span className="text-[#B641E9]">For Users:</span> From Engagement
             to Income
           </h2>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             Many social media users are dependent on platforms
           </h4>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             that offer no consistent rewards. Addeep changes that reality.
           </h4>
         </div>
+
         <div className="grid grid-cols-2 gap-4">
           <div className="max-w-[500px] p-8">
             <h4 className="text-[28px] text-[#4B5563] font-poppins font-normal">
@@ -363,15 +373,15 @@ const PlatformToEarn = () => {
         />
 
         <div className="flex flex-col items-center justify-center mt-28">
-          <h2 className="font-bold font-montserrat text-[56px] mb-4">
+          <h2 className="font-bold font-montserrat text-5xl mb-8">
             <span className="text-[#B641E9]">For Creators:</span> Monetize Your
             Creativity
           </h2>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             By involving creators and influencers, Addeep develops creative and
             engaging content
           </h4>
-          <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             like short videos, memes, and images, which serve as diverse
             advertising services.
           </h4>
@@ -423,51 +433,54 @@ const PlatformToEarn = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center mt-12">
-          <h2 className="font-bold text-[56px]">
+          <h2 className="font-bold text-5xl font-montserrat mb-8">
             The Content That Connects Us
           </h2>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             Digital content like Shorts, memes, and emoticons play a crucial
             role in modern communication,
           </h4>
-          <h4 className="text-[28px] text-[#4B5563] font-normal">
+          <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
             especially among Millennials and Gen Z.
           </h4>
         </div>
+
         <div className="grid grid-cols-3 gap-8 mt-12">
           <div className="text-center">
             <img
               src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`}
               alt="Platform to Earn"
             />
-            <h4 className="text-[28px] text-[#4B5563] font-normal mt-8">
+            <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
               Short Videos
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-lg text-[#4B5563] font-normal font-poppins">
               Engaging visual stories
             </p>
           </div>
+
           <div className="text-center">
             <img
               src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESNSMeme.png`}
               alt="Platform to Earn"
             />
-            <h4 className="text-[28px] text-[#4B5563] font-normal mt-8">
+            <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
               Memes & Art
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-lg text-[#4B5563] font-normal font-poppins">
               Creative expression
             </p>
           </div>
+
           <div className="text-center">
             <img
               src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSDigital.png`}
               alt="Platform to Earn"
             />
-            <h4 className="text-[28px] text-[#4B5563] font-normal mt-8">
+            <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
               Digital Communication
             </h4>
-            <p className="text-xl text-[#4B5563] font-normal">
+            <p className="text-lg text-[#4B5563] font-normal font-poppins">
               Modern connection
             </p>
           </div>
@@ -482,23 +495,27 @@ const PlatformToEarn = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             border: "1px solid #E5E7EB",
+            opacity: 0.7,
           }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Your Bridge to Freedom
-          </h1>
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Addeep is the bridge that connects users and allows them to freely
-          </h3>
-          <h3 className="text-2xl font-bold text-white">
-            communicate and achieve sustained incomes. Users can freely engage
-          </h3>
-          <h3 className="text-2xl font-bold text-white">
-            as creators, not just consumers, fostering open communication and a
-          </h3>
-          <h3 className="text-2xl font-bold text-white">
-            diverse digital content ecosystem.
-          </h3>
+          <div className="flex flex-col items-center justify-center gap-4 z-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-white mb-4">
+              Your Bridge to Freedom
+            </h1>
+            <h3 className="text-2xl font-bold font-poppins text-white mb-4">
+              Addeep is the bridge that connects users and allows them to freely
+            </h3>
+            <h3 className="text-2xl font-bold font-poppins text-white">
+              communicate and achieve sustained incomes. Users can freely engage
+            </h3>
+            <h3 className="text-2xl font-bold font-poppins text-white">
+              as creators, not just consumers, fostering open communication and
+              a
+            </h3>
+            <h3 className="text-2xl font-bold font-poppins text-white">
+              diverse digital content ecosystem.
+            </h3>
+          </div>
         </div>
       </div>
     </div>
