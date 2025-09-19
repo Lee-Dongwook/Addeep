@@ -110,7 +110,7 @@ export default function Footer() {
         </div>
 
         {/* Social icons */}
-        <div className="mt-10 flex justify-center space-x-4">
+        <div className="mt-12 flex justify-center space-x-4">
           {socialIcons.map((social) => (
             <Link
               key={social.name}
@@ -128,7 +128,7 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <div className="mt-2 flex justify-center text-xs text-gray-400">
+        <div className="mt-10 flex justify-center text-xs text-gray-400">
           <span>© 2025. Addeep Inc. All rights reserved.</span>
         </div>
       </div>

@@ -401,18 +401,20 @@ const CoreValueHeader = () => {
 
   if (isMobile || isTablet) {
     return (
-      <div className="w-full text-center p-4">
+      <div className="w-full text-center">
         <div
-          className="w-full h-full p-16 rounded-lg flex flex-col items-center justify-center"
+          className="w-full h-screen p-16 rounded-lg flex flex-col items-center justify-center"
           style={{
             background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
+            border: "1px solid #E5E7EB",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-xl font-bold text-white mb-4">Connect with Us</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-white mb-4">
+            Connect with Us
+          </h1>
           <SocialLinksRow />
         </div>
       </div>
@@ -422,7 +424,7 @@ const CoreValueHeader = () => {
   return (
     <div className="w-full text-center">
       <div
-        className="w-full h-[600px] p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-10"
+        className="w-full h-screen p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-10"
         style={{
           background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
           backgroundSize: "cover",
@@ -452,21 +454,21 @@ const SocialLinksRow = () => {
     return (
       <section
         aria-label="Social Links"
-        className="w-full flex-1 flex flex-row items-center justify-center p-4"
+        className="w-full flex-1 flex flex-col items-center justify-center"
       >
         <div>
-          <ul className="flex flex-row gap-4">
+          <ul className="flex flex-col gap-12">
             {items.map(({ label, href, Icon }) => (
               <li
                 key={label}
-                className="bg-transparent w-10 h-10 rounded-3xl flex flex-col items-center justify-center"
+                className="bg-transparent w-14 h-14 rounded-3xl flex flex-col items-center justify-center"
               >
                 <a
                   href={href}
                   {...linkProps}
                   className="flex flex-col items-center justify-center gap-2"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-6 w-6" />
                 </a>
               </li>
             ))}
@@ -509,7 +511,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <CoreValueHeader />
-      <HelpAccordion
+      {/* <HelpAccordion
         type="single" // 한 번에 하나만 열고 싶으면 'single'
         defaultOpenIds={[]} // 기본 오픈 항목 ids
         items={[
@@ -545,7 +547,7 @@ export default function LandingPage() {
             ),
           },
         ]}
-      />
+      /> */}
     </div>
   );
 }
