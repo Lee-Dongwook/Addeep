@@ -243,40 +243,43 @@ const PlatformToEarn = () => {
   return (
     <div className="mb-20 flex flex-col flex-1">
       <div className="w-full text-center">
+        <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
         <div
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AIP2ENewlyBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             border: "1px solid #E5E7EB",
           }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
-            Addeep: A Platform to Earn
-          </h1>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            Addeep has innovated its reward service
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            by providing reward cash to all users.
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            enabling them to realize profits.
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            This model is designed for faster service expansion
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            and higher user satisfaction.
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            By securing flexible users, Addeep offers targeted advertising and
-          </h3>
-          <h3 className="text-2xl font-poppins font-normal text-white">
-            data-driven CRM, growing as a global, collaborative platform.
-          </h3>
+          <div className="flex flex-col gap-4 items-center justify-center z-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
+              Addeep: A Platform to Earn
+            </h1>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              Addeep has innovated its reward service
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              by providing reward cash to all users.
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              enabling them to realize profits.
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              This model is designed for faster service expansion
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              and higher user satisfaction.
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              By securing flexible users, Addeep offers targeted advertising and
+            </h3>
+            <h3 className="text-2xl font-poppins font-normal text-white">
+              data-driven CRM, growing as a global, collaborative platform.
+            </h3>
+          </div>
         </div>
       </div>
       <section className="flex flex-col flex-1 p-28">
