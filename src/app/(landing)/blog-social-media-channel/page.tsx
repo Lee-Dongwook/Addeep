@@ -402,7 +402,7 @@ const CoreValueHeader = () => {
   if (isMobile || isTablet) {
     return (
       <div className="w-full text-center">
-        <div className="absolute h-[745px] mt-20 inset-0 bg-black bg-opacity-60 rounded-lg" />
+        <div className="absolute max-h-[745px] min-h-[640px] mt-20 inset-0 bg-black bg-opacity-60 rounded-lg" />
         <div
           className="w-full h-screen p-8 rounded-lg flex flex-col items-center justify-center"
           style={{
