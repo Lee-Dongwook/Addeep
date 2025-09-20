@@ -307,8 +307,8 @@ export default function LandingPage() {
         <div className="mx-auto">
           {sectionData.map((section, index) => (
             <AnimatedSection key={index} index={index}>
-              <div className="flex flex-col w-full -mt-32">
-                <div className="absolute h-[400px] inset-0 bg-black mt-24 rounded-lg" />
+              <div className="flex flex-col w-full">
+                <div className="absolute h-[400px] inset-0 bg-black mt-28 rounded-lg" />
                 <div
                   className="flex flex-col h-[590px] items-center justify-center text-center"
                   style={{
@@ -341,7 +341,7 @@ export default function LandingPage() {
             </AnimatedSection>
           ))}
         </div>
-        <div ref={secondSectionRef} className="mt-48">
+        <div ref={secondSectionRef} className="mt-72">
           <CareerHero />
           <CareerCard />
         </div>
