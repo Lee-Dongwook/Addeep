@@ -371,7 +371,10 @@ export default function LandingPage() {
       <div className="min-h-screen bg-white">
         <CoreValueHeader />
         <CoreValueHero />
-        <div className="mt-24">
+        <FirstContainer />
+        <SecondContainer />
+        <ThirdContainer />
+        <div className="mt-24 hidden">
           {sectionGroup.map((image, idx) => (
             <MainGsapPanelMolecule
               key={`section-${idx}`}

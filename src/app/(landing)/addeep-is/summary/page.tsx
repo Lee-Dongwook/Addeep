@@ -36,7 +36,7 @@ function SummaryAI() {
   if (isMobile || isTablet) {
     return (
       <div className="flex flex-col gap-8">
-        <div className="absolute h-[390px] inset-0 bg-black bg-opacity-60 mt-20 mx-1 rounded-lg" />
+        <div className="absolute h-[330px] inset-0 bg-black bg-opacity-60 mt-20 mx-1 rounded-lg" />
         <div
           className="w-full rounded-lg flex flex-col items-center text-center justify-center p-8"
           style={{
