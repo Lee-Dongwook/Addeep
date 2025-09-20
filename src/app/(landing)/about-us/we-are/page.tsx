@@ -274,7 +274,7 @@ export default function LandingPage() {
             {/* Image Section */}
             <div
               className={[
-                "absolute top-full -mt-80 right-0 w-full h-1/2 animate-image",
+                "absolute top-full -mt-64 right-0 w-full h-1/2 animate-image",
               ].join(" ")}
             >
               <img
@@ -327,7 +327,7 @@ export default function LandingPage() {
           ))}
         </AnimatedSection>
       </div>
-      <div className="p-8 -mt-[500px] flex flex-col items-center justify-center">
+      <div className="p-8 -mt-96 flex flex-col items-center justify-center">
         <AboutSwiper />
       </div>
     </div>
