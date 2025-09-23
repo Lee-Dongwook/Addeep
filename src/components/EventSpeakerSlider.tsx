@@ -43,7 +43,7 @@ export default function EventSpeakerSlider({
   if (isMobile || isTablet || isTabletDesktop) {
     return (
       <div
-        className="w-full max-w-[300px] min-h-[200px] max-h-[400px] mx-auto mt-8"
+        className="w-full max-w-[200px] min-h-[200px] max-h-[400px] mx-auto mt-8"
         onClick={onClick}
       >
         <Swiper
