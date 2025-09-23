@@ -805,6 +805,133 @@ const ThirdHuman = () => {
   );
 };
 
+const FourthHuman = () => {
+  const { isMobile, isTablet } = useResponsive();
+
+  if (isMobile || isTablet) {
+    return (
+      <div className="w-full p-4 bg-white">
+        <div className="mx-auto">
+          <div className="p-4">
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col items-center">
+                <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
+                  <Image
+                    src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
+                    alt="SeonTae"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-contain"
+                    priority
+                  />
+                </div>
+                <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
+                  Peter Won
+                </h2>
+                <div className="text-md text-black font-poppins space-y-1">
+                  <p className="text-[#4A1A5C] font-semibold font-poppins">
+                    Addeep Inc CDO (Chief Development Officer)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-center font-poppins">
+                {/* Education */}
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-md font-semibold font-poppins text-black mb-2">
+                    Education & Background
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 font-poppins space-y-4 p-3">
+                  <li className="font-poppins">
+                    • Bachelor's degree in Computer Engineering from Seoul
+                    National University
+                  </li>
+                  <li className="font-poppins">
+                    • Bachelor's degree in Fine Arts from Seoul National
+                    University
+                  </li>
+                  <li>• Served as CEO at Wisen and Flint.</li>
+                  <li>
+                    • Currently works as a freelance mangement consultant at
+                    NEMO Parteners Holdings.
+                  </li>
+                  <li>
+                    • Had experienced in various fields including
+                    finance/accounting, HR, and management consulting at
+                    companies (Nextplay, NCSoft and December & Company.)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full min-h-full p-8 bg-white">
+      <div className="max-w-full mx-auto mt-10">
+        <div>
+          <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col items-center lg:w-1/3">
+              <div className="w-64 h-64 rounded-full overflow-hidden">
+                <Image
+                  src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
+                  alt="Peter Won"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="lg:w-2/3 space-y-6">
+              <h2 className="text-4xl font-bold text-black mb-1">Peter Won</h2>
+              <div className="text-xl space-y-1">
+                <p className="text-[#4A1A5C] font-semibold">
+                  Addeep Inc CDO (Chief Development Officer)
+                </p>
+              </div>
+              {/* Education */}
+              <div>
+                <div className="flex flex-row gap-3">
+                  <div className="w-1 h-7 bg-[#7B2CBF]" />
+                  <h3 className="text-lg font-semibold text-black mb-2">
+                    Education & Background
+                  </h3>
+                </div>
+                <ul className="text-md text-gray-700 space-y-2 p-3">
+                  <li>
+                    • Bachelor's degree in Computer Engineering from Seoul
+                    National University
+                  </li>
+                  <li>
+                    • Bachelor's degree in Fine Arts from Seoul National
+                    University
+                  </li>
+                  <li>• Served as CEO at Wisen and Flint.</li>
+                  <li>
+                    • Currently works as a freelance mangement consultant at
+                    NEMO Parteners Holdings.
+                  </li>
+                  <li>
+                    • Had experienced in various fields including
+                    finance/accounting, HR, and management consulting at
+                    companies (Nextplay, NCSoft and December & Company.)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -814,6 +941,7 @@ export default function LandingPage() {
         <FirstHuman />
         <SecondHuman />
         <ThirdHuman />
+        <FourthHuman />
       </div>
     </div>
   );
