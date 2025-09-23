@@ -20,6 +20,7 @@ type NoticeItem = {
   created_at: string; // "2024-01-08" 또는 Date ISO
   href?: string; // 상세 페이지 링크 (옵션)
   day?: string;
+  video_link?: string;
 };
 
 function formatKoreanDate(input: string) {
@@ -63,12 +64,13 @@ interface NoticeListProps {
 
 function NoticeList({ items, title = "" }: NoticeListProps) {
   const router = useRouter();
-  const { isMobile, isTablet } = useResponsive();
+  const { isMobile, isMobileTablet, isTablet, isTabletDesktop } =
+    useResponsive();
   const handleMoveToEventDetail = (it: NoticeItem) => {
     router.push(`/events/${it.id}`);
   };
 
-  if (isMobile || isTablet) {
+  if (isMobile || isMobileTablet || isTablet || isTabletDesktop) {
     return (
       <section className="w-full flex flex-col items-center justify-center mb-8">
         {title ? (
@@ -109,6 +111,16 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                           {formatKoreanDate(it.created_at)} {it.day}
                         </time>
                       </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(it.video_link, "_blank");
+                        }}
+                        type="submit"
+                        className="w-full mt-8 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        영상 바로보기
+                      </button>
                     </div>
                   </div>
                 </Card>
@@ -133,6 +145,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
         {items.map((it) => {
           const Card = it.href ? "a" : "div";
           const props = it.href ? { href: it.href } : {};
+          console.log(it);
           return (
             <li key={it.id}>
               <Card
@@ -164,6 +177,16 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
                         {formatKoreanDate(it.created_at)} {it.day}
                       </time>
                     </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(it.video_link, "_blank");
+                      }}
+                      type="submit"
+                      className="w-full mt-8 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                      영상 바로보기
+                    </button>
                   </div>
                 </div>
               </Card>

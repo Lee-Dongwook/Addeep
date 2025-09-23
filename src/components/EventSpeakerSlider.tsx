@@ -16,7 +16,7 @@ export default function EventSpeakerSlider({
   onClick: (e: any) => void;
   uuid: number;
 }) {
-  const { isMobile, isTablet } = useResponsive();
+  const { isMobile, isTablet, isTabletDesktop } = useResponsive();
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   // test
@@ -40,10 +40,10 @@ export default function EventSpeakerSlider({
           },
         ];
 
-  if (isMobile || isTablet) {
+  if (isMobile || isTablet || isTabletDesktop) {
     return (
       <div
-        className="w-full max-w-[200px] min-h-[200px] mx-auto mt-8"
+        className="w-full max-w-[300px] min-h-[200px] max-h-[400px] mx-auto mt-8"
         onClick={onClick}
       >
         <Swiper

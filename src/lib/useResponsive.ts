@@ -8,6 +8,7 @@ interface ResponsiveState {
   isMobileTablet: boolean;
   isTablet: boolean;
   isDesktop: boolean;
+  isTabletDesktop: boolean;
 }
 
 const getResponsiveState = (): ResponsiveState => {
@@ -17,6 +18,7 @@ const getResponsiveState = (): ResponsiveState => {
       isMobileTablet: false,
       isTablet: false,
       isDesktop: true,
+      isTabletDesktop: false,
     };
   }
 
@@ -24,12 +26,16 @@ const getResponsiveState = (): ResponsiveState => {
   const mobileTablet = window.matchMedia("(max-width:768px)");
   const tablet = window.matchMedia("(max-width:1023px)");
   const desktop = window.matchMedia("(min-width: 1024px)");
+  const tabletDesktop = window.matchMedia(
+    "(min-width: 1024px) and (max-width: 1200px)"
+  );
 
   return {
     isMobile: mobile.matches,
     isMobileTablet: mobileTablet.matches,
     isTablet: tablet.matches,
-    isDesktop: desktop.matches,
+    isDesktop: desktop.matches && !tabletDesktop.matches, // isTabletDesktop이 true면 isDesktop은 false
+    isTabletDesktop: tabletDesktop.matches,
   };
 };
 
@@ -39,6 +45,7 @@ export const useResponsive = (): ResponsiveState => {
     isMobileTablet: false,
     isTablet: false,
     isDesktop: true,
+    isTabletDesktop: false,
   });
   const [mounted, setMounted] = useState(false);
 
@@ -48,7 +55,8 @@ export const useResponsive = (): ResponsiveState => {
       if (
         prevState.isMobile === newState.isMobile &&
         prevState.isTablet === newState.isTablet &&
-        prevState.isDesktop === newState.isDesktop
+        prevState.isDesktop === newState.isDesktop &&
+        prevState.isTabletDesktop === newState.isTabletDesktop
       ) {
         return prevState;
       }
@@ -78,6 +86,7 @@ export const useResponsive = (): ResponsiveState => {
       isMobileTablet: false,
       isTablet: false,
       isDesktop: true,
+      isTabletDesktop: false,
     };
   }
 
