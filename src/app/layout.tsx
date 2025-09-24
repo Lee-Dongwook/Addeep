@@ -75,6 +75,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="light" suppressHydrationWarning>
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <style>{`html { -webkit-text-size-adjust: 100%; }`}</style>
+      </head>
       <body className={`${montserrat.variable} ${poppins.variable}`}>
         <QueryProvider>
           <SiteNav />
