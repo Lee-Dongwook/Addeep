@@ -696,7 +696,7 @@ const ThirdHuman = () => {
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
                   <Image
-                    src="https://storage.googleapis.com/assets-addeep/images/SeonTaeProfile.JPG"
+                    src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
                     alt="SeonTae"
                     width={256}
                     height={256}
@@ -756,7 +756,7 @@ const ThirdHuman = () => {
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <Image
-                  src="https://storage.googleapis.com/assets-addeep/images/SeonTaeProfile.JPG"
+                  src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
                   alt="SeonTae"
                   width={256}
                   height={256}
