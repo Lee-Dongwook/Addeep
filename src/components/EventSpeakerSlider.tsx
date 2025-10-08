@@ -25,18 +25,18 @@ export default function EventSpeakerSlider({
     uuid === 1
       ? [
           {
-            img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitSecondDayFirstImageFinal.PNG`,
-          },
-          {
-            img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitSecondDaySecondImageFinal.PNG`,
-          },
-        ]
-      : [
-          {
             img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitFirstDayFirstImageFinal.PNG`,
           },
           {
             img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitFirstDaySecondImageFinal.PNG`,
+          },
+        ]
+      : [
+          {
+            img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitSecondDayFirstImageFinal.PNG`,
+          },
+          {
+            img: `${NEXT_PUBLIC_CDN_BASE}/images/GlobalSummitSecondDaySecondImageFinal.PNG`,
           },
         ];
 
