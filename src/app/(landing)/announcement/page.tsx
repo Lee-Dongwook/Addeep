@@ -1,62 +1,13 @@
 "use client";
 
-import React, { type ReactNode, useState, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CalendarIcon } from "../../../constants/announcement";
+import { formatKoreanDate } from "../../../shared/utils";
 import { useResponsive } from "../../../lib/useResponsive";
 import { supabase } from "../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
-
-gsap.registerPlugin(ScrollTrigger);
-
-type NoticeItem = {
-  id: string;
-  title: string;
-  description: string;
-  created_at: string; // "2024-01-08" 또는 Date ISO
-  href?: string; // 상세 페이지 링크 (옵션)
-};
-
-function formatKoreanDate(input: string) {
-  // 출력: 2024.01.08
-  const d = new Date(input);
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const da = String(d.getDate()).padStart(2, "0");
-  return `${y}.${m}.${da}`;
-}
-
-const CalendarIcon = ({ className = "" }) => (
-  <svg
-    viewBox="0 0 24 24"
-    className={`h-4 w-4 ${className}`}
-    aria-hidden="true"
-  >
-    <rect
-      x="3"
-      y="4"
-      width="18"
-      height="17"
-      rx="3"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    />
-    <path
-      d="M8 2v4M16 2v4M3 9h18"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
-interface NoticeListProps {
-  items: NoticeItem[];
-  title?: string;
-}
 
 function NoticeList({ items, title = "" }: NoticeListProps) {
   return (
