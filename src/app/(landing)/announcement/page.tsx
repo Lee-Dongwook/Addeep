@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../lib/useResponsive";
-import type { Announcement } from "../../../shared/types/announcement";
 import { supabase } from "../../../lib/supabase";
 import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
 
@@ -115,7 +114,7 @@ function NoticeList({ items, title = "" }: NoticeListProps) {
 const AnnouncementHeader = () => {
   return (
     <div className="w-full text-center">
-      <div className="absolute h-[400px] mt-20 inset-0 bg-black bg-opacity-60 rounded-lg" />
+      <div className="absolute h-[400px] mt-32 inset-0 bg-black bg-opacity-60 rounded-lg" />
       <div
         className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
