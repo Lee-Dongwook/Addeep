@@ -1,4 +1,4 @@
-export const ArrowRight = ({ className = "" }) => (
+const ArrowRight = ({ className = "" }) => (
   <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
     <path
       d="M13 5l7 7-7 7M5 12h14"
@@ -11,7 +11,7 @@ export const ArrowRight = ({ className = "" }) => (
   </svg>
 );
 
-export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -53,7 +53,7 @@ export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -94,7 +94,7 @@ export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -124,7 +124,7 @@ export const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const YouTubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const YouTubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -160,7 +160,7 @@ export const YouTubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -192,3 +192,19 @@ export const BlogIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
+export const items: Item[] = [
+  { label: "Blog", href: "https://blog.naver.com/addeep", Icon: BlogIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/addeep_/",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/Addeep.2023",
+    Icon: FacebookIcon,
+  },
+  { label: "X", href: "https://twitter.com/Addeep_", Icon: XIcon },
+  { label: "YouTube", href: "https://youtube.com/@addeep_", Icon: YouTubeIcon },
+];
