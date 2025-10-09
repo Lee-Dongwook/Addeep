@@ -365,10 +365,12 @@ const EventDetailHeader = ({
 };
 
 const renderWithNewlines = (text: string) => {
+  if (!text) return null;
   return text.split("\n").map((line, index) => (
-    <p key={index} className="mb-2 last:mb-0">
+    <React.Fragment key={index}>
       {line}
-    </p>
+      {index < text.split("\n").length - 1 && <br />}
+    </React.Fragment>
   ));
 };
 
@@ -484,7 +486,7 @@ export default function LandingPage() {
                   참석 대상
                 </span>
                 <span className="text-md font-poppins font-normal text-[#4B5563]">
-                  {eventDetail?.[0].Hero.participant}
+                  {renderWithNewlines(eventDetail?.[0].Hero.participant)}
                 </span>
               </div>
             </div>
@@ -688,7 +690,7 @@ export default function LandingPage() {
                 참석 대상
               </span>
               <span className="text-lg font-normal text-[#4B5563]">
-                {eventDetail?.[0].Hero.participant}
+                {renderWithNewlines(eventDetail?.[0].Hero.participant)}
               </span>
             </div>
           </div>
