@@ -1,107 +1,90 @@
 "use client";
 
-import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
-
-const NewsData = [
+const ArticleData = [
+  {
+    id: "1",
+    uuid: "1",
+    createdAt: "2024.10.15",
+    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
+    content:
+      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+  },
+  {
+    id: "1",
+    uuid: "1",
+    createdAt: "2024.07.28",
+    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
+    content:
+      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+  },
   {
     id: "1",
     uuid: "1",
     createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
     title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
     content:
       "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
   },
   {
-    id: "2",
-    uuid: "2",
+    id: "1",
+    uuid: "1",
     createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
     title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
     content:
       "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
   },
   {
-    id: "3",
-    uuid: "3",
+    id: "1",
+    uuid: "1",
     createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
     title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
     content:
       "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
   },
   {
-    id: "4",
-    uuid: "4",
+    id: "1",
+    uuid: "1",
     createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "5",
-    uuid: "5",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "6",
-    uuid: "6",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
     title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
     content:
       "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
   },
 ];
 
-const News = () => {
+const Article = () => {
   return (
-    <div className="mb-20 flex flex-col flex-1">
+    <div className="mb-20 flex flex-col flex-1 items-center">
       <div className="w-full text-center">
         <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
         <div className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center">
           <div className="flex flex-col gap-4 items-center justify-center z-10">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
-              보도자료
+              공시자료
             </h1>
-            <div>
-              <h3 className="text-xl font-poppins font-normal text-white">
-                애딥의 최신 소식과 중요한 발표를 확인하세요.
-              </h3>
-              <h3 className="text-xl font-poppins font-normal text-white">
-                투명하고 신속한 정보 공유를 통해 더 나은 소통을 만들어갑니다.
-              </h3>
-            </div>
+            <h3 className="text-xl font-poppins font-normal text-white">
+              투명한 경영정보를 제공합니다.
+            </h3>
           </div>
         </div>
       </div>
 
-      <section className="flex flex-col flex-1 p-28">
-        <div className="mt-12 mb-8 grid grid-cols-3 gap-10">
-          {NewsData.map((news) => (
-            <div
-              key={news.id}
-              className="max-w-[500px] border border-gray-200 shadow-md rounded-2xl flex flex-col gap-4"
-            >
-              <img src={news.image} alt={news.id} />
-              <div key={news.id} className="mt-2 mb-2 flex flex-col gap-4 p-4">
+      <section className="flex flex-col items-center justify-center flex-1 p-12 border border-gray-200 shadow-md rounded-2xl w-1/2 mt-12">
+        <div className="mt-12 mb-8 flex flex-col">
+          {ArticleData.map((article) => (
+            <div key={article.id} className=" flex flex-col gap-4">
+              <div
+                key={article.id}
+                className="mt-2 mb-2 flex flex-col gap-4 p-4"
+              >
                 <h4 className="text-md text-[#4B5563] font-poppins font-normal">
-                  {news.createdAt}
+                  {article.createdAt}
                 </h4>
                 <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
-                  {news.title}
+                  {article.title}
                 </h4>
                 <p className="text-md text-[#4B5563] font-poppins font-normal">
-                  {news.content}
+                  {article.content}
                 </p>
-                <button className="bg-transparent w-1/4 p-2 text-purple-500">
-                  자세히 보기
-                </button>
               </div>
             </div>
           ))}
@@ -111,4 +94,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Article;
