@@ -5,49 +5,37 @@ const ArticleData = [
     id: "1",
     uuid: "1",
     createdAt: "2024.10.15",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    title: "2024년 3분기 실적발표",
   },
   {
-    id: "1",
-    uuid: "1",
+    id: "2",
+    uuid: "2",
     createdAt: "2024.07.28",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    title: "2024년 2분기 재무제표",
   },
   {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.01.15",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    id: "3",
+    uuid: "3",
+    createdAt: "2024.03.29",
+    title: "정기주주총회 소집공고",
   },
   {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.01.15",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    id: "4",
+    uuid: "4",
+    createdAt: "2024.02.14",
+    title: "2023년 연간 실적발표",
   },
   {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.01.15",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    id: "5",
+    uuid: "5",
+    createdAt: "2023.08.15",
+    title: "지속가능경영보고서",
   },
   {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.01.15",
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
+    id: "6",
+    uuid: "6",
+    createdAt: "2023.07.28",
+    title: "2023년 2분기 재무제표",
   },
 ];
 
@@ -68,23 +56,31 @@ const Article = () => {
         </div>
       </div>
 
-      <section className="flex flex-col items-center justify-center flex-1 p-12 border border-gray-200 shadow-md rounded-2xl w-1/2 mt-12">
-        <div className="mt-12 mb-8 flex flex-col">
+      <section className="flex flex-col flex-1 p-12 w-1/2 mt-12">
+        <div className="flex flex-row items-center justify-between">
+          <input />
+          <select />
+        </div>
+        <div className="mt-12 mb-8 flex flex-col border border-gray-200 shadow-md rounded-2xl p-6">
           {ArticleData.map((article) => (
-            <div key={article.id} className=" flex flex-col gap-4">
+            <div
+              key={article.id}
+              className="flex flex-row items-center justify-between gap-4"
+            >
               <div
                 key={article.id}
-                className="mt-2 mb-2 flex flex-col gap-4 p-4"
+                className="mt-2 mb-2 flex flex-row items-center gap-4 p-4"
               >
-                <h4 className="text-md text-[#4B5563] font-poppins font-normal">
+                <h4 className="text-md text-[#4B5563] font-poppins font-normal w-24">
                   {article.createdAt}
                 </h4>
                 <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
                   {article.title}
                 </h4>
-                <p className="text-md text-[#4B5563] font-poppins font-normal">
-                  {article.content}
-                </p>
+              </div>
+              <div className="flex flex-row items-center gap-2">
+                <h4>PDF</h4>
+                <h4>다운로드</h4>
               </div>
             </div>
           ))}
