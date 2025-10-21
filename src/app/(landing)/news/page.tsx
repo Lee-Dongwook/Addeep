@@ -36,15 +36,20 @@ const News = () => {
         <div className="mt-12 mb-8 grid grid-cols-3 gap-4">
           {NewsData.map((news) => (
             <div
-              className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-4"
               key={news.id}
+              className="max-w-[500px] border border-gray-200 shadow-md rounded-lg p-8 flex flex-col gap-4"
             >
-              <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
-                {news.title}
-              </h4>
-              <p className="text-md text-[#4B5563] font-poppins font-normal">
-                {news.content}
-              </p>
+              <div key={news.id} className="mt-2 mb-2 flex flex-col gap-4">
+                <h4 className="text-2xl text-[#4B5563] font-poppins font-normal">
+                  {news.title}
+                </h4>
+                <p className="text-md text-[#4B5563] font-poppins font-normal">
+                  {news.content}
+                </p>
+              </div>
+              <button className="bg-transparent w-1/4 p-2 text-purple-500">
+                자세히 보기
+              </button>
             </div>
           ))}
         </div>
