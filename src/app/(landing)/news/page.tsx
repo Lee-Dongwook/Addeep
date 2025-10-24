@@ -1,65 +1,75 @@
 "use client";
 
-import { NEXT_PUBLIC_CDN_BASE } from "../../../lib/env";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
+import { supabase } from "../../../lib/supabase";
 
-const NewsData = [
-  {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "2",
-    uuid: "2",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "3",
-    uuid: "3",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "4",
-    uuid: "4",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "5",
-    uuid: "5",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-  {
-    id: "6",
-    uuid: "6",
-    createdAt: "2024.01.15",
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`,
-    title: "AI 기반 솔루션 개발로 디지털 혁신 선도",
-    content:
-      "차세대 인공지능 기술을 활요한 혁신적인 솔루션을 공개하며, 업계 디지털 전환의 새로운 패러다임을 제시합니다.",
-  },
-];
+type NewsItem = {
+  id: number;
+  uuid: string;
+  title: string;
+  createdAt: string;
+  image?: string;
+  content: string;
+};
 
 const News = () => {
+  const searchParams = useSearchParams();
+
+  const [pagination, setPagination] = useState({
+    pageIndex: Number(searchParams.get("page") || 0),
+    pageSize: Number(searchParams.get("size") || 10),
+  });
+
+  const getNewsData = async () => {
+    try {
+      const { data, count, error } = await supabase
+        .from("news")
+        .select("*", { count: "exact" })
+        .order("id")
+        .range(
+          pagination.pageIndex * 10,
+          pagination.pageIndex * 10 + (pagination.pageSize - 1)
+        );
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+
+      return { data, count };
+    } catch (err) {
+      console.error("getNewsData 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: NewsList,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["news", pagination.pageIndex, pagination.pageSize],
+    queryFn: () => getNewsData(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center flex-1">
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="mb-20 flex flex-col flex-1">
       <div className="w-full text-center">
@@ -83,12 +93,12 @@ const News = () => {
 
       <section className="flex flex-col flex-1 p-28">
         <div className="mt-12 mb-8 grid grid-cols-3 gap-10">
-          {NewsData.map((news) => (
+          {NewsList?.data?.map((news: NewsItem) => (
             <div
               key={news.id}
               className="max-w-[500px] border border-gray-200 shadow-md rounded-2xl flex flex-col gap-4"
             >
-              <img src={news.image} alt={news.id} />
+              <img src={news.image} alt={String(news.id)} />
               <div key={news.id} className="mt-2 mb-2 flex flex-col gap-4 p-4">
                 <h4 className="text-md text-[#4B5563] font-poppins font-normal">
                   {news.createdAt}

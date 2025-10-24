@@ -1,5 +1,15 @@
 "use client";
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
+import { supabase } from "../../../lib/supabase";
+
+type ArticleItem = {
+  id: number;
+  uuid: string;
+  created_at: string;
+  title: string;
+};
 
 const ArticleData = [
   {
@@ -41,8 +51,14 @@ const ArticleData = [
 ];
 
 const Article = () => {
+  const searchParams = useSearchParams();
   const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedYear, setSelectedYear] = useState("전체연도");
+
+  const [pagination, setPagination] = useState({
+    pageIndex: Number(searchParams.get("page") || 0),
+    pageSize: Number(searchParams.get("size") || 10),
+  });
 
   const yearOptions = useMemo(() => {
     const years = Array.from(
@@ -51,17 +67,66 @@ const Article = () => {
     return ["전체연도", ...years.sort((a, b) => Number(b) - Number(a))];
   }, []);
 
+  const getArticleData = async () => {
+    try {
+      const { data, count, error } = await supabase
+        .from("article")
+        .select("*", { count: "exact" })
+        .order("id")
+        .range(
+          pagination.pageIndex * 10,
+          pagination.pageIndex * 10 + (pagination.pageSize - 1)
+        );
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+
+      return { data, count };
+    } catch (err) {
+      console.error("getArticleData 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: ArticleList,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["article", pagination.pageIndex, pagination.pageSize],
+    queryFn: () => getArticleData(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
+
   const filteredArticles = useMemo(() => {
-    return ArticleData.filter((article) => {
-      const year = article.createdAt.slice(0, 4);
+    return ArticleList?.data?.filter((article: ArticleItem) => {
+      console.log(article);
+      const year = article.created_at.slice(0, 4);
       const matchesYear = selectedYear === "전체연도" || year === selectedYear;
       const matchesKeyword =
         article.title.includes(searchKeyword) ||
-        article.createdAt.includes(searchKeyword) ||
+        article.created_at.includes(searchKeyword) ||
         year.includes(searchKeyword);
       return matchesYear && matchesKeyword;
     });
-  }, [searchKeyword, selectedYear]);
+  }, [searchKeyword, selectedYear, ArticleList?.data]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center flex-1">
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="mb-20 flex flex-col flex-1 items-center">
@@ -101,15 +166,15 @@ const Article = () => {
           </select>
         </div>
         <div className="mt-12 mb-8 flex flex-col border border-gray-200 shadow-md rounded-2xl p-6">
-          {filteredArticles.length > 0 ? (
-            filteredArticles.map((article) => (
+          {filteredArticles?.length && filteredArticles?.length > 0 ? (
+            filteredArticles?.map((article: ArticleItem) => (
               <div
                 key={article.id}
                 className="flex flex-row items-center justify-between gap-4 py-4"
               >
                 <div className="flex flex-row items-center gap-4">
                   <h4 className="text-md text-[#4B5563] font-poppins font-normal w-24">
-                    {article.createdAt}
+                    {article.created_at.split("T")[0]}
                   </h4>
                   <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
                     {article.title}
