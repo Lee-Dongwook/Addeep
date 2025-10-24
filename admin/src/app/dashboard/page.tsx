@@ -1,17 +1,23 @@
 "use client";
 import { MRT_ColumnDef, useMaterialReactTable } from "material-react-table";
-import { type ChangeEvent, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { type ChangeEvent, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
 import CustomTable from "../components/custom-table";
 import { Announcement } from "../store/interface/announcement";
+import { Event } from "../store/interface/event";
+import { News } from "../store/interface/news";
+import { Article } from "../store/interface/article";
 import { tableConfig } from "../store/commonConfig";
+
+type TableType = "announcement" | "events" | "news" | "article";
+type DataType = Announcement | Event | News | Article;
 
 export default function Dashboard() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState<TableType>("announcement");
   const [query, setQuery] = useState("");
 
   const [pagination, setPagination] = useState({
@@ -19,29 +25,25 @@ export default function Dashboard() {
     pageSize: Number(searchParams.get("size") || 10),
   });
 
-  const getAnnouncementData = async () => {
-    console.log("getAnnouncementData 호출됨", { pagination });
-
+  const getTableData = async (tableName: TableType) => {
     try {
-      const { data, count, error }: any = await supabase
-        .from("announcement")
+      const { data, count, error } = await supabase
+        .from(tableName)
         .select("*", { count: "exact" })
-        .order("id")
+        .order("id", { ascending: false })
         .range(
-          pagination.pageIndex * 10,
-          pagination.pageIndex * 10 + (pagination.pageSize - 1)
+          pagination.pageIndex * pagination.pageSize,
+          pagination.pageIndex * pagination.pageSize + (pagination.pageSize - 1)
         );
 
-      console.log("Supabase 응답:", { data, count, error });
-
       if (error) {
-        console.error("Supabase 에러:", error);
+        console.error(`Supabase 에러 (${tableName}):`, error);
         throw error;
       }
 
       return { data, count };
     } catch (err) {
-      console.error("getAnnouncementData 에러:", err);
+      console.error(`getTableData 에러 (${tableName}):`, err);
       throw err;
     }
   };
@@ -68,21 +70,19 @@ export default function Dashboard() {
   };
 
   const {
-    data: announcementList,
+    data: tableData,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["announcement", pagination.pageIndex, pagination.pageSize],
-    queryFn: () => getAnnouncementData(),
+    queryKey: [activeTab, pagination.pageIndex, pagination.pageSize],
+    queryFn: () => getTableData(activeTab),
     retry: 0,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     staleTime: 30000,
   });
 
-  console.log("useQuery 상태:", { announcementList, isLoading, error });
-
-  const columns = useMemo<MRT_ColumnDef<Announcement>[]>(
+  const columns = useMemo<MRT_ColumnDef<DataType>[]>(
     () => [
       {
         accessorKey: "title",
@@ -116,16 +116,16 @@ export default function Dashboard() {
     []
   );
 
-  const handleRowClick = (uuid: string) => {
-    router.push(``);
+  const handleRowClick = (id: number) => {
+    router.push(`/dashboard/${activeTab}/${id}`);
   };
 
   const table = useMaterialReactTable({
     columns,
-    data: announcementList?.data || [],
-    rowCount: announcementList?.count,
+    data: tableData?.data || [],
+    rowCount: tableData?.count || 0,
     muiTableBodyRowProps: ({ row }) => ({
-      onClick: () => handleRowClick(String(row.original.id)),
+      onClick: () => handleRowClick(row.original.id),
       sx: { cursor: "pointer" },
     }),
     state: {
@@ -142,6 +142,18 @@ export default function Dashboard() {
     setQuery(value);
   };
 
+  const handleTabChange = (tab: TableType) => {
+    setActiveTab(tab);
+    setPagination({ pageIndex: 0, pageSize: 10 });
+  };
+
+  const tabs: { key: TableType; label: string }[] = [
+    { key: "announcement", label: "공지사항" },
+    { key: "events", label: "이벤트" },
+    { key: "news", label: "뉴스" },
+    { key: "article", label: "아티클" },
+  ];
+
   return (
     <div className="h-full w-full rounded-lg bg-white p-12">
       <div className="flex items-center justify-between p-6">
@@ -150,11 +162,30 @@ export default function Dashboard() {
           <input
             type="text"
             className="min-w-67 h-10 rounded-lg border border-[#E5E7EB] pl-4 text-base font-normal placeholder:text-[#ADAEBC] focus:outline-none"
-            placeholder="공지사항 검색"
+            placeholder="검색"
+            onChange={handleSearch}
+            value={query}
           />
         </div>
       </div>
-      <CustomTable<Announcement> table={table} />
+
+      <div className="mb-6 flex gap-4 border-b border-gray-200 px-6">
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => handleTabChange(tab.key)}
+            className={`pb-3 px-4 text-sm font-medium transition-colors ${
+              activeTab === tab.key
+                ? "border-b-2 border-blue-500 text-blue-600"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <CustomTable<DataType> table={table} />
     </div>
   );
 }
