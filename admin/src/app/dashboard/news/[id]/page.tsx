@@ -82,7 +82,7 @@ export default function NewsDetailPage() {
   return (
     <div className="h-full w-full rounded-lg bg-white p-12">
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Event Detail</h1>
+        <h1 className="text-2xl font-bold">News Detail</h1>
         <div className="flex gap-4">
           <button
             onClick={() => handleEdit(NewsDetail.id)}
