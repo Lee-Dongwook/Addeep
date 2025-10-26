@@ -1,7 +1,4 @@
 export const tableConfig = {
-  enableColumnActions: false,
-  enableSorting: false,
-  enableTopToolbar: false,
   manualPagination: true,
   muiTableHeadCellProps: {
     sx: {

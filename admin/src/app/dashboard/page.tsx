@@ -69,11 +69,7 @@ export default function Dashboard() {
     window.history.pushState({}, "", `?${params.toString()}`);
   };
 
-  const {
-    data: tableData,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data: tableData, isLoading } = useQuery({
     queryKey: [activeTab, pagination.pageIndex, pagination.pageSize],
     queryFn: () => getTableData(activeTab),
     retry: 0,
@@ -200,15 +196,6 @@ export default function Dashboard() {
     <div className="h-full w-full rounded-lg bg-white p-12">
       <div className="flex items-center justify-between p-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <div className="flex items-center gap-3">
-          <input
-            type="text"
-            className="min-w-67 h-10 rounded-lg border border-[#E5E7EB] pl-4 text-base font-normal placeholder:text-[#ADAEBC] focus:outline-none"
-            placeholder="검색"
-            onChange={handleSearch}
-            value={query}
-          />
-        </div>
       </div>
 
       <div className="mb-6 flex gap-4 border-b border-gray-200 px-6">
