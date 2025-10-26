@@ -1,10 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useMemo } from "react";
-import { MRT_ColumnDef, useMaterialReactTable } from "material-react-table";
 import { useQuery } from "@tanstack/react-query";
-import CustomTable from "../../../components/custom-table";
 import { supabase } from "../../../../../lib/supabase";
 import { Event } from "../../../store/interface/event";
 
@@ -17,7 +14,8 @@ export default function EventDetailPage() {
       const { data, error } = await supabase
         .from("events")
         .select("*")
-        .eq("id", id);
+        .eq("id", id)
+        .single();
 
       if (error) {
         console.error("Supabase 에러:", error);
@@ -34,7 +32,7 @@ export default function EventDetailPage() {
     data: eventDetail,
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<Event>({
     queryKey: ["eventDetail", id],
     queryFn: () => getEventDetailData(),
     retry: 0,
@@ -43,104 +41,98 @@ export default function EventDetailPage() {
     staleTime: 30000,
   });
 
-  const columns = useMemo<MRT_ColumnDef<Event>[]>(
-    () => [
-      {
-        accessorKey: "title",
-        header: "제목",
-        size: 50,
-      },
-      {
-        accessorKey: "description",
-        header: "내용",
-        size: 50,
-      },
-      {
-        accessorKey: "created_at",
-        header: "작성 날짜",
-        size: 50,
-        Cell: ({ cell }) => {
-          const date = cell.getValue<string>();
-          return date ? date.split("T")[0] : "";
-        },
-      },
-      {
-        accessorKey: "updated_at",
-        header: "수정 날짜",
-        size: 50,
-        Cell: ({ cell }) => {
-          const date = cell.getValue<string>();
-          return date ? date.split("T")[0] : "";
-        },
-      },
-      {
-        accessorKey: "edit",
-        header: "수정",
-        size: 50,
-        Cell: ({ cell }) => {
-          function handleEdit(id: number): void {
-            console.log(id);
-          }
+  function handleEdit(id: number): void {
+    console.log("수정:", id);
+  }
 
-          return (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleEdit(cell.row.original.id);
-              }}
-            >
-              수정
-            </button>
-          );
-        },
-      },
-      {
-        accessorKey: "delete",
-        header: "삭제",
-        size: 50,
-        Cell: ({ cell }) => {
-          function handleDelete(id: number): void {
-            console.log(id);
-          }
-
-          return (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDelete(cell.row.original.id);
-              }}
-            >
-              삭제
-            </button>
-          );
-        },
-      },
-    ],
-    []
-  );
-
-  console.log(eventDetail);
-
-  const table = useMaterialReactTable({
-    columns,
-    data: eventDetail?.[0] || [],
-    rowCount: eventDetail?.length || 0,
-  });
+  function handleDelete(id: number): void {
+    console.log("삭제:", id);
+  }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="text-lg text-red-500">Error: {error.message}</div>
+      </div>
+    );
   }
+
+  if (!eventDetail) {
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="text-lg">데이터를 찾을 수 없습니다.</div>
+      </div>
+    );
+  }
+
+  const formatDate = (dateString: string) => {
+    return dateString ? dateString.split("T")[0] : "";
+  };
 
   return (
     <div className="h-full w-full rounded-lg bg-white p-12">
-      <div className="flex items-center justify-between p-6">
+      <div className="mb-8 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Event Detail</h1>
+        <div className="flex gap-4">
+          <button
+            onClick={() => handleEdit(eventDetail.id)}
+            className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          >
+            수정
+          </button>
+          <button
+            onClick={() => handleDelete(eventDetail.id)}
+            className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+          >
+            삭제
+          </button>
+        </div>
       </div>
-      <CustomTable<Event> table={table} />
+
+      <div className="overflow-hidden rounded-lg border border-gray-200">
+        <table className="w-full">
+          <tbody>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                제목
+              </td>
+              <td className="px-6 py-4 text-gray-900">{eventDetail?.title}</td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                내용
+              </td>
+              <td className="px-6 py-4 text-gray-900">
+                {eventDetail.description}
+              </td>
+            </tr>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                작성 날짜
+              </td>
+              <td className="px-6 py-4 text-gray-900">
+                {formatDate(eventDetail.created_at)}
+              </td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                수정 날짜
+              </td>
+              <td className="px-6 py-4 text-gray-900">
+                {formatDate(eventDetail.updated_at)}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
