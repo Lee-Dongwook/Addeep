@@ -1,6 +1,6 @@
 "use client";
 import { MRT_ColumnDef, useMaterialReactTable } from "material-react-table";
-import { type ChangeEvent, useMemo, useState } from "react";
+import { type ChangeEvent, Suspense, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
@@ -14,7 +14,7 @@ import { tableConfig } from "../store/commonConfig";
 type TableType = "announcement" | "events" | "news" | "article";
 type DataType = Announcement | Event | News | Article;
 
-export default function Dashboard() {
+function DashboardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TableType>("announcement");
@@ -216,5 +216,19 @@ export default function Dashboard() {
 
       <CustomTable<DataType> table={table} />
     </div>
+  );
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex h-full w-full items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <DashboardContent />
+    </Suspense>
   );
 }

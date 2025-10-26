@@ -137,24 +137,75 @@ export default function EventDetailPage() {
                 배너 설명
               </td>
               <td className="px-6 py-4 text-gray-900">
-                {eventDetail.banner_description?.map((item: string) => (
-                  <p key={item}>{item}</p>
-                ))}
+                {eventDetail.banner_description &&
+                eventDetail.banner_description.length > 0 ? (
+                  <div className="flex flex-col gap-2">
+                    {eventDetail.banner_description.map(
+                      (item: string, index: number) => (
+                        <p key={index}>{item}</p>
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <span className="text-gray-400">-</span>
+                )}
               </td>
             </tr>
             <tr className="border-b border-gray-200">
               <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
-                주요 참석자 관련 정보
+                주요 참석자 정보
               </td>
-              <td className="px-6 py-4 text-gray-900 flex flex-col gap-4">
-                {eventDetail.Person?.data?.map((item: PersonDetail) => {
-                  return (
-                    <div key={item.title} className="flex flex-col gap-2">
-                      <p>{item.en_name}</p>
-                      <p>{item.title}</p>
-                    </div>
-                  );
-                })}
+              <td className="px-6 py-4 text-gray-900">
+                {eventDetail.Person?.data &&
+                eventDetail.Person.data.length > 0 ? (
+                  <div className="flex flex-col gap-4">
+                    {eventDetail.Person.data.map(
+                      (person: PersonDetail, index: number) => (
+                        <div
+                          key={index}
+                          className="rounded-lg border border-gray-200 bg-gray-50 p-4"
+                        >
+                          {person.en_name && (
+                            <p className="mb-1 font-semibold text-gray-900">
+                              {person.en_name}
+                            </p>
+                          )}
+                          {person.title && (
+                            <p className="mb-1 text-sm text-gray-700">
+                              {person.title}
+                            </p>
+                          )}
+                          {person.sub_title && (
+                            <p className="mb-1 text-sm text-gray-600">
+                              {person.sub_title}
+                            </p>
+                          )}
+                          {person.speaker && (
+                            <p className="mb-1 text-sm text-gray-600">
+                              연사: {person.speaker}
+                            </p>
+                          )}
+                          {person.desc && person.desc.length > 0 && (
+                            <div className="mt-2 flex flex-col gap-1">
+                              {person.desc.map(
+                                (description: string, descIndex: number) => (
+                                  <p
+                                    key={descIndex}
+                                    className="text-sm text-gray-600"
+                                  >
+                                    • {description}
+                                  </p>
+                                )
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <span className="text-gray-400">-</span>
+                )}
               </td>
             </tr>
           </tbody>
