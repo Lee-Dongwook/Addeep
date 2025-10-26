@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../../../../lib/supabase";
-import { Event } from "../../../store/interface/event";
+import type { Event, PersonDetail } from "../../../store/interface/event";
 
 export default function EventDetailPage() {
   const params = useParams();
@@ -40,6 +40,8 @@ export default function EventDetailPage() {
     refetchOnWindowFocus: false,
     staleTime: 30000,
   });
+
+  console.log(eventDetail);
 
   function handleEdit(id: number): void {
     console.log("수정:", id);
@@ -128,6 +130,31 @@ export default function EventDetailPage() {
               </td>
               <td className="px-6 py-4 text-gray-900">
                 {formatDate(eventDetail.updated_at)}
+              </td>
+            </tr>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                배너 설명
+              </td>
+              <td className="px-6 py-4 text-gray-900">
+                {eventDetail.banner_description?.map((item: string) => (
+                  <p key={item}>{item}</p>
+                ))}
+              </td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
+                주요 참석자 관련 정보
+              </td>
+              <td className="px-6 py-4 text-gray-900 flex flex-col gap-4">
+                {eventDetail.Person?.data?.map((item: PersonDetail) => {
+                  return (
+                    <div key={item.title} className="flex flex-col gap-2">
+                      <p>{item.en_name}</p>
+                      <p>{item.title}</p>
+                    </div>
+                  );
+                })}
               </td>
             </tr>
           </tbody>
