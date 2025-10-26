@@ -112,6 +112,48 @@ export default function Dashboard() {
           return date ? date.split("T")[0] : "";
         },
       },
+      {
+        accessorKey: "edit",
+        header: "수정",
+        size: 50,
+        Cell: ({ cell }) => {
+          function handleEdit(id: number): void {
+            console.log(id);
+          }
+
+          return (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleEdit(cell.row.original.id);
+              }}
+            >
+              수정
+            </button>
+          );
+        },
+      },
+      {
+        accessorKey: "delete",
+        header: "삭제",
+        size: 50,
+        Cell: ({ cell }) => {
+          function handleDelete(id: number): void {
+            console.log(id);
+          }
+
+          return (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(cell.row.original.id);
+              }}
+            >
+              삭제
+            </button>
+          );
+        },
+      },
     ],
     []
   );
