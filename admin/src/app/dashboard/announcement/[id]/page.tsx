@@ -1,14 +1,17 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Modal } from "../../../components/modal";
 import { supabase } from "../../../../../lib/supabase";
 import { Announcement } from "../../../store/interface/announcement";
+import { deleteAnnouncement } from "../actions";
 
 export default function AnnouncementDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const id = params.id as unknown as number;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +35,16 @@ export default function AnnouncementDetailPage() {
     }
   };
 
+  const deleteAnnouncementDetailData = async (id: number) => {
+    try {
+      const result = await deleteAnnouncement(id);
+      return result.data;
+    } catch (err) {
+      console.error(`deleteAnnouncementDetailData 에러:`, err);
+      throw err;
+    }
+  };
+
   const {
     data: AnnouncementDetail,
     isLoading,
@@ -43,6 +56,17 @@ export default function AnnouncementDetailPage() {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     staleTime: 30000,
+  });
+
+  const { mutate: deleteAnnouncementDetailDataMutation } = useMutation({
+    mutationFn: (id: number) => deleteAnnouncementDetailData(id),
+    onSuccess: () => {
+      alert("삭제가 정상적으로 완료 되었습니다.");
+      router.push("/dashboard");
+    },
+    onError: (error) => {
+      console.error("deleteAnnouncementDetailData 에러:", error);
+    },
   });
 
   console.log(AnnouncementDetail);
@@ -150,7 +174,7 @@ export default function AnnouncementDetailPage() {
               취소
             </button>
             <button
-              onClick={() => handleDelete(id)}
+              onClick={() => deleteAnnouncementDetailDataMutation(id)}
               className="rounded-lg bg-red-500 px-6 py-2.5 font-medium text-white transition-colors hover:bg-red-600"
             >
               삭제
