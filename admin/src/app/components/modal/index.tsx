@@ -48,7 +48,7 @@ export const Modal = ({
     >
       {/* Background overlay */}
       <div
-        className="absolute inset-0 bg-neutral-900/50"
+        className="absolute inset-0 bg-black-900/50"
         onClick={disableOverlayClose ? undefined : onClose}
       />
 
@@ -56,7 +56,7 @@ export const Modal = ({
       <div
         ref={modalRef}
         className={clsx(
-          "bg-neutral-0 relative z-10 rounded-2xl p-6 shadow-lg",
+          "bg-gray-100 relative z-10 rounded-2xl p-6 shadow-lg",
           fullWidth ? "w-screen max-w-none" : "w-full max-w-md",
           containerClassName
         )}
@@ -65,7 +65,7 @@ export const Modal = ({
         {showCloseButton && (
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 p-2 text-neutral-900 hover:text-gray-700"
+            className="absolute right-4 top-4 p-2 text-gray-900 hover:text-gray-700"
           >
             X
           </button>

@@ -1,13 +1,17 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Modal } from "../../../components/modal";
 import { supabase } from "../../../../../lib/supabase";
 import { Announcement } from "../../../store/interface/announcement";
 
 export default function AnnouncementDetailPage() {
   const params = useParams();
   const id = params.id as unknown as number;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getAnnouncementDetailData = async () => {
     try {
@@ -49,7 +53,12 @@ export default function AnnouncementDetailPage() {
 
   function handleDelete(id: number): void {
     console.log("삭제:", id);
+    setIsModalOpen(true);
   }
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   if (isLoading) {
     return (
@@ -121,6 +130,34 @@ export default function AnnouncementDetailPage() {
           </tbody>
         </table>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+        <div className="flex flex-col gap-6">
+          {/* Header */}
+          <div className="flex flex-col gap-2">
+            <h2 className="text-2xl font-bold text-gray-900">삭제 확인</h2>
+            <p className="text-base text-gray-600">
+              이 작업은 되돌릴 수 없습니다. 정말 삭제하시겠습니까?
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex justify-end gap-3">
+            <button
+              onClick={handleModalClose}
+              className="rounded-lg bg-gray-200 px-6 py-2.5 font-medium text-gray-700 transition-colors hover:bg-gray-300"
+            >
+              취소
+            </button>
+            <button
+              onClick={() => handleDelete(id)}
+              className="rounded-lg bg-red-500 px-6 py-2.5 font-medium text-white transition-colors hover:bg-red-600"
+            >
+              삭제
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
