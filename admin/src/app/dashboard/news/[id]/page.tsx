@@ -86,24 +86,86 @@ export default function NewsDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="text-lg">Loading...</div>
+      <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl mb-4 shadow-medium animate-pulse">
+            <svg
+              className="w-8 h-8 text-white animate-spin"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </div>
+          <p className="text-dark-600 font-medium">Loading...</p>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="text-lg text-red-500">Error: {error.message}</div>
+      <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-4">
+            <svg
+              className="w-8 h-8 text-red-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <p className="text-lg font-semibold text-dark-900 mb-2">
+            오류가 발생했습니다
+          </p>
+          <p className="text-dark-600">{error.message}</p>
+        </div>
       </div>
     );
   }
 
   if (!NewsDetail) {
     return (
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="text-lg">데이터를 찾을 수 없습니다.</div>
+      <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-dark-100 rounded-2xl mb-4">
+            <svg
+              className="w-8 h-8 text-dark-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <p className="text-lg font-semibold text-dark-900">
+            데이터를 찾을 수 없습니다
+          </p>
+        </div>
       </div>
     );
   }
@@ -113,83 +175,230 @@ export default function NewsDetailPage() {
   };
 
   return (
-    <div className="h-full w-full rounded-lg bg-white p-12">
-      <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">News Detail</h1>
-        <div className="flex gap-4">
+    <div className="min-h-screen bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50 p-4 md:p-8">
+      <div className="max-w-5xl mx-auto animate-fade-in">
+        {/* Header Section */}
+        <div className="mb-6">
           <button
-            onClick={() => handleEdit(NewsDetail.id)}
-            className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+            onClick={() => router.back()}
+            className="inline-flex items-center gap-2 px-4 py-2 text-dark-600 hover:text-dark-900 font-medium transition-colors mb-4"
           >
-            수정
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            뒤로 가기
           </button>
-          <button
-            onClick={() => handleDelete(NewsDetail.id)}
-            className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-          >
-            삭제
-          </button>
-        </div>
-      </div>
 
-      <div className="overflow-hidden rounded-lg border border-gray-200">
-        <table className="w-full">
-          <tbody>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
-                제목
-              </td>
-              <td className="px-6 py-4 text-gray-900">{NewsDetail?.title}</td>
-            </tr>
-            <tr className="border-b border-gray-200">
-              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
-                내용
-              </td>
-              <td className="px-6 py-4 text-gray-900">{NewsDetail.content}</td>
-            </tr>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
-                작성 날짜
-              </td>
-              <td className="px-6 py-4 text-gray-900">
-                {formatDate(NewsDetail.created_at)}
-              </td>
-            </tr>
-            <tr className="border-b border-gray-200">
-              <td className="w-1/4 px-6 py-4 font-semibold text-gray-700">
-                이미지
-              </td>
-              <td className="px-6 py-4 text-gray-900">
-                <img src={NewsDetail.image} alt={String(NewsDetail.id)} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white rounded-2xl p-6 shadow-medium border border-dark-100">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-lg text-sm font-semibold mb-3">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  />
+                </svg>
+                뉴스
+              </div>
+              <h1 className="text-3xl font-bold text-dark-900 mb-2">
+                {NewsDetail.title}
+              </h1>
+              <p className="text-dark-600 text-sm">
+                작성일: {formatDate(NewsDetail.created_at)}
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => handleEdit(NewsDetail.id)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-all duration-200 shadow-soft"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
+                </svg>
+                수정
+              </button>
+              <button
+                onClick={() => handleDelete(NewsDetail.id)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-all duration-200 shadow-soft"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+                삭제
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="bg-white rounded-2xl shadow-medium border border-dark-100 overflow-hidden">
+          <div className="divide-y divide-dark-100">
+            <div className="px-8 py-6 hover:bg-dark-50/50 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-32">
+                  <span className="text-sm font-semibold text-dark-700">
+                    제목
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-dark-900 font-medium">
+                    {NewsDetail.title}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="px-8 py-6 hover:bg-dark-50/50 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-32">
+                  <span className="text-sm font-semibold text-dark-700">
+                    내용
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-dark-600 whitespace-pre-wrap">
+                    {NewsDetail.content}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="px-8 py-6 hover:bg-dark-50/50 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-32">
+                  <span className="text-sm font-semibold text-dark-700">
+                    작성 날짜
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 text-dark-600">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    {formatDate(NewsDetail.created_at)}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {NewsDetail.image && (
+              <div className="px-8 py-6 hover:bg-dark-50/50 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-32">
+                    <span className="text-sm font-semibold text-dark-700">
+                      이미지
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="relative rounded-xl overflow-hidden shadow-medium border border-dark-200 max-w-2xl">
+                      <img
+                        src={NewsDetail.image}
+                        alt={String(NewsDetail.id)}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
         <div className="flex flex-col gap-6">
-          {/* Header */}
-          <div className="flex flex-col gap-2">
-            <h2 className="text-2xl font-bold text-gray-900">삭제 확인</h2>
-            <p className="text-base text-gray-600">
-              이 작업은 되돌릴 수 없습니다. 정말 삭제하시겠습니까?
+          <div className="flex items-center gap-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+              <svg
+                className="w-6 h-6 text-red-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-dark-900 mb-1">
+                삭제 확인
+              </h2>
+              <p className="text-sm text-dark-600">
+                이 작업은 되돌릴 수 없습니다.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+            <p className="text-sm text-red-800">
+              정말로 <span className="font-semibold">"{NewsDetail.title}"</span>
+              을(를) 삭제하시겠습니까?
             </p>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex justify-end gap-3">
             <button
               onClick={handleModalClose}
-              className="rounded-lg bg-gray-200 px-6 py-2.5 font-medium text-gray-700 transition-colors hover:bg-gray-300"
+              className="px-6 py-2.5 bg-dark-100 text-dark-700 rounded-xl font-medium hover:bg-dark-200 transition-colors"
             >
               취소
             </button>
             <button
               onClick={() => deleteNewsDetailDataMutation(id)}
-              className="rounded-lg bg-red-500 px-6 py-2.5 font-medium text-white transition-colors hover:bg-red-600"
+              className="px-6 py-2.5 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors shadow-soft"
             >
-              삭제
+              삭제하기
             </button>
           </div>
         </div>

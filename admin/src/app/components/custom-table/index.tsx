@@ -10,7 +10,7 @@ const CustomTable = <T extends {}>({
   [key: string]: any;
 }) => {
   return (
-    <div className={`custom-table p-4 ${className}`}>
+    <div className={`custom-table rounded-xl overflow-hidden ${className}`}>
       <MaterialReactTable table={table} {...props} />
     </div>
   );
