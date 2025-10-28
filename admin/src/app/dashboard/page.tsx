@@ -345,21 +345,42 @@ function DashboardContent() {
         <div className="bg-white rounded-2xl shadow-medium border border-dark-100 overflow-hidden animate-slide-up">
           {/* Tabs Header */}
           <div className="border-b border-dark-100 bg-gradient-to-r from-dark-50 to-white px-6 py-4">
-            <div className="flex flex-wrap gap-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => handleTabChange(tab.key)}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                    activeTab === tab.key
-                      ? "bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-medium"
-                      : "bg-white text-dark-600 hover:bg-dark-50 border border-dark-200"
-                  }`}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex flex-wrap gap-2">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => handleTabChange(tab.key)}
+                    className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                      activeTab === tab.key
+                        ? "bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-medium"
+                        : "bg-white text-dark-600 hover:bg-dark-50 border border-dark-200"
+                    }`}
+                  >
+                    {tab.icon}
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => router.push(`/dashboard/${activeTab}/create`)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-600 transition-all duration-200 shadow-medium"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+                새로 만들기
+              </button>
             </div>
           </div>
 
