@@ -72,7 +72,7 @@ export default function AnnouncementDetailPage() {
   console.log(AnnouncementDetail);
 
   function handleEdit(id: number): void {
-    console.log("수정:", id);
+    router.push(`/dashboard/announcement/edit/${id}`);
   }
 
   function handleDelete(id: number): void {

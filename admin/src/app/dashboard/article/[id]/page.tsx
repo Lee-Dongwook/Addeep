@@ -72,7 +72,7 @@ export default function ArticleDetailPage() {
   console.log(ArticleDetail);
 
   function handleEdit(id: number): void {
-    console.log("수정:", id);
+    router.push(`/dashboard/article/edit/${id}`);
   }
 
   function handleDelete(id: number): void {

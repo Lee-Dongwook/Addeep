@@ -72,7 +72,7 @@ export default function EventDetailPage() {
   console.log(eventDetail);
 
   function handleEdit(id: number): void {
-    console.log("수정:", id);
+    router.push(`/dashboard/events/edit/${id}`);
   }
 
   function handleDelete(id: number): void {
