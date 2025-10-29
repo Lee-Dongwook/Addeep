@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import { createEvent } from "../actions";
 
 interface PersonDetail {
   en_name: string;
@@ -29,6 +31,23 @@ export default function CreateEventPage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const { mutate: createEventMutation, isPending } = useMutation({
+    mutationFn: (data: {
+      title: string;
+      description: string;
+      banner_description: string[];
+      persons: PersonDetail[];
+    }) => createEvent(data),
+    onSuccess: () => {
+      alert("이벤트가 성공적으로 생성되었습니다.");
+      router.push("/dashboard");
+    },
+    onError: (error) => {
+      console.error("createEvent 에러:", error);
+      alert("이벤트 생성 중 오류가 발생했습니다.");
+    },
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -151,8 +170,7 @@ export default function CreateEventPage() {
       })),
     };
 
-    console.log("이벤트 생성 데이터:", submitData);
-    alert("데이터가 콘솔에 출력되었습니다!");
+    createEventMutation(submitData);
   };
 
   const handleCancel = () => {
@@ -616,9 +634,10 @@ export default function CreateEventPage() {
             </button>
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-xl font-semibold hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-medium"
+              disabled={isPending}
+              className="px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-xl font-semibold hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              생성하기
+              {isPending ? "생성 중..." : "생성하기"}
             </button>
           </div>
         </form>

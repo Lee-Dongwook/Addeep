@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import { createArticle } from "../actions";
 
 export default function CreateArticlePage() {
   const router = useRouter();
@@ -11,6 +13,19 @@ export default function CreateArticlePage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const { mutate: createArticleMutation, isPending } = useMutation({
+    mutationFn: (data: { title: string; description: string }) =>
+      createArticle(data),
+    onSuccess: () => {
+      alert("아티클이 성공적으로 생성되었습니다.");
+      router.push("/dashboard");
+    },
+    onError: (error) => {
+      console.error("createArticle 에러:", error);
+      alert("아티클 생성 중 오류가 발생했습니다.");
+    },
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -44,8 +59,7 @@ export default function CreateArticlePage() {
       return;
     }
 
-    console.log("아티클 생성 데이터:", formData);
-    alert("데이터가 콘솔에 출력되었습니다!");
+    createArticleMutation(formData);
   };
 
   const handleCancel = () => {
@@ -201,9 +215,10 @@ export default function CreateArticlePage() {
             </button>
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-secondary-600 to-secondary-500 text-white rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-200 shadow-medium"
+              disabled={isPending}
+              className="px-6 py-3 bg-gradient-to-r from-secondary-600 to-secondary-500 text-white rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-200 shadow-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              생성하기
+              {isPending ? "생성 중..." : "생성하기"}
             </button>
           </div>
         </form>

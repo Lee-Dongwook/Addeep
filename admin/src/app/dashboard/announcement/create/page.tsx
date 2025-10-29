@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import { createAnnouncement } from "../actions";
 
 export default function CreateAnnouncementPage() {
   const router = useRouter();
@@ -11,6 +13,19 @@ export default function CreateAnnouncementPage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const { mutate: createAnnouncementMutation, isPending } = useMutation({
+    mutationFn: (data: { title: string; description: string }) =>
+      createAnnouncement(data),
+    onSuccess: () => {
+      alert("공지사항이 성공적으로 생성되었습니다.");
+      router.push("/dashboard");
+    },
+    onError: (error) => {
+      console.error("createAnnouncement 에러:", error);
+      alert("공지사항 생성 중 오류가 발생했습니다.");
+    },
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -44,8 +59,7 @@ export default function CreateAnnouncementPage() {
       return;
     }
 
-    console.log("공지사항 생성 데이터:", formData);
-    alert("데이터가 콘솔에 출력되었습니다!");
+    createAnnouncementMutation(formData);
   };
 
   const handleCancel = () => {
@@ -201,9 +215,10 @@ export default function CreateAnnouncementPage() {
             </button>
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold hover:from-primary-700 hover:to-primary-600 transition-all duration-200 shadow-medium"
+              disabled={isPending}
+              className="px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold hover:from-primary-700 hover:to-primary-600 transition-all duration-200 shadow-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              생성하기
+              {isPending ? "생성 중..." : "생성하기"}
             </button>
           </div>
         </form>

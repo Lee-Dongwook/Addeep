@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { supabase } from "../../../../../../lib/supabase";
+import { Article } from "../../../../store/interface/article";
+import { updateArticle } from "../../actions";
 
 export default function EditArticlePage() {
   const router = useRouter();
   const params = useParams();
-  const id = params.id as string;
+  const id = params.id as unknown as number;
 
   const [formData, setFormData] = useState({
     title: "",
@@ -14,6 +18,60 @@ export default function EditArticlePage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const getArticleData = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("article")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+      return data;
+    } catch (err) {
+      console.error("getArticleData 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: articleData,
+    isLoading,
+    error,
+  } = useQuery<Article>({
+    queryKey: ["article", id],
+    queryFn: () => getArticleData(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
+
+  useEffect(() => {
+    if (articleData) {
+      setFormData({
+        title: articleData.title,
+        description: articleData.description,
+      });
+    }
+  }, [articleData]);
+
+  const { mutate: updateArticleMutation, isPending } = useMutation({
+    mutationFn: (data: { title: string; description: string }) =>
+      updateArticle(id, data),
+    onSuccess: () => {
+      alert("아티클이 성공적으로 수정되었습니다.");
+      router.push(`/dashboard/article/${id}`);
+    },
+    onError: (error) => {
+      console.error("updateArticle 에러:", error);
+      alert("아티클 수정 중 오류가 발생했습니다.");
+    },
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,13 +105,71 @@ export default function EditArticlePage() {
       return;
     }
 
-    console.log("아티클 수정 데이터:", { id, ...formData });
-    alert("데이터가 콘솔에 출력되었습니다!");
+    updateArticleMutation(formData);
   };
 
   const handleCancel = () => {
     router.back();
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl mb-4 shadow-medium animate-pulse">
+            <svg
+              className="w-8 h-8 text-white animate-spin"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </div>
+          <p className="text-dark-600 font-medium">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-4">
+            <svg
+              className="w-8 h-8 text-red-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <p className="text-lg font-semibold text-dark-900 mb-2">
+            오류가 발생했습니다
+          </p>
+          <p className="text-dark-600">{error.message}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-dark-50 via-primary-50/30 to-dark-50 p-4 md:p-8">
@@ -204,9 +320,10 @@ export default function EditArticlePage() {
             </button>
             <button
               type="submit"
-              className="px-6 py-3 bg-gradient-to-r from-secondary-600 to-secondary-500 text-white rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-200 shadow-medium"
+              disabled={isPending}
+              className="px-6 py-3 bg-gradient-to-r from-secondary-600 to-secondary-500 text-white rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-200 shadow-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              수정하기
+              {isPending ? "수정 중..." : "수정하기"}
             </button>
           </div>
         </form>
