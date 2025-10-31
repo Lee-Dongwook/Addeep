@@ -5,6 +5,7 @@ import { supabaseAdmin } from "../../../../lib/supabase";
 export async function createArticle(data: {
   title: string;
   description: string;
+  pdf_url?: string;
 }) {
   try {
     const { data: result, error } = await supabaseAdmin
@@ -13,6 +14,7 @@ export async function createArticle(data: {
         {
           title: data.title,
           description: data.description,
+          pdf_url: data.pdf_url,
         },
       ])
       .select()
@@ -35,6 +37,7 @@ export async function updateArticle(
   data: {
     title: string;
     description: string;
+    pdf_url?: string;
   }
 ) {
   try {
@@ -43,6 +46,7 @@ export async function updateArticle(
       .update({
         title: data.title,
         description: data.description,
+        pdf_url: data.pdf_url,
       })
       .eq("id", id)
       .select()

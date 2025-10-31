@@ -10,13 +10,17 @@ export default function CreateArticlePage() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
+    pdf_url: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const { mutate: createArticleMutation, isPending } = useMutation({
-    mutationFn: (data: { title: string; description: string }) =>
-      createArticle(data),
+    mutationFn: (data: {
+      title: string;
+      description: string;
+      pdf_url?: string;
+    }) => createArticle(data),
     onSuccess: () => {
       alert("아티클이 성공적으로 생성되었습니다.");
       router.push("/dashboard");
@@ -200,6 +204,49 @@ export default function CreateArticlePage() {
                     {errors.description}
                   </p>
                 )}
+              </div>
+
+              {/* PDF URL Field */}
+              <div>
+                <label
+                  htmlFor="pdf_url"
+                  className="block text-sm font-semibold text-dark-900 mb-2"
+                >
+                  PDF URL
+                </label>
+                <input
+                  type="url"
+                  id="pdf_url"
+                  name="pdf_url"
+                  value={formData.pdf_url}
+                  onChange={handleChange}
+                  placeholder="PDF 파일 URL을 입력하세요 (최대 500MB)"
+                  className={`w-full px-4 py-3 border rounded-xl text-dark-900 placeholder-dark-400 focus:outline-none focus:ring-2 transition-all duration-200 ${
+                    errors.pdf_url
+                      ? "border-red-300 focus:ring-red-500 focus:border-red-500"
+                      : "border-dark-200 focus:ring-primary-500 focus:border-primary-500"
+                  }`}
+                />
+                {errors.pdf_url && (
+                  <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {errors.pdf_url}
+                  </p>
+                )}
+                <p className="mt-2 text-xs text-dark-500">
+                  IR 자료로 제공할 PDF 파일의 URL을 입력하세요. (용량 제한:
+                  500MB)
+                </p>
               </div>
             </div>
           </div>

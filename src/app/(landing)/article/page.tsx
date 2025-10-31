@@ -1,81 +1,165 @@
 "use client";
-import { useMemo, useState } from "react";
+
+import React, { useMemo, useState, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
 
-type ArticleItem = {
+interface ArticleItem {
   id: number;
   uuid: string;
   created_at: string;
   title: string;
-};
+  description?: string;
+  pdf_url?: string;
+}
 
-const ArticleData = [
-  {
-    id: "1",
-    uuid: "1",
-    createdAt: "2024.10.15",
-    title: "2024년 3분기 실적발표",
-  },
-  {
-    id: "2",
-    uuid: "2",
-    createdAt: "2024.07.28",
-    title: "2024년 2분기 재무제표",
-  },
-  {
-    id: "3",
-    uuid: "3",
-    createdAt: "2024.03.29",
-    title: "정기주주총회 소집공고",
-  },
-  {
-    id: "4",
-    uuid: "4",
-    createdAt: "2024.02.14",
-    title: "2023년 연간 실적발표",
-  },
-  {
-    id: "5",
-    uuid: "5",
-    createdAt: "2023.08.15",
-    title: "지속가능경영보고서",
-  },
-  {
-    id: "6",
-    uuid: "6",
-    createdAt: "2023.07.28",
-    title: "2023년 2분기 재무제표",
-  },
-];
+interface ArticleHeaderProps {
+  isMobile?: boolean;
+}
 
-const Article = () => {
+function ArticleHeader({ isMobile }: ArticleHeaderProps) {
+  return (
+    <div className="w-full text-center py-16 md:py-20 bg-white">
+      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        IR 자료
+      </h1>
+      <div className="text-gray-600 text-base md:text-lg">
+        <p>투명한 경영정보를 제공합니다.</p>
+      </div>
+    </div>
+  );
+}
+
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= maxPagesToShow; i++) {
+          pages.push(i);
+        }
+      } else if (currentPage >= totalPages - 2) {
+        for (let i = totalPages - maxPagesToShow + 1; i <= totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        for (let i = currentPage - 1; i <= currentPage + 3; i++) {
+          pages.push(i);
+        }
+      }
+    }
+
+    return pages;
+  };
+
+  const pages = getPageNumbers();
+
+  return (
+    <div className="flex items-center justify-center gap-2 my-12">
+      {/* 이전 버튼 */}
+      <button
+        type="button"
+        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+        disabled={currentPage === 1}
+        className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {/* 페이지 번호 */}
+      {pages.map((page) => (
+        <button
+          key={page}
+          type="button"
+          onClick={() => onPageChange(page)}
+          className={`w-10 h-10 rounded-lg font-medium transition-colors ${
+            currentPage === page
+              ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white"
+              : "text-gray-600 hover:bg-gray-100"
+          }`}
+        >
+          {page}
+        </button>
+      ))}
+
+      {/* 다음 버튼 */}
+      <button
+        type="button"
+        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+        disabled={currentPage === totalPages}
+        className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18L15 12L9 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+function ArticleContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
+
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [selectedYear, setSelectedYear] = useState("전체연도");
-
+  const [selectedYear, setSelectedYear] = useState("전체 연도");
   const [pagination, setPagination] = useState({
-    pageIndex: Number(searchParams.get("page") || 0),
-    pageSize: Number(searchParams.get("size") || 10),
+    pageIndex: Number(searchParams.get("page") || 1),
+    pageSize: 7,
   });
-
-  const yearOptions = useMemo(() => {
-    const years = Array.from(
-      new Set(ArticleData.map((a) => a.createdAt.slice(0, 4)))
-    );
-    return ["전체연도", ...years.sort((a, b) => Number(b) - Number(a))];
-  }, []);
 
   const getArticleData = async () => {
     try {
       const { data, count, error } = await supabase
         .from("article")
         .select("*", { count: "exact" })
-        .order("id")
+        .order("created_at", { ascending: false })
         .range(
-          pagination.pageIndex * 10,
-          pagination.pageIndex * 10 + (pagination.pageSize - 1)
+          (pagination.pageIndex - 1) * pagination.pageSize,
+          pagination.pageIndex * pagination.pageSize - 1
         );
 
       if (error) {
@@ -91,7 +175,7 @@ const Article = () => {
   };
 
   const {
-    data: ArticleList,
+    data: articleList,
     isLoading,
     error,
   } = useQuery({
@@ -103,58 +187,116 @@ const Article = () => {
     staleTime: 30000,
   });
 
+  const yearOptions = useMemo(() => {
+    if (!articleList?.data) return ["전체 연도"];
+
+    const years = Array.from(
+      new Set(
+        articleList.data.map((article: ArticleItem) =>
+          new Date(article.created_at).getFullYear().toString()
+        )
+      )
+    );
+
+    return ["전체 연도", ...years.sort((a, b) => Number(b) - Number(a))];
+  }, [articleList?.data]);
+
   const filteredArticles = useMemo(() => {
-    return ArticleList?.data?.filter((article: ArticleItem) => {
-      console.log(article);
-      const year = article.created_at.slice(0, 4);
-      const matchesYear = selectedYear === "전체연도" || year === selectedYear;
+    if (!articleList?.data) return [];
+
+    return articleList.data.filter((article: ArticleItem) => {
+      const articleYear = new Date(article.created_at).getFullYear().toString();
+      const matchesYear =
+        selectedYear === "전체 연도" || articleYear === selectedYear;
       const matchesKeyword =
-        article.title.includes(searchKeyword) ||
-        article.created_at.includes(searchKeyword) ||
-        year.includes(searchKeyword);
+        searchKeyword === "" ||
+        article.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+        article.created_at.includes(searchKeyword);
+
       return matchesYear && matchesKeyword;
     });
-  }, [searchKeyword, selectedYear, ArticleList?.data]);
+  }, [searchKeyword, selectedYear, articleList?.data]);
+
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}.${month}.${day}`;
+  }
+
+  function handleDownload(article: ArticleItem) {
+    if (!article.pdf_url) {
+      alert("PDF 파일이 없습니다.");
+      return;
+    }
+
+    // PDF URL을 새 탭에서 열기
+    window.open(article.pdf_url, "_blank");
+  }
+
+  function handlePageChange(newPage: number) {
+    setPagination({ ...pagination, pageIndex: newPage });
+    router.push(`/article?page=${newPage}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center flex-1">
-        Loading...
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="text-xl font-medium text-gray-600">Loading...</div>
       </div>
     );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  return (
-    <div className="mb-20 flex flex-col flex-1 items-center">
-      <div className="w-full text-center">
-        <div className="absolute h-[600px] inset-0 bg-black bg-opacity-60 mt-32 mx-1 rounded-lg" />
-        <div className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center">
-          <div className="flex flex-col gap-4 items-center justify-center z-10">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-bold text-white mb-4">
-              공시자료
-            </h1>
-            <h3 className="text-xl font-poppins font-normal text-white">
-              투명한 경영정보를 제공합니다.
-            </h3>
-          </div>
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="text-xl font-medium text-red-600">
+          Error: {error.message}
         </div>
       </div>
+    );
+  }
 
-      <section className="flex flex-col flex-1 p-12 w-1/2 mt-12">
-        <div className="flex flex-row items-center justify-between gap-4">
-          <input
-            type="text"
-            placeholder="검색 (연도 또는 제목)"
-            className="border border-gray-300 rounded-lg px-4 py-2 w-2/3 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            value={searchKeyword}
-            onChange={(e) => setSearchKeyword(e.target.value)}
-          />
+  const totalCount = articleList?.count || 0;
+  const totalPages = Math.ceil(totalCount / pagination.pageSize);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        {/* 헤더 */}
+        <ArticleHeader />
+
+        {/* 검색 및 필터 */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="제목으로 검색"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)}
+            />
+            <svg
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
           <select
-            className="border border-gray-300 rounded-lg px-4 py-2 w-1/3 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="border border-gray-300 rounded-lg px-4 py-3 md:w-48 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent cursor-pointer"
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
           >
@@ -165,36 +307,95 @@ const Article = () => {
             ))}
           </select>
         </div>
-        <div className="mt-12 mb-8 flex flex-col border border-gray-200 shadow-md rounded-2xl p-6">
-          {filteredArticles?.length && filteredArticles?.length > 0 ? (
-            filteredArticles?.map((article: ArticleItem) => (
-              <div
-                key={article.id}
-                className="flex flex-row items-center justify-between gap-4 py-4"
-              >
-                <div className="flex flex-row items-center gap-4">
-                  <h4 className="text-md text-[#4B5563] font-poppins font-normal w-24">
-                    {article.created_at.split("T")[0]}
-                  </h4>
-                  <h4 className="text-xl text-[#4B5563] font-poppins font-normal">
+
+        {/* 테이블 */}
+        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+          {/* 테이블 헤더 */}
+          <div className="grid grid-cols-[150px_1fr_150px] gap-4 bg-gray-50 px-6 py-4 border-b border-gray-200">
+            <div className="text-sm font-semibold text-gray-700">게시일</div>
+            <div className="text-sm font-semibold text-gray-700">제목</div>
+            <div className="text-sm font-semibold text-gray-700 text-center">
+              자료
+            </div>
+          </div>
+
+          {/* 테이블 바디 */}
+          <div className="divide-y divide-gray-200">
+            {filteredArticles.length > 0 ? (
+              filteredArticles.map((article: ArticleItem) => (
+                <div
+                  key={article.id}
+                  className="grid grid-cols-[150px_1fr_150px] gap-4 px-6 py-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="text-sm text-gray-600">
+                    {formatDate(article.created_at)}
+                  </div>
+                  <div className="text-base text-gray-900 font-medium">
                     {article.title}
-                  </h4>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={() => handleDownload(article)}
+                      className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium transition-colors"
+                    >
+                      <span>PDF</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 11L4 7H7V2H9V7H12L8 11Z"
+                          fill="currentColor"
+                        />
+                        <path d="M14 13V14H2V13H14Z" fill="currentColor" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <div className="flex flex-row items-center gap-2 text-indigo-600 font-medium cursor-pointer">
-                  <span>PDF</span>
-                  <span>다운로드</span>
-                </div>
+              ))
+            ) : (
+              <div className="px-6 py-12 text-center">
+                <p className="text-gray-500">검색 결과가 없습니다.</p>
               </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500 py-8">
-              검색 결과가 없습니다.
-            </p>
-          )}
+            )}
+          </div>
         </div>
-      </section>
+
+        {/* 용량 제한 안내 */}
+        <div className="mt-6 text-center text-sm text-gray-500">
+          <p>
+            기본 첨부파일 등록 시 PDF 파일 업로드는 (용량 제한 500mb) 함 수
+            있어야 함.
+          </p>
+        </div>
+
+        {/* 페이지네이션 */}
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={pagination.pageIndex}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        )}
+      </div>
     </div>
   );
-};
+}
 
-export default Article;
+export default function ArticlePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="text-xl font-medium text-gray-600">Loading...</div>
+        </div>
+      }
+    >
+      <ArticleContent />
+    </Suspense>
+  );
+}
