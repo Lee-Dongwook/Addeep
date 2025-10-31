@@ -69,7 +69,17 @@ export const footerLinks: FooterLink[] = [
     text: "Announcement",
     href: "/announcement",
   },
-  { id: "6", text: "Event", href: "/events" },
+  {
+    id: "6",
+    text: "Press & Media",
+    href: "/announcement",
+  },
+  {
+    id: "7",
+    text: "IR Library",
+    href: "/article",
+  },
+  { id: "8", text: "Event", href: "/events" },
 ];
 
 export const socialIcons: FooterSocial[] = [
