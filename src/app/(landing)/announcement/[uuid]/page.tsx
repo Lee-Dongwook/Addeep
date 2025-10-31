@@ -1,26 +1,26 @@
-// app/notice/[id]/page.tsx
-import type { Metadata } from "next";
-import React from "react";
+"use client";
 
-// ── 가짜 데이터 (API 붙이면 이 부분 교체)
-const MOCK = {
-  id: "n1",
-  title: "2024년 서비스 업데이트 및 정책 변경 안내",
-  date: "2024-01-15",
-  content: `
-안녕하세요, 회원 여러분. 더 나은 서비스 제공을 위한 중요한 업데이트 사항을 안내드립니다.
+import { use } from "react";
+import React, { Suspense } from "react";
+import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
+import { supabase } from "../../../../lib/supabase";
+import { NEXT_PUBLIC_CDN_BASE } from "../../../../lib/env";
 
-1) 서비스 안정화
-- 서버 인프라를 확장하여 피크 시간대 응답 속도를 개선했습니다.
-- 데이터베이스 인덱싱 및 캐시 정책을 개편했습니다.
+interface AnnouncementDetail {
+  id: string;
+  title: string;
+  description: string;
+  created_at: string;
+  thumbnail_url?: string;
+}
 
-2) 정책 변경
-- 개인정보 처리방침 중 수집 항목과 보관 기간 일부를 조정했습니다.
-- 변경 내용은 공지일로부터 7일 후(2024.01.22) 적용됩니다.
-
-항상 더 나은 경험을 위해 노력하겠습니다. 감사합니다.
-`,
-};
+interface AttachmentFile {
+  id: string;
+  name: string;
+  size: string;
+  url: string;
+}
 
 // ── 유틸
 function formatDotDate(input: string) {
@@ -36,84 +36,276 @@ function CalendarIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className={`h-4 w-4 ${className}`}
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
       aria-hidden="true"
     >
-      <rect
-        x="3"
-        y="4"
-        width="18"
-        height="17"
-        rx="3"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
+      <rect x="3" y="5" width="18" height="15" rx="2" />
+      <path d="M3 10h18M7 3v4M17 3v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function DownloadIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
       <path
-        d="M8 2v4M16 2v4M3 9h18"
-        stroke="currentColor"
-        strokeWidth="1.5"
+        d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 }
 
-// ── 메타데이터(선택)
-export const metadata: Metadata = {
-  title: "공지사항 | 2024년 서비스 업데이트 및 정책 변경 안내",
-};
+function FileIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path
+        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-export default async function NoticeDetailPage({
+function ZipIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+interface AnnouncementDetailContentProps {
+  uuid: string;
+}
+
+function AnnouncementDetailContent({ uuid }: AnnouncementDetailContentProps) {
+  const getAnnouncementDetail = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("announcement")
+        .select("*")
+        .eq("id", uuid)
+        .single();
+
+      if (error) {
+        console.error("Supabase 에러:", error);
+        throw error;
+      }
+
+      return data as AnnouncementDetail;
+    } catch (err) {
+      console.error("getAnnouncementDetail 에러:", err);
+      throw err;
+    }
+  };
+
+  const {
+    data: announcement,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["announcementDetail", uuid],
+    queryFn: () => getAnnouncementDetail(),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30000,
+  });
+
+  // 목업 파일 데이터 (실제 구현시 Supabase에서 가져옴)
+  const mockFiles: AttachmentFile[] = [
+    {
+      id: "1",
+      name: "AI 솔루션 상세 자료 AI 솔루션 상세 자료.pdf",
+      size: "2.4MB",
+      url: "#",
+    },
+    {
+      id: "2",
+      name: "제품 이미지.zip",
+      size: "5.1MB",
+      url: "#",
+    },
+  ];
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="text-xl font-medium text-gray-600">Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="text-xl font-medium text-red-600">
+          Error: {error.message}
+        </div>
+      </div>
+    );
+  }
+
+  if (!announcement) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="text-xl font-medium text-gray-600">
+          게시글을 찾을 수 없습니다.
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <main className="min-h-screen bg-white">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12 py-12 md:py-16">
+        {/* 헤더 - 날짜와 제목 */}
+        <header className="mb-8 text-center">
+          <div className="flex items-center justify-center gap-2 text-purple-600 mb-6">
+            <CalendarIcon className="w-5 h-5" />
+            <time
+              dateTime={announcement.created_at}
+              className="text-base md:text-lg font-medium"
+            >
+              {formatDotDate(announcement.created_at)}
+            </time>
+          </div>
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+            {announcement.title}
+          </h1>
+        </header>
+
+        {/* 썸네일 이미지 */}
+        {announcement.thumbnail_url && (
+          <div className="w-full rounded-2xl overflow-hidden mb-12">
+            <img
+              src={announcement.thumbnail_url}
+              alt={announcement.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+
+        {/* 본문 */}
+        <article className="prose prose-lg max-w-none mb-16">
+          <div className="text-gray-700 leading-relaxed whitespace-pre-wrap text-base md:text-lg">
+            {announcement.description}
+          </div>
+        </article>
+
+        {/* 첨부 자료 섹션 (목업) */}
+        {mockFiles.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+              첨부 자료
+            </h2>
+            <div className="space-y-3">
+              {mockFiles.map((file) => (
+                <div
+                  key={file.id}
+                  className="flex items-center justify-between p-5 bg-gray-50 rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors group"
+                >
+                  <div className="flex items-center gap-4 flex-1 min-w-0">
+                    {file.name.endsWith(".pdf") ? (
+                      <FileIcon className="w-6 h-6 text-red-500 flex-shrink-0" />
+                    ) : (
+                      <ZipIcon className="w-6 h-6 text-blue-500 flex-shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-gray-900 font-medium truncate">
+                        {file.name}
+                      </p>
+                      <p className="text-sm text-gray-500">{file.size}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-purple-600 font-medium transition-colors flex-shrink-0"
+                  >
+                    <DownloadIcon className="w-5 h-5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 목록 보기 버튼 */}
+        <div className="flex justify-center">
+          <Link
+            href="/announcement"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.5 5L7.5 10L12.5 15"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            목록 보기
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export default function NoticeDetailPage({
   params,
 }: {
   params: Promise<{ uuid: string }>;
 }) {
-  const { uuid } = await params;
-  // 실제로는 여기서 fetch(`/api/notices/${uuid}`) 등으로 교체
-  const data = MOCK; // 데모용
+  const resolvedParams = use(params);
 
   return (
-    <main className="mx-auto max-w-3xl px-5 py-10 md:py-14">
-      {/* 카드 */}
-      <article className="rounded-3xl border border-neutral-100 bg-white p-6 md:p-9 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
-        {/* 제목 */}
-        <h1 className="text-2xl md:text-4xl font-extrabold text-neutral-900 leading-snug">
-          {data.title}
-        </h1>
-
-        {/* 날짜 */}
-        <div className="mt-4 flex items-center gap-2 text-neutral-500">
-          <CalendarIcon />
-          <time dateTime={data.date} className="text-sm md:text-base">
-            {formatDotDate(data.date)}
-          </time>
+    <Suspense
+      fallback={
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="text-xl font-medium text-gray-600">Loading...</div>
         </div>
-
-        {/* 본문 */}
-        <div className="mt-8 rounded-2xl bg-neutral-50 p-5 md:p-6 leading-7 text-neutral-700">
-          {/* 간단한 마크다운 줄바꿈 처리 */}
-          {data.content.split("\n").map((line, i) =>
-            line.trim().length ? (
-              <p key={i} className="mb-3 whitespace-pre-wrap">
-                {line}
-              </p>
-            ) : (
-              <div key={i} className="h-2" />
-            )
-          )}
-        </div>
-      </article>
-
-      {/* 뒤로가기/리스트 링크 (옵션) */}
-      <div className="mt-6">
-        <a
-          href="/notice"
-          className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50"
-        >
-          ← 목록으로
-        </a>
-      </div>
-    </main>
+      }
+    >
+      <AnnouncementDetailContent uuid={resolvedParams.uuid} />
+    </Suspense>
   );
 }
