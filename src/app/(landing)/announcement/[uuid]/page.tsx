@@ -218,11 +218,36 @@ function AnnouncementDetailContent({ uuid }: AnnouncementDetailContentProps) {
         )}
 
         {/* 본문 */}
-        <article className="prose prose-lg max-w-none mb-16">
+        <article className="prose prose-lg max-w-none mb-12">
           <div className="text-gray-700 leading-relaxed whitespace-pre-wrap text-base md:text-lg">
             {announcement.description}
           </div>
         </article>
+
+        {/* Article Link 섹션 */}
+        <section className="mb-16">
+          <div className="text-base md:text-lg text-gray-900">
+            <span className="font-bold">Article Link: </span>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              링크1 (하이퍼링크)
+            </a>
+          </div>
+          <div className="text-base md:text-lg text-gray-900 mt-2 ml-[118px]">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              링크2 (하이퍼링크)
+            </a>
+          </div>
+        </section>
 
         {/* 첨부 자료 섹션 (목업) */}
         {mockFiles.length > 0 && (
