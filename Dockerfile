@@ -9,7 +9,7 @@ COPY .yarn/ ./.yarn/
 RUN corepack enable && corepack prepare yarn@4.9.2 --activate \
   && yarn -v
 
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 FROM base AS builder
 WORKDIR /app
