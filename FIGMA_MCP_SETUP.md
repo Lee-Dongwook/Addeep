@@ -47,44 +47,44 @@ Figma에서 개인 액세스 토큰을 생성해야 합니다.
 
 ---
 
-### 2단계: Cursor에서 MCP 설정하기
+### 2단계: MCP 설정 파일 생성하기
 
-#### 방법 1: 설정 UI로 접근
+MCP 서버는 별도의 설정 파일(`mcp.json`)로 관리합니다.
 
-1. **Cursor 설정 열기**
-   - Mac: `Cmd + ,`
-   - Windows: `Ctrl + ,`
-   - 또는 상단 메뉴: `Cursor` → `Preferences` → `Settings`
+#### Mac에서 설정 파일 생성
 
-2. **MCP 설정 찾기**
-   - 설정 검색창에 `MCP` 입력
-   - **Features** > **Model Context Protocol** 섹션 확인
+1. **터미널 열기** (또는 Cursor 내장 터미널)
 
-3. **설정 파일 편집**
-   - **Edit in settings.json** 또는 **Configure MCP Servers** 버튼 클릭
+2. **MCP 설정 파일 생성**
 
-#### 방법 2: Command Palette로 바로 접근
+   ```bash
+   mkdir -p "$HOME/Library/Application Support/Cursor/User/globalStorage"
+   nano "$HOME/Library/Application Support/Cursor/User/globalStorage/mcp.json"
+   ```
 
-1. Command Palette 열기
-   - Mac: `Cmd + Shift + P`
-   - Windows: `Ctrl + Shift + P`
+3. **또는 Finder에서 직접 이동**
+   - Finder에서 `Cmd + Shift + G`
+   - 경로 입력: `~/Library/Application Support/Cursor/User/globalStorage`
+   - `mcp.json` 파일 생성
 
-2. 검색창에 입력: `Preferences: Open User Settings (JSON)`
+#### Windows에서 설정 파일 생성
 
-3. Enter를 눌러 설정 파일 열기
+1. **파일 탐색기에서 이동**
+   - 경로: `%APPDATA%\Cursor\User\globalStorage`
+2. **`mcp.json` 파일 생성**
 
 ---
 
 ### 3단계: 설정 코드 추가하기
 
-`settings.json` 파일이 열리면, 다음 코드를 추가합니다:
+`mcp.json` 파일을 열고, 다음 코드를 작성합니다:
 
 ```json
 {
   "mcpServers": {
     "figma": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-figma"],
+      "args": ["-y", "figma-mcp"],
       "env": {
         "FIGMA_PERSONAL_ACCESS_TOKEN": "여기에_발급받은_토큰_붙여넣기"
       }
@@ -102,21 +102,23 @@ Figma에서 개인 액세스 토큰을 생성해야 합니다.
    "FIGMA_PERSONAL_ACCESS_TOKEN": "figd_abcd1234efgh5678ijkl"
    ```
 
-**📝 기존 설정이 있는 경우:**
+**📝 다른 MCP 서버를 추가하는 경우:**
 
-파일에 이미 다른 설정이 있다면, 중괄호 `{}` 안에 추가하세요:
+파일에 이미 다른 MCP 서버 설정이 있다면, `mcpServers` 객체 안에 추가하세요:
 
 ```json
 {
-  "editor.fontSize": 14,
-  "editor.tabSize": 2,
   "mcpServers": {
     "figma": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-figma"],
+      "args": ["-y", "figma-mcp"],
       "env": {
         "FIGMA_PERSONAL_ACCESS_TOKEN": "figd_your_token_here"
       }
+    },
+    "other-server": {
+      "command": "node",
+      "args": ["path/to/server.js"]
     }
   }
 }
@@ -206,10 +208,12 @@ border radius를 Figma에서 가져와서 알려줘
 
 **해결 방법:**
 
-1. Figma 토큰이 올바른지 확인
-2. 토큰 양쪽에 따옴표가 있는지 확인
-3. 설정 파일의 JSON 문법이 올바른지 확인 (쉼표, 중괄호 등)
-4. Cursor를 완전히 재시작
+1. **패키지 이름 확인**: `figma-mcp`가 맞는지 확인 (❌ `@modelcontextprotocol/server-figma`)
+2. **설정 파일 위치 확인**: `~/Library/Application Support/Cursor/User/globalStorage/mcp.json` (Mac)
+3. Figma 토큰이 올바른지 확인
+4. 토큰 양쪽에 따옴표가 있는지 확인
+5. 설정 파일의 JSON 문법이 올바른지 확인 (쉼표, 중괄호 등)
+6. Cursor를 완전히 재시작 (`Cmd + Q`로 종료 후 재실행)
 
 ### 문제 2: "Figma 파일을 읽을 수 없음"
 
@@ -265,6 +269,14 @@ border radius를 Figma에서 가져와서 알려줘
 - **Cursor 공식 문서**: [https://cursor.sh/docs](https://cursor.sh/docs)
 - **Figma API 문서**: [https://www.figma.com/developers/api](https://www.figma.com/developers/api)
 - **MCP 프로토콜**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
+- **Figma MCP 패키지**: [https://www.npmjs.com/package/figma-mcp](https://www.npmjs.com/package/figma-mcp)
+
+### 참고사항
+
+- **올바른 패키지 이름**: `figma-mcp` (v0.1.4)
+- **설정 파일 위치**:
+  - Mac: `~/Library/Application Support/Cursor/User/globalStorage/mcp.json`
+  - Windows: `%APPDATA%\Cursor\User\globalStorage\mcp.json`
 
 ---
 
@@ -274,7 +286,8 @@ border radius를 Figma에서 가져와서 알려줘
 
 - [ ] Figma Personal Access Token 발급 완료
 - [ ] 토큰을 안전한 곳에 저장
-- [ ] Cursor의 `settings.json` 파일에 설정 추가
+- [ ] `mcp.json` 파일 생성 및 설정 추가
+- [ ] 올바른 패키지 이름 사용 (`figma-mcp`)
 - [ ] 토큰을 올바르게 붙여넣기
 - [ ] Cursor 재시작
 - [ ] Figma 파일로 테스트 완료
