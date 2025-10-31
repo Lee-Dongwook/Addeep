@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
@@ -14,7 +14,7 @@ type NewsItem = {
   content: string;
 };
 
-const News = () => {
+function NewsContent() {
   const searchParams = useSearchParams();
 
   const [pagination, setPagination] = useState({
@@ -119,6 +119,18 @@ const News = () => {
       </section>
     </div>
   );
-};
+}
 
-export default News;
+export default function News() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="text-xl font-medium text-gray-600">Loading...</div>
+        </div>
+      }
+    >
+      <NewsContent />
+    </Suspense>
+  );
+}
