@@ -87,6 +87,10 @@ const nextConfig = {
             key: "Access-Control-Allow-Origin",
             value: "*",
           },
+          {
+            key: "Accept-Ranges",
+            value: "none",
+          },
         ],
       },
     ];
@@ -158,6 +162,7 @@ const nextConfig = {
 
     return config;
   },
+  optimizeFonts: false,
 };
 
 export default nextConfig;
