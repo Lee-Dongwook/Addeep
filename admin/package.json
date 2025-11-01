@@ -10,7 +10,13 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "docker:build": "docker build -t admin-dashboard .",
+    "docker:run": "docker run -d -p 3001:3001 --name admin-dashboard admin-dashboard",
+    "docker:stop": "docker stop admin-dashboard && docker rm admin-dashboard",
+    "docker:compose:up": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "docker:compose:logs": "docker-compose logs -f"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

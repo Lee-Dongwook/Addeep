@@ -43,6 +43,11 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+# Supabase 환경 변수를 런타임에도 설정
+ENV NEXT_PUBLIC_SUPABASE_URL=https://cgojadkcijfvmmxmstyq.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnb2phZGtjaWpmdm1teG1zdHlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczNzY1NjEsImV4cCI6MjA3Mjk1MjU2MX0.A8oe-xek9kTKcM5vx6H3-8mhffQNfIQU_LGh2Xq6KXc
+ENV NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNnb2phZGtjaWpmdm1teG1zdHlxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NzM3NjU2MSwiZXhwIjoyMDcyOTUyNTYxfQ.SGaQBOaHpfVUzAkxHpOHXPTvn-9gKtEvzxUZrIltlAE
+
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
