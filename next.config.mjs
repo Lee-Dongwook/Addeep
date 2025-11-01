@@ -76,6 +76,19 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/:path*.(woff|woff2|eot|ttf|otf)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable, no-transform",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+        ],
+      },
     ];
   },
   webpack(config) {
