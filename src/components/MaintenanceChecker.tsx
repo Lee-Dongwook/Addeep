@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/lib/supabase";
 import MaintenancePage from "./MaintenancePage";
@@ -36,13 +36,18 @@ export default function MaintenanceChecker({
   const { isMobileTablet } = useResponsive();
   const [maintenanceStatus, setMaintenanceStatus] =
     useState<MaintenanceMode | null>(null);
+  const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const channelRef = useRef<any>(null);
 
-  // 초기 상태 조회
+  // 초기 상태 조회 - 재시도 로직 추가
   const { data } = useQuery({
     queryKey: ["maintenance_mode"],
     queryFn: fetchMaintenanceStatus,
-    refetchInterval: 30000, // 30초마다 자동으로 상태 확인
+    refetchInterval: 30000,
     refetchOnWindowFocus: true,
+    retry: 3,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    staleTime: 20000,
   });
 
   useEffect(() => {
@@ -51,27 +56,97 @@ export default function MaintenanceChecker({
     }
   }, [data]);
 
-  // Supabase Realtime 구독으로 실시간 상태 업데이트
+  // Supabase Realtime 구독 - 재연결 로직 추가
   useEffect(() => {
-    const channel = supabase
-      .channel("maintenance_mode_changes")
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "maintenance_mode",
-        },
-        (payload) => {
-          if (payload.new) {
-            setMaintenanceStatus(payload.new as MaintenanceMode);
-          }
+    let isSubscribed = true;
+
+    function setupRealtimeChannel() {
+      // 기존 채널 정리
+      if (channelRef.current) {
+        try {
+          supabase.removeChannel(channelRef.current);
+        } catch (error) {
+          console.error("Error removing channel:", error);
         }
-      )
-      .subscribe();
+      }
+
+      if (!isSubscribed) return;
+
+      try {
+        const channel = supabase
+          .channel("maintenance_mode_changes", {
+            config: {
+              broadcast: { self: false },
+              presence: { key: "" },
+            },
+          })
+          .on(
+            "postgres_changes",
+            {
+              event: "*",
+              schema: "public",
+              table: "maintenance_mode",
+            },
+            (payload) => {
+              if (payload.new && isSubscribed) {
+                setMaintenanceStatus(payload.new as MaintenanceMode);
+              }
+            }
+          )
+          .subscribe((status, error) => {
+            if (error) {
+              console.error("Subscription error:", error);
+              // 에러 발생 시 5초 후 재연결 시도
+              if (isSubscribed) {
+                reconnectTimeoutRef.current = setTimeout(() => {
+                  if (isSubscribed) {
+                    setupRealtimeChannel();
+                  }
+                }, 5000);
+              }
+            }
+          });
+
+        channelRef.current = channel;
+      } catch (error) {
+        console.error("Error setting up realtime channel:", error);
+        // 채널 설정 실패 시 10초 후 재시도
+        if (isSubscribed) {
+          reconnectTimeoutRef.current = setTimeout(() => {
+            if (isSubscribed) {
+              setupRealtimeChannel();
+            }
+          }, 10000);
+        }
+      }
+    }
+
+    setupRealtimeChannel();
+
+    // 네트워크 상태 변경 감지 (온라인 복귀 시 재연결)
+    function handleOnline() {
+      if (isSubscribed) {
+        setupRealtimeChannel();
+      }
+    }
+
+    window.addEventListener("online", handleOnline);
 
     return () => {
-      supabase.removeChannel(channel);
+      isSubscribed = false;
+      window.removeEventListener("online", handleOnline);
+
+      if (reconnectTimeoutRef.current) {
+        clearTimeout(reconnectTimeoutRef.current);
+      }
+
+      if (channelRef.current) {
+        try {
+          supabase.removeChannel(channelRef.current);
+        } catch (error) {
+          console.error("Error during cleanup:", error);
+        }
+      }
     };
   }, []);
 

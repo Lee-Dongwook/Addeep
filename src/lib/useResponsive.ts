@@ -22,38 +22,39 @@ const getResponsiveState = (): ResponsiveState => {
     };
   }
 
-  const mobile = window.matchMedia("(max-width:392px)");
-  const mobileTablet = window.matchMedia("(max-width:768px)");
-  const tablet = window.matchMedia("(max-width:1023px)");
-  const desktop = window.matchMedia("(min-width: 1024px)");
-  const tabletDesktop = window.matchMedia(
-    "(min-width: 1024px) and (max-width: 1200px)"
-  );
+  // Samsung Internet 및 모든 브라우저와 호환되는 방식
+  const width = window.innerWidth;
+
+  const isMobile = width <= 392;
+  const isMobileTablet = width <= 768;
+  const isTablet = width <= 1023;
+  const isTabletDesktop = width >= 1024 && width <= 1200;
+  const isDesktop = width >= 1024 && !isTabletDesktop;
 
   return {
-    isMobile: mobile.matches,
-    isMobileTablet: mobileTablet.matches,
-    isTablet: tablet.matches,
-    isDesktop: desktop.matches && !tabletDesktop.matches, // isTabletDesktop이 true면 isDesktop은 false
-    isTabletDesktop: tabletDesktop.matches,
+    isMobile,
+    isMobileTablet,
+    isTablet,
+    isDesktop,
+    isTabletDesktop,
   };
 };
 
 export const useResponsive = (): ResponsiveState => {
-  const [responsiveState, setResponsiveState] = useState<ResponsiveState>({
-    isMobile: false,
-    isMobileTablet: false,
-    isTablet: false,
-    isDesktop: true,
-    isTabletDesktop: false,
-  });
-  const [mounted, setMounted] = useState(false);
+  const [responsiveState, setResponsiveState] = useState<ResponsiveState>(
+    () => {
+      // 초기 상태를 즉시 계산 - SSR/CSR 불일치 최소화
+      return getResponsiveState();
+    }
+  );
 
   const updateResponsiveState = useCallback(() => {
     const newState = getResponsiveState();
     setResponsiveState((prevState) => {
+      // 모든 상태 체크 (isMobileTablet 추가)
       if (
         prevState.isMobile === newState.isMobile &&
+        prevState.isMobileTablet === newState.isMobileTablet &&
         prevState.isTablet === newState.isTablet &&
         prevState.isDesktop === newState.isDesktop &&
         prevState.isTabletDesktop === newState.isTabletDesktop
@@ -65,30 +66,25 @@ export const useResponsive = (): ResponsiveState => {
   }, []);
 
   const debouncedHandleResize = useCallback(
-    debounce(updateResponsiveState, 100),
+    debounce(updateResponsiveState, 150), // 150ms로 증가 (모바일 최적화)
     [updateResponsiveState]
   );
 
   useEffect(() => {
-    setMounted(true);
+    // 마운트 시 즉시 업데이트
     updateResponsiveState();
 
     window.addEventListener("resize", debouncedHandleResize);
+
+    // orientation change 이벤트도 처리 (모바일 회전)
+    window.addEventListener("orientationchange", updateResponsiveState);
+
     return () => {
       window.removeEventListener("resize", debouncedHandleResize);
+      window.removeEventListener("orientationchange", updateResponsiveState);
+      debouncedHandleResize.cancel();
     };
   }, [debouncedHandleResize, updateResponsiveState]);
-
-  // 서버사이드 렌더링 시에는 항상 데스크톱 상태 반환 (하이드레이션 불일치 방지)
-  if (!mounted) {
-    return {
-      isMobile: false,
-      isMobileTablet: false,
-      isTablet: false,
-      isDesktop: true,
-      isTabletDesktop: false,
-    };
-  }
 
   return responsiveState;
 };

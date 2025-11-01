@@ -22,6 +22,8 @@ interface AnimatedSectionProps {
 
 const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -37,6 +39,7 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
     // 페이지 로드 시 첫 번째 섹션만 즉시 애니메이션
     if (index === 0) {
       const tl = gsap.timeline();
+      timelineRef.current = tl;
 
       textElements.forEach((element, i) => {
         tl.to(
@@ -73,8 +76,17 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
         end: "bottom 15%",
         toggleActions: "play none none reverse",
         markers: false,
+        onRefresh: (self) => {
+          // Samsung Internet 호환성: 스크롤 위치 재계산
+          self.refresh();
+        },
       },
     });
+
+    // ScrollTrigger 인스턴스 저장
+    if (tl.scrollTrigger) {
+      scrollTriggerRef.current = tl.scrollTrigger;
+    }
 
     // 텍스트 요소들을 순차적으로 애니메이션
     textElements.forEach((element, i) => {
@@ -104,8 +116,26 @@ const AnimatedSection = ({ children, index }: AnimatedSectionProps) => {
       );
     });
 
+    // 메모리 누수 방지를 위한 정리 함수
     return () => {
-      tl.scrollTrigger?.kill();
+      // 모든 타임라인 kill
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+
+      if (tl) {
+        tl.kill();
+      }
+
+      // ScrollTrigger 명시적으로 kill
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
+      }
+
+      // 애니메이션 상태 초기화
+      gsap.set([...textElements, ...imageElements], { clearProps: "all" });
     };
   }, [index]);
 

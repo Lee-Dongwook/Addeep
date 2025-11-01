@@ -114,9 +114,9 @@ ExecStart=/usr/bin/node server.js
 Restart=always
 RestartSec=5
 LimitNOFILE=65535
-# e2-micro memory guard
+# 메모리 최적화 - 모바일 호환성 개선
 Environment=UV_THREADPOOL_SIZE=4
-Environment=NODE_OPTIONS=--max-old-space-size=384
+Environment=NODE_OPTIONS=--max-old-space-size=768
 
 [Install]
 WantedBy=multi-user.target

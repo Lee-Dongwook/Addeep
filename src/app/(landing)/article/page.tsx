@@ -181,7 +181,8 @@ function ArticleContent() {
   } = useQuery({
     queryKey: ["article", pagination.pageIndex, pagination.pageSize],
     queryFn: () => getArticleData(),
-    retry: 0,
+    retry: 3,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     staleTime: 30000,

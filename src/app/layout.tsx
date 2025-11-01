@@ -42,6 +42,9 @@ const montserrat = localFont({
     },
   ],
   variable: "--font-montserrat",
+  display: "swap", // 폰트 로딩 최적화
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 const poppins = localFont({
   src: [
@@ -67,6 +70,9 @@ const poppins = localFont({
     },
   ],
   variable: "--font-poppins",
+  display: "swap", // 폰트 로딩 최적화
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 export default function RootLayout({
