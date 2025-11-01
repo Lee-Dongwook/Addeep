@@ -20,4 +20,7 @@ services:
     env_file: .env
     restart: always
     ports:
-      - "127.0.0.1:4001:3001"
+      - "127.0.0.1:4001:3000"
+    environment:
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
