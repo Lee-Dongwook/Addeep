@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
 import QueryProvider from "../shared/provider/QueryProvider";
+import MaintenanceChecker from "@/components/MaintenanceChecker";
 
 const montserrat = localFont({
   src: [
@@ -85,9 +86,11 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.variable} ${poppins.variable}`}>
         <QueryProvider>
-          <SiteNav />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <MaintenanceChecker>
+            <SiteNav />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </MaintenanceChecker>
         </QueryProvider>
       </body>
     </html>

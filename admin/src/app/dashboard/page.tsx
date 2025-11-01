@@ -10,6 +10,7 @@ import { Event } from "../store/interface/event";
 import { News } from "../store/interface/news";
 import { Article } from "../store/interface/article";
 import { tableConfig } from "../store/commonConfig";
+import { toggleMaintenanceMode } from "./maintenance-actions";
 
 type TableType = "announcement" | "events" | "news" | "article";
 type DataType = Announcement | Event | News | Article;
@@ -19,11 +20,46 @@ function DashboardContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TableType>("announcement");
   const [query, setQuery] = useState("");
+  const [maintenanceLoading, setMaintenanceLoading] = useState(false);
 
   const [pagination, setPagination] = useState({
     pageIndex: Number(searchParams.get("page") || 0),
     pageSize: Number(searchParams.get("size") || 10),
   });
+
+  // 점검 모드 상태 조회
+  const { data: maintenanceData, refetch: refetchMaintenance } = useQuery({
+    queryKey: ["maintenance_mode"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("maintenance_mode")
+        .select("*")
+        .eq("id", 1)
+        .single();
+
+      if (error) throw error;
+      return data as { id: number; is_active: boolean; message: string | null };
+    },
+    refetchInterval: 5000, // 5초마다 자동 새로고침
+  });
+
+  const handleToggleMaintenance = async () => {
+    setMaintenanceLoading(true);
+    try {
+      const result = await toggleMaintenanceMode();
+      if (result.success) {
+        alert(result.message);
+        await refetchMaintenance();
+      } else {
+        alert(`오류: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("점검 모드 토글 실패:", error);
+      alert("점검 모드 전환 중 오류가 발생했습니다.");
+    } finally {
+      setMaintenanceLoading(false);
+    }
+  };
 
   const getTableData = async (tableName: TableType) => {
     try {
@@ -240,7 +276,75 @@ function DashboardContent() {
                 콘텐츠 관리 시스템
               </p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap">
+              <button
+                onClick={handleToggleMaintenance}
+                disabled={maintenanceLoading}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all duration-200 shadow-soft ${
+                  maintenanceData?.is_active
+                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600"
+                    : "bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-700 hover:to-green-600"
+                } ${maintenanceLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+              >
+                {maintenanceLoading ? (
+                  <>
+                    <svg
+                      className="w-4 h-4 animate-spin"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    처리중...
+                  </>
+                ) : maintenanceData?.is_active ? (
+                  <>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    점검 모드 ON
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    점검 모드 OFF
+                  </>
+                )}
+              </button>
               <button
                 onClick={() => window.location.reload()}
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-dark-200 rounded-xl text-dark-700 font-medium hover:bg-dark-50 transition-all duration-200 shadow-soft"
