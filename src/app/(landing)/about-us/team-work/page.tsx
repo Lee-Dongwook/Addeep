@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -106,13 +105,10 @@ const FirstHuman = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center text-center">
                 <div className="w-48 h-48 mb-24 rounded-full">
-                  <Image
+                  <img
                     src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
                     alt="Kevin Jaeyoung Yoon"
-                    width={256}
-                    height={256}
                     className="w-full h-full object-contain"
-                    priority
                   />
                   <button
                     className="mt-6 px-6 py-2 bg-gradient-to-r font-poppins from-[#CE9AFF] via-[#A855F7] to-[#833AB4] text-white rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium"
@@ -293,13 +289,10 @@ const FirstHuman = () => {
             {/* Left Section - Profile Summary */}
             <div className="flex flex-col items-center text-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
-                <Image
+                <img
                   src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
                   alt="Kevin Jaeyoung Yoon"
-                  width={300}
-                  height={300}
                   className="w-full h-full object-contain"
-                  priority
                 />
               </div>
               <button
@@ -479,13 +472,10 @@ const SecondHuman = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                  <Image
+                  <img
                     src="https://storage.googleapis.com/assets-addeep/images/KyoungsuProfile.png"
                     alt="Chris Kang"
-                    width={256}
-                    height={256}
                     className="w-full h-full object-contain"
-                    priority
                   />
                 </div>
                 <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
@@ -589,13 +579,10 @@ const SecondHuman = () => {
           <div className="flex flex-col lg:flex-row">
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
-                <Image
+                <img
                   src="https://storage.googleapis.com/assets-addeep/images/KyoungsuProfile.png"
                   alt="Chris Kang"
-                  width={256}
-                  height={256}
                   className="w-full h-full object-contain"
-                  priority
                 />
               </div>
             </div>
@@ -695,13 +682,10 @@ const ThirdHuman = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                  <Image
+                  <img
                     src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
                     alt="SeonTae"
-                    width={256}
-                    height={256}
                     className="w-full h-full object-contain"
-                    priority
                   />
                 </div>
                 <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
@@ -755,13 +739,10 @@ const ThirdHuman = () => {
           <div className="flex flex-col lg:flex-row">
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
-                <Image
+                <img
                   src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
                   alt="SeonTae"
-                  width={256}
-                  height={256}
                   className="w-full h-full object-contain"
-                  priority
                 />
               </div>
             </div>
@@ -816,13 +797,10 @@ const FourthHuman = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
-                  <Image
+                  <img
                     src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
                     alt="SeonTae"
-                    width={256}
-                    height={256}
                     className="w-full h-full object-contain"
-                    priority
                   />
                 </div>
                 <h2 className="text-2xl font-bold font-montserrat text-black mb-1">
@@ -878,13 +856,10 @@ const FourthHuman = () => {
           <div className="flex flex-col lg:flex-row">
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
-                <Image
+                <img
                   src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
                   alt="Peter Won"
-                  width={256}
-                  height={256}
                   className="w-full h-full object-contain"
-                  priority
                 />
               </div>
             </div>
