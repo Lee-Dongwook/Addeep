@@ -2,7 +2,7 @@
 import "dotenv/config";
 
 const nextConfig = {
-  output: "standalone",
+  // output: "standalone",
   reactStrictMode: false,
   transpilePackages: ["app"],
   eslint: {
@@ -162,7 +162,6 @@ const nextConfig = {
 
     return config;
   },
-  optimizeFonts: false,
 };
 
 export default nextConfig;
