@@ -4,5 +4,6 @@
   "buildCommand": "turbo run build --filter=web",
   "devCommand": "turbo run dev --filter=web",
   "installCommand": "yarn install",
+  "outputDirectory": "apps/web/.next",
   "ignoreCommand": "git diff HEAD^ HEAD --quiet ."
 }
