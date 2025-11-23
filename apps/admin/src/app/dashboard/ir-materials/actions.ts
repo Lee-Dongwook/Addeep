@@ -111,10 +111,10 @@ export async function uploadIRFile(file: File) {
   try {
     const fileExt = file.name.split(".").pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `ir-materials/${fileName}`;
+    const filePath = `assets-addeep/ir-materials/${fileName}`;
 
     const { data, error } = await supabaseAdmin.storage
-      .from("ir-materials")
+      .from("assets-addeep/ir-materials")
       .upload(filePath, file);
 
     if (error) {
@@ -124,7 +124,9 @@ export async function uploadIRFile(file: File) {
 
     const {
       data: { publicUrl },
-    } = supabaseAdmin.storage.from("ir-materials").getPublicUrl(filePath);
+    } = supabaseAdmin.storage
+      .from("assets-addeep/ir-materials")
+      .getPublicUrl(filePath);
 
     return {
       success: true,

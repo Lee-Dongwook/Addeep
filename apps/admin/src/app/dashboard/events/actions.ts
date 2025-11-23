@@ -30,10 +30,10 @@ export async function uploadEventImage(file: File) {
   try {
     const fileExt = file.name.split(".").pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `event-images/${fileName}`;
+    const filePath = `assets-addeep/event-images/${fileName}`;
 
     const { data, error } = await supabaseAdmin.storage
-      .from("event-images")
+      .from("assets-addeep/event-images")
       .upload(filePath, file);
 
     if (error) {
@@ -43,7 +43,9 @@ export async function uploadEventImage(file: File) {
 
     const {
       data: { publicUrl },
-    } = supabaseAdmin.storage.from("event-images").getPublicUrl(filePath);
+    } = supabaseAdmin.storage
+      .from("assets-addeep/event-images")
+      .getPublicUrl(filePath);
 
     return {
       success: true,

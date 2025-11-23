@@ -130,10 +130,10 @@ export async function uploadPressFile(file: File) {
   try {
     const fileExt = file.name.split(".").pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `press-media/${fileName}`;
+    const filePath = `assets-addeep/press-media/${fileName}`;
 
     const { data, error } = await supabaseAdmin.storage
-      .from("press-media")
+      .from("assets-addeep/press-media")
       .upload(filePath, file);
 
     if (error) {
@@ -146,7 +146,9 @@ export async function uploadPressFile(file: File) {
 
     const {
       data: { publicUrl },
-    } = supabaseAdmin.storage.from("press-media").getPublicUrl(filePath);
+    } = supabaseAdmin.storage
+      .from("assets-addeep/press-media")
+      .getPublicUrl(filePath);
 
     return {
       success: true,
@@ -196,10 +198,10 @@ export async function uploadPressImage(file: File) {
 
     const fileExt = file.name.split(".").pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `press-media/${fileName}`;
+    const filePath = `assets-addeep/press-media/${fileName}`;
 
     const { data, error } = await supabaseAdmin.storage
-      .from("press-media")
+      .from("assets-addeep/press-media")
       .upload(filePath, file);
 
     if (error) {
@@ -212,7 +214,9 @@ export async function uploadPressImage(file: File) {
 
     const {
       data: { publicUrl },
-    } = supabaseAdmin.storage.from("press-media").getPublicUrl(filePath);
+    } = supabaseAdmin.storage
+      .from("assets-addeep/press-media")
+      .getPublicUrl(filePath);
 
     return {
       success: true,
