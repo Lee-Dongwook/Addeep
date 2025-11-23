@@ -400,7 +400,7 @@ const PlatformToEarn = () => {
           </div>
         </div>
         <img
-          src={`${NEXT_PUBLIC_CDN_BASE}PlatformToEarnUserBanner.png`}
+          src={`${NEXT_PUBLIC_CDN_BASE}/PlatformToEarnUserBanner.png`}
           alt="Platform to Earn"
         />
 
