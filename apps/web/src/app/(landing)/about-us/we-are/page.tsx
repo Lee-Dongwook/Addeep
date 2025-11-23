@@ -278,7 +278,7 @@ export default function LandingPage() {
               ].join(" ")}
             >
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/Gradient.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/Gradient.png`}
                 alt="girl taking a photo with a tunnel filter"
                 className="object-cover w-full h-full"
               />
@@ -309,7 +309,7 @@ export default function LandingPage() {
       >
         <AnimatedSection col={true} index={1}>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/AddeepBanner.png`}
             alt="logo"
             style={{ width: "200px", height: "auto" }}
           />
@@ -353,7 +353,7 @@ export default function LandingPage() {
               {/* Top Right - Image */}
               <div className="flex items-center justify-center p-2">
                 <img
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/Gradient.png`}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/Gradient.png`}
                   alt="Gradient"
                   className="w-full h-full object-contain"
                 />
@@ -362,7 +362,7 @@ export default function LandingPage() {
               {/* Bottom Left - Image */}
               <div className="flex items-center justify-center p-2">
                 <img
-                  src={`${NEXT_PUBLIC_CDN_BASE}/images/ComputerWeAre.png`}
+                  src={`${NEXT_PUBLIC_CDN_BASE}/ComputerWeAre.png`}
                   alt="Computer"
                   className="w-full h-full object-contain"
                 />
@@ -393,7 +393,7 @@ export default function LandingPage() {
       >
         <AnimatedSection index={1} col={true}>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/AddeepBanner.png`}
             alt="logo"
             style={{ width: "300px", height: "auto" }}
           />

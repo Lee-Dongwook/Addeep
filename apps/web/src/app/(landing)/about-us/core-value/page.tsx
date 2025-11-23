@@ -218,7 +218,7 @@ const FirstContainer = () => {
             </ul>
           </div>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepBanner.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/AddeepBanner.png`}
             alt="logo"
             style={{ width: "480px", height: "auto" }}
           />
@@ -262,7 +262,7 @@ const SecondContainer = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/2 space-y-6">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/MottoBanner.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/MottoBanner.png`}
               alt="logo"
               style={{ width: "480px", height: "auto" }}
             />
@@ -347,7 +347,7 @@ const ThirdContainer = () => {
             </ul>
           </div>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/MissionBanner.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/MissionBanner.png`}
             alt="logo"
             style={{ width: "480px", height: "auto" }}
           />

@@ -15,7 +15,7 @@ const CoreValueHeader = () => {
         <div
           className="w-full h-screen p-8 rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/ContactBanner.png)`,
             border: "1px solid #E5E7EB",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -38,7 +38,7 @@ const CoreValueHeader = () => {
       <div
         className="w-full h-screen p-4 rounded-lg flex flex-col items-center justify-center bg-opacity-10"
         style={{
-          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/ContactBanner.png)`,
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/ContactBanner.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

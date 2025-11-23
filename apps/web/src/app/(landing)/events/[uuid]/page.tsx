@@ -181,8 +181,8 @@ const EventDetailHeader = ({
           style={{
             background:
               uuid === "1"
-                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
-                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
+                ? `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerTheGenesis.png)`
+                : `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerParliament.png)`,
             border: "1px solid #E5E7EB",
           }}
         >
@@ -252,8 +252,8 @@ const EventDetailHeader = ({
           style={{
             background:
               uuid === "1"
-                ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
-                : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
+                ? `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerTheGenesis.png)`
+                : `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerParliament.png)`,
             border: "1px solid #E5E7EB",
           }}
         >
@@ -318,8 +318,8 @@ const EventDetailHeader = ({
         style={{
           background:
             uuid === "1"
-              ? `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerTheGenesis.png)`
-              : `url(${NEXT_PUBLIC_CDN_BASE}/images/EventBannerParliament.png)`,
+              ? `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerTheGenesis.png)`
+              : `url(${NEXT_PUBLIC_CDN_BASE}/EventBannerParliament.png)`,
           border: "1px solid #E5E7EB",
         }}
       >
@@ -565,19 +565,19 @@ export default function LandingPage() {
                 <div className="flex flex-col items-center gap-5">
                   {(item.speaker as string).startsWith("투") ? (
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/ToufiSaliba.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/ToufiSaliba.png`}
                       alt="Person"
                       className="w-48 h-48 rounded-full"
                     />
                   ) : (item.speaker as string).startsWith("오") ? (
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/OskarMencer.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/OskarMencer.png`}
                       alt="Person"
                       className="w-48 h-48 rounded-full"
                     />
                   ) : (
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfileCircle.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfileCircle.png`}
                       alt="Person"
                       className="w-52 h-52 rounded-full"
                     />
@@ -784,19 +784,19 @@ export default function LandingPage() {
               <div className="flex flex-col items-center gap-5 w-1/3">
                 {(item.speaker as string).startsWith("투") ? (
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/ToufiSaliba.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/ToufiSaliba.png`}
                     alt="Person"
                     className="w-48 h-48 rounded-full"
                   />
                 ) : (item.speaker as string).startsWith("오") ? (
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/OskarMencer.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/OskarMencer.png`}
                     alt="Person"
                     className="w-48 h-48 rounded-full"
                   />
                 ) : (
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungProfileCircle.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfileCircle.png`}
                     alt="Person"
                     className="w-52 h-52 rounded-full"
                   />

@@ -9,7 +9,7 @@ export const sectionData = [
       "intelligence, and",
       "cultural content!",
     ],
-    image: "/images/Gradient.png",
+    image: "/Gradient.png",
   },
 ];
 
@@ -49,7 +49,7 @@ export const slideData = [
       'Game, Commerce Platform" industry, creating a new',
       "paradigm for the digital platform ecosystem.",
     ],
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/GPRBroadcast.MP4`,
+    image: `${NEXT_PUBLIC_CDN_BASE}/GPRBroadcast.MP4`,
   },
   {
     title: "Opening the Future Digital Ecosystem with AGI and GPR Technology",
@@ -67,7 +67,7 @@ export const slideData = [
       "challenges and innovations, continuously creating new",
       'value and bringing "hope" to everyone.',
     ],
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/GPRCouple.MP4`,
+    image: `${NEXT_PUBLIC_CDN_BASE}/GPRCouple.MP4`,
   },
   {
     title: "Opening the Future Digital Ecosystem with AGI and GPR Technology",
@@ -85,7 +85,7 @@ export const slideData = [
       "chapter in the AGI-based digital platform industry",
       "ecosystem.",
     ],
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/GPRDance.MP4`,
+    image: `${NEXT_PUBLIC_CDN_BASE}/GPRDance.MP4`,
   },
 
   {
@@ -101,6 +101,6 @@ export const slideData = [
       "usefule, convenient, and essential services in an innovative",
       "way that people can share with each other.",
     ],
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/GPRSkateboard.MP4`,
+    image: `${NEXT_PUBLIC_CDN_BASE}/GPRSkateboard.MP4`,
   },
 ];

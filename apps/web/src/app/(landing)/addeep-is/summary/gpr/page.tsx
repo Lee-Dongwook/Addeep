@@ -254,17 +254,6 @@ export default function GPRPage() {
 
       <section id="journey" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* <h2 className="text-3xl font-bold font-montserrat text-gray-900 text-center mb-12">
-            GPR vs LLM: Paradigm Shift
-          </h2>
-
-          <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepTableImage.png`}
-            alt="GPR vs LLM"
-            className="w-full h-auto"
-          /> */}
-
-          {/* TODO: Table to be implemented */}
           <div className="overflow-x-auto card rounded-lg shadow hidden">
             {/* grid header */}
             <div className="flex flex-row items-center bg-gray-200 text-gray-700 text-lg font-semibold border-b p-6">

@@ -166,7 +166,7 @@ export default function JaeyoungPage() {
           <div
             className="w-full rounded-lg flex flex-col items-center justify-center"
             style={{
-              background: `url(${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungDetailBanner.png)`,
+              background: `url(${NEXT_PUBLIC_CDN_BASE}/JaeyoungDetailBanner.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -177,7 +177,7 @@ export default function JaeyoungPage() {
               <div className="text-center">
                 <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
                   <img
-                    src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                    src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfile.png`}
                     alt="Kevin Jaeyoung Yoon"
                     className="w-full h-full object-cover"
                   />
@@ -638,7 +638,7 @@ export default function JaeyoungPage() {
         <div
           className="w-full h-[800px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/JaeyoungDetailBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/JaeyoungDetailBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -649,7 +649,7 @@ export default function JaeyoungPage() {
             <div className="text-center">
               <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
                 <img
-                  src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                  src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfile.png`}
                   alt="Kevin Jaeyoung Yoon"
                   className="w-full h-full object-cover"
                 />

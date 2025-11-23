@@ -40,7 +40,7 @@ function SummaryAI() {
         <div
           className="w-full rounded-lg flex flex-col items-center text-center justify-center p-8"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AISummaryBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/AISummaryBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -242,7 +242,7 @@ function SummaryAI() {
                 Scalability and AI-as-a-Service
               </h2>
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBottomCloudImage.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBottomCloudImage.png`}
                 alt="Addeep S2E SNS GPR Platform"
                 className="h-auto w-full"
               />
@@ -280,7 +280,7 @@ function SummaryAI() {
         <div
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AISummaryBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/AISummaryBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -522,7 +522,7 @@ function SummaryAI() {
           </div>
 
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBottomCloudImage.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBottomCloudImage.png`}
             alt="Addeep S2E SNS GPR Platform"
             className="h-auto w-1/2"
           />
@@ -543,7 +543,7 @@ function SummarySNS() {
           <div
             className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
             style={{
-              background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBanner.png)`,
+              background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBanner.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -667,7 +667,7 @@ function SummarySNS() {
           <div
             className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
             style={{
-              background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSEarthBanner.png)`,
+              background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSEarthBanner.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -697,7 +697,7 @@ function SummarySNS() {
         <header
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -746,7 +746,7 @@ function SummarySNS() {
             </p>
           </div>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryHeroImage.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryHeroImage.png`}
             alt="Addeep S2E SNS GPR Platform"
             className="w-96 h-auto"
           />
@@ -767,7 +767,7 @@ function SummarySNS() {
         </div>
 
         <img
-          src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryContentImage.png`}
+          src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryContentImage.png`}
           alt="Addeep S2E SNS GPR Platform"
           className="w-full h-auto mt-6"
         />
@@ -827,7 +827,7 @@ function SummarySNS() {
               </p>
             </div>
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBottomImage1.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBottomImage1.png`}
               alt="Addeep S2E SNS GPR Platform"
               className="h-auto w-1/3"
             />
@@ -835,7 +835,7 @@ function SummarySNS() {
 
           <div className="flex flex-row items-center gap-16 w-3/4 h-96">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSSummaryBottomImage2.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/SNSSummaryBottomImage2.png`}
               alt="Addeep S2E SNS GPR Platform"
               className="h-auto w-1/3"
             />
@@ -859,7 +859,7 @@ function SummarySNS() {
         <div
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSEarthBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSEarthBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

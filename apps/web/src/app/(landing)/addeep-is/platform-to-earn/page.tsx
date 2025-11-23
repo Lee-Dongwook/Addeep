@@ -14,7 +14,7 @@ const PlatformToEarn = () => {
           <div
             className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center gap-2"
             style={{
-              background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AIP2ENewlyBanner.png)`,
+              background: `url(${NEXT_PUBLIC_CDN_BASE}/AIP2ENewlyBanner.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -132,7 +132,7 @@ const PlatformToEarn = () => {
             </div>
           </div>
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/PlatformToEarnUserBanner.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/PlatformToEarnUserBanner.png`}
             className="h-32"
             alt="Platform to Earn"
           />
@@ -197,7 +197,7 @@ const PlatformToEarn = () => {
           <div className="grid grid-cols-1 gap-8 mt-12">
             <div className="text-center">
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/SNSShort.png`}
                 alt="Platform to Earn"
               />
               <h4 className="text-2xl text-[#4B5563] font-poppins font-semibold mt-8">
@@ -209,7 +209,7 @@ const PlatformToEarn = () => {
             </div>
             <div className="text-center">
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESNSMeme.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/AIP2ESNSMeme.png`}
                 alt="Platform to Earn"
               />
               <h4 className="text-2xl text-[#4B5563] font-poppins font-semibold mt-8">
@@ -221,7 +221,7 @@ const PlatformToEarn = () => {
             </div>
             <div className="text-center">
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSDigital.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/SNSDigital.png`}
                 alt="Platform to Earn"
               />
               <h4 className="text-2xl text-[#4B5563] font-poppins font-semibold mt-8">
@@ -237,7 +237,7 @@ const PlatformToEarn = () => {
             <div
               className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
               style={{
-                background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSFreedomBanner.png)`,
+                background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSFreedomBanner.png)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -279,7 +279,7 @@ const PlatformToEarn = () => {
         <div
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AIP2ENewlyBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/AIP2ENewlyBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -400,7 +400,7 @@ const PlatformToEarn = () => {
           </div>
         </div>
         <img
-          src={`${NEXT_PUBLIC_CDN_BASE}/images/PlatformToEarnUserBanner.png`}
+          src={`${NEXT_PUBLIC_CDN_BASE}PlatformToEarnUserBanner.png`}
           alt="Platform to Earn"
         />
 
@@ -436,7 +436,7 @@ const PlatformToEarn = () => {
               </p>
             </div>
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESustain.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/AIP2ESustain.png`}
               alt="Platform to Earn Sustain"
               width={450}
             />
@@ -444,7 +444,7 @@ const PlatformToEarn = () => {
 
           <div className="flex flex-row justify-between">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2EIP.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/AIP2EIP.png`}
               alt="Platform to Earn IP"
               width={450}
             />
@@ -480,7 +480,7 @@ const PlatformToEarn = () => {
         <div className="grid grid-cols-3 gap-8 mt-12">
           <div className="text-center">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSShort.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/SNSShort.png`}
               alt="Platform to Earn"
             />
             <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
@@ -493,7 +493,7 @@ const PlatformToEarn = () => {
 
           <div className="text-center">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/AIP2ESNSMeme.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/AIP2ESNSMeme.png`}
               alt="Platform to Earn"
             />
             <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
@@ -506,7 +506,7 @@ const PlatformToEarn = () => {
 
           <div className="text-center">
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/images/SNSDigital.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/SNSDigital.png`}
               alt="Platform to Earn"
             />
             <h4 className="text-3xl text-[#4B5563] font-poppins font-normal mt-8 mb-4">
@@ -522,7 +522,7 @@ const PlatformToEarn = () => {
         <div
           className="w-full h-[600px] rounded-lg flex flex-col items-center justify-center"
           style={{
-            background: `url(${NEXT_PUBLIC_CDN_BASE}/images/SNSFreedomBanner.png)`,
+            background: `url(${NEXT_PUBLIC_CDN_BASE}/SNSFreedomBanner.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

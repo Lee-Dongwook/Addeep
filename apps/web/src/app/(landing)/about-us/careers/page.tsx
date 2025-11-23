@@ -312,7 +312,7 @@ export default function LandingPage() {
                 <div
                   className="flex flex-col h-[590px] items-center justify-center text-center"
                   style={{
-                    background: `url(${NEXT_PUBLIC_CDN_BASE}/images/CareerBanner.png)`,
+                    background: `url(${NEXT_PUBLIC_CDN_BASE}/CareerBanner.png)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -355,7 +355,7 @@ export default function LandingPage() {
       <div
         className="flex flex-col h-[600px] items-center justify-center text-center"
         style={{
-          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/CareerBanner.png)`,
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/CareerBanner.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

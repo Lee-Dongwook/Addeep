@@ -196,7 +196,7 @@ export async function uploadPressImage(file: File) {
 
     const fileExt = file.name.split(".").pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `press-media/images/${fileName}`;
+    const filePath = `press-media/${fileName}`;
 
     const { data, error } = await supabaseAdmin.storage
       .from("press-media")

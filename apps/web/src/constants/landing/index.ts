@@ -5,7 +5,7 @@ export const collageData = [
       "to fun, joy, and",
       "the doors of imagination,",
     ],
-    image: "/images/jessica.png",
+    image: "/jessica.PNG",
     position: "top-left",
   },
   {
@@ -16,13 +16,13 @@ export const collageData = [
       "satisfaction to be found",
       "anywhere in the world.",
     ],
-    image: "/images/social.png",
+    image: "/social.PNG",
     position: "middle-left",
     gradient: true,
   },
   {
     text: [],
-    image: "/images/good-face.png",
+    image: "/good-face.PNG",
     position: "bottom-right",
   },
 ];
@@ -34,5 +34,5 @@ export const splitScreenData = {
     "can generate stable income",
     "from their content.",
   ],
-  Image: "/images/Background.png",
+  Image: "/Background.PNG",
 };

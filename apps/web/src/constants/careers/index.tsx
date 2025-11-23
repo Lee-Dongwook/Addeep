@@ -109,14 +109,14 @@ export const sectionData = [
       "potential with us, and connected to",
       "social networks globally right now.",
     ],
-    image: `${NEXT_PUBLIC_CDN_BASE}/images/Career_Background.png`,
+    image: `${NEXT_PUBLIC_CDN_BASE}/Career_Background.png`,
   },
 ];
 
 export const items: InfoCardProps[] = [
   {
     icon: <LocationIcon />,
-    img: `${NEXT_PUBLIC_CDN_BASE}/images/CareerContentImage1.png`,
+    img: `${NEXT_PUBLIC_CDN_BASE}/CareerContentImage1.png`,
     title: "Company Location",
     description:
       "Our headquarters are located in Gangnam, Seoul. We grow and develop in cities around the world.",
@@ -124,21 +124,21 @@ export const items: InfoCardProps[] = [
   {
     icon: <PayIcon />,
     title: "Wage and Benefits",
-    img: `${NEXT_PUBLIC_CDN_BASE}/images/CareerContentImage2.png`,
+    img: `${NEXT_PUBLIC_CDN_BASE}/CareerContentImage2.png`,
     description:
       "Addeep prioritizes the best talents and provides competitive wage packages, including incentives and various welfare benefits such as the four major insurances.",
   },
   {
     icon: <RemoteIcon />,
     title: "Remote Work Support",
-    img: `${NEXT_PUBLIC_CDN_BASE}/images/CareerContentImage3.png`,
+    img: `${NEXT_PUBLIC_CDN_BASE}/CareerContentImage3.png`,
     description:
       "To enhance the work environment and productivity, we support remote work to maximize the efficiency of all members.",
   },
   {
     icon: <WorkBalanceIcon />,
     title: "Work-Life Balance",
-    img: `${NEXT_PUBLIC_CDN_BASE}/images/CareerContentImage4.png`,
+    img: `${NEXT_PUBLIC_CDN_BASE}/CareerContentImage4.png`,
     description:
       "We offer flexible working hours, generous vacation benefits, and family-oriented work policies. We also provide additional events and welfare benefits based on performance.",
   },

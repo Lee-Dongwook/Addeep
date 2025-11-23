@@ -34,7 +34,7 @@ function AnnouncementHeader({ isMobile }: AnnouncementHeaderProps) {
       <div
         className="w-full h-[400px] rounded-lg flex flex-col items-center justify-center"
         style={{
-          background: `url(${NEXT_PUBLIC_CDN_BASE}/images/AnnouncementBanner.png)`,
+          background: `url(${NEXT_PUBLIC_CDN_BASE}/AnnouncementBanner.png)`,
           border: "1px solid #E5E7EB",
         }}
       >

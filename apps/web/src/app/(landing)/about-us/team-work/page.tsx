@@ -5,6 +5,7 @@ import React, { useRef, useEffect, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useResponsive } from "../../../../lib/useResponsive";
+import { NEXT_PUBLIC_CDN_BASE } from "@/lib/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,7 +107,7 @@ const FirstHuman = () => {
               <div className="flex flex-col items-center text-center">
                 <div className="w-48 h-48 mb-24 rounded-full">
                   <img
-                    src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                    src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfile.png`}
                     alt="Kevin Jaeyoung Yoon"
                     className="w-full h-full object-contain"
                   />
@@ -290,7 +291,7 @@ const FirstHuman = () => {
             <div className="flex flex-col items-center text-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <img
-                  src="https://storage.googleapis.com/assets-addeep/images/JaeyoungProfile.png"
+                  src={`${NEXT_PUBLIC_CDN_BASE}/JaeyoungProfile.png`}
                   alt="Kevin Jaeyoung Yoon"
                   className="w-full h-full object-contain"
                 />
@@ -473,7 +474,7 @@ const SecondHuman = () => {
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
                   <img
-                    src="https://storage.googleapis.com/assets-addeep/images/KyoungsuProfile.png"
+                    src={`${NEXT_PUBLIC_CDN_BASE}/KyoungsuProfile.png`}
                     alt="Chris Kang"
                     className="w-full h-full object-contain"
                   />
@@ -580,7 +581,7 @@ const SecondHuman = () => {
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <img
-                  src="https://storage.googleapis.com/assets-addeep/images/KyoungsuProfile.png"
+                  src={`${NEXT_PUBLIC_CDN_BASE}/KyoungsuProfile.png`}
                   alt="Chris Kang"
                   className="w-full h-full object-contain"
                 />
@@ -683,7 +684,7 @@ const ThirdHuman = () => {
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
                   <img
-                    src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
+                    src={`${NEXT_PUBLIC_CDN_BASE}/SeonTaeNewlyProfile.png`}
                     alt="SeonTae"
                     className="w-full h-full object-contain"
                   />
@@ -740,7 +741,7 @@ const ThirdHuman = () => {
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <img
-                  src="https://storage.googleapis.com/assets-addeep/images/SeonTaeNewlyProfile.png"
+                  src={`${NEXT_PUBLIC_CDN_BASE}/SeonTaeNewlyProfile.png`}
                   alt="SeonTae"
                   className="w-full h-full object-contain"
                 />
@@ -798,8 +799,8 @@ const FourthHuman = () => {
               <div className="flex flex-col items-center">
                 <div className="w-48 h-48 mb-8 rounded-full overflow-hidden">
                   <img
-                    src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
-                    alt="SeonTae"
+                    src={`${NEXT_PUBLIC_CDN_BASE}/JongSeokProfile.png`}
+                    alt="Peter Won"
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -857,7 +858,7 @@ const FourthHuman = () => {
             <div className="flex flex-col items-center lg:w-1/3">
               <div className="w-64 h-64 rounded-full overflow-hidden">
                 <img
-                  src="https://storage.googleapis.com/assets-addeep/images/JongSeokProfile.png"
+                  src={`${NEXT_PUBLIC_CDN_BASE}/JongSeokProfile.png`}
                   alt="Peter Won"
                   className="w-full h-full object-contain"
                 />

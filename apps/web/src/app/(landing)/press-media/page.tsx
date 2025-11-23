@@ -51,7 +51,7 @@ function FeaturedCard({ item, isMobile }: FeaturedCardProps) {
         {/* 이미지 */}
         <div className="w-full md:w-1/2 rounded-2xl overflow-hidden">
           <img
-            src={item.image_url || `${NEXT_PUBLIC_CDN_BASE}/images/event-1.png`}
+            src={item.image_url || `${NEXT_PUBLIC_CDN_BASE}/event-1.png`}
             alt={item.title}
             className="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -110,7 +110,7 @@ function GridCard({ item }: GridCardProps) {
         {/* 이미지 */}
         <div className="w-full rounded-2xl overflow-hidden mb-6">
           <img
-            src={item.image_url || `${NEXT_PUBLIC_CDN_BASE}/images/event-1.png`}
+            src={item.image_url || `${NEXT_PUBLIC_CDN_BASE}/event-1.png`}
             alt={item.title}
             className="w-full h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
           />
