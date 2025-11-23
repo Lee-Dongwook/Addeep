@@ -72,7 +72,7 @@ export default function SiteNav() {
             <div aria-hidden className="flex-1" />
             <div className="cursor-pointer">
               <img
-                src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.png`}
+                src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.PNG`}
                 alt="logo"
                 className="h-14 w-16"
               />
@@ -99,7 +99,7 @@ export default function SiteNav() {
           <div aria-hidden className="flex-1" />
           <div className="cursor-pointer" onClick={() => router.push("/")}>
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.PNG`}
               alt="logo"
               className="h-9 w-10"
             />
@@ -227,7 +227,7 @@ export default function SiteNav() {
             style={{ visibility: disableLogo ? "hidden" : "visible" }}
           >
             <img
-              src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.png`}
+              src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.PNG`}
               alt="logo"
               className="h-14 w-16"
             />

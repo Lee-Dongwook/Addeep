@@ -182,11 +182,10 @@ export default function LandingPage() {
                   </p>
                 </div>
 
-                {/* Top Right Image - Fisheye Effect */}
                 <div className="animate-image">
                   <div className="relative max-w-96 h-72 overflow-hidden">
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/jessica.PNG`}
                       alt="Person with fisheye lens effect"
                       className="object-cover"
                     />
@@ -197,7 +196,7 @@ export default function LandingPage() {
                 <div className="animate-image mt-8">
                   <div className="relative max-w-96 h-72 md:w-80 md:h-[400px] overflow-hidden">
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/social.PNG`}
                       alt="Smiling man with hands on cheeks"
                       className="object-contain"
                     />
@@ -219,7 +218,7 @@ export default function LandingPage() {
                 <div className="animate-image md:row-start-3 md:col-start-2 md:justify-self-end mt-16">
                   <div className="relative max-w-96 h-72 md:w-[500px] md:h-80 overflow-hidden">
                     <img
-                      src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
+                      src={`${NEXT_PUBLIC_CDN_BASE}/good-face.PNG`}
                       alt="Three people looking down"
                       className="object-cover"
                     />
@@ -250,7 +249,7 @@ export default function LandingPage() {
               <div className="flex w-full h-full">
                 <div className="flex-1 relative animate-image">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/Background.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/Background.PNG`}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover max-w-full h-full"
                   />
@@ -295,22 +294,20 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              {/* Top Right Image - Fisheye Effect */}
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
                 <div className="relative w-64 h-64 md:w-[450px] md:h-[400px] overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/jessica.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/jessica.png`}
                     alt="Person with fisheye lens effect"
                     className="object-cover"
                   />
                 </div>
               </div>
 
-              {/* Middle Left Image - Social Woman */}
               <div className="animate-image md:row-start-2 md:col-start-1 mt-24">
                 <div className="relative w-full md:w-[450px] md:h-[700px] rounded-lg overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/social.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/social.png`}
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
                   />
@@ -332,7 +329,7 @@ export default function LandingPage() {
               <div className="animate-image md:row-start-5 md:col-start-2 md:justify-self-end">
                 <div className="relative w-full h-56 md:w-[450px] md:h-[400px] rounded-lg overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/good-face.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/good-face.png`}
                     alt="Three people looking down"
                     className="object-cover"
                   />
@@ -360,7 +357,7 @@ export default function LandingPage() {
               <div className="flex-1 relative animate-image">
                 <div className="flex flex-col items-center justify-center">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/images/Background.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/Background.png`}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover w-full h-full"
                   />
