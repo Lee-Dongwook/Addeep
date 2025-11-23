@@ -297,7 +297,7 @@ export default function LandingPage() {
               <div className="animate-image justify-self-end md:row-start-1 md:col-start-2">
                 <div className="relative w-64 h-64 md:w-[450px] md:h-[400px] overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/jessica.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/jessica.PNG`}
                     alt="Person with fisheye lens effect"
                     className="object-cover"
                   />
@@ -307,7 +307,7 @@ export default function LandingPage() {
               <div className="animate-image md:row-start-2 md:col-start-1 mt-24">
                 <div className="relative w-full md:w-[450px] md:h-[700px] rounded-lg overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/social.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/social.PNG`}
                     alt="Smiling man with hands on cheeks"
                     className="object-cover rounded-lg"
                   />
@@ -329,7 +329,7 @@ export default function LandingPage() {
               <div className="animate-image md:row-start-5 md:col-start-2 md:justify-self-end">
                 <div className="relative w-full h-56 md:w-[450px] md:h-[400px] rounded-lg overflow-hidden">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/good-face.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/good-face.PNG`}
                     alt="Three people looking down"
                     className="object-cover"
                   />
@@ -357,7 +357,7 @@ export default function LandingPage() {
               <div className="flex-1 relative animate-image">
                 <div className="flex flex-col items-center justify-center">
                   <img
-                    src={`${NEXT_PUBLIC_CDN_BASE}/Background.png`}
+                    src={`${NEXT_PUBLIC_CDN_BASE}/Background.PNG`}
                     alt="Person with hands over eyes peeking through fingers"
                     className="object-cover w-full h-full"
                   />
