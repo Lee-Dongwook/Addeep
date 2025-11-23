@@ -66,7 +66,7 @@ const CoreValueHeader = () => {
       <div className="w-full h-48 text-center">
         <div className="w-full h-48 rounded-lg flex flex-col items-center justify-center gap-4">
           <img
-            src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+            src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.png`}
             alt="logo"
             className="h-14 w-16"
           />
@@ -82,7 +82,7 @@ const CoreValueHeader = () => {
     <div className="w-full text-center">
       <div className="w-full rounded-lg flex flex-col gap-4 items-center justify-center">
         <img
-          src={`${NEXT_PUBLIC_CDN_BASE}/images/AddeepLogo.png`}
+          src={`${NEXT_PUBLIC_CDN_BASE}/AddeepLogo.png`}
           alt="logo"
           className="h-24 w-24"
         />
